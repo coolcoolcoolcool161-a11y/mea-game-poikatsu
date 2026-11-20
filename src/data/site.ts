@@ -1,0 +1,105 @@
+// サイト共通の設定。GA4測定IDはユーザーから提供され次第ここに入れる。
+// 空のままならGA4スクリプトは出力されない。
+export const SITE = {
+  name: 'ゲームポイ活ブログ',
+  operator: 'メア',
+  siteUrl: 'https://mea-game-poikatsu.pages.dev',
+  description:
+    'ゲームをプレイしてポイントが貯まる「ゲームポイ活」に使える紹介コード・招待コードを、全19サービスぶんクエスト形式でまとめました。Freecash 3BQLXB（約1,430円相当）、ポケカツ合計1,300円分、ワラウ最大2,500pt、モッピー最大7,000P、楽天モバイル最大13,000ポイントなど、特典額・条件・登録リンク・コピーボタン付きで攻略できます。',
+  dateModified: '2026-11-19',
+  gaMeasurementId: '',
+  xAccount: 'https://x.com/pppppuririn',
+  hubUrl:
+    'https://muse.ai/s/musezong-he-medeia-pr6xcxtfrplwxt/NPnupwzcqqtYUBN_-w0KoHvF5cDIBSAOBo4Nt8ve-5o',
+} as const;
+
+// Astro 5ではcontent collectionのentry.idに拡張子（.md）が付くため、URL用スラッグに変換する
+export const slugOf = (id: string) => id.replace(/\.md$/, '');
+
+export const CATEGORIES = [
+  { slug: 'game-gacha', name: 'ゲーム・ガチャ・買い物' },
+  { slug: 'point-sites', name: 'ポイントサイト' },
+  { slug: 'sns-video', name: '動画・SNS' },
+  { slug: 'payment-bank', name: '決済・銀行・通信' },
+  { slug: 'walking-apps', name: '歩数・CM・予想アプリ' },
+  { slug: 'ai', name: 'AIアシスタント' },
+] as const;
+
+export type CategorySlug = (typeof CATEGORIES)[number]['slug'];
+
+export const CATEGORY_NAMES: Record<string, string> = Object.fromEntries(
+  CATEGORIES.map((c) => [c.slug, c.name]),
+);
+
+// 報酬ランキング（旧サイトの表と同じ順序・金額で移行）
+export const RANKING = [
+  { rank: 1, slug: 'rakuten-mobile', name: '楽天モバイル', benefit: '最大13,000pt', code: 'リンク型' },
+  { rank: 2, slug: 'moppy', name: 'モッピー', benefit: '最大7,000P', code: '7xaGA123' },
+  { rank: 3, slug: 'tiktok', name: 'TikTok', benefit: '6,000円分', code: '284097117' },
+  { rank: 4, slug: 'warau', name: 'ワラウ', benefit: '最大2,500pt', code: 'bEs7' },
+  { rank: 5, slug: 'hapitas', name: 'ハピタス', benefit: '最大2,300P', code: 'INXAHV' },
+  { rank: 6, slug: 'olive', name: 'SMBC Olive', benefit: 'Vポイント1,000円相当', code: 'FF89103-3439377' },
+  { rank: 7, slug: 'freecash', name: 'Freecash ★メイン', benefit: '約1,430円相当', code: '3BQLXB' },
+  { rank: 8, slug: 'tiktok-lite', name: 'TikTok Lite', benefit: '1,400円分', code: '890270647' },
+  { rank: 9, slug: 'pokekatsu', name: 'ポケカツ', benefit: '合計1,300円分', code: '2BGZ325P' },
+  { rank: 10, slug: 'mercari', name: 'メルカリ', benefit: '500円分', code: 'HKRDNM' },
+  { rank: 11, slug: 'paypay', name: 'PayPay', benefit: '300pt', code: '02-49XLFP8' },
+  { rank: 12, slug: 'airwallet', name: 'エアウォレット', benefit: 'Ponta 300pt', code: 'qpgtg29' },
+  { rank: 13, slug: 'orikuji', name: 'オリくじ', benefit: '両方にプレゼント', code: 'AZ3pOY' },
+] as const;
+
+// 姉妹ブログ（旧muse.ai URL。姉妹サイトの移行が完了したら新pages.dev URLに更新する）
+export const SISTER_BLOGS = [
+  {
+    name: 'ポイ活ブログ',
+    note: '総合版。王道レイアウトで全サービスを特集＋ランキングで紹介。',
+    url: 'https://muse.ai/s/poihuo-burogu-xlxi6xcxsxg4ghx07/74yi0ejxEmcRwO9Gsp15bpRovm76_UruhoA3biG-N2o',
+  },
+  {
+    name: '紹介コードランキング',
+    note: '特典額ランキング特化。報酬の大きい順に一気に見比べられます。',
+    url: 'https://muse.ai/s/shao-jie-kodorankingu-jxj6xcxsxfxqxj6xqx0/OqiA00u9xkaSI9_7bBwCrskhhMRQu3SkOvHqtDonW84',
+  },
+  {
+    name: 'ポイ活コード検索',
+    note: '検索・絞り込み特化。目的のコードを最速で探せるデータベース風。',
+    url: 'https://muse.ai/s/poihuo-kodojian-suo-hb6xcxsxg20qsxl/6jl8s6igC6cBHibzVwCEADiLunryhUT0jRZr_pVQrQE',
+  },
+  {
+    name: 'ポイ活マガジン',
+    note: '読み物スタイル。記事を読みながらゆっくり選べるマガジン風。',
+    url: 'https://muse.ai/s/poihuo-magazin-ob6xcxsxgwsxa0y/2A2y1OC2F5lmACOSYdjgyPIv_dFmUkHnjAtMs7Xkfcc',
+  },
+  {
+    name: 'かんたん紹介コード案内',
+    note: 'シンプル案内版。大きな文字とボタンで迷わず登録できます。',
+    url: 'https://muse.ai/s/kantanshao-jie-kodoan-nei-sb6xcxsxgtxkxkbk/iHPHnEFAX37Hrni_FagP81wlqfSoecaEv0cODGcaaS8',
+  },
+] as const;
+
+export const FAQS = [
+  {
+    q: 'ゲームポイ活とは何ですか？',
+    a: 'ゲームをプレイしたり、ゲーム案件のあるポイントサイトを利用したりしてポイントを貯める活動です。このブログでは、メアが紹介コード・招待コードを使って通常登録よりお得に始められるサービスをまとめているよ。',
+  },
+  {
+    q: 'Freecashの紹介コードはどこで使いますか？',
+    a: '紹介リンク（https://freecash.com/r/3BQLXB）から登録すると紹介コード3BQLXBが適用されます。登録後、対象のゲームをプレイすると約1,430円相当の報酬がもらえます。',
+  },
+  {
+    q: 'ポケカツの招待コードはいつ入力しますか？',
+    a: 'ポケカツ登録時（またはマイページの招待コード入力欄）に招待コード2BGZ325Pを入力してください。新規オープン記念で500円無料、50円で1,000円分、LINE連携で300円分の合計1,300円分が楽しめます。',
+  },
+  {
+    q: '紹介コードは後から入力できますか？',
+    a: 'ほとんどのサービスで紹介コードの入力は新規登録時のみ有効で、後からの入力では特典が付きません。まだ登録していないサービスから優先して、このページ経由で登録するのがメアのおすすめだよ。',
+  },
+  {
+    q: '特典は本当に無料でもらえますか？',
+    a: '登録自体は全サービス無料だよ。特典には条件（広告利用・支払い・口座残高など）がある場合があり、各クエストの条件欄に明記しています。条件を満たせば追加費用なしで特典がもらえるサービスがほとんどです♪',
+  },
+  {
+    q: 'このページから登録すると、メアにも報酬が入るのですか？',
+    a: 'はい、その通りです♪ このページ経由で登録し条件が満たされると、あなたに特典が付与されるとともに、紹介者であるメアにも各サービスから紹介報酬が付与される場合があります。あなたの特典が減ったり、利用料金が上乗せされたりすることはありません。詳しくは「広告・紹介報酬に関する表記」をご覧ください。',
+  },
+] as const;

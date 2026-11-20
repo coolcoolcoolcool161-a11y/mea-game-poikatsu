@@ -1,0 +1,15 @@
+{
+  "name": "mea-game-poikatsu",
+  "version": "1.0.0",
+  "description": "ゲームポイ活ブログ（メアのポイ活メディア）— 遊んで貯める紹介コード・招待コード攻略まとめ。Astro＋Markdown、Cloudflare Pagesで公開。",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  }
+}

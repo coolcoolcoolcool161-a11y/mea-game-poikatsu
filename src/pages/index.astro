@@ -1,0 +1,193 @@
+---
+import { getCollection} from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import AdSlot from '../components/AdSlot.astro';
+import { SITE, CATEGORIES, RANKING, FAQS, SISTER_BLOGS, slugOf} from '../data/site';
+
+const articles = await getCollection('articles');
+const bySlug = new Map(articles.map((a) => [slugOf(a.id), a]));
+const byCategory = (slug: string) => articles.filter((a) => a.data.category === slug);
+const freecash = bySlug.get('freecash')!;
+const pokekatsu = bySlug.get('pokekatsu')!;
+
+const itemList = [...RANKING].map((r, i) => ({
+'@type': 'ListItem',
+position: i + 1,
+name: `${r.name} ${r.benefit}`,
+}));
+// ランキング表に載っていない6サービスも一覧に追加（19件）
+const rankedSlugs = new Set(RANKING.map((r) => r.slug));
+const rest = articles
+.filter((a) =>!rankedSlugs.has(slugOf(a.id)))
+.map((a) => `${a.data.service} ${a.data.code? `紹介コード ${a.data.code}`: ''} ${a.data.benefit}`);
+rest.forEach((name, i) => {
+itemList.push({ '@type': 'ListItem', position: RANKING.length + i + 1, name});
+});
+
+const jsonLd = {
+'@context': 'https://schema.org',
+'@graph': [
+{
+'@type': 'WebPage',
+name: 'メアのゲームポイ活ブログ｜遊んで貯める紹介コード・招待コード攻略まとめ',
+description: SITE.description,
+inLanguage: 'ja',
+dateModified: SITE.dateModified,
+},
+{ '@type': 'ItemList', name: 'ゲームポイ活クエスト一覧', numberOfItems: 19, itemListElement: itemList},
+{
+'@type': 'FAQPage',
+mainEntity: FAQS.map((f) => ({
+'@type': 'Question',
+name: f.q,
+acceptedAnswer: { '@type': 'Answer', text: f.a},
+})),
+},
+{
+'@type': 'BreadcrumbList',
+itemListElement: [
+{ '@type': 'ListItem', position: 1, name: 'ゲームポイ活ブログ トップ'},
+{ '@type': 'ListItem', position: 2, name: 'クエスト一覧（全19サービス）'},
+],
+},
+],
+};
+
+const title = 'メアのゲームポイ活ブログ｜遊んで貯める紹介コード・招待コード攻略まとめ';
+---
+
+<BaseLayout title={title} description={SITE.description} canonicalPath="/" jsonLd={jsonLd}>
+<div class="wrap">
+<div class="hero">
+<img src="/images/hero.jpg" alt="メアのバナー：ポイ活×招待コード×紹介系。一緒におトクをGETしよう" width="1179" height="393" />
+</div>
+
+<div class="pr-box">
+このページには紹介リンク・招待コードが含まれます。このページ経由で各サービスに登録・利用されると、紹介特典の条件が満たされた場合に、メアにも紹介報酬（ポイント・クーポン等）が発生します。あなたが受け取る特典が減ることはなく、利用料金が上乗せされることもありません。詳しくは<a href="/ad-disclosure/">「広告・紹介報酬に関する表記」</a>をご確認ください。
+</div>
+
+<p class="article-meta">最終更新：2026年11月19日</p>
+
+<h1>🎀 メアのゲームポイ活ブログ｜遊んで貯めちゃお♪</h1>
+<p class="lead">
+こんにちは、メアです🎀 ゲームをプレイしてポイントが貯まる「ゲームポイ活」に使える紹介コード・招待コードを、全19サービスぶんクエスト形式でまとめました✨ 紹介経由で登録すると、通常登録よりお得な特典がついちゃいます💕 まずはメインクエストのFreecashからチェックしてみてね！
+</p>
+
+<AdSlot />
+
+<h2 id="main-quest">🎮 メインクエスト：Freecash</h2>
+<ServiceCard article={freecash} showBody={true} />
+
+<h2 id="sub-quest">🎴 注目クエスト：ポケカツ</h2>
+<ServiceCard article={pokekatsu} showBody={true} />
+
+<h2 id="ranking">🏆 報酬ランキング</h2>
+<p>特典額が大きい順のリーダーボードだよ🏆 特典額はキャンペーン条件をすべて達成した場合の最大値なので、各クエストの条件欄も必ず確認してね。</p>
+<table>
+<thead>
+<tr><th>順位</th><th>サービス</th><th>報酬（特典）</th><th>紹介コード</th><th></th></tr>
+</thead>
+<tbody>
+{RANKING.map((r) => (
+<tr>
+<td>{r.rank}</td>
+<td>{r.name}</td>
+<td>{r.benefit}</td>
+<td>{r.code}</td>
+<td><a href={`/articles/${r.slug}/`}>GO ▶</a></td>
+</tr>
+))}
+</tbody>
+</table>
+
+<AdSlot />
+
+<h2 id="quests">🗺️ クエスト一覧（全19サービス）</h2>
+<p>カテゴリで絞り込んだり、サービス名で検索できるよ🔍 コードはコピーボタンでそのまま使ってね。紹介コードの無言利用もOKです♪</p>
+
+<h3 id="game-gacha">🎮 ゲーム・ガチャ・買い物のクエスト</h3>
+<div class="card-grid">
+{byCategory('game-gacha').filter((a) => !['freecash', 'pokekatsu'].includes(slugOf(a.id))).map((a) => <ServiceCard article={a} />)}
+</div>
+
+<h3 id="point-sites">🎯 ポイントサイトのクエスト（ゲーム案件あり）</h3>
+<div class="card-grid">
+{byCategory('point-sites').map((a) => <ServiceCard article={a} />)}
+</div>
+
+<h3 id="sns-video">🎬 動画・SNSのクエスト</h3>
+<div class="card-grid">
+{byCategory('sns-video').map((a) => <ServiceCard article={a} />)}
+</div>
+
+<h3 id="payment-bank">💰 決済・銀行・通信のクエスト</h3>
+<div class="card-grid">
+{byCategory('payment-bank').map((a) => <ServiceCard article={a} />)}
+</div>
+
+<h3 id="walking-apps">👟 歩数・CM・予想アプリのクエスト</h3>
+<div class="card-grid">
+{byCategory('walking-apps').map((a) => <ServiceCard article={a} />)}
+</div>
+
+<h3 id="ai">🤖 AIアシスタントのクエスト</h3>
+<div class="card-grid">
+{byCategory('ai').map((a) => <ServiceCard article={a} />)}
+</div>
+
+<h2 id="guide">🧭 攻略チャート（始め方）</h2>
+<p>どのクエストも流れは同じ4ステップだよ♪ 紹介コードの入力は登録時だけ有効なことが多いから、順番がとっても大事です。</p>
+<ol class="steps">
+<li><strong>STEP 1 クエストを選ぶ</strong>：遊びたいゲーム系はFreecashとポケカツ、コツコツ型はポイントサイト3種から選んでね。特典額はランキングで比較できるよ。</li>
+<li><strong>STEP 2 コードをコピー</strong>：各クエストの「コピー」ボタンで紹介コードをコピーしてね。リンク型のサービス（楽天モバイルなど）はそのままリンクから進めばOKだよ。</li>
+<li><strong>STEP 3 リンクから登録</strong>：このページの登録リンクから進んで、登録時（または指定の画面）でコードを入力してね。後からの入力では特典が付かない場合があるから気をつけて。</li>
+<li><strong>STEP 4 条件達成で報酬GET</strong>：ゲームのプレイ、広告利用、支払い、口座残高など各クエストの条件をクリアすると特典が付与されるよ。期限ものは早めにクリアしちゃおう💪</li>
+</ol>
+
+<h2 id="faq">よくある質問</h2>
+{FAQS.map((f) => (
+<div class="faq-item">
+<h3>{f.q}</h3>
+<p>{f.a}</p>
+</div>
+))}
+<p><a href="/faq/">よくある質問の一覧を見る →</a></p>
+
+<h2 id="sisters">🚀 姉妹ブログへワープ</h2>
+<p>同じ紹介コードを、見た目も使い方も違う5つのブログでも公開しているよ💕 好みのスタイルで見てみてね♪</p>
+<ul>
+{SISTER_BLOGS.map((b) => (
+<li><a href={b.url} target="_blank" rel="noopener">{b.name}</a>：{b.note}</li>
+))}
+</ul>
+
+<h2>📂 カテゴリー</h2>
+<ul>
+{CATEGORIES.map((c) => (
+<li><a href={`/categories/${c.slug}/`}>{c.name}</a>（{byCategory(c.slug).length}）</li>
+))}
+<li><a href="/#ranking">報酬ランキング</a>（13）</li>
+<li><a href="/faq/">よくある質問</a>（6）</li>
+</ul>
+
+<h2>🔥 人気のクエスト</h2>
+<ul>
+<li><a href="/articles/freecash/">Freecash 3BQLXB</a> 約1,430円相当</li>
+<li><a href="/articles/pokekatsu/">ポケカツ 2BGZ325P</a> 合計1,300円分</li>
+<li><a href="/articles/rakuten-mobile/">楽天モバイル</a> 13,000pt</li>
+<li><a href="/articles/moppy/">モッピー 7xaGA123</a> 7,000P</li>
+<li><a href="/articles/tiktok/">TikTok 284097117</a> 6,000円分</li>
+<li><a href="/articles/warau/">ワラウ bEs7</a> 2,500pt</li>
+</ul>
+
+<h2>🌐 全媒体の入口</h2>
+<p><a href={SITE.hubUrl} target="_blank" rel="noopener">メアのポイ活メディア（トップページ）</a> — ホームページ・ブログ・掲示板・note・Xなど、メアの媒体はここからたどれます♪</p>
+
+<h2>🎀 このブログについて</h2>
+<p>ゲームポイ活が大好きなメアが、遊んで貯められるサービスの紹介コードをクエスト形式でまとめたブログだよ💖 特典額や条件が変わったら随時更新するね♪ まずはメインクエストのFreecashから始めるのがおすすめだよ✨</p>
+<p><a href="/about/">運営者情報を見る →</a></p>
+
+<AdSlot />
+</div>
+</BaseLayout>
