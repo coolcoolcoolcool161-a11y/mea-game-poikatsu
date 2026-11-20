@@ -7,7 +7,7 @@ export const SITE = {
   description:
     'ゲームをプレイしてポイントが貯まる「ゲームポイ活」に使える紹介コード・招待コードを、全19サービスぶんクエスト形式でまとめました。Freecash 3BQLXB（約1,430円相当）、ポケカツ合計1,300円分、ワラウ最大2,500pt、モッピー最大7,000P、楽天モバイル最大13,000ポイントなど、特典額・条件・登録リンク・コピーボタン付きで攻略できます。',
   dateModified: '2026-11-19',
-  gaMeasurementId: '',
+  gaMeasurementId: 'G-8BB8V3DRW8',
   xAccount: 'https://x.com/pppppuririn',
   hubUrl:
     'https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-media/',
