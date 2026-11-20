@@ -60,11 +60,11 @@ const title = 'メアのゲームポイ活ブログ｜遊んで貯める紹介�
 <BaseLayout title={title} description={SITE.description} canonicalPath="/" jsonLd={jsonLd}>
 <div class="wrap">
 <div class="hero">
-<img src="/images/hero.jpg" alt="メアのバナー：ポイ活×招待コード×紹介系。一緒におトクをGETしよう" width="1179" height="393" />
+<img src="/mea-game-poikatsu/images/hero.jpg" alt="メアのバナー：ポイ活×招待コード×紹介系。一緒におトクをGETしよう" width="1179" height="393" />
 </div>
 
 <div class="pr-box">
-このページには紹介リンク・招待コードが含まれます。このページ経由で各サービスに登録・利用されると、紹介特典の条件が満たされた場合に、メアにも紹介報酬（ポイント・クーポン等）が発生します。あなたが受け取る特典が減ることはなく、利用料金が上乗せされることもありません。詳しくは<a href="/ad-disclosure/">「広告・紹介報酬に関する表記」</a>をご確認ください。
+このページには紹介リンク・招待コードが含まれます。このページ経由で各サービスに登録・利用されると、紹介特典の条件が満たされた場合に、メアにも紹介報酬（ポイント・クーポン等）が発生します。あなたが受け取る特典が減ることはなく、利用料金が上乗せされることもありません。詳しくは<a href="/mea-game-poikatsu/ad-disclosure/">「広告・紹介報酬に関する表記」</a>をご確認ください。
 </div>
 
 <p class="article-meta">最終更新：2026年11月19日</p>
@@ -95,7 +95,7 @@ const title = 'メアのゲームポイ活ブログ｜遊んで貯める紹介�
 <td>{r.name}</td>
 <td>{r.benefit}</td>
 <td>{r.code}</td>
-<td><a href={`/articles/${r.slug}/`}>GO ▶</a></td>
+<td><a href={`/mea-game-poikatsu/articles/${r.slug}/`}>GO ▶</a></td>
 </tr>
 ))}
 </tbody>
@@ -152,7 +152,7 @@ const title = 'メアのゲームポイ活ブログ｜遊んで貯める紹介�
 <p>{f.a}</p>
 </div>
 ))}
-<p><a href="/faq/">よくある質問の一覧を見る →</a></p>
+<p><a href="/mea-game-poikatsu/faq/">よくある質問の一覧を見る →</a></p>
 
 <h2 id="sisters">🚀 姉妹ブログへワープ</h2>
 <p>同じ紹介コードを、見た目も使い方も違う5つのブログでも公開しているよ💕 好みのスタイルで見てみてね♪</p>
@@ -165,20 +165,20 @@ const title = 'メアのゲームポイ活ブログ｜遊んで貯める紹介�
 <h2>📂 カテゴリー</h2>
 <ul>
 {CATEGORIES.map((c) => (
-<li><a href={`/categories/${c.slug}/`}>{c.name}</a>（{byCategory(c.slug).length}）</li>
+<li><a href={`/mea-game-poikatsu/categories/${c.slug}/`}>{c.name}</a>（{byCategory(c.slug).length}）</li>
 ))}
-<li><a href="/#ranking">報酬ランキング</a>（13）</li>
-<li><a href="/faq/">よくある質問</a>（6）</li>
+<li><a href="/mea-game-poikatsu/#ranking">報酬ランキング</a>（13）</li>
+<li><a href="/mea-game-poikatsu/faq/">よくある質問</a>（6）</li>
 </ul>
 
 <h2>🔥 人気のクエスト</h2>
 <ul>
-<li><a href="/articles/freecash/">Freecash 3BQLXB</a> 約1,430円相当</li>
-<li><a href="/articles/pokekatsu/">ポケカツ 2BGZ325P</a> 合計1,300円分</li>
-<li><a href="/articles/rakuten-mobile/">楽天モバイル</a> 13,000pt</li>
-<li><a href="/articles/moppy/">モッピー 7xaGA123</a> 7,000P</li>
-<li><a href="/articles/tiktok/">TikTok 284097117</a> 6,000円分</li>
-<li><a href="/articles/warau/">ワラウ bEs7</a> 2,500pt</li>
+<li><a href="/mea-game-poikatsu/articles/freecash/">Freecash 3BQLXB</a> 約1,430円相当</li>
+<li><a href="/mea-game-poikatsu/articles/pokekatsu/">ポケカツ 2BGZ325P</a> 合計1,300円分</li>
+<li><a href="/mea-game-poikatsu/articles/rakuten-mobile/">楽天モバイル</a> 13,000pt</li>
+<li><a href="/mea-game-poikatsu/articles/moppy/">モッピー 7xaGA123</a> 7,000P</li>
+<li><a href="/mea-game-poikatsu/articles/tiktok/">TikTok 284097117</a> 6,000円分</li>
+<li><a href="/mea-game-poikatsu/articles/warau/">ワラウ bEs7</a> 2,500pt</li>
 </ul>
 
 <h2>🌐 全媒体の入口</h2>
@@ -186,7 +186,7 @@ const title = 'メアのゲームポイ活ブログ｜遊んで貯める紹介�
 
 <h2>🎀 このブログについて</h2>
 <p>ゲームポイ活が大好きなメアが、遊んで貯められるサービスの紹介コードをクエスト形式でまとめたブログだよ💖 特典額や条件が変わったら随時更新するね♪ まずはメインクエストのFreecashから始めるのがおすすめだよ✨</p>
-<p><a href="/about/">運営者情報を見る →</a></p>
+<p><a href="/mea-game-poikatsu/about/">運営者情報を見る →</a></p>
 
 <AdSlot />
 </div>
