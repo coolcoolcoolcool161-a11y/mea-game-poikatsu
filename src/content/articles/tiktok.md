@@ -16,6 +16,8 @@ image: "https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-blog/images/bann
 
 動画を見る側から、報酬をもらう側になれるクエストだよ🎬 今なら新規登録で6,000円分の報酬獲得チャンスです。
 
+![TikTokの招待特典（最大6,000円分）の案内画像](/images/tiktok-promo-mea.webp)
+
 ## 登録のコツ・条件
 
 - ①Wi-FiをOFFにしてモバイル通信でアクセス
