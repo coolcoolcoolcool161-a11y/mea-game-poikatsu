@@ -8,6 +8,7 @@ code: "WYKA9Y"
 image: "/images/banner-muse.jpg"
 imageAlt: "Muse紹介バナー（招待コードWYKA9Y）"
 dateModified: "2026-11-19"
+conditions: "参加後48時間以内に、設定で招待コードを入力してください。"
 ---
 
 ## このクエストについて

@@ -8,6 +8,7 @@ code: "2BGZ325P"
 image: "/images/banner-pokekatsu.jpg"
 dateModified: "2026-11-19"
 featured: true
+conditions: "招待コードのみの紹介です。アプリ・サイト内でコードを入力してください。"
 ---
 
 ## このクエストについて
