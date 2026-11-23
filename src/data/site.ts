@@ -5,7 +5,7 @@ export const SITE = {
   operator: 'メア',
   siteUrl: 'https://mea-poikatsu.github.io/mea-game-poikatsu',
   description:
-    'ゲームをプレイしてポイントが貯まる「ゲームポイ活」に使える紹介コード・招待コードを、全19サービスぶんクエスト形式でまとめました。Freecash 3BQLXB（初回DLで1,430円分）、ポケカツ合計1,300円分、ワラウ最大2,500pt、モッピー最大7,000P、楽天モバイル最大13,000ポイントなど、特典額・条件・登録リンク・コピーボタン付きで攻略できます。',
+    'ゲームをプレイしてポイントが貯まる「ゲームポイ活」に使える紹介コード・招待コードを、全19サービスぶんクエスト形式でまとめました。Freecash 3BQLXB（初回DLで1,430円分）、ポケカツ初回チャージ90%OFF、ワラウ最大2,500pt、モッピー最大7,000P、楽天モバイル最大13,000ポイントなど、特典額・条件・登録リンク・コピーボタン付きで攻略できます。',
   dateModified: '2026-11-21',
   gaMeasurementId: 'G-8BB8V3DRW8',
   xAccount: 'https://x.com/pppppuririn',
@@ -41,7 +41,7 @@ export const RANKING = [
   { rank: 6, slug: 'olive', name: 'SMBC Olive', benefit: 'Vポイント1,000円相当', code: 'FF89103-3439377' },
   { rank: 7, slug: 'freecash', name: 'Freecash ★メイン', benefit: '初回DLで1,430円分', code: '3BQLXB' },
   { rank: 8, slug: 'tiktok-lite', name: 'TikTok Lite', benefit: '1,400円分', code: '890270647' },
-  { rank: 9, slug: 'pokekatsu', name: 'ポケカツ', benefit: '合計1,300円分', code: '2BGZ325P' },
+  { rank: 9, slug: 'pokekatsu', name: 'ポケカツ', benefit: '初回チャージ90%OFF', code: '2BGZ325P' },
   { rank: 10, slug: 'mercari', name: 'メルカリ', benefit: '500円分', code: 'HKRDNM' },
   { rank: 11, slug: 'paypay', name: 'PayPay', benefit: '300pt', code: '02-49XLFP8' },
   { rank: 12, slug: 'airwallet', name: 'エアウォレット', benefit: 'Ponta 300pt', code: 'qpgtg29' },
@@ -88,7 +88,7 @@ export const FAQS = [
   },
   {
     q: 'ポケカツの招待コードはいつ入力しますか？',
-    a: 'ポケカツ登録時（またはマイページの招待コード入力欄）に招待コード2BGZ325Pを入力してください。新規オープン記念で500円無料、50円で1,000円分、LINE連携で300円分の合計1,300円分が楽しめます。',
+    a: 'ポケカツ登録時（またはマイページの招待コード入力欄）に招待コード2BGZ325Pを入力してください。登録は無料、初回チャージは90%OFFです。',
   },
   {
     q: '紹介コードは後から入力できますか？',
