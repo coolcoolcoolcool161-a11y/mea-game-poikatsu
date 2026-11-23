@@ -3,14 +3,14 @@
 export const SITE = {
   name: 'ゲームポイ活ブログ',
   operator: 'メア',
-  siteUrl: 'https://coolcoolcoolcool161-a11y.github.io/mea-game-poikatsu',
+  siteUrl: 'https://mea-poikatsu.github.io/mea-game-poikatsu',
   description:
     'ゲームをプレイしてポイントが貯まる「ゲームポイ活」に使える紹介コード・招待コードを、全19サービスぶんクエスト形式でまとめました。Freecash 3BQLXB（約1,430円相当）、ポケカツ合計1,300円分、ワラウ最大2,500pt、モッピー最大7,000P、楽天モバイル最大13,000ポイントなど、特典額・条件・登録リンク・コピーボタン付きで攻略できます。',
   dateModified: '2026-11-21',
   gaMeasurementId: 'G-8BB8V3DRW8',
   xAccount: 'https://x.com/pppppuririn',
   hubUrl:
-    'https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-media/',
+    'https://mea-poikatsu.github.io/mea-poikatsu-media/',
 } as const;
 
 // Astro 5ではcontent collectionのentry.idに拡張子（.md）が付くため、URL用スラッグに変換する
@@ -53,27 +53,27 @@ export const SISTER_BLOGS = [
   {
     name: 'ポイ活ブログ',
     note: '総合版。王道レイアウトで全サービスを特集＋ランキングで紹介。',
-    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-blog/',
+    url: 'https://mea-poikatsu.github.io/mea-poikatsu-blog/',
   },
   {
     name: 'おすすめ紹介コード',
     note: 'メアのおすすめ紹介コード特化。おすすめ順に一気に見比べられます。',
-    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-ranking/',
+    url: 'https://mea-poikatsu.github.io/mea-ranking/',
   },
   {
     name: 'ポイ活コード検索',
     note: '検索・絞り込み特化。目的のコードを最速で探せるデータベース風。',
-    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-code-search/',
+    url: 'https://mea-poikatsu.github.io/mea-code-search/',
   },
   {
     name: 'ポイ活マガジン',
     note: '読み物スタイル。記事を読みながらゆっくり選べるマガジン風。',
-    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-magazine/',
+    url: 'https://mea-poikatsu.github.io/mea-poikatsu-magazine/',
   },
   {
     name: 'かんたん紹介コード案内',
     note: 'シンプル案内版。大きな文字とボタンで迷わず登録できます。',
-    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-kantan-guide/',
+    url: 'https://mea-poikatsu.github.io/mea-kantan-guide/',
   },
 ] as const;
 
