@@ -5,7 +5,7 @@ export const SITE = {
   operator: 'メア',
   siteUrl: 'https://mea-poikatsu.github.io/mea-game-poikatsu',
   description:
-    'ゲームをプレイしてポイントが貯まる「ゲームポイ活」に使える紹介コード・招待コードを、全19サービスぶんクエスト形式でまとめました。Freecash 3BQLXB（約1,430円相当）、ポケカツ合計1,300円分、ワラウ最大2,500pt、モッピー最大7,000P、楽天モバイル最大13,000ポイントなど、特典額・条件・登録リンク・コピーボタン付きで攻略できます。',
+    'ゲームをプレイしてポイントが貯まる「ゲームポイ活」に使える紹介コード・招待コードを、全19サービスぶんクエスト形式でまとめました。Freecash 3BQLXB（初回DLで1,430円分）、ポケカツ合計1,300円分、ワラウ最大2,500pt、モッピー最大7,000P、楽天モバイル最大13,000ポイントなど、特典額・条件・登録リンク・コピーボタン付きで攻略できます。',
   dateModified: '2026-11-21',
   gaMeasurementId: 'G-8BB8V3DRW8',
   xAccount: 'https://x.com/pppppuririn',
@@ -39,7 +39,7 @@ export const RANKING = [
   { rank: 4, slug: 'warau', name: 'ワラウ', benefit: '最大2,500pt', code: 'bEs7' },
   { rank: 5, slug: 'hapitas', name: 'ハピタス', benefit: '最大2,300P', code: 'INXAHV' },
   { rank: 6, slug: 'olive', name: 'SMBC Olive', benefit: 'Vポイント1,000円相当', code: 'FF89103-3439377' },
-  { rank: 7, slug: 'freecash', name: 'Freecash ★メイン', benefit: '約1,430円相当', code: '3BQLXB' },
+  { rank: 7, slug: 'freecash', name: 'Freecash ★メイン', benefit: '初回DLで1,430円分', code: '3BQLXB' },
   { rank: 8, slug: 'tiktok-lite', name: 'TikTok Lite', benefit: '1,400円分', code: '890270647' },
   { rank: 9, slug: 'pokekatsu', name: 'ポケカツ', benefit: '合計1,300円分', code: '2BGZ325P' },
   { rank: 10, slug: 'mercari', name: 'メルカリ', benefit: '500円分', code: 'HKRDNM' },
@@ -84,7 +84,7 @@ export const FAQS = [
   },
   {
     q: 'Freecashの紹介コードはどこで使いますか？',
-    a: '紹介リンク（https://freecash.com/r/3BQLXB）から登録すると紹介コード3BQLXBが適用されます。登録後、対象のゲームをプレイすると約1,430円相当の報酬がもらえます。',
+    a: '紹介リンク（https://freecash.com/r/3BQLXB）から登録すると紹介コード3BQLXBが適用されます。招待コードを入力して初回DLすると1,430円分がもらえます。',
   },
   {
     q: 'ポケカツの招待コードはいつ入力しますか？',
