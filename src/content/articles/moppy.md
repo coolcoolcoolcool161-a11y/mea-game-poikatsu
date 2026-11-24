@@ -6,7 +6,7 @@ category: point-sites
 benefit: "最大7,000P"
 code: "7xaGA123"
 url: "https://pc.moppy.jp/entry/invite.php?invite=7xaGA123"
-image: "/images/banner-official-moppy.jpg"
+image: "/images/banner-moppy.jpg"
 imageAlt: "モッピー公式リンクバナー"
 dateModified: "2026-11-19"
 conditions: "新規登録と広告利用5,000P以上の達成で、最大7,000Pがもらえます。"
