@@ -1,0 +1,9 @@
+{
+  "name": "mea-game-poikatsu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "S07 ポイ活ゲーム攻略Wiki（ビルド実体は scripts/ci_build.sh の Python 生成）",
+  "scripts": {
+    "build": "bash scripts/ci_build.sh"
+  }
+}
