@@ -1,7 +1,7 @@
 // サイト共通の設定。GA4測定IDはユーザーから提供され次第ここに入れる。
 // 空のままならGA4スクリプトは出力されない。
 export const SITE = {
-  name: 'ゲームポイ活ブログ',
+  name: 'ポイゲークエスト',
   operator: 'メア',
   siteUrl: 'https://mea-poikatsu.github.io/mea-game-poikatsu',
   description:
@@ -51,27 +51,27 @@ export const RANKING = [
 // 姉妹ブログ（旧muse.ai URL。2026-11-21にGitHub Pagesの新URLへ更新済み）
 export const SISTER_BLOGS = [
   {
-    name: 'ポイ活ブログ',
+    name: 'ポイ活レビュー帖',
     note: '総合版。王道レイアウトで全サービスを特集＋ランキングで紹介。',
     url: 'https://mea-poikatsu.github.io/mea-poikatsu-blog/',
   },
   {
-    name: 'おすすめ紹介コード',
-    note: 'メアのおすすめ紹介コード特化。おすすめ順に一気に見比べられます。',
+    name: 'ポイランク',
+    note: 'メアのポイランク特化。おすすめ順に一気に見比べられます。',
     url: 'https://mea-poikatsu.github.io/mea-ranking/',
   },
   {
-    name: 'ポイ活コード検索',
+    name: 'コードサーチ',
     note: '検索・絞り込み特化。目的のコードを最速で探せるデータベース風。',
     url: 'https://mea-poikatsu.github.io/mea-code-search/',
   },
   {
-    name: 'ポイ活マガジン',
+    name: 'ポイレーダー',
     note: '読み物スタイル。記事を読みながらゆっくり選べるマガジン風。',
     url: 'https://mea-poikatsu.github.io/mea-poikatsu-magazine/',
   },
   {
-    name: 'かんたん紹介コード案内',
+    name: 'ポイ活のトリセツ',
     note: 'シンプル案内版。大きな文字とボタンで迷わず登録できます。',
     url: 'https://mea-poikatsu.github.io/mea-kantan-guide/',
   },
