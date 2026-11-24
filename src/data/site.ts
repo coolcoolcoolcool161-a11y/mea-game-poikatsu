@@ -44,7 +44,7 @@ export const RANKING = [
   { rank: 9, slug: 'pokekatsu', name: 'ポケカツ', benefit: '初回チャージ90%OFF', code: '2BGZ325P' },
   { rank: 10, slug: 'mercari', name: 'メルカリ', benefit: '500円分', code: 'HKRDNM' },
   { rank: 11, slug: 'paypay', name: 'PayPay', benefit: '300pt', code: '02-49XLFP8' },
-  { rank: 12, slug: 'airwallet', name: 'エアウォレット', benefit: 'Ponta 300pt', code: 'qpgtg29' },
+  { rank: 12, slug: 'airwallet', name: 'エアウォレット', benefit: '300円分', code: '6nzih9k' },
   { rank: 13, slug: 'orikuji', name: 'オリくじ', benefit: '500ptプレゼント', code: 'AZ3pOY' },
 ] as const;
 
