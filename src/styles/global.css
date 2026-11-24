@@ -129,6 +129,7 @@ p { margin: 0.6em 0; }
 .service-card .desc { font-size: 0.95rem; }
 .service-card img.banner { border-radius: 10px; }
 .code-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.code-label { font-size: 0.85rem; font-weight: 700; }
 .code-row code {
   font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em;
   background: var(--pink-light); border: 1px dashed var(--pink);

@@ -3,7 +3,7 @@ title: "SMBC Oliveの紹介コード FF89103-3439377｜残高条件クリアでV
 description: "紹介コードを入力してエントリー＋Oliveアカウント契約＋契約日の翌月末時点で残高10,000円以上で、Vポイント1,000円相当がもらえます。"
 service: "SMBC Olive"
 category: payment-bank
-benefit: "1,000円相当"
+benefit: "Vポイント1,000円相当"
 code: "FF89103-3439377"
 url: "https://www.smbc.co.jp/kojin/redirect/referral04/index.html"
 image: "/images/banner-olive.jpg"

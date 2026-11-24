@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import rehypeSponsored from '../../../rehype-sponsored.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
@@ -16,7 +17,7 @@ const { data } = article;
 
 // 記事本文の中段に忍者AdMaxの中段枠（position="middle"）を差し込む（2026-11-21 ユーザー決定）。
 // 本文Markdown自体は変更せず、「## 」見出しセクションの半分を過ぎた最初の見出しの直前で分割して描画する。
-const mdProcessor = await createMarkdownProcessor({});
+const mdProcessor = await createMarkdownProcessor({ rehypePlugins: [rehypeSponsored] });
 const bodyLines = (article.body ?? '').split('\n');
 const headingLineIdxs = bodyLines.map((l, i) => (l.startsWith('## ') ? i : -1)).filter((i) => i >= 0);
 let bodyFirst = article.body ?? '';
@@ -89,12 +90,24 @@ const jsonLd = {
         <span class="benefit-value">{data.benefit}</span>
       </div>
       {data.code ? (
-        <div class="code-row">
-          <code>{data.code}</code>
-          <button class="copy-btn" type="button" data-copy={data.code} data-service={slugOf(article.id)}>
-            <span class="copy-label">コピー</span>
-          </button>
-        </div>
+        <>
+          <div class="code-row">
+            {data.codeLabel && <span class="code-label">{data.codeLabel}</span>}
+            <code>{data.code}</code>
+            <button class="copy-btn" type="button" data-copy={data.code} data-service={slugOf(article.id)}>
+              <span class="copy-label">コピー</span>
+            </button>
+          </div>
+          {data.code2 && (
+            <div class="code-row">
+              {data.code2Label && <span class="code-label">{data.code2Label}</span>}
+              <code>{data.code2}</code>
+              <button class="copy-btn" type="button" data-copy={data.code2} data-service={slugOf(article.id)}>
+                <span class="copy-label">コピー</span>
+              </button>
+            </div>
+          )}
+        </>
       ) : (
         <p class="conditions">紹介コードはありません。紹介リンクから登録してください。</p>
       )}
