@@ -1,0 +1,112 @@
+[
+ {
+  "history_id": "h001",
+  "campaign_id": "c003",
+  "changed_at": "2026-11-25",
+  "change_type": "終了",
+  "field": "campaign_status",
+  "old_value": "掲載中",
+  "new_value": "終了",
+  "source_id": "s029",
+  "note": "2026-11-25にログイン済みセッションで公式詳細ページ（site_id 161986・Android）を確認したところ、掲載期間が終了していた（掲載期間終了の表示へ遷移）。iOS版の掲載も見つからなかった"
+ },
+ {
+  "history_id": "h002",
+  "campaign_id": "c001",
+  "changed_at": "2026-11-25",
+  "change_type": "報酬変更",
+  "field": "reward_amount",
+  "old_value": "2,700P（コントロールセンターレベル17到達・1段階）",
+  "new_value": "合計27,037P（StepUp・両OS同額）",
+  "source_id": "s027",
+  "note": "従来値はモッピー公式メディアで紹介された単発条件の別掲載と思われる。公式詳細ページ（ログイン済みセッション）でStepUp掲載を確認し差し替えた。ステップごとの内訳は未確認"
+ },
+ {
+  "history_id": "h003",
+  "campaign_id": "c002",
+  "changed_at": "2026-11-25",
+  "change_type": "報酬変更",
+  "field": "reward_amount",
+  "old_value": "1,530P（エリア16到達）",
+  "new_value": "Android：合計9,578P／iOS：合計11,493P（StepUp）",
+  "source_id": "s028",
+  "note": "従来値はモッピー公式メディアの紹介値で、公式現行掲載と一致しなかった。公式詳細ページ（ログイン済みセッション）でStepUp掲載を確認し差し替えた。ステップごとの内訳は未確認"
+ },
+ {
+  "history_id": "h004",
+  "campaign_id": "c004",
+  "changed_at": "2026-11-25",
+  "change_type": "報酬変更",
+  "field": "reward_amount",
+  "old_value": "iOS：最大42,530円相当／Android：最大37,181円相当（第三者情報・2026-11-24確認時点）",
+  "new_value": "合計42,530pt（全10ステップ・iOS掲載）",
+  "source_id": "s023",
+  "note": "第三者情報から公式詳細ページ（itemid 98148・ログイン済みセッション）の確認値へ差し替え。Androidの額は当該掲載では確認できず、別額の掲載が複数併存する"
+ },
+ {
+  "history_id": "h005",
+  "campaign_id": "c005",
+  "changed_at": "2026-11-25",
+  "change_type": "報酬変更",
+  "field": "reward_amount",
+  "old_value": "合計20,349pt（第三者情報・2026-11-21確認時点）",
+  "new_value": "合計22,043pt（全15ステップ・両OS同額）",
+  "source_id": "s024",
+  "note": "従来値は旧掲載の額。公式現行掲載（itemid 99420・iOS／99421・Android）で確認し差し替えた"
+ },
+ {
+  "history_id": "h006",
+  "campaign_id": "c006",
+  "changed_at": "2026-11-25",
+  "change_type": "訂正",
+  "field": "reward_amount",
+  "old_value": "合計11,500pt（全13段階）",
+  "new_value": "最大10,930pt（iOS版・全13ステップ）。Android版は別案件c010として最大14,500pt（全15ステップ）を登録",
+  "source_id": "s019",
+  "note": "従来値は外部情報由来で誤りだった。公式案件ページでOS別に確認し、iOS版・Android版を別案件として登録し直した"
+ },
+ {
+  "history_id": "h007",
+  "campaign_id": "c007",
+  "changed_at": "2026-11-25",
+  "change_type": "条件変更",
+  "field": "reward_stages",
+  "old_value": "段階の内訳は未確認（合計21,600ptのみ）",
+  "new_value": "全11ステップの内訳を公式ページで確認（合計21,600pt・両OS共通）",
+  "source_id": "s021",
+  "note": "報酬総額は従来値と一致。あんしん保証（判定期間保証）の申請期限はインストール日から40日以内であることも確認した"
+ },
+ {
+  "history_id": "h008",
+  "campaign_id": "c050",
+  "changed_at": "2026-11-25",
+  "change_type": "訂正",
+  "field": "reward_stages",
+  "old_value": "本部レベル5〜38到達＋課金ステップ（課金合計3回／$4.99パック／$9.99パック／累計$20超）として登録",
+  "new_value": "ティア1〜50のウェーブ到達（全15件）＋クレジットポイント購入（×4,990／×9,990／×19,990／×29,990）へ訂正",
+  "source_id": "s203",
+  "note": "ポイント数値と合計65,832ptは不変（数値は正しく、条件ラベルのみ誤りだった）。あわせて増量中である旨（通常59,852pt）と成果調査の受付期限（37日以内→41日以内）を訂正。検証はワラウログイン経由でGF Rewardsのキャンペーンページを再読して実施"
+ },
+ {
+  "history_id": "h009",
+  "campaign_id": "c014",
+  "changed_at": "2026-11-25",
+  "change_type": "訂正",
+  "field": "reward_stages",
+  "old_value": "『難易度Lv・最高R』の略記＋『$4.99課金（初回）』等の略記で登録",
+  "new_value": "実文言『難易度レベル○ 最高ラウンド○○に到達』『$○の課金アイテムを初回購入』へ全面差し替え（全16ステップ）",
+  "source_id": "s206",
+  "note": "ポイント数値と合計31,000ptは不変。iOS／Android別掲載（point_id=205785／205786）で条件・ptが同一であることも確認。通常掲載はGF版（ティア×ウェーブ）とも異なる第三の表記"
+ },
+ {
+  "history_id": "h010",
+  "campaign_id": "c062",
+  "changed_at": "2026-11-25",
+  "change_type": "訂正",
+  "field": "reward_stages",
+  "old_value": "Lvクリア型16ステップ（Lv10〜Lv250クリア・購入ステップなし）",
+  "new_value": "ステージ○ 最高の波（ウェーブ）○○クリア型11ステップ＋購入ステップ5件（計2,035pt）",
+  "source_id": "s279",
+  "note": "ワラウ公式ページ（point_id=206463）の再読検証により条件文言を訂正。ポイント数値・合計16,000ptは変更なし。旧表記は攻略第5陣の照合で、ワラウ公式・他サイト・海外オファーのいずれとも一致しないことが判明したもの"
+ }
+]

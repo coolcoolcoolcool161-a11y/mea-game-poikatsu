@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- ゲーム詳細テンプレート。scripts/build_site.py の生成ページと同構造。
+     パス接頭辞 /mea-game-poikatsu はベースパス（S07_SITE_BASE_PATH）の既定値。
+     実際のページは台帳から自動生成されるため、このファイル自体は公開しない。 -->
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{ゲーム名}のポイ活攻略｜達成条件・進め方・注意点</title><meta name="description" content="{ゲーム名}のゲーム概要、ポイ活達成のポイント、関連攻略、確認済み情報をまとめます。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/mea-game-poikatsu/assets/site.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BB8V3DRW8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BB8V3DRW8');</script>
+<script src="/mea-game-poikatsu/assets/site.js" defer></script>
+</head><body>
+<header><div class="wrap head"><a class="brand" href="/mea-game-poikatsu/">ポイ活ゲーム攻略Wiki</a>
+<nav aria-label="メインナビゲーション"><a href="/mea-game-poikatsu/">トップ</a><a href="/mea-game-poikatsu/games/">ゲーム一覧</a><a href="/mea-game-poikatsu/about/">サイトについて</a><a href="/mea-game-poikatsu/editorial-policy/">編集・検証方針</a></nav></div></header>
+<main class="wrap">
+<nav class="breadcrumb" aria-label="パンくず"><a href="/mea-game-poikatsu/">トップ</a> &gt; <a href="/mea-game-poikatsu/games/">ゲーム一覧</a> &gt; {ゲーム名}</nav>
+<h1>{ゲーム名}のポイ活攻略</h1>
+<p class="lead">{wiki_summary：ゲーム固有の導入要約}</p>
+<p class="notice">このページはテンプレートです。正式名称・現行掲載根拠・出典・独自情報を確認するまで公開しないでください。</p>
+<section class="panel"><h2>ゲーム基本情報</h2><dl><dt>運営・配信元</dt><dd>{運営元}</dd><dt>対応OS</dt><dd>{対応OS}</dd><dt>対象バージョン</dt><dd>{バージョン}</dd><dt>公式情報</dt><dd>{公式URL}</dd><dt>対象掲載根拠</dt><dd>{掲載確認元URL}</dd><dt>最終確認</dt><dd>{最終確認日}</dd></dl><p><span class="badge badge-rank">情報ランク{A〜E}</span></p></section>
+<section class="panel"><h2>攻略の要点</h2><ul class="clean"><li>{攻略テーマへのリンク}：{結論の要約}</li></ul></section>
+<section class="panel"><h2>攻略テーマ</h2><ul class="clean"><li>{テーマ名}の進め方・注意点へのリンク</li></ul></section>
+<section class="panel"><h2>サービス別案件情報</h2><ul class="clean"><li>{サービス名}：{案件名}（報酬・期限） <span class="badge badge-ok">案件状態：掲載中</span></li></ul><p>達成条件・確認記録ページへのリンク</p></section>
+<section class="panel"><h2>注意点</h2><p>{バージョン差・端末差・条件差など}</p></section>
+<section class="panel"><h2>出典・確認記録</h2><div class="source"><p class="small">発信元：{発信元}／情報区分：{公式/第三者/推定}</p><p class="small">出典：{タイトル・URL}</p><p class="small">公開日・確認日・対象バージョン</p><p class="small">適用条件・制約</p></div></section>
+<section class="panel"><h2>更新履歴</h2><ul class="clean"><li>{変更日}：{変更内容・旧値→新値}</li></ul></section>
+<section class="panel"><h2>関連ページ</h2><ul class="clean"><li>達成条件・確認記録へのリンク</li><li><a href="/mea-game-poikatsu/games/">ゲーム一覧</a></li></ul></section>
+</main>
+<footer><div class="wrap"><div class="footlinks"><a href="/mea-game-poikatsu/about/">サイトについて</a><a href="/mea-game-poikatsu/editorial-policy/">編集・検証方針</a><a href="/mea-game-poikatsu/how-to-read/">情報の見方</a></div><p class="small">掲載情報は確認時点の内容です。案件条件・掲載状況はサービスや時期により変更される場合があります。</p><p class="small">本サイトの案件リンクには、広告（紹介プログラム）のリンクが含まれる場合があります。</p></div></footer>
+<nav class="bottomnav" aria-label="モバイルナビゲーション"><a href="/mea-game-poikatsu/">トップ</a><a href="/mea-game-poikatsu/games/">ゲーム一覧</a><a href="/mea-game-poikatsu/about/">サイトについて</a><a href="/mea-game-poikatsu/editorial-policy/">編集・検証方針</a></nav>
+</body></html>

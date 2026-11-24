@@ -1,0 +1,11 @@
+field,項目,必須性,定義・運用ルール
+history_id,履歴識別ID,必須,内部一意ID
+campaign_id,案件ID,必須,campaignsとの関連。存在しない案件は指定できない
+changed_at,変更確認日,必須,JST
+change_type,変更種別,必須,掲載開始/報酬変更/条件変更/期限変更/状態変更/終了/再開/確認不能/訂正
+field,変更項目,確認できる場合,変更された項目名（reward_amount等）
+old_value,変更前の値,確認できる場合,旧値を消さず保持する
+new_value,変更後の値,確認できる場合,新しい値
+evidence_url,根拠URL,確認できる場合,変更を確認した掲載ページ等
+source_id,出典ID,確認できる場合,sourcesとの関連
+note,備考,確認できる場合,変更理由・経緯等

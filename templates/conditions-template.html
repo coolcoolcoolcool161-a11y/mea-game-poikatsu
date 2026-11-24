@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- 達成条件・検証記録テンプレート。scripts/build_site.py の生成ページと同構造。
+     パス接頭辞 /mea-game-poikatsu はベースパス（S07_SITE_BASE_PATH）の既定値。
+     実際のページは campaigns 台帳から自動生成されるため、このファイル自体は公開しない。
+     条件ページは原則noindex。終了案件にはCTAを設置しない。 -->
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{ゲーム名}のポイ活達成条件・確認記録</title><meta name="description" content="掲載サービスごとの達成条件と確認記録を、情報源・確認日・バージョンを区別して整理します。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/mea-game-poikatsu/assets/site.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BB8V3DRW8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BB8V3DRW8');</script>
+<script src="/mea-game-poikatsu/assets/site.js" defer></script>
+</head><body>
+<header><div class="wrap head"><a class="brand" href="/mea-game-poikatsu/">ポイ活ゲーム攻略Wiki</a>
+<nav aria-label="メインナビゲーション"><a href="/mea-game-poikatsu/">トップ</a><a href="/mea-game-poikatsu/games/">ゲーム一覧</a><a href="/mea-game-poikatsu/about/">サイトについて</a><a href="/mea-game-poikatsu/editorial-policy/">編集・検証方針</a></nav></div></header>
+<main class="wrap">
+<nav class="breadcrumb" aria-label="パンくず"><a href="/mea-game-poikatsu/">トップ</a> &gt; <a href="/mea-game-poikatsu/games/">ゲーム一覧</a> &gt; <a href="../">{ゲーム名}</a> &gt; 達成条件・検証記録</nav>
+<h1>{ゲーム名}のポイ活達成条件・確認記録</h1>
+<p class="notice">サービスごとの案件条件を個別に入力してください。条件・報酬・期限の出典と確認日が揃うまで公開しないでください。</p>
+<section class="panel"><h2>情報区分の見方</h2><ul class="clean"><li><strong>公式情報：</strong>ゲーム運営元・掲載サービス運営元が公開した情報</li><li><strong>第三者情報：</strong>攻略サイト、検証記事、コミュニティ等の情報</li><li><strong>推定・目安：</strong>前提や環境差を伴う推定値。確定条件として扱いません</li><li><strong>情報ランク：</strong>A＝公式で現行条件まで確認済み／B＝公式だが現行性に不明点あり／C＝複数の外部情報で裏付けあり／D＝単独の利用者報告（参考）／E＝未確認</li></ul></section>
+<section><h2>掲載中の案件</h2>
+<article class="card campaign" id="campaign-{campaign_id}">
+<h3>{サービス名}：{案件表示名}</h3>
+<p><span class="badge badge-ok">案件状態：掲載中</span> <span class="badge badge-rank">情報ランク{A〜E}</span></p>
+<dl><dt>報酬</dt><dd>{報酬}</dd><dt>段階報酬</dt><dd>{段階ごとの報酬}</dd><dt>達成条件</dt><dd>{達成条件の要約}</dd><dt>達成条件（原文）</dt><dd>{掲載元の原文}</dd><dt>対象外・否認条件</dt><dd>{否認条件}</dd><dt>達成期限</dt><dd>{期限}</dd><dt>有効期間</dt><dd>{開始/終了日}</dd><dt>対象OS</dt><dd>{対象OS}</dd><dt>新規限定条件</dt><dd>{新規条件}</dd><dt>成果判定・計測条件</dt><dd>{計測条件}</dd><dt>ポイント付与時期</dt><dd>{付与時期}</dd><dt>確認日</dt><dd>{確認日}</dd></dl>
+<div class="source"><p class="small">発信元：{発信元}／情報区分：{公式/第三者/推定}</p><p class="small">出典：{タイトル・URL}</p><p class="small">公開日・確認日・対象バージョン</p><p class="small">適用条件・制約</p></div>
+<h4>変更履歴</h4><ul class="clean"><li>{変更確認日}：{変更種別・旧値→新値}</li></ul>
+<p><a class="cta" href="https://example.invalid/campaign" target="_blank" rel="sponsored nofollow noopener" data-ref-service="{サービス名}" data-ref-placement="conditions">掲載元で条件を確認する</a></p>
+</article>
+</section>
+<section><h2>終了・確認不能の案件（過去の記録）</h2><p class="small muted">終了した案件には申込導線を設置していません。条件は当時の記録です。生成時は上記カードと同じ構造で、CTAだけを付けません。</p></section>
+</main>
+<footer><div class="wrap"><div class="footlinks"><a href="/mea-game-poikatsu/about/">サイトについて</a><a href="/mea-game-poikatsu/editorial-policy/">編集・検証方針</a><a href="/mea-game-poikatsu/how-to-read/">情報の見方</a></div><p class="small">掲載情報は確認時点の内容です。案件条件・掲載状況はサービスや時期により変更される場合があります。</p><p class="small">本サイトの案件リンクには、広告（紹介プログラム）のリンクが含まれる場合があります。</p></div></footer>
+<nav class="bottomnav" aria-label="モバイルナビゲーション"><a href="/mea-game-poikatsu/">トップ</a><a href="/mea-game-poikatsu/games/">ゲーム一覧</a><a href="/mea-game-poikatsu/about/">サイトについて</a><a href="/mea-game-poikatsu/editorial-policy/">編集・検証方針</a></nav>
+</body></html>

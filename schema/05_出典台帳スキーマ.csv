@@ -1,0 +1,11 @@
+field,項目,必須性,定義・運用ルール
+source_id,出典ID,必須,内部一意ID
+source_type,情報種別,必須,公式/第三者/推定
+publisher,発信元,必須,運営元/攻略媒体/投稿者等
+title,出典タイトル,必須,出典ブロック表示用。ページタイトル・資料名
+url,URL,必須,参照可能なURL
+published_at,公開日,確認できる場合,不明なら不明
+checked_at,確認日,必須,JST
+game_version,対象バージョン,確認できる場合,情報が対象とする版
+conditions,適用条件,必須,OS/サーバー/試行数/アカウント条件等
+limitations,制約・不確実性,必須,測定者・試行数不明等も明記
