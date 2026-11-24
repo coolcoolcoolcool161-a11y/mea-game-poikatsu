@@ -3600,5 +3600,38 @@
   "checked_at": "2026-11-25",
   "conditions": "章クエスト優先、Lv8からPvP・アライアンス・イベント参加",
   "limitations": "英語ガイド"
+ },
+ {
+  "source_id": "s361",
+  "source_type": "第三者",
+  "publisher": "Reddit r/SwagBucks（redlib経由で閲覧）",
+  "title": "Klondike (aka Klondike Adventures) - Guide",
+  "url": "https://redlib.freedit.eu/r/SwagBucks/comments/14gghh5/klondike_aka_klondike_adventures_guide/jr7wpsk/",
+  "published_at": "不明",
+  "checked_at": "2026-11-25",
+  "conditions": "英語圏の実践ガイド。Lv21を8日（1日5〜7時間プレイ）で達成した海外案件（期限20日）の記録",
+  "limitations": "海外オファー前提の記録で、日本の案件とは期限・配点が異なる。到達目安の推定のアンカーとして使用"
+ },
+ {
+  "source_id": "s362",
+  "source_type": "第三者",
+  "publisher": "MummaKingMoney",
+  "title": "How to Level Up Fast in Klondike Adventures (Swagbucks Guide)",
+  "url": "https://mummakingmoney.com/2026/04/01/how-to-level-up-fast-in-klondike/",
+  "published_at": "2026-04-01（URL表記）",
+  "checked_at": "2026-11-25",
+  "conditions": "海外Swagbucks案件の攻略。海外オファーの標準設計は「Lv30を30日以内」という記述",
+  "limitations": "海外オファー設計の一般論であり、日本の案件の到達保証ではない。到達目安の推定のアンカーとして使用"
+ },
+ {
+  "source_id": "s363",
+  "source_type": "第三者",
+  "publisher": "Medium（shenshenlove）",
+  "title": "Monetizing Anxiety and FOMO Comfortably: A Disney Magic Match 3D Teardown",
+  "url": "https://medium.com/@shenshenlove/monetizing-anxiety-and-fomo-comfortably-a-disney-magic-match-3d-teardown-514c0ad44414",
+  "published_at": "不明",
+  "checked_at": "2026-11-25",
+  "conditions": "同ジャンル（3Dマッチ）の分析記事。1レベル60〜120秒、10〜15分のセッションで3〜5レベル消化という平均像",
+  "limitations": "対象は別タイトル（Disney Magic Match 3D）であり、Tub Match 3D自体の実測ではない。ジャンル試算の参考値として使用"
  }
 ]
