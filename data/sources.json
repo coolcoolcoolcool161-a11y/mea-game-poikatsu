@@ -3653,5 +3653,65 @@
   "checked_at": "2026-11-25",
   "conditions": "ハピタス公式の案件詳細ページ（itemid/100206）。2026-11-25に再読で確認（前回の504エラーは再現せず）。9ステップの内訳と合計8,885pt、成果受付はインストール後30日以内（起算日=インストール日・720時間）、成果調査受付はクリック後35日以内を確認",
   "limitations": "本掲載（iOS 9,839pt・8ステップ・itemid/96353）とは別額・別構成の別掲載。Android専用だが注意事項内にiOSトラッキング許可に関する併記あり。対象外条件・付与時期の詳細は今回の再読範囲では未確認のため登録しない"
+ },
+ {
+  "source_id": "s366",
+  "source_type": "第三者",
+  "publisher": "パズサバ攻略 ミート工科大学",
+  "title": "英雄データベース（全89名の基本情報・スキル・最大ステータス・入手先）",
+  "url": "https://pns-mit.org/fundamentals/001_heroes/",
+  "checked_at": "2026-11-25",
+  "conditions": "パズル＆サバイバルの英雄89名のデータを集約した攻略サイト記事。2026-11-25に確認",
+  "limitations": "ファン運営の攻略データベースであり、数値はゲーム内表示との照合を前提とする"
+ },
+ {
+  "source_id": "s367",
+  "source_type": "第三者",
+  "publisher": "Gamerch パズル＆サバイバル攻略Wiki",
+  "title": "英雄一覧（属性・レア度・兵種・個別ページリンク）",
+  "url": "https://gamerch.com/pazusaba-s1/286631",
+  "checked_at": "2026-11-25",
+  "conditions": "英雄54名の一覧と個別ページ構成を確認。2026-11-25に確認",
+  "limitations": "Wikiの最終更新は古く、個別ページの大半は未執筆。一覧の属性・レア度区分の裏付けに限定して使用"
+ },
+ {
+  "source_id": "s368",
+  "source_type": "第三者",
+  "publisher": "パズサバ攻略 ミート工科大学",
+  "title": "計算ツール群と基礎データ（CC資源・訓練コスト・兵士データ）",
+  "url": "https://pns-mit.org/fundamentals/09_calc/",
+  "checked_at": "2026-11-25",
+  "conditions": "CC建設コスト（Lv1〜45）、訓練コスト（T1〜T14×4兵種）等の基礎データを2026-11-25に取得・照合",
+  "limitations": "計算ツールの前提条件（コスト軽減率等）はツール側の固定条件に依存する"
+ },
+ {
+  "source_id": "s369",
+  "source_type": "第三者",
+  "publisher": "パズサバ攻略 ミート工科大学",
+  "title": "試験管ソルバー（ウォーターソート補助ツール）",
+  "url": "https://pns-mit.org/fundamentals/092_water-sort/",
+  "checked_at": "2026-11-25",
+  "conditions": "試験管パズルの解法ツールの機能（スクショ認識・「？」マス対応等）を2026-11-25に確認",
+  "limitations": "機能の型の参照のみ。当サイトのソルバーは独自実装で、データの持ち込みはしていない"
+ },
+ {
+  "source_id": "s370",
+  "source_type": "第三者",
+  "publisher": "Pocket Gamer",
+  "title": "Puzzles & Survival codes（ギフトコード一覧）",
+  "url": "https://www.pocketgamer.com/puzzles-survival/codes/",
+  "checked_at": "2026-11-25",
+  "conditions": "ギフトコードの有効性はAppGamer・Tokyo Game Station・BlueStacks等ともクロスチェックし、2026-11-25時点で有効22件を確認",
+  "limitations": "コードには期限があり、出典間で有効判定が割れる場合がある。月次で再確認する"
+ },
+ {
+  "source_id": "s371",
+  "source_type": "第三者",
+  "publisher": "ポイゲークエスト（当サイト）",
+  "title": "S07ゲーム別掲示板・画像/情報提供フォームの運用記録",
+  "url": "https://mea-poikatsu.github.io/mea-game-poikatsu/",
+  "checked_at": "2026-11-25",
+  "conditions": "掲示板・提供フォームはSupabase（プロジェクト uqqehsrqjeioeawcrorz）で運用し、投稿は運営が確認する",
+  "limitations": "来訪者投稿は未検証情報として扱い、確認できたものだけをサイトへ反映する"
  }
 ]

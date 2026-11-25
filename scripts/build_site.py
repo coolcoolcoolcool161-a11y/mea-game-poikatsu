@@ -9,7 +9,7 @@
 - 全ページに GA4（G-8BB8V3DRW8）と referral_click 計測（site.js）を組み込む。広告は入れない。
 - JSONデータは必ずエスケープしてから挿入し、原文HTMLは無加工で挿入しない。
 """
-import json, html, os, re, shutil, subprocess, sys
+import base64, json, html, os, re, shutil, subprocess, sys
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -256,13 +256,30 @@ def conditions_indexable(g, cs, sources_by_id):
 
 
 # ---------- 部品 ----------
-def game_card(g, cs):
+def icon_url(icons, gid):
+ if not icons:
+  return ''
+ ent = icons.get(gid)
+ if isinstance(ent, dict):
+  inner = ent.get('icon')
+  if isinstance(inner, dict):
+   return inner.get('icon') or ''
+  return ent.get('icon') if isinstance(ent.get('icon'), str) else ''
+ return ent if isinstance(ent, str) else ''
+
+
+def game_card(g, cs, icons=None):
  badges = ''
  if any(c.get('campaign_status') in ACTIVE_STATUS for c in cs):
   badges = '<p><span class="badge badge-ok">掲載確認済みの案件あり</span></p>'
  elif cs:
   badges = '<p><span class="badge badge-end">現行案件なし（過去の記録）</span></p>'
- return (f'<article class="card game-card" data-name="{e(g["official_title"])}">'
+ icon = ''
+ _iu = icon_url(icons, g['game_id'])
+ if _iu:
+  icon = f'<img class="game-icon" src="{e(_iu)}" alt="" loading="lazy" width="44" height="44">'
+ return (f'<article class="card game-card js-filter-item" data-name="{e(g["official_title"])} {e(g["slug"])}">'
+         f'{icon}'
          f'<h3><a href="{BP}/games/{e(g["slug"])}/">{e(g["official_title"])}</a></h3>'
          f'<p>{e(g["wiki_summary"])}</p>'
          f'<p class="small muted">最終確認：{e(g.get("last_checked_at"))}</p>{badges}</article>')
@@ -294,59 +311,174 @@ def history_list(entries):
 
 
 # ---------- ページ生成 ----------
-def build_top(visible, campaigns_by_game, knowledge_by_game, history):
- cards = [game_card(g, campaigns_by_game.get(g['game_id'], [])) for g in sorted(visible, key=lambda x: str(x['official_title']))]
+def max_reward(gid, campaigns_by_game):
+ best = 0
+ for c in campaigns_by_game.get(gid, []):
+  if c.get('campaign_status') not in ACTIVE_STATUS:
+   continue
+  texts = [c.get('reward_amount') or ''] + list(c.get('reward_stages') or [])
+  for t in texts:
+   for m in re.finditer(r'([\d][\d,]*)\s*(?:pt|P|円)', t or ''):
+    best = max(best, int(m.group(1).replace(',', '')))
+ return best
+
+
+TOP_CSS = """
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%;background:#e8e8e8}
+a{color:#3977B8}
+.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+.header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
+.hrow{display:flex;align-items:center;padding:9px 12px}
+.logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
+.lg-mark{display:inline-block;background:#ff6900;color:#fff;border-radius:5px;padding:0 6px;margin-right:5px;font-size:18px}
+.lg-sub{font-size:9px;font-weight:700;color:#ff6900;vertical-align:super;margin-left:3px}
+.gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
+.gnav a{flex:1;text-align:center;padding:8px 4px;font-size:12.5px;font-weight:700;color:#333;text-decoration:none;border-bottom:3px solid transparent}
+.hero{padding:14px 12px 4px}
+.hero h1{font-size:21px;font-weight:900;line-height:1.35}
+.hero .lead{margin-top:6px;font-size:13px;color:#444}
+.search{padding:10px 12px 2px}
+.search form{display:flex;gap:6px}
+.search input{flex:1;padding:9px 10px;border:1px solid #cfd8e3;border-radius:8px;font-size:14px;min-width:0}
+.search button{padding:9px 14px;border:0;border-radius:8px;background:#172B49;color:#fff;font-weight:700}
+.search .small{font-size:11.5px;color:#888;margin-top:5px}
+.sec{padding:14px 0 4px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;background:#fdf3e3;border-left:5px solid #ff6900;padding:7px 10px 7px 9px;margin:0 0 10px}
+.sec-head h2{font-size:16px;font-weight:800}
+.sec-head a{font-size:12px;font-weight:700;text-decoration:none}
+.pop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 6px;padding:0 12px}
+.pop-tile{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:#333;text-align:center}
+.pop-icon{width:56px;height:56px;border-radius:14px;border:1px solid #e5e5e5}
+.pop-initial{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:14px;background:#EAF2FC;color:#172B49;font-size:22px;font-weight:900}
+.pop-name{font-size:11px;font-weight:700;line-height:1.3}
+.pop-amt{font-size:10px;font-weight:800;color:#e05e00}
+.rank-list{list-style:none;padding:0 12px}
+.rank-list li{border-bottom:1px solid #eee}
+.rank-list a{display:flex;align-items:center;gap:8px;padding:8px 2px;text-decoration:none;color:#333}
+.rank-no{flex:0 0 22px;height:22px;border-radius:50%;background:#172B49;color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.rank-icon{width:34px;height:34px;border-radius:9px;border:1px solid #e5e5e5}
+.rank-name{flex:1;font-weight:700;font-size:13px}
+.rank-amt{font-weight:900;color:#e05e00;font-size:13px;white-space:nowrap}
+.updates{list-style:none;padding:0 12px}
+.updates li{padding:6px 0;border-bottom:1px dotted #ddd;font-size:13px}
+.grid{display:grid;grid-template-columns:1fr;gap:10px;padding:0 12px}
+.card{border:1px solid #e5e5e5;border-radius:10px;padding:12px;background:#fff;overflow:hidden}
+.card h3{font-size:15px;margin-bottom:4px}
+.card h3 a{color:#172B49;text-decoration:none}
+.card p{font-size:12.5px;color:#444}
+.small{font-size:11.5px}.muted{color:#888}
+.badge{display:inline-block;font-size:10.5px;font-weight:800;border-radius:3px;padding:1px 6px}
+.badge-ok{background:#E9F5EF;color:#1d7a4c}.badge-end{background:#f0f0f0;color:#777}
+.game-icon{width:44px;height:44px;border-radius:10px;float:left;margin:2px 10px 6px 0}
+.guide-links{display:grid;grid-template-columns:1fr;gap:8px;padding:0 12px}
+.guide-links a{display:block;border:1px solid #e3ddf2;background:#F0ECFA;color:#463a75;border-radius:10px;padding:11px 12px;font-weight:800;text-decoration:none}
+.guide-links a span{float:right;color:#7a68b8}
+.footer{margin-top:30px;background:#f7f7f7;border-top:1px solid #e5e5e5;padding:16px 12px 28px}
+.footer nav{display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:10px}
+.footer nav a{font-size:12px;color:#3977B8;text-decoration:none}
+.footer p{font-size:11px;color:#888;line-height:1.7}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+"""
+
+
+def build_top(games, campaigns_by_game, knowledge_by_game, history, icons=None):
+ icons = icons or {}
+ title = 'ポイゲークエスト｜ポイ活ゲームの攻略・案件条件まとめ'
+ desc = 'ポイ活ゲームの案件条件・到達ステップ・攻略情報をゲームごとに整理した攻略Wiki「ポイゲークエスト」。ポイントが高い順のランキングやゲーム名検索から、遊びたいゲームの条件を確認できます。'
+ robots = 'index,follow' if games else 'noindex,follow'
+ head = ['<!DOCTYPE html>\n<html lang="ja">\n<head>\n<meta charset="utf-8">',
+         '<meta name="viewport" content="width=device-width, initial-scale=1">',
+         f'<title>{e(title)}</title>',
+         f'<meta name="description" content="{e(desc)}">',
+         f'<meta name="robots" content="{robots}">']
+ if BASE:
+  head.append(f'<link rel="canonical" href="{e(BASE + "/")}">')
+ head.append(ga4_snippet())
+ head.append(f'<script src="{BP}/assets/site.js" defer></script>')
+ if BASE:
+  ld = {'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'ポイゲークエスト', 'url': BASE + '/'}
+  head.append(f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
+ head.append(f'<style>{TOP_CSS}</style>')
+ head.append('</head>')
+
+ def amt(g):
+  return max_reward(g['game_id'], campaigns_by_game)
+
+ def icon_img(g, cls):
+  url = icon_url(icons, g['game_id'])
+  if url:
+   return f'<img class="{cls}" src="{e(url)}" alt="" loading="lazy">'
+  return f'<span class="pop-initial" aria-hidden="true">{e(str(g["official_title"])[:1])}</span>'
+
+ ranked = sorted(games, key=lambda g: (-amt(g), str(g['official_title'])))
+ popular = [g for g in ranked if amt(g) > 0][:8] or ranked[:8]
+ pop_tiles = ''.join(
+  f'<a class="pop-tile" href="{BP}/games/{g["slug"]}/">{icon_img(g, "pop-icon")}'
+  f'<span class="pop-name">{e(g["official_title"])}</span>'
+  + (f'<span class="pop-amt">最大{amt(g):,}円相当</span>' if amt(g) else '')
+  + '</a>' for g in popular)
+ rank_rows = ''.join(
+  f'<li><a href="{BP}/games/{g["slug"]}/"><span class="rank-no">{i}</span>{icon_img(g, "rank-icon")}'
+  f'<span class="rank-name">{e(g["official_title"])}</span>'
+  f'<span class="rank-amt">{amt(g):,}円相当</span></a></li>'
+  for i, g in enumerate([g for g in ranked if amt(g) > 0][:10], 1))
+ camp_game = {}
+ for gid, cs in campaigns_by_game.items():
+  for c in cs:
+   camp_game[c['campaign_id']] = gid
+ titles = {g['game_id']: g['official_title'] for g in games}
+ slugs = {g['game_id']: g['slug'] for g in games}
  events = []
- games_by_id = {g['game_id']: g for g in visible}
- for g in visible:
-  if g.get('last_checked_at'):
-   events.append((str(g['last_checked_at']), f'{g["official_title"]}の情報を確認'))
- for g in visible:
-  for c in campaigns_by_game.get(g['game_id'], []):
-   if c.get('checked_at'):
-    events.append((str(c['checked_at']), f'{g["official_title"]}（{c.get("service_name")}）の案件条件を確認'))
  for h in history:
-  c_game = None
-  for g in visible:
-   if any(c.get('campaign_id') == h.get('campaign_id') for c in campaigns_by_game.get(g['game_id'], [])):
-    c_game = g
-    break
-  if c_game and h.get('changed_at'):
-   events.append((str(h['changed_at']), f'{c_game["official_title"]}の案件に{h.get("change_type")}を確認'))
+  events.append((str(h.get('changed_at') or ''), '条件変更', h['campaign_id']))
+ known = {h['campaign_id'] for h in history}
+ for cs in campaigns_by_game.values():
+  for c in cs:
+   if c['campaign_id'] not in known:
+    events.append((str(c.get('last_checked_at') or ''), '案件情報を確認', c['campaign_id']))
  events.sort(key=lambda x: x[0], reverse=True)
- updates = events[:5]
- if updates:
-  updates_html = '<ul class="clean">' + ''.join(f'<li>{e(d)}：{e(t)}</li>' for d, t in updates) + '</ul>'
- else:
-  updates_html = '<p class="muted">まだ更新情報はありません。対象ゲームの確認が完了したものから掲載します。</p>'
- if cards:
-  games_html = '<div class="grid">' + ''.join(cards) + '</div>'
- else:
-  games_html = '<p class="muted">現在、公開基準を満たしたゲーム情報はありません。対象ゲームの確認が完了したものから掲載します。</p>'
- main_col = (
-  '<section class="hero"><div class="eyebrow">GAME GUIDE / POINT REWARDS</div>'
-  '<h1>ポイ活ゲーム攻略Wiki</h1>'
-  '<p class="lead">ポイ活対象ゲームの攻略情報、達成条件、つまずきやすいポイントをゲーム別に整理する独立Wikiです。サービスごとに異なる案件条件と、ゲーム共通の攻略情報を分けて確認できるようにします。</p>'
-  f'<p><a href="{BP}/games/">ゲーム一覧を見る →</a></p></section>'
-  '<section class="panel"><h2>ゲーム名で探す</h2>' + search_block('search-top') + '</section>'
-  '<section><h2>掲載ゲーム</h2>' + games_html + '</section>'
-  '<section class="grid">'
-  '<div class="panel"><h2>ゲーム別に攻略を確認</h2><p>対象ゲームの掲載確認と情報整理が完了したものから公開します。未確認のゲームや条件を推測で掲載することはありません。</p></div>'
-  '<div class="panel"><h2>条件と攻略情報を分離</h2><p>ゲームの一般的な進め方と、ポイントサイト・アプリごとの報酬や期限・達成条件を区別して掲載します。</p>'
-  f'<p><a href="{BP}/how-to-read/">情報の見方 →</a></p></div>'
-  '</section>')
- aside = ('<section class="panel"><h2>更新情報</h2>' + updates_html + '</section>'
-          '<section class="panel"><h2>掲載情報の確認方針</h2><ul class="clean"><li>情報源と確認日を記載</li><li>公式情報・第三者情報・推定を区別</li><li>掲載終了や条件変更を履歴管理</li><li>実プレイしていない内容を実測として表現しない</li></ul>'
-          f'<p><a href="{BP}/editorial-policy/">編集・検証方針を確認する →</a></p></section>')
- body = f'<main class="wrap"><div class="layout"><div class="main-col">{main_col}</div><aside class="side-col">{aside}</aside></div></main>'
- ld = {'@context': 'https://schema.org', '@type': 'WebPage', 'name': 'ポイ活ゲーム攻略Wiki｜ゲーム別の達成条件・攻略情報', 'url': BASE + '/'} if BASE else None
- return page_shell('ポイ活ゲーム攻略Wiki｜ゲーム別の達成条件・攻略情報',
-                   'ポイ活対象ゲームの攻略情報、達成条件、注意点をゲーム別に整理。情報源と確認日を明示し、サービス別の案件条件を分けて掲載します。',
-                   'index,follow', '/', ld, body)
+ ev_items = ''
+ for d, label, cid in events[:6]:
+  gid = camp_game.get(cid)
+  if not gid or gid not in titles:
+   continue
+  ev_items += f'<li><a href="{BP}/games/{slugs[gid]}/">{e(titles[gid])}</a>：{label}（{e(d)}）</li>'
 
-
-def build_list(visible, campaigns_by_game, any_indexable):
- cards = [game_card(g, campaigns_by_game.get(g['game_id'], [])) for g in sorted(visible, key=lambda x: str(x['official_title']))]
+ header = ('<header class="header"><div class="hrow"><div class="logo">'
+           '<span class="lg-mark">ポ</span>ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div></div>'
+           '<nav class="gnav">'
+           '<a href="#popular">人気ゲーム</a><a href="#updates">新着・更新</a>'
+           f'<a href="#ranking">ランキング</a><a href="{BP}/games/">ゲーム一覧</a>'
+           '</nav></header>')
+ hero = ('<div class="hero"><h1>ポイ活ゲーム攻略Wiki「ポイゲークエスト」</h1>'
+         '<p class="lead">ポイ活で遊べるゲームの案件条件・到達ステップ・攻略情報を、ゲームごとに整理しています。条件は公式掲載を確認した時点の情報です。</p></div>')
+ search = f'<div class="search">{search_block("search-top")}</div>'
+ if games:
+  sections = f'<section class="sec" id="popular"><div class="sec-head"><h2>人気ゲーム</h2><a href="{BP}/games/">ゲーム一覧 ＞</a></div><div class="pop-grid">{pop_tiles}</div></section>'
+  if not rank_rows:
+   rank_rows = '<li class="muted" style="padding:8px 2px">ポイント額を確認できた案件はまだありません。</li>'
+  sections += f'<section class="sec" id="ranking"><div class="sec-head"><h2>ポイントが高い順</h2></div><ol class="rank-list">{rank_rows}</ol></section>'
+  if ev_items:
+   sections += f'<section class="sec" id="updates"><div class="sec-head"><h2>新着・更新</h2></div><ul class="updates">{ev_items}</ul></section>'
+  cards = ''.join(game_card(g, campaigns_by_game.get(g['game_id'], []), icons) for g in sorted(games, key=lambda x: str(x['official_title'])))
+  sections += f'<section class="sec" id="games"><div class="sec-head"><h2>全ゲーム一覧</h2></div><div class="grid">{cards}</div></section>'
+ else:
+  sections = '<p class="muted" style="padding:4px 12px">現在、公開基準を満たしたゲーム情報はありません。対象ゲームの確認が完了したものから掲載します。</p>'
+ sections += (f'<section class="sec"><div class="sec-head"><h2>サイトの案内</h2></div><div class="guide-links">'
+              f'<a href="{BP}/how-to-read/">案件条件の見方<span>＞</span></a>'
+              f'<a href="{BP}/editorial-policy/">編集方針<span>＞</span></a>'
+              f'<a href="{BP}/about/">このサイトについて<span>＞</span></a></div></section>')
+ footer = ('<footer class="footer"><nav>'
+           f'<a href="{BP}/games/">ゲーム一覧</a><a href="#ranking">ポイントが高い順</a>'
+           f'<a href="{BP}/how-to-read/">案件条件の見方</a><a href="{BP}/editorial-policy/">編集方針</a>'
+           f'<a href="{BP}/about/">このサイトについて</a></nav>'
+           '<p>掲載している金額・条件は、各ポイントサイトの公式掲載を確認した時点の情報です。最新の条件は各ポイントサイトでご確認ください。</p>'
+           '<p>© ポイゲークエスト</p></footer>')
+ body = f'<body><div class="page">{header}{hero}{search}<main>{sections}</main>{footer}</div></body></html>'
+ return '\n'.join(head) + '\n' + body
+def build_list(visible, campaigns_by_game, any_indexable, icons=None):
+ cards = [game_card(g, campaigns_by_game.get(g['game_id'], []), icons) for g in sorted(visible, key=lambda x: str(x['official_title']))]
  if cards:
   body_cards = '<div class="grid">' + ''.join(cards) + '</div>'
  else:
@@ -461,7 +593,7 @@ def build_topic(g, k, siblings, sources_by_id):
                    + f'<p>{rank_badge(k.get("info_rank"))}</p></section>')
  related = [f'<li><a href="{BP}/games/{e(slug)}/">{e(title)}のポイ活攻略</a></li>']
  for sib in siblings:
-  if sib.get('knowledge_id') != k.get('knowledge_id'):
+  if sib.get('knowledge_id') != k.get('knowledge_id') and not sib.get('static_page'):
    related.append(f'<li><a href="{BP}/games/{e(slug)}/{e(sib["topic_slug"])}/">{e(sib["topic"])}</a></li>')
  aside = ('<section class="panel"><h2>目次</h2>' + toc + '</section>'
           '<section class="panel"><h2>関連ページ</h2><ul class="clean">' + ''.join(related) + '</ul></section>')
@@ -576,6 +708,102 @@ def write_discovery_files(index_paths):
  sitemap.write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + '</urlset>\n', encoding='utf-8')
 
 
+
+PERFECT_DIR = ROOT / 'static-perfect'
+STATIC_SITEMAP_EXCLUDE = {'board.html'}
+
+
+def perfect_description(text, title):
+ m = re.search(r'<p class="lead">(.*?)</p>', text, re.S)
+ raw = re.sub(r'<[^>]+>', '', m.group(1)) if m else ''
+ raw = html.unescape(re.sub(r'\s+', ' ', raw)).strip()
+ if len(raw) < 30:
+  raw = (title + 'の攻略情報ページです。' + raw).strip()
+ return raw[:124]
+
+
+def convert_perfect_page(text, slug, name, icon_targets=None):
+ title = re.search(r'<title>(.*?)</title>', text, re.S).group(1).split('｜')[0].strip()
+ desc = perfect_description(text, title)
+ cpath = f'/games/{slug}/' if name == 'index.html' else f'/games/{slug}/{name}'
+ text = text.replace('<a href="../index.html">トップ</a>', f'<a href="{BP}/">トップ</a>')
+ text = text.replace('<a href="index.html">トップ</a>', f'<a href="{BP}/">トップ</a>')
+ nav_targets = {'人気ゲーム': f'{BP}/#popular', '新着・更新': f'{BP}/#updates',
+                'ランキング': f'{BP}/#ranking', 'ゲーム一覧': f'{BP}/games/',
+                '攻略メニュー': f'{BP}/games/{slug}/'}
+
+ def nav_sub(m):
+  return f'<a href="{nav_targets[m.group(2)]}"{m.group(1) or ""}>{m.group(2)}</a>'
+
+ text = re.sub(r'<a href="(?:\.\./)?index\.html"( class="on")?>(人気ゲーム|新着・更新|ランキング|ゲーム一覧|攻略メニュー)</a>', nav_sub, text)
+ text = text.replace('<div class="crumbs">トップ ＞ ゲーム一覧 ＞ <b>',
+                     f'<div class="crumbs"><a href="{BP}/">トップ</a> ＞ <a href="{BP}/games/">ゲーム一覧</a> ＞ <b>')
+ for label, url in {'ゲーム一覧': f'{BP}/games/', 'ポイントが高い順': f'{BP}/#ranking',
+                    '案件条件の見方': f'{BP}/how-to-read/', '編集方針': f'{BP}/editorial-policy/',
+                    'このサイトについて': f'{BP}/about/', '条件の見方 ＞': f'{BP}/how-to-read/'}.items():
+  text = text.replace(f'<a href="#">{label}</a>', f'<a href="{url}">{label}</a>')
+ def more_sub(m):
+  inner = m.group(1)
+  if '編集方針' in inner:
+   url = f'{BP}/editorial-policy/'
+  elif '案件条件の見方' in inner or '購入系ステップ' in inner:
+   url = f'{BP}/how-to-read/'
+  else:
+   return m.group(0)
+  return f'<a class="more-link" href="{url}">{inner}</a>'
+ text = re.sub(r'<a class="more-link" href="#">(.*?)</a>', more_sub, text)
+ if icon_targets:
+  def row_sub(m):
+   url = icon_targets.get(m.group(2))
+   if not url:
+    return m.group(0)
+   return f'<a class="row" href="{url}">{m.group(1)}'
+  text = re.sub(r'<a class="row" href="#">(<img src="(https://[^"]+)"[^>]*>)', row_sub, text)
+ text = text.replace('<a class="cta-btn" href="https://hapitas.jp/appinvite?i=26164523"',
+                     '<a class="cta-btn" data-ref-service="ハピタス" data-ref-placement="campaign" href="https://hapitas.jp/appinvite?i=26164523"')
+ text = text.replace('<a class="sticky-cta-bar" id="stickyCtaBar" href="https://hapitas.jp/appinvite?i=26164523"',
+                     '<a class="sticky-cta-bar" id="stickyCtaBar" data-ref-service="ハピタス" data-ref-placement="sticky" href="https://hapitas.jp/appinvite?i=26164523"')
+ text = text.replace("var d=SVC[key]; if(!d)return;",
+                     "var d=SVC[key]; if(!d)return;\n  document.querySelectorAll('.cta-btn,#stickyCtaBar').forEach(function(el){el.setAttribute('data-ref-service',d.name);});")
+ inject = (f'<meta name="description" content="{e(desc)}">\n'
+           '<meta name="robots" content="index,follow">\n')
+ if BASE:
+  inject += f'<link rel="canonical" href="{e(BASE + cpath)}">\n'
+ inject += ga4_snippet() + f'\n<script src="{BP}/assets/site.js" defer></script>\n'
+ text = text.replace('</head>', inject + '</head>', 1)
+ text = text.replace('</header>', '</header>\n<main>', 1)
+ text = text.replace('<footer', '</main>\n<footer', 1)
+ return text
+
+
+def apply_static_overlay(g, folder, icons=None):
+ slug = g['slug']
+ icon_targets = {}
+ if icons:
+  for _gid, _ent in icons.items():
+   _url = icon_url(icons, _gid)
+   _slug = _ent.get('slug') if isinstance(_ent, dict) else None
+   if _url and _slug:
+    icon_targets[_url] = f'{BP}/games/{_slug}/'
+ src_dir = PERFECT_DIR / slug
+ if not src_dir.is_dir():
+  raise SystemExit(f'静的ページのソースがありません: {src_dir}')
+ paths = []
+ for txt in sorted(src_dir.glob('*.html.txt')):
+  name = txt.name[:-4]
+  out = convert_perfect_page(txt.read_text(encoding='utf-8'), slug, name, icon_targets)
+  (folder / name).write_text(out, encoding='utf-8')
+  if name not in ('index.html', 'board.html'):
+   paths.append(f'/games/{slug}/{name}')
+ img_dir = src_dir / 'img'
+ if img_dir.is_dir():
+  out_img = folder / 'img'
+  out_img.mkdir(exist_ok=True)
+  for b64f in sorted(img_dir.glob('*.b64')):
+   data = base64.b64decode(re.sub(r'\s+', '', b64f.read_text(encoding='ascii')))
+   (out_img / b64f.name[:-4]).write_bytes(data)
+ return paths
+
 def main():
  global BP, BASE
  BP, BASE = resolve_base()
@@ -585,6 +813,10 @@ def main():
  knowledge = load('knowledge')
  sources = load('sources')
  history = load('campaign_history')
+ icons = {}
+ icons_path = DATA / 'icons.json'
+ if icons_path.exists():
+  icons = json.loads(icons_path.read_text(encoding='utf-8'))
  sources_by_id = {s.get('source_id'): s for s in sources if isinstance(s, dict) and s.get('source_id')}
  campaigns_by_game = {}
  for c in campaigns:
@@ -623,13 +855,20 @@ def main():
   hist = [h for c in cs for h in history_by_campaign.get(c.get('campaign_id'), [])]
   folder = games_dir / slug
   folder.mkdir(parents=True, exist_ok=True)
-  page, idx = build_detail(g, ks, cs, hist, sources_by_id)
-  (folder / 'index.html').write_text(page, encoding='utf-8')
-  detail_indexable[slug] = idx
-  if idx:
+  static_mode = g.get('page_mode') == 'static'
+  if static_mode:
+   detail_indexable[slug] = True
    index_paths.append(f'/games/{slug}/')
+  else:
+   page, idx = build_detail(g, ks, cs, hist, sources_by_id)
+   (folder / 'index.html').write_text(page, encoding='utf-8')
+   detail_indexable[slug] = idx
+   if idx:
+    index_paths.append(f'/games/{slug}/')
   generated_topics = set()
   for k in ks:
+   if static_mode and k.get('static_page'):
+    continue
    ts = str(k.get('topic_slug') or '').strip()
    if not SLUG_RE.fullmatch(ts):
     continue
@@ -651,11 +890,13 @@ def main():
   for p in folder.iterdir():
    if p.is_dir() and p.name not in keep:
     shutil.rmtree(p)
- list_page, list_robots = build_list(visible, campaigns_by_game, any(detail_indexable.values()))
+  if static_mode:
+   index_paths.extend(apply_static_overlay(g, folder, icons))
+ list_page, list_robots = build_list(visible, campaigns_by_game, any(detail_indexable.values()), icons)
  (games_dir / 'index.html').write_text(list_page, encoding='utf-8')
  if list_robots.startswith('index'):
   index_paths.insert(4, '/games/')
- (ROOT / 'index.html').write_text(build_top(visible, campaigns_by_game, knowledge_by_game, history), encoding='utf-8')
+ (ROOT / 'index.html').write_text(build_top(visible, campaigns_by_game, knowledge_by_game, history, icons), encoding='utf-8')
  generated_slugs = {g['slug'] for g in visible}
  for p in games_dir.iterdir():
   if p.is_dir() and p.name not in generated_slugs:

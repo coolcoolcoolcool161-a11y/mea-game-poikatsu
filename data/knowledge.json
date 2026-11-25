@@ -1535,5 +1535,619 @@
   "condition_differences": "ステップ構成は時期・サイトで異なる実例を3パターン確認しており、登録済み案件データと矛盾させない。開発元の正式表記はSeven Cities／StarUnionで情報源により揺れがある",
   "checked_at": "2026-11-25",
   "info_rank": "C"
+ },
+ {
+  "knowledge_id": "k042",
+  "game_id": "g001",
+  "topic": "完璧版ゲームトップ（案件・到達目安・攻略メニュー）",
+  "topic_slug": "top",
+  "conclusion": "ポイ活案件はハピタス（最大42,530pt）とモッピー（最大27,037P）の2件。いずれもコントロールセンター到達＋購入系の全10ステップで、期限は30日以内。到達目安はLv22到達までで、課金（現実的プラン）17日・無課金25日。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "案件ステップ表",
+    "text": "サービス切替タブで両サービスの全10ステップとSTEP別攻略を表示する。ハピタスはLv7/12/17/25/30到達＋購入5ステップで合計42,530pt。"
+   },
+   {
+    "heading": "到達目安の前提",
+    "text": "目安はLv22到達ラインで統一。課金側は永久建築隊列＋★3建築マスター装備（約1,500円）の現実的プランを前提とし、前提アイテムと合計金額を併記する。"
+   },
+   {
+    "heading": "攻略メニュー",
+    "text": "ポイ活案件・序盤・ギフトコード・施設・研究・英雄・資源・同盟・イベント・兵士・計算ツール3種・掲示板・情報提供のタイルから各ページへ導線する。"
+   }
+  ],
+  "source_type": "公式",
+  "source_id": "s023",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "index.html"
+ },
+ {
+  "knowledge_id": "k043",
+  "game_id": "g001",
+  "topic": "序盤の進め方",
+  "topic_slug": "joban",
+  "conclusion": "序盤は前提施設の先回り建設と★3建設マスター装備の早期確保が効率の中心。ポイ活ギルドはLv17前後で崩壊しやすいため、移籍も視野に入れる。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "初日の進め方",
+    "text": "エピソード進行と並行して前提施設を先回りで建て、建設マスター装備を初日〜2日目に揃える。"
+   },
+   {
+    "heading": "進軍枠と研究",
+    "text": "進軍枠は研究所Lv6/12/20で解放されるため、研究所も先回りで上げる。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "joban.html"
+ },
+ {
+  "knowledge_id": "k044",
+  "game_id": "g001",
+  "topic": "サバイバルイベント（開始7日間）",
+  "topic_slug": "joban-survival",
+  "conclusion": "開始7日間のサバイバルイベントの進め方と、序盤リソースの使い道を整理したページ。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "イベントの進め方",
+    "text": "開始直後の期間限定イベントの項目と報酬の取り方を、序盤の進行度に合わせて整理する。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "joban-survival.html"
+ },
+ {
+  "knowledge_id": "k045",
+  "game_id": "g001",
+  "topic": "施設の上げ方・前提",
+  "topic_slug": "kensetsu",
+  "conclusion": "コントロールセンターの前提施設は現行仕様（2023年12月変更後）で整理する。CC15は生物研究所Lv14、CC17は武器庫Lv16が現行の前提で、旧仕様（交易所／鋼材収集工場）の記事とは前提が異なる。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "前提表の見方",
+    "text": "CC Lvごとに必要な前提施設を表で確認し、先回り建設の順序を決める。"
+   },
+   {
+    "heading": "建設短縮",
+    "text": "★3建設マスター装備の部位別削減と、内政英雄（サベス・イラ）の固定額削減を組み合わせる。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "kensetsu.html"
+ },
+ {
+  "knowledge_id": "k046",
+  "game_id": "g001",
+  "topic": "CC建設コストと建設時間の数値表",
+  "topic_slug": "kensetsu-numbers",
+  "conclusion": "コントロールセンター Lv15〜35の建設コスト（食料・木材・鋼材・ガス）と建設時間、累計必要資源の精密表。Lv23〜30は計算機データと実機表示で照合済み。建築工学の単価は5ダイヤ説と10ダイヤ説の両論を併記する。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "レベル別コスト表",
+    "text": "Lv15〜35の基礎資源量と前提、特殊資源（復元概数・機密図等）をカード形式で掲載する。"
+   },
+   {
+    "heading": "建設時間の2系統",
+    "text": "短縮なしの素の時間と、短縮込みの実効時間は系統が異なり約25%乖離する。両者を区別して扱う。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s368",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "kensetsu-numbers.html"
+ },
+ {
+  "knowledge_id": "k047",
+  "game_id": "g001",
+  "topic": "研究の進め方",
+  "topic_slug": "kenkyu",
+  "conclusion": "研究は発展ツリーの「スタミナ回復」が最優先。次いで建築速度・研究速度・訓練速度を揃え、進軍枠III（研究所Lv20）を目指す。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "優先順位",
+    "text": "発展ツリーを先行し、進軍枠の解放（Lv6/12/20）に合わせて研究所を上げる。"
+   },
+   {
+    "heading": "英雄との関係",
+    "text": "★2英雄はLv31で全スキルが解放されるため、研究と育成の節目を揃える。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "kenkyu.html"
+ },
+ {
+  "knowledge_id": "k048",
+  "game_id": "g001",
+  "topic": "英雄の見方（ハブ）",
+  "topic_slug": "eiyu",
+  "conclusion": "英雄ページ群のハブ。全英雄一覧・育成・役割別の詳細ページへの導線と、属性と編成の基本、英雄の要点サマリーを置く。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "詳細ページへの案内",
+    "text": "一覧・育成・役割別の3ページへ、タイトルと補足を分けたリンクボタンで導線する。"
+   },
+   {
+    "heading": "属性と編成の基本",
+    "text": "属性5種（勇敢・衝動・冷静・慎重・狂乱）と編成の考え方の要点を整理する。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s366",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "eiyu.html"
+ },
+ {
+  "knowledge_id": "k049",
+  "game_id": "g001",
+  "topic": "全英雄一覧",
+  "topic_slug": "eiyu-list",
+  "conclusion": "属性別に英雄を並べた一覧。各英雄のレア度・兵種・入手手段を示し、個別ページへリンクする。属性タブでカードを絞り込める。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "属性別の一覧",
+    "text": "勇敢・衝動・冷静・慎重・狂乱の属性セクションごとに英雄カードを配置する。"
+   },
+   {
+    "heading": "アイコン",
+    "text": "実機スクショ等から切り出した顔アイコンを54名分に表示し、未収録の英雄は募集ページで提供を募る。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s366",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "eiyu-list.html"
+ },
+ {
+  "knowledge_id": "k050",
+  "game_id": "g001",
+  "topic": "英雄の育成",
+  "topic_slug": "eiyu-ikusei",
+  "conclusion": "育成の節目はスキル解放ラインで判断する。★2英雄はLv31で全スキルが解放されるため「全員Lv31で止める」が定石。内政英雄の止めラインと入手の優先も整理する。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "育成の節目",
+    "text": "レベル・スキル解放の節目ごとに、どこまで育てるかの判断を示す。"
+   },
+   {
+    "heading": "内政英雄の止めライン",
+    "text": "資源削減スキルの解放段階に合わせて、内政英雄は必要分だけ育てる。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s366",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "eiyu-ikusei.html"
+ },
+ {
+  "knowledge_id": "k051",
+  "game_id": "g001",
+  "topic": "英雄の役割・機能別早見",
+  "topic_slug": "eiyu-yakuwari",
+  "conclusion": "役割別・機能別の早見表。資源削減の対応表（サベス＝食料・木材／イラ＝鋼材・ガス）や、採集・生産・治療などの機能別に英雄を引ける。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "内政と軍事の違い",
+    "text": "内政英雄は持っているだけで拠点運営に効き、軍事英雄は部隊に編成して効く。役割で分けて整理する。"
+   },
+   {
+    "heading": "資源削減の対応表",
+    "text": "サベスは食料・木材、イラは鋼材・ガスを固定額で削減する。解放段階（+0〜+5）ごとの削減量も示す。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s366",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "eiyu-yakuwari.html"
+ },
+ {
+  "knowledge_id": "k052",
+  "game_id": "g001",
+  "topic": "英雄データベース（個別ページ89名・検索）",
+  "topic_slug": "hero-database",
+  "conclusion": "英雄89名の個別ページ（hero-*.html）と検索ページのデータベース。各ページに基本情報・最大ステータス・パズルスキル・軍団/内政スキル・専属ウェポン・入手先を収録し、検索ページでは属性・兵種・★・機能タグ・名前で絞り込める。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "収録範囲",
+    "text": "★6（→★7）28名・★5（→★6）35名・★4 11名・★3 10名・★2 5名の全89名。コラボ英雄の専属ウェポン記載なしの扱いも含めて記録する。"
+   },
+   {
+    "heading": "データ項目",
+    "text": "最大基本ステータスは育成条件つきで掲載し、スキルは効果文全文を収録する。数値は全件を正本データと機械照合済み。"
+   },
+   {
+    "heading": "検索の軸",
+    "text": "属性5種・兵種・レア度・内政機能タグ（資源削減/採集/生産/治療/研究/建築/訓練等）・パズル効果タグ・名前検索。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s366",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "hero-search.html"
+ },
+ {
+  "knowledge_id": "k053",
+  "game_id": "g001",
+  "topic": "資源・ダイヤの集め方",
+  "topic_slug": "resource",
+  "conclusion": "資源とダイヤの集め方。採集・生産の基本に加え、ダイヤ消費は土日の「ダイヤの達人」に寄せるなど、イベントと連動した効率策を整理する。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "資源の集め方",
+    "text": "採集部隊の運用と生産施設のバランスで、CC上げに必要な4資源を確保する。"
+   },
+   {
+    "heading": "ダイヤの使い方",
+    "text": "建築工学の予算（多い方の説で3,140ダイヤ）など、必要な使い道を先に押さえる。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "resource.html"
+ },
+ {
+  "knowledge_id": "k054",
+  "game_id": "g001",
+  "topic": "同盟・ギルド",
+  "topic_slug": "doumei",
+  "conclusion": "同盟（ギルド）の加入・移籍の考え方と、ヘルプ・ギルドコインの数値。ポイ活ギルドはLv17前後で崩壊する例が複数あるため、過疎化したら移籍するのが定石とする。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "加入と移籍",
+    "text": "初回加入で300ダイヤが得られる。脱退後の再加入にクールタイムはないとされる。"
+   },
+   {
+    "heading": "ヘルプとギルドコイン",
+    "text": "ヘルプ短縮の算出方式は国内・海外で見解が割れるため、両論を併記する。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "doumei.html"
+ },
+ {
+  "knowledge_id": "k055",
+  "game_id": "g001",
+  "topic": "ギルド対決",
+  "topic_slug": "doumei-duel",
+  "conclusion": "ギルド対決の進め方。CC15から参加でき、曜日ごとの対決項目に沿って動くのが基本になる。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "対決の進め方",
+    "text": "曜日別の項目（建設・研究・訓練等）に合わせて行動を寄せ、ポイントを積む。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "doumei-duel.html"
+ },
+ {
+  "knowledge_id": "k056",
+  "game_id": "g001",
+  "topic": "イベント攻略（ハブ）",
+  "topic_slug": "event",
+  "conclusion": "周期イベント攻略のハブ。週間イベントの全体像を示し、エース指揮官・ゾンビ襲来系・カレンダーの各ページへ導線する。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "週間イベントの全体像",
+    "text": "1週間の周期イベントの並びを図解し、資源・ダイヤの使いどころを示す。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "event.html"
+ },
+ {
+  "knowledge_id": "k057",
+  "game_id": "g001",
+  "topic": "エース指揮官",
+  "topic_slug": "event-ace",
+  "conclusion": "エース指揮官（週間イベント）の曜日別タスクと効率策。ダイヤ消費は土日の「ダイヤの達人」と重ねるのが定石。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "曜日別タスク",
+    "text": "曜日ごとの対象行動に合わせて、建設・研究・訓練・ダイヤ消費を寄せる。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "event-ace.html"
+ },
+ {
+  "knowledge_id": "k058",
+  "game_id": "g001",
+  "topic": "ゾンビ襲来系イベント",
+  "topic_slug": "event-dead",
+  "conclusion": "ゾンビ襲来系イベントの進め方と、部隊・英雄の備えを整理したページ。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "イベントの備え",
+    "text": "襲来に備えた部隊規模と治療の回し方を、兵士・部隊ページの数値とあわせて示す。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "event-dead.html"
+ },
+ {
+  "knowledge_id": "k059",
+  "game_id": "g001",
+  "topic": "イベントカレンダー",
+  "topic_slug": "event-calendar",
+  "conclusion": "周期イベントの週間カレンダー。曜日ごとの開催イベントを一覧で確認できる。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "カレンダーの見方",
+    "text": "週間周期のイベント配置を見て、日課とダイヤ消費のタイミングを決める。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "event-calendar.html"
+ },
+ {
+  "knowledge_id": "k060",
+  "game_id": "g001",
+  "topic": "ギフトコード",
+  "topic_slug": "giftcode",
+  "conclusion": "ギフトコードは2026-11-25時点で有効22件を複数出典のクロスチェックで確認。入力方法と、出典間で有効判定が割れる場合がある注意を併記し、月次で再確認する。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "有効コード一覧",
+    "text": "確認できたコードと報酬を一覧する。報酬が未確認のコード（PNSKIND26）はその旨を明記する。"
+   },
+   {
+    "heading": "入力方法",
+    "text": "ゲーム内の設定画面からコードを入力する手順を示す。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s370",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "giftcode.html"
+ },
+ {
+  "knowledge_id": "k061",
+  "game_id": "g001",
+  "topic": "兵士・部隊",
+  "topic_slug": "heishi",
+  "conclusion": "兵士・部隊のデータ集。戦力・積載量の全量表（T1〜T14×4兵種）、ティア解放表、兵種相性、病院容量・部隊規模のCC別表、訓練コスト全量表を収録する。治療コスト表は未取得のため、その旨を明記する。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "戦力と積載量",
+    "text": "ティア×兵種の全組み合わせを表で掲載し、部隊編成の判断に使う。"
+   },
+   {
+    "heading": "訓練コスト",
+    "text": "計算ツールの固定条件（コスト軽減15%等）を明記したうえで、56組み合わせのコストを示す。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s368",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "heishi.html"
+ },
+ {
+  "knowledge_id": "k062",
+  "game_id": "g001",
+  "topic": "日課・週間ルーティン",
+  "topic_slug": "routine",
+  "conclusion": "1日の時間帯の型と週間ルーティン。日課の回し方を周期イベントと組み合わせて整理する。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "1日の型",
+    "text": "ログイン・採集・ヘルプ等の日課を時間帯の型として示す。"
+   },
+   {
+    "heading": "週間ルーティン",
+    "text": "曜日ごとのイベントに合わせて、1週間の動きを組み立てる。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s058",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "routine.html"
+ },
+ {
+  "knowledge_id": "k063",
+  "game_id": "g001",
+  "topic": "CC必要資源計算機",
+  "topic_slug": "tools-cc",
+  "conclusion": "コントロールセンターの必要資源計算機。現在Lvと目標Lv（Lv15〜35対応）から、必要資源と装備・英雄による削減見込みを計算する。基礎データは計算ツール群の内部データと照合済み。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "計算の前提",
+    "text": "基礎量はLv1〜45の精密値を採用し、装備・英雄の削減テーブルを組み合わせる。CC36以降の特殊資源個数は未取得のため対象外とする。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s368",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "tools-cc.html"
+ },
+ {
+  "knowledge_id": "k064",
+  "game_id": "g001",
+  "topic": "訓練コスト計算機",
+  "topic_slug": "tools-training",
+  "conclusion": "訓練コスト計算機。ティア・兵種・人数から訓練コストを計算する。基礎データは計算ツールの全量取得値（固定条件つき）を使う。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "計算の前提",
+    "text": "コスト軽減15%・訓練速度100%等の固定条件をページ内に明記し、条件が違う場合は換算が必要な旨を示す。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s368",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "tools-training.html"
+ },
+ {
+  "knowledge_id": "k065",
+  "game_id": "g001",
+  "topic": "試験管ソルバー",
+  "topic_slug": "tools-watersort",
+  "conclusion": "試験管パズル（ウォーターソート）の解法ツール。グリッド手入力と色サンプリングで配置を読み取り、最短手順を探索する。「？」の隠しマスは仮定探索と開放優先モードで扱う。機能の型は参照元のツールを参考にし、実装は独自。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "使い方",
+    "text": "試験管の本数と色配置を入力すると、手順をシミュレーション表示する。解けない配置はその旨を表示する。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s369",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "tools-watersort.html"
+ },
+ {
+  "knowledge_id": "k066",
+  "game_id": "g001",
+  "topic": "ゲーム別掲示板（パズサバ）",
+  "topic_slug": "board",
+  "conclusion": "パズル＆サバイバル専用の来訪者掲示板。種別は質問・雑談・同盟募集の3種で、投稿はSupabaseに保存され、運営が確認する。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "投稿と確認",
+    "text": "投稿は即時表示されるが、不適切な投稿は運営が削除する運用とする。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s371",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "board.html"
+ },
+ {
+  "knowledge_id": "k067",
+  "game_id": "g001",
+  "topic": "画像・情報の提供（募集ページ）",
+  "topic_slug": "contribute",
+  "conclusion": "画像・素材・情報の提供フォーム。投稿は運営側でのみ確認でき、来訪者には公開されない。アイコン未収録の英雄35名などの募集中リストを併記する。",
+  "answer_scope": "完璧版の静的ページとして公開する（page_file が実体）。内容は2026-11-25時点の確認に基づく",
+  "steps": [
+   {
+    "heading": "募集の仕組み",
+    "text": "フォーム送信はSupabaseのcontributionsテーブルとStorageに保存され、運営が内容を確認してからサイトへ反映する。"
+   }
+  ],
+  "source_type": "第三者",
+  "source_id": "s371",
+  "checked_at": "2026-11-25",
+  "confidence_note": "完璧版ページの内容を台帳側の正として登録。数値の根拠は出典と調査記録（research-raw）に保持する",
+  "info_rank": "C",
+  "static_page": true,
+  "page_file": "contribute.html"
  }
 ]
