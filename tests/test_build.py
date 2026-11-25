@@ -36,10 +36,12 @@ try:
  listing=(r/'games'/'index.html').read_text(encoding='utf-8')
  top=(r/'index.html').read_text(encoding='utf-8')
  # 4台帳＋履歴から詳細・攻略・条件が生成され、共通レイアウトとサブパスが効いている
- for page in (detail,topic,cond,listing,top):
+ for page in (detail,topic,cond,listing):
   assert 'class="wrap head"' in page and 'class="brand"' in page and 'class="footlinks"' in page
+ for page in (detail,topic,cond,listing,top):
   assert 'href="/mea-game-poikatsu/games/"' in page
   assert 'G-8BB8V3DRW8' in page and 'site.js' in page  # GA4＋計測スクリプト
+ assert 'ポイゲークエスト' in top and 'class="gnav"' in top and 'id="popular"' in top and 'id="ranking"' in top  # 新トップ（ポータル型）
  assert '検証用サンプルゲーム' in detail and '検証テーマ' in detail
  assert '検証用の結論です' in topic and 'STEP 1' in topic and '/games/sample-game/test-topic/' in detail
  assert '<link rel="canonical"' not in detail  # ホスト未確定ではcanonicalを出さない

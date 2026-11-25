@@ -72,3 +72,11 @@ python tests/test_audit.py
 `python scripts/audit_site.py` でHTML構造、内部リンク（ベースパスを除去して解決）、title/description/robots、viewport、H1、画像alt、見出し階層、sitemap内のnoindex混入、モバイル向けCSSを監査する。終了コード1はエラーあり。canonical未設定と実ホストのプレースホルダーは、実URLが未確定のため警告として扱う。
 
 この監査はソース静的検査であり、実ブラウザ描画・実機でのモバイル表示・Core Web Vitals・検索エンジンの実クロール結果を保証しない。公開前に実ホストで追加確認すること。
+
+## 静的ページ方式（page_mode=static）のゲーム
+
+- 台帳 `games.json` の `page_mode` が `static` のゲームは、詳細ページを台帳から生成せず、`static-perfect/<slug>/` に置いた完璧版ページ群（`<name>.html.txt` と画像の `img/<name>.b64`）をビルド時に本番パスへ配置する（現在はパズル＆サバイバルが該当）。
+- 配置時に本番用変換（canonical・GA4・計測属性・パンくず/ナビのリンク先・mainランドマーク・description/robots の注入）を行う。`board.html` はサイトマップに載せない。
+- 完璧版の内容は台帳 `knowledge.json` に `static_page: true` のエントリとして登録し、台帳側を正とする（`page_file` が対応ファイル名）。
+- 旧来の生成トピック（k001/k005）と条件ページは従来どおり生成され、旧URLを維持する。
+- `data/icons.json` はゲームアイコン（App Store）の対応表で、トップページとゲーム一覧のカードで使う。

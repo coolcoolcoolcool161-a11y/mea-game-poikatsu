@@ -1,0 +1,299 @@
+{
+ "g001": {
+  "title": "パズル＆サバイバル",
+  "slug": "puzzles-and-survival",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "パズル&サバイバル",
+   "term": "パズル＆サバイバル"
+  }
+ },
+ "g002": {
+  "title": "ロイヤルマッチ",
+  "slug": "royal-match",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/6f/a9/b76fa99c-73e0-dad3-d93a-d08caf5427d5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "ロイヤルマッチ（Royal Match)",
+   "term": "ロイヤルマッチ"
+  }
+ },
+ "g004": {
+  "title": "キングショット",
+  "slug": "kingshot",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "キングショット",
+   "term": "キングショット"
+  }
+ },
+ "g005": {
+  "title": "メメントモリ",
+  "slug": "memento-mori",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/01/2c/f1012c21-5153-7b08-4f81-a5e94e75d1a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "メメントモリ",
+   "term": "メメントモリ"
+  }
+ },
+ "g006": {
+  "title": "ラストアサイラム：プレイグ",
+  "slug": "last-asylum-plague",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/9f/27/3d9f271b-c385-f2ca-3091-00d042dff9c8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "ラストアサイラム：プレイグ",
+   "term": "ラストアサイラム"
+  }
+ },
+ "g007": {
+  "title": "MONOPOLY GO!",
+  "slug": "monopoly-go",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e0/6f/19/e06f191b-fd62-be4d-6bc5-fc2009a1e2c7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "MONOPOLY GO! (モノポリー GO!)",
+   "term": "MONOPOLY GO!"
+  }
+ },
+ "g008": {
+  "title": "ザ・グランドマフィア",
+  "slug": "the-grand-mafia",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/a6/13/56a613e8-939f-5eb5-00ac-6e16288d1f3a/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg",
+   "track": "ザ・グランドマフィア",
+   "term": "ザ・グランドマフィア"
+  }
+ },
+ "g009": {
+  "title": "Wild Survival",
+  "slug": "wild-survival",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a2/92/49/a29249e6-5f15-0d7e-4aad-d6ebb5c5dc74/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "Wild Survival",
+   "term": "Wild Survival"
+  }
+ },
+ "g010": {
+  "title": "パズル＆コンクエスト",
+  "slug": "puzzles-and-conquest",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b4/1f/74/b41f74a0-4204-6e73-0256-e81bdd65de16/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "Puzzles & Conquest",
+   "term": "パズル＆コンクエスト"
+  }
+ },
+ "g011": {
+  "title": "Bingo Blitz",
+  "slug": "bingo-blitz",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "Bingo Blitz™ - ビンゴゲーム",
+   "term": "Bingo Blitz"
+  }
+ },
+ "g012": {
+  "title": "タウンシップ",
+  "slug": "township",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/1b/52/311b52d8-1de2-5561-cad2-4c4643ac1fb0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+   "track": "タウンシップ (Township)",
+   "term": "タウンシップ"
+  }
+ },
+ "g013": {
+  "title": "マフィア・シティ-極道風雲",
+  "slug": "mafia-city",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9f/b1/16/9fb1160a-a85d-4535-99d3-8a62dde4dbe2/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+   "track": "マフィア・シティ-極道風雲",
+   "term": "マフィア・シティ-極道風雲"
+  }
+ },
+ "g016": {
+  "title": "パズル＆カオス",
+  "slug": "puzzles-and-chaos",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/bd/5a/e2bd5a82-47df-4f6f-0578-3ef3fdab2862/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "パズル＆カオス",
+   "term": "パズル＆カオス"
+  }
+ },
+ "g017": {
+  "title": "ドゥームズデイ：ラストサバイバー",
+  "slug": "doomsday-last-survivors",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/35/39/f2/3539f255-bfef-bfd0-4872-a23324dbfcd0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "ドゥームズデイ × デューン 砂の惑星PART3",
+   "term": "ドゥームズデイ"
+  }
+ },
+ "g018": {
+  "title": "キノコ伝説",
+  "slug": "kinoko-densetsu",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a1/d2/85/a1d285a0-56ea-422d-296b-bca5a05a7a6c/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+   "track": "キノコ伝説：勇者と魔法のランプ",
+   "term": "キノコ伝説"
+  }
+ },
+ "g019": {
+  "title": "出荷ぶた",
+  "slug": "shukka-buta",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ff/35/7f/ff357f81-07c3-1345-b114-48f0be7645d2/AppIcon-0-0-1x_U007emarketing-0-9-0-85-220.jpeg/512x512bb.jpg",
+   "track": "出荷ぶた-養豚場育成ゲーム！放置で癒しの牧場経営",
+   "term": "出荷ぶた"
+  }
+ },
+ "g020": {
+  "title": "ヴァイキングライズ",
+  "slug": "viking-rise",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/79/9f/b5/799fb5f5-ff5f-1377-ee65-6ec725d8f92b/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+   "track": "ヴァイキングライズ",
+   "term": "ヴァイキングライズ"
+  }
+ },
+ "g021": {
+  "title": "ヒーローウォーズ：アライアンス - 放置系RPG",
+  "slug": "hero-wars-alliance",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/70/06/16/70061651-ef31-98a3-b05d-52f67fd02d89/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "ヒーローウォーズ：アライアンス — アクションバトルにRPG",
+   "term": "ヒーローウォーズ"
+  }
+ },
+ "g024": {
+  "title": "トップウォー",
+  "slug": "top-war",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/17/30/63/17306387-0f5a-8e18-9c3b-39fd0ca989b1/AppIcon-gl-1-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+   "track": "トップウォー",
+   "term": "トップウォー"
+  }
+ },
+ "g026": {
+  "title": "Slot Mate - 3Dスロットカジノゲーム",
+  "slug": "slot-mate",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d8/a1/ae/d8a1aefd-df29-5dbe-2c12-8588b8c398cc/AppIcon-live-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+   "track": "Slot Mate（スロットメイト）- ベガススロットカジノ",
+   "term": "Slot Mate"
+  }
+ },
+ "g029": {
+  "title": "Disney Solitaire ディズニー ソリティア",
+  "slug": "disney-solitaire",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/0a/3b/e60a3b2a-ae3e-6f94-835b-eb6a744ac36c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "Disney Solitaire ディズニー ソリティア",
+   "term": "Disney Solitaire ディズニー ソリティア"
+  }
+ },
+ "g030": {
+  "title": "ブレードウォー（ブレードウォー三国）",
+  "slug": "blade-war-three-kingdoms",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/78/7a/9c787a4c-0690-556e-31b3-557a7ee5f2e1/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+   "track": "ブレードウォー",
+   "term": "ブレードウォー"
+  }
+ },
+ "g031": {
+  "title": "ゾンビ・パニック",
+  "slug": "zombie-panic",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/17/df/e1/17dfe12c-8879-ce00-f911-701342aef14c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "ゾンビ・パニック",
+   "term": "ゾンビ・パニック"
+  }
+ },
+ "g032": {
+  "title": "War of Towers",
+  "slug": "war-of-towers",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e6/d2/06/e6d206aa-2cfa-e12b-18bc-c74cc8461b19/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+   "track": "War of Towers - Card Battle",
+   "term": "War of Towers"
+  }
+ },
+ "g033": {
+  "title": "商人放浪記：あきんどの成り上がり道",
+  "slug": "shonin-horoki",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/14/fa/eb/14faebf4-fe82-4d86-5868-98dd11f860b7/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+   "track": "商人放浪記",
+   "term": "商人放浪記"
+  }
+ },
+ "g034": {
+  "title": "Merge Cooking®",
+  "slug": "merge-cooking",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f2/39/9f/f2399f90-7d4d-9c08-ff6e-8d706a02f5c1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "マージクッキング テーマレストラン",
+   "term": "Merge Cooking"
+  }
+ },
+ "g036": {
+  "title": "ウエスタン農場 - クロンダイクの冒険",
+  "slug": "western-farm-klondike",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f2/00/14/f200143d-09c3-0c2b-a79c-f9bbe1551038/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "ウエスタン農場（Klondike Adventures）",
+   "term": "ウエスタン農場"
+  }
+ },
+ "g037": {
+  "title": "天地英雄伝",
+  "slug": "tenchi-eiyuden",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/90/90/d19090d4-372c-ba4c-0fcf-ca2c353d1a65/AppIcon-1x_U007emarketing-0-4-85-220-0.png/512x512bb.jpg",
+   "track": "天地英雄伝- 天地を喰ゲームリメイク",
+   "term": "天地英雄伝"
+  }
+ },
+ "g038": {
+  "title": "ロックンキャッシュカジノ-スロットゲーム",
+  "slug": "rock-n-cash-casino",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/88/7d/9a887da9-f5e1-ed8c-be1a-70c9dd1bc76c/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+   "track": "ロックンキャッシュカジノ-スロットゲーム",
+   "term": "ロックンキャッシュカジノ-スロットゲーム"
+  }
+ },
+ "g043": {
+  "title": "グルメ・ジャーニー(Tasty Travels)",
+  "slug": "gourmet-journey",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/55/f2/33/55f2336f-731c-e1b0-69fc-eab959bc0b5b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "グルメ・ジャーニー",
+   "term": "グルメ・ジャーニー"
+  }
+ },
+ "g045": {
+  "title": "Color Link",
+  "slug": "color-link",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/87/cc/8187cc0c-f6f3-1ea7-8046-55911265483d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "Color Link - Connect the Dots",
+   "term": "Color Link"
+  }
+ },
+ "g046": {
+  "title": "ホワイトアウト・サバイバル",
+  "slug": "whiteout-survival",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/9e/98/e69e9840-fa2b-7b53-c7f9-75a75021de26/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "ホワイトアウト・サバイバル",
+   "term": "ホワイトアウト・サバイバル"
+  }
+ },
+ "g047": {
+  "title": "ザ・アンツ",
+  "slug": "the-ants",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/41/e3/8241e357-1044-687a-981b-aea8bcfe6a99/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "The Ants: Underground Kingdom",
+   "term": "ザ・アンツ"
+  }
+ }
+}

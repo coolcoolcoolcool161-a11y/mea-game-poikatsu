@@ -13,3 +13,5 @@ source_id,出典ID,必須,sourcesと関連
 checked_at,確認日,必須,JST
 confidence_note,確度・限界,必須,測定条件や不確実性
 info_rank,情報ランク,必須,調査ポリシーのA〜E（A:公式で現行条件まで確認済/B:公式だが現行性に不明点/C:複数外部情報の裏付け/D:単独口コミ・参考/E:未確認）
+static_page,静的ページフラグ,任意,true の場合はトピックページを生成せず、静的ページ側に実体があることを示す
+page_file,静的ページファイル名,任意,static_page=true のとき、対応する完璧版のファイル名（例：index.html）
