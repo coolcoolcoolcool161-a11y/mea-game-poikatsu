@@ -2,9 +2,9 @@
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>パズサバ 試験管ソルバー｜ポイゲークエスト</title><style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{background:#e8e8e8;scroll-behavior:smooth}
+html{background:#fff;scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
-.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+.page{margin:0 auto;background:#fff;min-height:100vh}
 a{color:inherit;text-decoration:none}
 img{display:block}
 .header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
@@ -19,9 +19,9 @@ img{display:block}
 .searchbar input{flex:1;border:0;background:transparent;font-size:13px;padding:7px 6px;outline:none;color:#333;font-family:inherit}
 .gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
 .gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
-.gnav a.on{color:#ff6900;border-bottom-color:#ff6900}
+.gnav a.on{color:#c9332b;border-bottom-color:#c9332b}
 .crumbs{font-size:11px;color:#888;padding:8px 12px 0}
-.crumbs a{color:#3977B8}
+.crumbs a{color:#466b84}
 .ghead{display:flex;gap:12px;padding:12px;align-items:center}
 .ghead img,.ghead .fallback-icon{width:76px;height:76px;border-radius:20%;object-fit:cover;font-size:34px}
 .ghead h1{font-size:19px;font-weight:900;line-height:1.35}
@@ -30,11 +30,11 @@ img{display:block}
 .dates b{color:#777;font-weight:700}
 .lead{padding:10px 12px 0;font-size:13px;color:#444}
 .sec{margin-top:22px;scroll-margin-top:118px}
-.sec-head{display:flex;align-items:center;justify-content:space-between;background:#172B49;border-left:5px solid #3977B8;padding:8px 10px;margin:0 0 10px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;background:#172B49;border-left:5px solid #466b84;padding:8px 10px;margin:0 0 10px}
 .sec-head h2{font-size:16px;font-weight:800;color:#fff}
 .sec-head .cnt{font-size:11px;color:#c9def2;font-weight:700}
 .blk{padding:0 12px}
-.blk h3{font-size:15px;font-weight:800;border-bottom:2px solid #3977B8;padding-bottom:3px;margin:16px 0 8px;color:#172B49}
+.blk h3{font-size:15px;font-weight:800;border-bottom:2px solid #466b84;padding-bottom:3px;margin:16px 0 8px;color:#172B49}
 .blk p{font-size:13.5px;margin-bottom:8px}
 .note{font-size:11.5px;color:#888}
 .cards{padding:0 12px}
@@ -54,14 +54,14 @@ img{display:block}
 .bd-sub{background:#F0ECFA;color:#5b4a8a;border:1px solid #d5cbf0}
 .bd-navy{background:#172B49;color:#fff;border:1px solid #172B49}
 .more-link{display:block;padding:10px 12px;font-weight:700;font-size:13.5px;border-bottom:1px solid #eee;color:#172B49}
-.more-link .tri{color:#3977B8;margin-right:6px}
+.more-link .tri{color:#466b84;margin-right:6px}
 .footer{margin-top:30px;background:#f7f7f7;border-top:1px solid #e5e5e5;padding:16px 12px 28px}
 .footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#555;margin-bottom:10px}
 .footer .disc{font-size:11px;color:#888;line-height:1.7;margin-bottom:10px}
 .footer .copy{font-size:11px;color:#aaa;text-align:center}
 .svc-link{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #cfc4ec;background:#f0ecfa;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#463a75;text-decoration:none}
 .svc-link span+span{color:#6e639e;font-weight:600;font-size:12px}
-.svc-link .arr{color:#3977B8;font-weight:900}
+.svc-link .arr{color:#466b84;font-weight:900}
 .pts{margin:0 0 8px 18px;font-size:13px}
 .pts li{margin-bottom:5px;line-height:1.55}
 /* ===== ソルバー専用 ===== */
@@ -72,7 +72,7 @@ img{display:block}
 .stepcard p{font-size:12.5px;color:#555;line-height:1.6}
 .mode-tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px}
 .mode-tabs button{flex:1;border:1px solid #bcd6f2;background:#EAF2FC;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#2f5f8f;cursor:pointer;font-family:inherit;border-bottom:3px solid #bcd6f2}
-.mode-tabs button.on{background:#fff;color:#172B49;border-bottom:3px solid #3977B8}
+.mode-tabs button.on{background:#fff;color:#172B49;border-bottom:3px solid #466b84}
 .modepanel{display:none;padding:4px 12px 0}
 .modepanel.on{display:block}
 .tool-card{border:1px solid #dbe6f2;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff;box-shadow:0 1px 3px rgba(23,43,73,.08)}
@@ -80,13 +80,13 @@ img{display:block}
 .ctl-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;margin:8px 0}
 .ctl label{display:block;font-size:11px;font-weight:800;color:#172B49;margin-bottom:2px}
 .ctl input[type=number],.ctl select{width:100%;border:1px solid #bcd6f2;border-radius:6px;padding:7px 8px;font-size:13px;font-family:inherit;background:#fff;color:#333}
-.ctl input[type=range]{width:100%;accent-color:#3977B8}
-.ctl .val{font-size:11px;color:#3977B8;font-weight:800}
+.ctl input[type=range]{width:100%;accent-color:#466b84}
+.ctl .val{font-size:11px;color:#466b84;font-weight:800}
 .btn{display:inline-block;border:0;border-radius:8px;padding:10px 14px;font-size:13.5px;font-weight:900;cursor:pointer;font-family:inherit;text-align:center}
 .btn-main{background:#172B49;color:#fff;width:100%}
-.btn-blue{background:#3977B8;color:#fff}
+.btn-blue{background:#466b84;color:#fff}
 .btn-sub{background:#F0ECFA;color:#5b4a8a;border:1px solid #d5cbf0}
-.btn-ghost{background:#fff;color:#3977B8;border:1.5px solid #3977B8}
+.btn-ghost{background:#fff;color:#466b84;border:1.5px solid #466b84}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .btn-row{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}
 .btn-row .btn{flex:1}
@@ -114,7 +114,7 @@ img{display:block}
 .result-box.info{display:block;background:#EAF2FC;border:1px solid #bcd6f2;color:#2f5f8f}
 .steps-list{margin:8px 0}
 .step-row{display:flex;gap:8px;align-items:center;border:1px solid #e5e5e5;border-radius:6px;padding:7px 9px;margin:5px 0;font-size:12.5px;background:#fff}
-.step-row.cur{border-color:#3977B8;background:#EAF2FC;font-weight:800}
+.step-row.cur{border-color:#466b84;background:#EAF2FC;font-weight:800}
 .step-row.reveal{background:#ffecec;border-color:#e88}
 .step-row .sno{flex:none;background:#172B49;color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900}
 .sim-tubes{display:flex;gap:8px;overflow-x:auto;padding:10px 4px;align-items:flex-end;justify-content:flex-start}
@@ -126,7 +126,70 @@ img{display:block}
 .warn-note{font-size:12px;color:#7a3b00;background:#FFF1E4;border-left:4px solid #f2cf8f;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
 .ok-note{font-size:12px;color:#1d4d2e;background:#E9F5EF;border-left:4px solid #a3d9b1;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
 .sub-note{font-size:12px;color:#5b4a8a;background:#F0ECFA;border-left:4px solid #d5cbf0;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
-</style></head><body><div class="page">
+</style>
+<style>
+.theme-toggle{cursor:pointer}
+html[data-theme="dark"]{color-scheme:dark;background:#1a1714}
+html[data-theme="dark"] body{color:#e8e2dc}
+html[data-theme="dark"] .page{background:#1a1714}
+html[data-theme="dark"] .header{background:#1a1714;border-bottom-color:#3a332c}
+html[data-theme="dark"] .logo{color:#f2ede8}
+html[data-theme="dark"] .header-icons{color:#b8b0a6}
+html[data-theme="dark"] .searchbar .box{background:#262019}
+html[data-theme="dark"] .searchbar input{color:#e8e2dc}
+html[data-theme="dark"] .gnav{border-top-color:#2c2620}
+html[data-theme="dark"] .gnav a{color:#cfc8c0}
+html[data-theme="dark"] .gnav a.on{color:#e0584d;border-bottom-color:#e0584d}
+html[data-theme="dark"] .crumbs{color:#9a9186}
+html[data-theme="dark"] .sec-head{background:#2e1c18;border-left-color:#e0584d}
+html[data-theme="dark"] .sec-head a{color:#f0a294}
+html[data-theme="dark"] .sec-head .cnt{color:#9a9186}
+html[data-theme="dark"] .lead{color:#d8d2ca}
+html[data-theme="dark"] .row{border-bottom-color:#38302a}
+html[data-theme="dark"] .row .rmeta{color:#9a9186}
+html[data-theme="dark"] .row .rsum{color:#bdb4a9}
+html[data-theme="dark"] .chip{background:#332019;color:#f0a294}
+html[data-theme="dark"] .chip.gray{background:#2b2b2b;color:#a9a9a9}
+html[data-theme="dark"] th,html[data-theme="dark"] td{border-color:#453b32}
+html[data-theme="dark"] th{background:#262019}
+html[data-theme="dark"] td.pt{color:#f0a294}
+html[data-theme="dark"] .spec th{background:#2e1c18}
+html[data-theme="dark"] .spec td b{color:#f0a294}
+html[data-theme="dark"] .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .menu a.hot{background:#33201b;border-color:#e0584d;color:#f0a294}
+html[data-theme="dark"] .menu-toggle{color:#8fb0c7}
+html[data-theme="dark"] .ghead .gmeta{color:#9a9186}
+html[data-theme="dark"] .ghead .gmax{color:#f0a294}
+html[data-theme="dark"] .toc{background:#262019}
+html[data-theme="dark"] .toc a{color:#d8d2ca}
+html[data-theme="dark"] .tabs button{background:#241f1b;color:#cfc8c0;border-color:#453b32}
+html[data-theme="dark"] .tabs button.on{color:#f0a294;border-bottom-color:#e0584d}
+html[data-theme="dark"] .acc button{background:#241f1b;color:#e8e2dc}
+html[data-theme="dark"] .acc .acc-body{background:#1f1b17}
+html[data-theme="dark"] .ditem{border-bottom-color:#38302a}
+html[data-theme="dark"] .ditem .dmeta{color:#9a9186}
+html[data-theme="dark"] .note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .read-note,html[data-theme="dark"] .upd-note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .risk-note{background:#332019;color:#f2cf8f}
+html[data-theme="dark"] .footer{background:#141110;color:#9a9186}
+html[data-theme="dark"] .footer .flinks a{color:#cfc8c0}
+html[data-theme="dark"] .card{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .card .cnote{color:#9a9186}
+html[data-theme="dark"] .fbox{background:#2e1c18;border-color:#e08a7d}
+html[data-theme="dark"] .farr{color:#e0584d}
+html[data-theme="dark"] .tnode{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .tkids .tnode{background:#1d2731;border-color:#3d5468}
+html[data-theme="dark"] .bd-buy{background:#153420;color:#8fd7a4}
+html[data-theme="dark"] .bd-no{background:#3a1a16;color:#f0a294}
+html[data-theme="dark"] .bd-warn{background:#33270f;color:#f2cf8f}
+html[data-theme="dark"] .bd-info{background:#1d2c3d;color:#a9c8e2}
+html[data-theme="dark"] .bd-gray{background:#2b2b2b;color:#bbbbbb}
+html[data-theme="dark"] .bannergrid .bcap{color:#8fb0c7}
+html[data-theme="dark"] .fcap{color:#9a9186}
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#262019;color:#e8e2dc;border-color:#453b32}
+html[data-theme="dark"] .hist td.hd{background:#262019}
+</style><script>(function(){try{var t=localStorage.getItem('poigame-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+</head><body><div class="page">
 <header class="header">
   <div class="header-top">
     <div class="logo"><span class="lg-mark">ポ</span>ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>
@@ -231,6 +294,7 @@ img{display:block}
 <div class="blk">
   <a class="svc-link" href="joban.html"><span>序盤の進め方</span><span class="arr">›</span></a>
   <a class="svc-link" href="event.html"><span>イベント攻略</span><span class="arr">›</span></a>
+  <a class="svc-link" href="tools.html"><span>便利ツール一覧</span><span class="arr">›</span></a>
   <a class="more-link" href="index.html"><span class="tri">◀</span>パズル＆サバイバル攻略トップへ戻る</a>
 </div>
 </div>
@@ -738,4 +802,5 @@ editTubes=[
 ];
 renderPalette(); renderEditor(); drawOverlay();
 </script>
+<script>(function(){var host=document.querySelector('.header-icons');if(!host)return;var cur=document.documentElement.getAttribute('data-theme')||'light';var d=document.createElement('div');d.className='theme-toggle';d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','表示テーマを切り替える');function draw(){d.innerHTML='<span class="ic">'+(cur==='dark'?'☀️':'🌙')+'</span>テーマ';}function flip(){cur=(cur==='dark')?'light':'dark';document.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('poigame-theme',cur);}catch(e){}draw();}draw();d.addEventListener('click',flip);d.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip();}});host.appendChild(d);})();</script>
 </body></html>
