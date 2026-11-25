@@ -2149,5 +2149,208 @@
   "info_rank": "C",
   "static_page": true,
   "page_file": "contribute.html"
+ },
+ {
+  "knowledge_id": "k068",
+  "game_id": "g011",
+  "topic": "序盤の進め方とプレイの基本形",
+  "topic_slug": "joban-basics",
+  "conclusion": "開始直後は無料サブスク（Plus）の無料トライアル加入・日本語設定・フレンド確保が前提級。プレイの基本形はカード4枚同時×ベットSUPER基準で、MEGA以上の高ベットは枯渇の引き金になる",
+  "answer_scope": "Bingo Blitz の序盤〜中盤の通常プレイ全般",
+  "steps": [
+   {
+    "heading": "無料サブスクの無料トライアル",
+    "text": "加入直後に自動更新を切っても無料期間は特典が継続するとされる。序盤の枯渇防止に効く"
+   },
+   {
+    "heading": "カードは4枚同時プレイ",
+    "text": "ビンゴ確率・経験値・写真ドロップ効率が最も高い"
+   },
+   {
+    "heading": "ベットはSUPER基準",
+    "text": "高ベットは連敗でクレジットが一気に溶ける。上げるのは写真があと少しの局面だけ"
+   }
+  ],
+  "cautions": "無料トライアルが案件の課金回数にカウントされるかは未確認。断定しない",
+  "source_type": "第三者",
+  "source_id": "s162",
+  "confidence_note": "出典は s162（ワラウ攻略記事＋利用者口コミ集計）と s164／s165 の実践記録で複数一致",
+  "condition_differences": "",
+  "checked_at": "2026-11-26",
+  "info_rank": "C"
+ },
+ {
+  "knowledge_id": "k069",
+  "game_id": "g011",
+  "topic": "無料クレジットの回収ルーティン",
+  "topic_slug": "credits-routine",
+  "conclusion": "枯渇防止の核は無料分の固定回収：デイリーボーナス／Daily Fortune、公式無料リンク（約2件/日・期限24〜48時間）、2時間ごとの無料Power Pack、デイリートーナメント（最初の5ラウンド無料）、フレンドギフト",
+  "answer_scope": "Bingo Blitz のクレジット管理全般",
+  "steps": [
+   {
+    "heading": "毎日分",
+    "text": "デイリーボーナス、Daily Fortune、公式無料リンク（見た当日に受け取る）、フレンドギフトの送受信"
+   },
+   {
+    "heading": "2時間ごと",
+    "text": "ストアの無料Power Pack を受け取る"
+   },
+   {
+    "heading": "進行で得る分",
+    "text": "コレクション完成・都市クリア・レベルアップ・イベント報酬。Chef（料理）でもクレジットやパワーアップが得られる"
+   }
+  ],
+  "cautions": "いわゆるクレジット生成ツール類は詐欺・規約違反として複数サイトが警告。使わない",
+  "source_type": "第三者",
+  "source_id": "s170",
+  "confidence_note": "出典は s169（Quesites）と s170（Morning Reward・実測記録あり）でほぼ一致",
+  "condition_differences": "",
+  "checked_at": "2026-11-26",
+  "info_rank": "C"
+ },
+ {
+  "knowledge_id": "k070",
+  "game_id": "g011",
+  "topic": "課金回数ステップの扱い",
+  "topic_slug": "kakin-steps",
+  "conclusion": "課金回数ステップは、報酬が課金額を上回る設計なら最小額アイテム（121円のスピン等）で回数だけ満たすのが定石という実践例がある。回数を満たす少額課金と、枯渇を補う補充課金は分けて考える。課金ステップが未承認の場合は問い合わせで承認された記録がある",
+  "answer_scope": "Bingo Blitz の課金回数ステップを含む案件全般",
+  "steps": [
+   {
+    "heading": "最小額で回数を満たす",
+    "text": "課金ステップの報酬と課金額の収支を確認してから買う"
+   },
+   {
+    "heading": "補充課金は分けて管理",
+    "text": "補充を重ねて約13,000円に達した事例がある（本人の自己評価で5,000〜6,000円分は無駄）。上限を先に決める"
+   },
+   {
+    "heading": "未承認なら問い合わせ",
+    "text": "放置せずポイントサイトへ問い合わせる"
+   }
+  ],
+  "cautions": "無料サブスクのトライアル加入が課金回数に含まれるかは未確認",
+  "source_type": "第三者",
+  "source_id": "s165",
+  "confidence_note": "出典は s165（FC2ブログ実践記録）の単独事例＋ s164 の補充課金事例",
+  "condition_differences": "",
+  "checked_at": "2026-11-26",
+  "info_rank": "C"
+ },
+ {
+  "knowledge_id": "k071",
+  "game_id": "g011",
+  "topic": "つまずきポイント（枯渇・個別期限・運要素）",
+  "topic_slug": "troubles",
+  "conclusion": "最大の脱落原因はクレジット枯渇。次いで高ベットへの切替、後半都市の写真重複、個別期限の見落とし、無料サブスクの解約忘れ。運要素はアイテム・写真ドロップ・ビンゴ成否の3層",
+  "answer_scope": "Bingo Blitz の都市クリア型案件全般",
+  "steps": [
+   {
+    "heading": "枯渇",
+    "text": "一度底を突くと無料分の微量回収で貯め直すのに日数がかかる（約10日想定の記録）"
+   },
+   {
+    "heading": "個別期限",
+    "text": "全体期限とは別に都市ごとの短期限（ムンバイ10日・ドバイ20日等）がある型。参加直後に全ステップの期限を確認する"
+   },
+   {
+    "heading": "解約忘れ",
+    "text": "無料トライアルは加入直後に自動更新を切る"
+   }
+  ],
+  "cautions": "外部ツール（自動連打等）の使用は禁止。推奨しない",
+  "source_type": "第三者",
+  "source_id": "s162",
+  "confidence_note": "出典は s162／s164／s165 で複数一致する項目が中心",
+  "condition_differences": "",
+  "checked_at": "2026-11-26",
+  "info_rank": "C"
+ },
+ {
+  "knowledge_id": "k072",
+  "game_id": "g011",
+  "topic": "コレクション（写真）の仕組み",
+  "topic_slug": "collection-system",
+  "conclusion": "1都市12点が基本単位。シャドウカードでビンゴすると入手でき、12点の引き換えで完了報酬が入る。未所持の写真を取り逃がすと次の1ラウンドに必ず再登場する（Second Chance）。金枠は出にくく、Collection Pass は最後の金枠用に温存する。写真のコイン購入は現行不可",
+  "answer_scope": "Bingo Blitz のコレクション収集全般",
+  "steps": [
+   {
+    "heading": "シャドウカードで取る",
+    "text": "アイテムのシルエットが背景に出たカードでビンゴするとそのアイテムが得られる"
+   },
+   {
+    "heading": "取り逃がしたら次ラウンド",
+    "text": "Second Chance で未所持の写真が次の1ラウンドに必ず再登場する"
+   },
+   {
+    "heading": "金枠と Collection Pass",
+    "text": "金枠はトレードで埋まらない前提。Pass は最後の1点に使う"
+   }
+  ],
+  "cautions": "何点で次都市が解放されるかの正確な閾値と、個別アイテムの出現確率は未確認（公式非公開）",
+  "source_type": "第三者",
+  "source_id": "s375",
+  "confidence_note": "出典は s375（Fandom Collection Items／FAQ）と Morning Reward の Collection Items Guide で一致",
+  "condition_differences": "",
+  "checked_at": "2026-11-26",
+  "info_rank": "C"
+ },
+ {
+  "knowledge_id": "k073",
+  "game_id": "g011",
+  "topic": "パワーアップ9種と使いどころ",
+  "topic_slug": "powerups",
+  "conclusion": "現行は9種（Single／Double／Triple／Wild Daub、Instant Win、Treasure Chest、Double Payout、Double XP、Super Charger）。使い切り型は新しい写真が取れるラウンドまで温存し、常用型は無料ラウンドで回す",
+  "answer_scope": "Bingo Blitz のパワーアップ運用全般",
+  "steps": [
+   {
+    "heading": "常用型",
+    "text": "Single／Double Daub はラウンド中何度でも。無料トーナメントでも惜しまず使う"
+   },
+   {
+    "heading": "使い切り型",
+    "text": "Instant Win／Triple／Wild はビンゴの価値が高い局面まで温存する"
+   },
+   {
+    "heading": "序盤発動型",
+    "text": "Treasure Chest／Double Payout／Super Charger はラウンド序盤に使う"
+   }
+  ],
+  "cautions": "Fandom の旧8種とは顔ぶれが食い違う。現行9種は公式サポートを引いた二次ソース（s376）に基づき、ゲーム内表記の最終確認は未実施",
+  "source_type": "第三者",
+  "source_id": "s376",
+  "confidence_note": "出典 s376（Morning Reward、公式サポートのOddsが数値の出所）",
+  "condition_differences": "",
+  "checked_at": "2026-11-26",
+  "info_rank": "C"
+ },
+ {
+  "knowledge_id": "k074",
+  "game_id": "g011",
+  "topic": "Bingo Blitz Plus の特典と価格",
+  "topic_slug": "plus",
+  "conclusion": "日本の App Store で月額1,750円、新規は1か月無料トライアル。案件進行に効く特典はデイリー増額・パワーアップ配布・トーナメント無料チケット追加・追加ギフトの「毎日の無料収入の底上げ」。先行アクセスは案件都市の進行に直接効かない",
+  "answer_scope": "Bingo Blitz Plus の加入判断",
+  "steps": [
+   {
+    "heading": "価格",
+    "text": "月額1,750円（日本 App Store、2026-11-26確認）。1か月無料トライアルあり"
+   },
+   {
+    "heading": "効く特典",
+    "text": "デイリーボーナス増額、毎月のパワーアップ配布、デイリートーナメントの無料チケット追加、ギフトセンターの追加ギフト"
+   },
+   {
+    "heading": "運用",
+    "text": "無料期間だけ底上げを受け取り、期間内に解約する。加入直後に自動更新を切っても無料期間は特典が継続するとされる"
+   }
+  ],
+  "cautions": "日本の Google Play 価格・年額プランは未確認。トライアルが課金回数に含まれるかも未確認",
+  "source_type": "公式",
+  "source_id": "s378",
+  "confidence_note": "価格は s378（App Store 日本）。特典は公式サポート s377 と転載2件の突合で複数一致",
+  "condition_differences": "",
+  "checked_at": "2026-11-26",
+  "info_rank": "C"
  }
 ]

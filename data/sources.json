@@ -3723,5 +3723,93 @@
   "checked_at": "2026-11-25",
   "conditions": "2026-11-25にFreecashへログインした状態で日本語表示の案件ページを実読。金額はすべて円表示。対象はキングショットAndroid版（合計¥188,174、https://freecash.com/ja/offer/kingshot-v8e9d7）とiOS版（合計¥215,469、https://freecash.com/ja/offer/kingshot-template-ios-pbo2k9）。生データは research-raw/freecash-offers-2026-11-25.md に保存",
   "limitations": "内訳の検算合計はAndroid ¥163,876／iOS ¥205,109で、画面表示の合計とそれぞれ¥24,298／¥10,360の差異がある（未転記の内訳項目がある可能性）。iOS版メインのTC Lv15は「最大¥12,151」の変動表示。オファー内容はアカウント・時期により変動し得る"
+ },
+ {
+  "source_id": "s373",
+  "source_type": "公式",
+  "publisher": "ワラウ（公式サイト・案件ページ）",
+  "title": "ワラウ Bingo Blitz 案件ページ（Android版 point_id=202850／iOS版 point_id=202849）の実読記録",
+  "url": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=202850",
+  "checked_at": "2026-11-26",
+  "conditions": "2026-11-26にログインなしで公開案件ページを実読。全15ステップ（条件・期限・pt）を台帳 c017／c018 と全件照合し差異なし。生データは research-raw/bingoblitz-deep/A-domestic.md",
+  "limitations": "ワラウ分のみ。ハピタス・モッピーは s374、Freecash は公開範囲で金額表示がなく未確認",
+  "published_at": ""
+ },
+ {
+  "source_id": "s374",
+  "source_type": "公式",
+  "publisher": "ハピタス／モッピー（公式サイト・案件詳細ページ）",
+  "title": "ハピタス Bingo Blitz 詳細ページ（itemid=100911／100910）とモッピー詳細ページ（site_id=161025）の実読記録",
+  "url": "https://hapitas.jp/item/detail/itemid/100910/",
+  "checked_at": "2026-11-26",
+  "conditions": "2026-11-26にログインなしで公開詳細ページを実読。ハピタスAndroid 37,488pt・iOS 23,870pt、モッピーiOS 21,915P の金額とOSを確認し台帳と差異なし。c041 の詳細ページが itemid=100910 と判明。生データは research-raw/bingoblitz-deep/A-domestic.md",
+  "limitations": "ステップ内訳は遷移先（連携先）専用表示のため未照合。モッピー詳細は https://pc.moppy.jp/ad/detail.php?site_id=161025",
+  "published_at": ""
+ },
+ {
+  "source_id": "s375",
+  "source_type": "第三者",
+  "publisher": "BINGO Blitz Wiki（Fandom）",
+  "title": "Collection Items／BINGO Blitz FAQ（コレクション12点・入手経路）",
+  "url": "https://bingoblitz.fandom.com/wiki/Collection_Items",
+  "checked_at": "2026-11-26",
+  "conditions": "2026-11-26に research-raw/bingoblitz-deep/B-overseas.md の調査で確認。1都市12点、シャドウカードでの入手、引き換えで完了報酬",
+  "limitations": "検索結果経由の確認を含む。何点で次都市が解放されるかの正確な閾値は未確認",
+  "published_at": ""
+ },
+ {
+  "source_id": "s376",
+  "source_type": "第三者",
+  "publisher": "Morning Reward",
+  "title": "Power-Ups and Chef Event Guide（現行パワーアップ9種・Chef現行形）",
+  "url": "https://www.morningreward.com/bingo-blitz/guides/power-ups-cooking-events-roi-math",
+  "checked_at": "2026-11-26",
+  "conditions": "2026-11-26確認。2026-11-16更新の記事。数値の出所は公式サポートのOddsページと同サイトが明記",
+  "limitations": "公式サポートを引いた二次ソース。パワーアップ9種のゲーム内表記の最終確認は未実施。Fandom の旧8種とは食い違いあり",
+  "published_at": ""
+ },
+ {
+  "source_id": "s377",
+  "source_type": "公式",
+  "publisher": "Bingo Blitz 公式サポート（bingoblitz.com）",
+  "title": "Best Place to Play PLUS／XTRA FAQ（Plus の位置づけ・先行アクセス）",
+  "url": "https://www.bingoblitz.com/support/bingo-blitz-xtra-faq/",
+  "checked_at": "2026-11-26",
+  "conditions": "2026-11-26に research-raw/bingoblitz-deep/B-overseas.md の調査で確認。PLUSは有料サブスク、XTRAは無料プラットフォームの関係等",
+  "limitations": "特典の詳細列挙は転載二次ソースとの突合で採用。具体数の単独情報は採用していない",
+  "published_at": ""
+ },
+ {
+  "source_id": "s378",
+  "source_type": "公式",
+  "publisher": "App Store（日本）",
+  "title": "Bingo Blitz アプリ内課金一覧（PLUS subscription 月額¥1,750）",
+  "url": "https://apps.apple.com/jp/app/bingo-blitz-%E3%83%93%E3%83%B3%E3%82%B4%E3%82%B2%E3%83%BC%E3%83%A0/id529996768",
+  "checked_at": "2026-11-26",
+  "conditions": "2026-11-26にストアのアプリ内課金一覧で確認（検索結果経由）",
+  "limitations": "日本の Google Play での価格は未確認。年額プランの有無も未確認",
+  "published_at": ""
+ },
+ {
+  "source_id": "s379",
+  "source_type": "第三者",
+  "publisher": "Quesites",
+  "title": "Bingo Blitz Events & Free Rewards（イベント類の総覧）",
+  "url": "https://www.quesites.com/bingo-blitz-events",
+  "checked_at": "2026-11-26",
+  "conditions": "2026-11-26確認。2026-07-16時点の開催状況ベースの記事",
+  "limitations": "2026-11-26時点で開催中の個別イベント名は未確認。各イベントの報酬額（クレジット数）は検証可能な数値なし",
+  "published_at": ""
+ },
+ {
+  "source_id": "s380",
+  "source_type": "公式",
+  "publisher": "ハピタス",
+  "title": "キングショット案件詳細ページ再実読（itemid 103147・iOS／103148・Android／103082）",
+  "url": "https://hapitas.jp/item/detail/itemid/103147/",
+  "checked_at": "2026-11-26",
+  "conditions": "2026-11-26に公開ページを取得し全ステップを台帳と突合。103147（iOS）と103148（Android）は合計25,008pt・11ステップで同一構成。103082は合計20,500pt・12ステップ。詳細は research-raw/kingshot-deep-2026-11-26/E-hapitas-recheck-2026-11-26.md",
+  "limitations": "c011 の旧記録（s025・2026-11-25ログイン実読）は合計25,562pt・Lv2〜Lv25の別構成だった。掲載改定か表示条件差かは未確定。103082 の Android版掲載は未確認",
+  "published_at": ""
  }
 ]

@@ -130,5 +130,104 @@
   "new_value": "全ステップ30日以内（インストール日起算）",
   "source_id": "s023",
   "note": "h011と同じ実読確認による訂正。後半ステップの60日期限は実掲載に存在しなかった"
+ },
+ {
+  "history_id": "h013",
+  "campaign_id": "c041",
+  "changed_at": "2026-11-26",
+  "change_type": "訂正",
+  "field": "campaign_url",
+  "old_value": "https://hapitas.jp/",
+  "new_value": "https://hapitas.jp/item/detail/itemid/100910/",
+  "source_id": "s374",
+  "note": "URL記録の具体化（訂正）。2026-11-26の鮮度確認で詳細ページの itemid が判明したための具体化。金額・条件の変更ではない。あわせて c017／c018／c023／c029／c041 は実読で差異なしを確認し checked_at を 2026-11-26 へ更新（c087／c088 Freecash は公開範囲で未確認のため据え置き）"
+ },
+ {
+  "history_id": "h014",
+  "campaign_id": "c011",
+  "changed_at": "2026-11-26",
+  "change_type": "訂正",
+  "field": "reward_amount／reward_stages／campaign_url／eligible_os",
+  "old_value": "合計25,562pt（Lv2〜Lv25の11ステップ・課金なし）／URL末尾に /apn/navigation_category",
+  "new_value": "合計25,008pt（Lv4〜Lv30＋課金4件の11ステップ）／https://hapitas.jp/item/detail/itemid/103147/／iOS",
+  "source_id": "s380",
+  "note": "2026-11-26の公開ページ再実読で現行掲載と不一致を確認し訂正。旧記録は2026-11-25のログイン実読（s025）に基づくもので、掲載改定か表示条件差かは未確定（両記録を保持）。あわせて Android版（itemid 103148）を c089 として分離"
+ },
+ {
+  "history_id": "h015",
+  "campaign_id": "c012",
+  "changed_at": "2026-11-26",
+  "change_type": "訂正",
+  "field": "reward_stages／campaign_url",
+  "old_value": "合計20,500ptは一致するがステップ対応が旧記録（Lv12=324pt／Lv16=4,050pt 等）",
+  "new_value": "現行掲載の対応（Lv16=324pt／Lv28=4,050pt／Lv30=4,455pt 等、全12ステップ）／https://hapitas.jp/item/detail/itemid/103082/",
+  "source_id": "s380",
+  "note": "合計は一致し金額の集合も同一だが、ステップへの対応がずれていた。合計だけの照合では検出できない型のずれとして、照合はステップ単位で行うことを QC チェックリスト側の教訓とする"
+ },
+ {
+  "history_id": "h016",
+  "campaign_id": "c089",
+  "changed_at": "2026-11-26",
+  "change_type": "掲載開始",
+  "field": "全体",
+  "old_value": "（c011 に iOS/Android 合算で内包）",
+  "new_value": "Android版（itemid 103148・合計25,008pt・11ステップ）を独立エントリとして登録",
+  "source_id": "s380",
+  "note": "2026-11-26の実読で iOS版と同一構成であることを確認。OS別エントリ化はワラウ／ハピタスの Bingo Blitz 案件（c017／c018、c023／c041）と同じ台帳の慣行に合わせた"
+ },
+ {
+  "history_id": "h017",
+  "campaign_id": "c017",
+  "changed_at": "2026-11-26",
+  "change_type": "訂正",
+  "field": "deadline",
+  "old_value": "（未記載）",
+  "new_value": "あんしん保証の申請期限（インストール日から90日以内）を追記。2026-11-26のワラウ案件ページ実読（s373）で確認済みだったが台帳の deadline に未記載だったための補完。c018 も同一文面のため h018 で同様に追記",
+  "source_id": "s373",
+  "note": "あんしん保証の申請期限（インストール日から90日以内）を追記。2026-11-26のワラウ案件ページ実読（s373）で確認済みだったが台帳の deadline に未記載だったための補完。c018 も同一文面のため h018 で同様に追記"
+ },
+ {
+  "history_id": "h018",
+  "campaign_id": "c018",
+  "changed_at": "2026-11-26",
+  "change_type": "訂正",
+  "field": "deadline",
+  "old_value": "（未記載）",
+  "new_value": "あんしん保証の申請期限（インストール日から90日以内）を追記（c017 と同一掲載のため同様の補完）",
+  "source_id": "s373",
+  "note": "あんしん保証の申請期限（インストール日から90日以内）を追記（c017 と同一掲載のため同様の補完）"
+ },
+ {
+  "history_id": "h019",
+  "campaign_id": "c029",
+  "changed_at": "2026-11-26",
+  "change_type": "訂正",
+  "field": "exclusion_conditions",
+  "old_value": "（未記載）",
+  "new_value": "クリック後1時間以内に初回起動しない場合は対象外、を追記。遷移先（アプリファーム）の記載を2026-11-26の照合で確認（s374）",
+  "source_id": "s374",
+  "note": "クリック後1時間以内に初回起動しない場合は対象外、を追記。遷移先（アプリファーム）の記載を2026-11-26の照合で確認（s374）"
+ },
+ {
+  "history_id": "h020",
+  "campaign_id": "c087",
+  "changed_at": "2026-11-26",
+  "change_type": "訂正",
+  "field": "exclusion_conditions",
+  "old_value": "（未記載）",
+  "new_value": "空欄だった対象外条件に「新規ユーザーのみ（そのデバイスで未プレイ）」を記録。Freecash共通条件として2026-11-25のログイン実読（s372）で確認済み。c088 も同一のため別途記録",
+  "source_id": "s372",
+  "note": "空欄だった対象外条件に「新規ユーザーのみ（そのデバイスで未プレイ）」を記録。Freecash共通条件として2026-11-25のログイン実読（s372）で確認済み。c088 も同一のため別途記録"
+ },
+ {
+  "history_id": "h021",
+  "campaign_id": "c088",
+  "changed_at": "2026-11-26",
+  "change_type": "訂正",
+  "field": "exclusion_conditions",
+  "old_value": "（未記載）",
+  "new_value": "空欄だった対象外条件に「新規ユーザーのみ（そのデバイスで未プレイ）」を記録（c087 と同一の Freecash 共通条件、s372）",
+  "source_id": "s372",
+  "note": "空欄だった対象外条件に「新規ユーザーのみ（そのデバイスで未プレイ）」を記録（c087 と同一の Freecash 共通条件、s372）"
  }
 ]
