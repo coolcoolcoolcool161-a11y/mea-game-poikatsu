@@ -280,7 +280,7 @@ def game_card(g, cs, icons=None):
   icon = f'<img class="game-icon" src="{e(_iu)}" alt="" loading="lazy" width="44" height="44">'
  return (f'<article class="card game-card js-filter-item" data-name="{e(g["official_title"])} {e(g["slug"])}">'
          f'{icon}'
-         f'<h3><a href="{BP}/games/{e(g["slug"])}/">{e(g["official_title"])}</a></h3>'
+         f'<h3><a href="{BP}/games/{e(g["slug"])}/">{e(g["official_title"])}のポイ活攻略</a></h3>'
          f'<p>{e(g["wiki_summary"])}</p>'
          f'<p class="small muted">最終確認：{e(g.get("last_checked_at"))}</p>{badges}</article>')
 
@@ -385,7 +385,7 @@ a{color:#3977B8}
 def build_top(games, campaigns_by_game, knowledge_by_game, history, icons=None):
  icons = icons or {}
  title = 'ポイゲークエスト｜ポイ活ゲームの攻略・案件条件まとめ'
- desc = 'ポイ活ゲームの案件条件・到達ステップ・攻略情報をゲームごとに整理した攻略Wiki「ポイゲークエスト」。ポイントが高い順のランキングやゲーム名検索から、遊びたいゲームの条件を確認できます。'
+ desc = 'ポイ活ゲームのおすすめ案件を、条件・到達ステップ・攻略情報までゲームごとに整理した攻略Wiki「ポイゲークエスト」。ポイントが高い順のランキングと比較、ゲーム名検索から条件を確認できます。'
  robots = 'index,follow' if games else 'noindex,follow'
  head = ['<!DOCTYPE html>\n<html lang="ja">\n<head>\n<meta charset="utf-8">',
          '<meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -452,13 +452,13 @@ def build_top(games, campaigns_by_game, knowledge_by_game, history, icons=None):
            f'<a href="#ranking">ランキング</a><a href="{BP}/games/">ゲーム一覧</a>'
            '</nav></header>')
  hero = ('<div class="hero"><h1>ポイ活ゲーム攻略Wiki「ポイゲークエスト」</h1>'
-         '<p class="lead">ポイ活で遊べるゲームの案件条件・到達ステップ・攻略情報を、ゲームごとに整理しています。条件は公式掲載を確認した時点の情報です。</p></div>')
+         '<p class="lead">ポイ活で遊べるゲームの案件条件・到達ステップ・攻略情報を、ゲームごとに整理しています。ゲームポイ活とは、ポイントサイトの案件として掲載されているゲームを遊び、達成条件を満たすとポイントが付く仕組みです。条件は公式掲載を確認した時点の情報です。</p></div>')
  search = f'<div class="search">{search_block("search-top")}</div>'
  if games:
-  sections = f'<section class="sec" id="popular"><div class="sec-head"><h2>人気ゲーム</h2><a href="{BP}/games/">ゲーム一覧 ＞</a></div><div class="pop-grid">{pop_tiles}</div></section>'
+  sections = f'<section class="sec" id="popular"><div class="sec-head"><h2>人気のポイ活ゲーム</h2><a href="{BP}/games/">ゲーム一覧 ＞</a></div><div class="pop-grid">{pop_tiles}</div></section>'
   if not rank_rows:
    rank_rows = '<li class="muted" style="padding:8px 2px">ポイント額を確認できた案件はまだありません。</li>'
-  sections += f'<section class="sec" id="ranking"><div class="sec-head"><h2>ポイントが高い順</h2></div><ol class="rank-list">{rank_rows}</ol></section>'
+  sections += f'<section class="sec" id="ranking"><div class="sec-head"><h2>ポイ活ゲームランキング（ポイントが高い順）</h2></div><ol class="rank-list">{rank_rows}</ol></section>'
   if ev_items:
    sections += f'<section class="sec" id="updates"><div class="sec-head"><h2>新着・更新</h2></div><ul class="updates">{ev_items}</ul></section>'
   cards = ''.join(game_card(g, campaigns_by_game.get(g['game_id'], []), icons) for g in sorted(games, key=lambda x: str(x['official_title'])))
@@ -477,6 +477,10 @@ def build_top(games, campaigns_by_game, knowledge_by_game, history, icons=None):
            '<p>© ポイゲークエスト</p></footer>')
  body = f'<body><div class="page">{header}{hero}{search}<main>{sections}</main>{footer}</div></body></html>'
  return '\n'.join(head) + '\n' + body
+GENRE_GROUPS = [('パズルゲーム', ['puzzles-and-survival', 'puzzles-and-conquest', 'puzzles-and-chaos', 'color-link']),
+                ('放置ゲーム', ['kinoko-densetsu', 'hero-wars-alliance'])]
+
+
 def build_list(visible, campaigns_by_game, any_indexable, icons=None):
  cards = [game_card(g, campaigns_by_game.get(g['game_id'], []), icons) for g in sorted(visible, key=lambda x: str(x['official_title']))]
  if cards:
@@ -484,19 +488,36 @@ def build_list(visible, campaigns_by_game, any_indexable, icons=None):
  else:
   body_cards = '<p class="muted">現在、公開基準を満たしたゲーム情報はありません。対象ゲームの確認が完了したものから掲載します。</p>'
  robots = 'index,follow' if (visible and any_indexable) else 'noindex,follow'
+ by_slug = {g['slug']: g for g in visible}
+ genre_html = ''
+ for genre, slugs in GENRE_GROUPS:
+  members = [by_slug[s] for s in slugs if s in by_slug]
+  if not members:
+   continue
+  links = ''.join(f'<li><a href="{BP}/games/{e(m["slug"])}/">{e(m["official_title"])}のポイ活攻略</a></li>' for m in members)
+  genre_html += f'<h3>{e(genre)}</h3><ul class="clean">{links}</ul>'
+ if genre_html:
+  genre_html = f'<section aria-label="ジャンル別"><h2>ジャンルで探す</h2>{genre_html}</section>'
  body = ('<main class="wrap">' + breadcrumb([('トップ', '/'), ('ゲーム一覧', None)])
-         + '<h1>ゲーム一覧</h1><p>対象サービスでの掲載と公開基準を確認できたゲームを掲載しています。</p>'
+         + '<h1>ポイ活ゲーム一覧</h1><p>対象サービスでの掲載と公開基準を確認できたゲームを掲載しています。パズルゲームや放置ゲームなど、ジャンル別の入口も用意しています。</p>'
          + search_block('search-list')
-         + f'<section aria-label="公開中のゲーム"><h2>掲載中のゲーム</h2>{body_cards}</section></main>')
- ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': 'ゲーム一覧', 'url': BASE + '/games/'} if BASE else None
- return page_shell('ゲーム一覧 | ポイ活ゲーム攻略Wiki',
-                   'ポイ活対象ゲームの攻略情報一覧。掲載根拠と確認状況を明示しています。',
+         + f'<section aria-label="公開中のゲーム"><h2>掲載中のゲーム</h2>{body_cards}</section>'
+         + genre_html + '</main>')
+ ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': 'ポイ活ゲーム一覧', 'url': BASE + '/games/'} if BASE else None
+ return page_shell('ポイ活ゲームの一覧・検索｜ポイ活ゲーム攻略Wiki',
+                   'ポイ活ゲームの案件・攻略情報を一覧で検索できます。パズルゲームや放置ゲームなど、遊びたいゲームの達成条件・最大ポイントをゲームごとに確認できます。',
                    robots, '/games/', ld, body), robots
 
 
 def build_detail(g, ks, cs, history_entries, sources_by_id):
  slug = g['slug']
  title = g['official_title']
+ alias = str(g.get('search_alias') or '').strip()
+ title_name = f'{title}（{alias}）' if alias and alias not in title else title
+ active_cs = [c for c in cs if c.get('campaign_status') in ACTIVE_STATUS]
+ service_names = list(dict.fromkeys(str(c.get('service_name')) for c in active_cs if c.get('service_name')))
+ staged = any(c.get('reward_stages') for c in cs)
+ cond_label = '案件条件・ステップ一覧' if staged else '案件条件・確認記録'
  pairs = [('運営・配信元', e(g.get('publisher') or '未確認')),
           ('対応OS', e(g.get('supported_os') or '未確認')),
           ('対象バージョン', e(g.get('game_version') or '未確認')),
@@ -521,8 +542,8 @@ def build_detail(g, ks, cs, history_entries, sources_by_id):
                + (f'（期限：{e(c["deadline"])}）' if c.get('deadline') else '')
                + f' {campaign_status_badge(c.get("campaign_status"))}</li>')
   note = ''.join(rows) if rows else '<li>現在、掲載中の案件はありません。</li>'
-  sections.append('<section class="panel"><h2>サービス別案件情報</h2><ul class="clean">' + note + '</ul>'
-                  f'<p><a href="{BP}/games/{e(slug)}/conditions/">達成条件・確認記録を見る →</a></p></section>')
+  sections.append('<section class="panel"><h2>ポイ活案件情報（サービス別）</h2><ul class="clean">' + note + '</ul>'
+                  f'<p><a href="{BP}/games/{e(slug)}/conditions/">案件条件の詳細を確認する →</a></p></section>')
  cautions = []
  for k in ks:
   if k.get('cautions') and k['cautions'] not in cautions:
@@ -544,17 +565,29 @@ def build_detail(g, ks, cs, history_entries, sources_by_id):
   sections.append('<section class="panel"><h2>更新履歴</h2>' + history_list(history_entries) + '</section>')
  related = [f'<li><a href="{BP}/games/">ゲーム一覧</a></li>']
  if cs:
-  related.insert(0, f'<li><a href="{BP}/games/{e(slug)}/conditions/">{e(title)}の達成条件・確認記録</a></li>')
+  related.insert(0, f'<li><a href="{BP}/games/{e(slug)}/conditions/">{e(title)}の{e(cond_label)}</a></li>')
  sections.append('<section class="panel"><h2>関連ページ</h2><ul class="clean">' + ''.join(related) + '</ul></section>')
  indexable = game_indexable(g, ks, sources_by_id)
  robots = 'index,follow' if indexable else 'noindex,follow'
  crumbs = [('トップ', '/'), ('ゲーム一覧', '/games/'), (title, None)]
  ld = breadcrumb_ld(crumbs, f'/games/{slug}/')
+ intro = ''
+ if active_cs and service_names:
+  intro = (f'<p>ポイ活で始める場合、このゲームの案件は{"・".join(service_names)}に掲載されています。'
+           f'掲載先によって最大ポイントや達成条件が異なるため、始める前に<a href="{BP}/games/{e(slug)}/conditions/">{e(title)}の{e(cond_label)}</a>で比較するのがおすすめです。'
+           '案件ページを経由してインストールし、期限内に条件を達成するとポイントが付きます。</p>')
  body = ('<main class="wrap">' + breadcrumb(crumbs)
-         + f'<h1>{e(title)}のポイ活攻略</h1><p class="lead">{e(g["wiki_summary"])}</p>'
+         + f'<h1>{e(title_name)}のポイ活攻略</h1><p class="lead">{e(g["wiki_summary"])}</p>'
+         + intro
          + ''.join(sections) + '</main>')
- page = page_shell(f'{title}のポイ活攻略｜達成条件・進め方・注意点',
-                   f'{title}のゲーム概要、ポイ活達成のポイント、関連攻略、確認済み情報をまとめます。',
+ if active_cs and service_names:
+  amt = max_reward(g['game_id'], {g['game_id']: cs})
+  amt_part = f'最大{amt:,}円相当。' if amt else ''
+  desc = f'{title_name}のポイ活攻略。{"・".join(service_names)}に案件掲載中、{amt_part}達成条件・ステップの進め方と、課金・無課金の注意点をまとめています。'
+ else:
+  desc = f'{title_name}のゲーム概要、ポイ活達成のポイント、関連攻略、確認済み情報をまとめます。'
+ page = page_shell(f'{title_name}のポイ活攻略｜達成条件・進め方・注意点',
+                   desc,
                    robots, f'/games/{slug}/', ld, body)
  return page, indexable
 
@@ -673,11 +706,19 @@ def build_conditions(g, cs, history_by_campaign, sources_by_id):
  robots = 'index,follow' if indexable else 'noindex,follow'
  crumbs = [('トップ', '/'), ('ゲーム一覧', '/games/'), (title, f'/games/{slug}/'), ('達成条件・検証記録', None)]
  ld = breadcrumb_ld(crumbs, f'/games/{slug}/conditions/')
+ staged = any(c.get('reward_stages') for c in cs)
+ if staged:
+  caution = 'ステップアップ案件は、ステップの順番と達成期限を守らないとポイントが反映されない場合があります。各ステップの条件を確認してから始めてください。'
+  cond_title = f'{title}のポイ活案件条件｜ステップアップ条件・確認記録'
+ else:
+  caution = '達成期限を過ぎるとポイントの対象外になるため、期限と条件を確認してから始めてください。'
+  cond_title = f'{title}のポイ活案件条件・確認記録'
  body = ('<main class="wrap">' + breadcrumb(crumbs)
          + f'<h1>{e(title)}のポイ活達成条件・確認記録</h1>'
-         + '<p>掲載サービスごとの達成条件と確認記録を、情報源・確認日・バージョンを区別して整理します。サービスや時期によって条件は異なります。</p>'
+         + '<p>掲載サービスごとの達成条件と確認記録を、情報源・確認日・バージョンを区別して整理します。サービスや時期によって条件は異なります。'
+         + caution + '</p>'
          + ''.join(parts) + '</main>')
- page = page_shell(f'{title}のポイ活達成条件・確認記録',
+ page = page_shell(cond_title,
                    '掲載サービスごとの達成条件と確認記録を、情報源・確認日・バージョンを区別して整理します。',
                    robots, f'/games/{slug}/conditions/', ld, body)
  return page, indexable

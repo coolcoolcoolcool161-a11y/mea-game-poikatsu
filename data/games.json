@@ -104,7 +104,8 @@
   "publication_status": "公開",
   "slug": "monopoly-go",
   "wiki_summary": "モノポリーを題材にしたボードゲームアプリ。Freecashの看板オファーの1つで、ボードレベルの到達ごとに段階報酬が付く形式。金額・期限は国やアカウントで変わるため、開始前に自分のオファーページで確認が必要。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "search_alias": "モノポリーGO"
  },
  {
   "game_id": "g008",
@@ -134,7 +135,8 @@
   "publication_status": "公開",
   "slug": "wild-survival",
   "wiki_summary": "荒野を舞台に獣の襲撃から拠点を守る、放置要素のあるタワーディフェンスRPG。ワラウでStepUp案件（両OS同一条件・最大31,000pt・全16ステップ）と、ワラウ経由GF Rewards版（最大65,832pt・全19ステップ）が確認されている。条件は難易度レベル（GF版ではティア）ごとの最高ラウンド（ウェーブ）到達と、一部の購入ステップ",
-  "info_rank": "C"
+  "info_rank": "C",
+  "search_alias": "ワイルドサバイバル"
  },
  {
   "game_id": "g010",
@@ -149,7 +151,8 @@
   "publication_status": "公開",
   "slug": "puzzles-and-conquest",
   "wiki_summary": "マッチ3パズルと拠点育成を組み合わせたストラテジーRPG。ポイ活案件では城（基地）レベルの到達やアイテム購入が条件になる。ワラウではStepUp（iOS最大24,460pt／Android最大21,310pt・各15ステップ）、ハピタスではiOS専用掲載（合計31,929pt・12ステップ）が公式ページで確認されている。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "search_alias": "パズコン"
  },
  {
   "game_id": "g011",
@@ -164,7 +167,8 @@
   "publication_status": "公開",
   "slug": "bingo-blitz",
   "wiki_summary": "世界各地のルームを巡って遊ぶオンラインビンゴゲーム。ポイ活案件では各都市の制覇と課金回数が条件になる。ワラウではStepUp（Android最大21,600pt／iOS最大15,200pt・各15ステップ）、ハピタスではAndroid専用掲載（合計37,488pt）、モッピーではiOS掲載（合計21,915P）が公式ページで確認されている。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "search_alias": "ビンゴブリッツ"
  },
  {
   "game_id": "g012",
@@ -388,7 +392,8 @@
   "publication_status": "公開",
   "slug": "slot-mate",
   "wiki_summary": "ベガス風の3Dスロットを回すソーシャルカジノゲーム（実際の金銭を賭けるギャンブルではなく、ゲーム内コインで遊ぶ形式）。PLAYLINKS Corp.の作品で、Google Playでは「Slot Mate - Vegas Slot Casino」の表記。ワラウ経由のGF Rewards掲載ではレベル到達とアプリ内課金を組み合わせた多段階案件（両OS共通・最大113,308pt・全20ステップ）が確認されている。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "search_alias": "スロットメイト"
  },
  {
   "game_id": "g027",
@@ -478,7 +483,8 @@
   "publication_status": "公開",
   "slug": "war-of-towers",
   "wiki_summary": "タワーや武器を配置して押し寄せる敵を迎え撃つ、見下ろし型のタワーディフェンスシューティング（開発：MiyoNet）。ワラウではAndroid専用のStepUp掲載（最大16,000pt・全16ステップ）が公式ページで確認されている。条件は『ステージ○ 最高の波（ウェーブ）○○をクリア』型のゲームプレイ11ステップと購入ステップ5件（計2,035pt）。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "search_alias": "ウォーオブタワーズ"
  },
  {
   "game_id": "g033",
@@ -508,7 +514,8 @@
   "publication_status": "公開",
   "slug": "merge-cooking",
   "wiki_summary": "食材をマージして料理を作り、世界各地のレストランを巡って改装していくマージ＆クッキングゲーム（Happibits Game）。ワラウではiOS専用のStepUp掲載（最大15,280pt・全12ステップ）が公式ページで確認されている。ステップごとに30日〜90日の個別期限が設定されている。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "search_alias": "マージクッキング"
  },
  {
   "game_id": "g035",
@@ -673,7 +680,8 @@
   "publication_status": "公開",
   "slug": "color-link",
   "wiki_summary": "ハピタスでAndroid掲載（10,453pt）が確認されている案件。対象アプリはRayole Gamesの『Color Link』（com.rayole.games.color.link）と特定できた（確度・高。ハピタスの説明文とストア説明の一致による）。ジャンルはパズル（Numberlink系）。ステップ内訳・期限は遷移先のみで未確認。条件の中心はレベル到達ではなくゲーム内オファー『Mega Offer』の消化である可能性が高い。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "search_alias": "カラーリンク"
  },
  {
   "game_id": "g046",
@@ -703,6 +711,7 @@
   "publication_status": "公開",
   "slug": "the-ants",
   "wiki_summary": "アリの巣を発展させて地下王国を築くシミュレーションストラテジー（StarUnion。正式名称は『ザ・アンツ：アンダーグラウンド キングダム』）。ハピタスではiOS掲載（9,839pt・全8ステップ）が確認されている。条件は女王アリのレベルアップとギフトパックの一括購入ステップ。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "search_alias": "ザアンツ"
  }
 ]

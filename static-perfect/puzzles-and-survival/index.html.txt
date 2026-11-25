@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>パズル＆サバイバル攻略Wiki｜ポイゲークエスト</title><style>
+<title>パズル＆サバイバル（パズサバ）のポイ活攻略｜ポイゲークエスト</title><style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:#e8e8e8;scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
@@ -242,7 +242,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 </header>
 
 <div class="crumbs">トップ ＞ ゲーム一覧 ＞ <b>パズル＆サバイバル</b></div>
-<div class="ghead"><img class="" src="img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>攻略Wiki</h1>
+<div class="ghead"><img class="" src="img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル（パズサバ）<br>ポイ活攻略Wiki</h1>
 <div class="gmeta">37GAMES｜iOS/Android</div>
 <div class="gmax">ポイ活案件 最大42,530円（掲載2件）</div></div></div>
 <p class="dates"><span>公開日：<b>2026年11月25日</b></span><span>更新日：<b>2026年11月25日</b></span></p>
