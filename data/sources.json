@@ -3713,5 +3713,15 @@
   "checked_at": "2026-11-25",
   "conditions": "掲示板・提供フォームはSupabase（プロジェクト uqqehsrqjeioeawcrorz）で運用し、投稿は運営が確認する",
   "limitations": "来訪者投稿は未検証情報として扱い、確認できたものだけをサイトへ反映する"
+ },
+ {
+  "source_id": "s372",
+  "source_type": "公式",
+  "publisher": "Freecash（公式サイト・ログイン後の案件ページ）",
+  "title": "Freecash キングショット案件ページ（Android版／iOS版）のログイン実読記録",
+  "url": "https://freecash.com/ja/offer/kingshot-v8e9d7",
+  "checked_at": "2026-11-25",
+  "conditions": "2026-11-25にFreecashへログインした状態で日本語表示の案件ページを実読。金額はすべて円表示。対象はキングショットAndroid版（合計¥188,174、https://freecash.com/ja/offer/kingshot-v8e9d7）とiOS版（合計¥215,469、https://freecash.com/ja/offer/kingshot-template-ios-pbo2k9）。生データは research-raw/freecash-offers-2026-11-25.md に保存",
+  "limitations": "内訳の検算合計はAndroid ¥163,876／iOS ¥205,109で、画面表示の合計とそれぞれ¥24,298／¥10,360の差異がある（未転記の内訳項目がある可能性）。iOS版メインのTC Lv15は「最大¥12,151」の変動表示。オファー内容はアカウント・時期により変動し得る"
  }
 ]

@@ -759,6 +759,22 @@ def process_static(rel, canonical_path):
  p.write_text(text, encoding='utf-8')
 
 
+def apply_pages_overlay(index_paths):
+    """pages-src/ の承認済みページ（新トップ／サービス詳細／お問い合わせ）を
+    __BASE__/__BP__ を実値へ置換して ROOT へ配置し、sitemap 対象へ追加する。
+    ソースは preview-game8/topbuild/convert_prod.py が生成する。"""
+    src_dir = ROOT / 'pages-src'
+    if not src_dir.is_dir():
+        return
+    for p in sorted(src_dir.glob('*.html.txt')):
+        name = p.name[:-len('.txt')]
+        text = p.read_text(encoding='utf-8')
+        text = text.replace('__BASE__', BASE).replace('__BP__', BP)
+        (ROOT / name).write_text(text, encoding='utf-8')
+        if name != 'index.html':
+            index_paths.append('/' + name)
+
+
 def write_discovery_files(index_paths):
  robots = ROOT / 'robots.txt'
  sitemap = ROOT / 'sitemap.xml'
@@ -966,6 +982,7 @@ def main():
    shutil.rmtree(p)
  for rel, path in STATIC_PAGES:
   process_static(rel, path)
+ apply_pages_overlay(index_paths)
  write_discovery_files(sorted(set(index_paths), key=index_paths.index))
  print(f'PASS: トップ・一覧（{list_robots}）・ゲーム詳細{len(visible)}件・攻略{sum(len(knowledge_by_game.get(g["game_id"], [])) for g in visible)}件・条件ページ{sum(1 for g in visible if campaigns_by_game.get(g["game_id"]))}件を生成。index対象{len(set(index_paths))}URL、ベースパス={BP or "/"}、ホスト設定={"あり" if BASE else "なし"}')
  return 0

@@ -11,6 +11,17 @@ rm -rf dist
 mkdir -p dist
 cp index.html sitemap.xml robots.txt dist/
 cp -r games about editorial-policy how-to-read assets dist/
+# 承認済みページ（サービス詳細・お問い合わせ）とトップ専用画像（pages-assets の .b64 を復号）
+for f in svc-*.html contact.html; do
+  if [ -f "$f" ]; then cp "$f" dist/; fi
+done
+if [ -d pages-assets ]; then
+  mkdir -p dist/img
+  for b in pages-assets/*.b64; do
+    [ -f "$b" ] || continue
+    base64 -d "$b" > "dist/img/$(basename "$b" .b64)"
+  done
+fi
 # ファビコン・ロゴ（リポジトリ直下に Web UI で配置したバイナリ）をサイトルートへ
 for f in favicon.ico favicon-16.png favicon-32.png favicon-180.png favicon-192.png favicon-512.png logo-symbol.png; do
   if [ -f "$f" ]; then cp "$f" dist/; else echo "WARN: $f がリポジトリ直下にありません" >&2; fi
