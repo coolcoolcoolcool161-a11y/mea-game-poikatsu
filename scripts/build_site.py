@@ -9,7 +9,7 @@
 - 全ページに GA4（G-8BB8V3DRW8）と referral_click 計測（site.js）を組み込む。広告は入れない。
 - JSONデータは必ずエスケープしてから挿入し、原文HTMLは無加工で挿入しない。
 """
-import base64, json, html, os, re, shutil, subprocess, sys
+import base64, json, html, os, re, shutil, struct, subprocess, sys
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -122,7 +122,132 @@ def jsonld(obj):
  return f'<script type="application/ld+json">{text}</script>'
 
 
-def page_head(title, desc, robots, canonical_path=None, ld=None):
+# ---------- OGP・Twitterカード・画像寸法 ----------
+OG_COMMON_IMAGE_PATH = '/img/hero-main-a.webp'  # ブランド共通の代表画像（実寸1600x900）
+OG_COMMON_IMAGE_SIZE = (1600, 900)
+LOGO_SYMBOL_SIZE = (256, 256)  # logo-symbol.png の実寸（logo_img の宣言と同一）
+ICONS = {}  # main() で data/icons.json を設定する
+
+
+def image_size(data):
+ """PNG/JPEG/GIF/WebP のバイト列から (width, height) を返す。判定できなければ None。"""
+ if not data or len(data) < 30:
+  return None
+ if data[:8] == b'\x89PNG\r\n\x1a\n':
+  return struct.unpack('>II', data[16:24])
+ if data[:6] in (b'GIF87a', b'GIF89a'):
+  return struct.unpack('<HH', data[6:10])
+ if data[:2] == b'\xff\xd8':
+  i = 2
+  while i + 9 < len(data):
+   if data[i] != 0xFF:
+    i += 1
+    continue
+   marker = data[i + 1]
+   if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+    h, w = struct.unpack('>HH', data[i + 5:i + 9])
+    return (w, h)
+   if marker == 0x01 or 0xD0 <= marker <= 0xD9:
+    i += 2
+    continue
+   i += 2 + struct.unpack('>H', data[i + 2:i + 4])[0]
+  return None
+ if data[:4] == b'RIFF' and data[8:12] == b'WEBP':
+  fmt = data[12:16]
+  if fmt == b'VP8X':
+   return (int.from_bytes(data[24:27], 'little') + 1, int.from_bytes(data[27:30], 'little') + 1)
+  if fmt == b'VP8 ':
+   return (struct.unpack('<H', data[26:28])[0] & 0x3FFF, struct.unpack('<H', data[28:30])[0] & 0x3FFF)
+  if fmt == b'VP8L':
+   bits = int.from_bytes(data[21:25], 'little')
+   return ((bits & 0x3FFF) + 1, ((bits >> 14) & 0x3FFF) + 1)
+ return None
+
+
+def b64_image_size(path):
+ """static-perfect / pages-assets の .b64 ファイルから画像寸法を読む。"""
+ try:
+  raw = re.sub(r'\s+', '', Path(path).read_text(encoding='ascii'))
+  return image_size(base64.b64decode(raw))
+ except Exception:
+  return None
+
+
+def data_uri_size(src):
+ """data:image/...;base64,... の先頭バイトから画像寸法を読む。"""
+ try:
+  payload = src.split(',', 1)[1]
+  payload = payload[:len(payload) // 4 * 4]
+  return image_size(base64.b64decode(payload))
+ except Exception:
+  return None
+
+
+def store_image_size(url):
+ """ストア配信画像のURLに寸法トークンが含まれる場合に読み取る。"""
+ m = re.search(r'/(\d+)x(\d+)bb\.', url)
+ if m:
+  return (int(m.group(1)), int(m.group(2)))
+ m = re.search(r'=w(\d+)-h(\d+)', url)
+ if m:
+  return (int(m.group(1)), int(m.group(2)))
+ return None
+
+
+def social_meta(title, desc, canonical_path, image_url=None, image_size=None, og_type='article'):
+ """OGP／Twitterカードの meta 群。絶対URL（BASE）が確定している場合のみ出力する。"""
+ if not BASE or canonical_path is None:
+  return ''
+ if image_url is None:
+  image_url = BASE + OG_COMMON_IMAGE_PATH
+  image_size = OG_COMMON_IMAGE_SIZE
+ parts = [f'<meta property="og:type" content="{og_type}">',
+          '<meta property="og:site_name" content="ポイゲークエスト">',
+          '<meta property="og:locale" content="ja_JP">',
+          f'<meta property="og:title" content="{e(title)}">']
+ if desc:
+  parts.append(f'<meta property="og:description" content="{e(desc)}">')
+ parts.append(f'<meta property="og:url" content="{e(BASE + canonical_path)}">')
+ parts.append(f'<meta property="og:image" content="{e(image_url)}">')
+ if image_size:
+  parts.append(f'<meta property="og:image:width" content="{image_size[0]}">')
+  parts.append(f'<meta property="og:image:height" content="{image_size[1]}">')
+ parts.append('<meta name="twitter:card" content="summary_large_image">')
+ parts.append(f'<meta name="twitter:title" content="{e(title)}">')
+ if desc:
+  parts.append(f'<meta name="twitter:description" content="{e(desc)}">')
+ parts.append(f'<meta name="twitter:image" content="{e(image_url)}">')
+ return '\n'.join(parts)
+
+
+def game_og_image(gid):
+ """生成ゲームページ用の og:image（そのゲームのアイコン。無ければ共通画像に任せる）。"""
+ url = icon_url(ICONS, gid)
+ if url:
+  return url, store_image_size(url)
+ return None, None
+
+
+def add_img_dims(text, resolver):
+ """<img> に実寸の width/height が無ければ resolver(src) で寸法を付与する（script内は対象外）。"""
+ def sub(m):
+  tag = m.group(0)
+  if re.search(r'\bwidth\s*=', tag):
+   return tag
+  sm = re.search(r'src="([^"]+)"', tag)
+  if not sm:
+   return tag
+  size = resolver(sm.group(1))
+  if not size:
+   return tag
+  return tag.replace('<img', f'<img width="{size[0]}" height="{size[1]}"', 1)
+ chunks = re.split(r'(<script\b[^>]*>.*?</script>)', text, flags=re.S)
+ for i in range(0, len(chunks), 2):
+  chunks[i] = re.sub(r'<img\b[^>]*>', sub, chunks[i])
+ return ''.join(chunks)
+
+
+def page_head(title, desc, robots, canonical_path=None, ld=None, og_image=None, og_image_size=None, og_type='article'):
  parts = ['<!doctype html>', '<html lang="ja"><head>', '<meta charset="utf-8">',
           '<meta name="viewport" content="width=device-width, initial-scale=1">',
           f'<title>{e(title)}</title>',
@@ -131,6 +256,9 @@ def page_head(title, desc, robots, canonical_path=None, ld=None):
  parts.append(favicon_links())
  if canonical_path is not None and BASE:
   parts.append(f'<link rel="canonical" href="{e(BASE + canonical_path)}">')
+  sm = social_meta(title, desc, canonical_path, og_image, og_image_size, og_type)
+  if sm:
+   parts.append(sm)
  parts.append(f'<link rel="stylesheet" href="{BP}/assets/site.css">')
  parts.append(ga4_snippet())
  parts.append(f'<script src="{BP}/assets/site.js" defer></script>')
@@ -160,8 +288,8 @@ def site_footer():
          '</div></footer>' + bottom_nav())
 
 
-def page_shell(title, desc, robots, canonical_path, ld, body):
- return page_head(title, desc, robots, canonical_path, ld) + '\n<body>\n' + site_header() + '\n' + body + '\n' + site_footer() + '\n</body></html>\n'
+def page_shell(title, desc, robots, canonical_path, ld, body, og_image=None, og_image_size=None, og_type='article'):
+ return page_head(title, desc, robots, canonical_path, ld, og_image, og_image_size, og_type) + '\n<body>\n' + site_header() + '\n' + body + '\n' + site_footer() + '\n</body></html>\n'
 
 
 def breadcrumb(items):
@@ -342,9 +470,9 @@ def max_reward(gid, campaigns_by_game):
 
 TOP_CSS = """
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%;background:#e8e8e8}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%;background:#fff}
 a{color:#3977B8}
-.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+.page{margin:0 auto;background:#fff;min-height:100vh}
 .header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
 .hrow{display:flex;align-items:center;padding:9px 12px}
 .logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
@@ -413,6 +541,9 @@ def build_top(games, campaigns_by_game, knowledge_by_game, history, icons=None):
  head.append(favicon_links())
  if BASE:
   head.append(f'<link rel="canonical" href="{e(BASE + "/")}">')
+  sm = social_meta(title, desc, '/', None, None, 'website')
+  if sm:
+   head.append(sm)
  head.append(ga4_snippet())
  head.append(f'<script src="{BP}/assets/site.js" defer></script>')
  if BASE:
@@ -525,7 +656,7 @@ def build_list(visible, campaigns_by_game, any_indexable, icons=None):
  ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': 'ポイ活ゲーム一覧', 'url': BASE + '/games/'} if BASE else None
  return page_shell('ポイ活ゲームの一覧・検索｜ポイ活ゲーム攻略Wiki',
                    'ポイ活ゲームの案件・攻略情報を一覧で検索できます。パズルゲームや放置ゲームなど、遊びたいゲームの達成条件・最大ポイントをゲームごとに確認できます。',
-                   robots, '/games/', ld, body), robots
+                   robots, '/games/', ld, body, og_type='website'), robots
 
 
 def build_detail(g, ks, cs, history_entries, sources_by_id):
@@ -605,9 +736,10 @@ def build_detail(g, ks, cs, history_entries, sources_by_id):
   desc = f'{title_name}のポイ活攻略。{"・".join(service_names)}に案件掲載中、{amt_part}達成条件・ステップの進め方と、課金・無課金の注意点をまとめています。'
  else:
   desc = f'{title_name}のゲーム概要、ポイ活達成のポイント、関連攻略、確認済み情報をまとめます。'
+ og_url, og_size = game_og_image(g['game_id'])
  page = page_shell(f'{title_name}のポイ活攻略｜達成条件・進め方・注意点',
                    desc,
-                   robots, f'/games/{slug}/', ld, body)
+                   robots, f'/games/{slug}/', ld, body, og_image=og_url, og_image_size=og_size)
  return page, indexable
 
 
@@ -656,9 +788,10 @@ def build_topic(g, k, siblings, sources_by_id):
  body = ('<main class="wrap">' + breadcrumb(crumbs)
          + f'<h1>{e(title)}：{e(k["topic"])}の進め方・注意点</h1>'
          + f'<div class="layout"><div class="main-col">{"".join(main_parts)}</div><aside class="side-col">{aside}</aside></div></main>')
+ og_url, og_size = game_og_image(g['game_id'])
  page = page_shell(f'{title}：{k["topic"]}の進め方・注意点',
-                   f'{k["topic"]}の具体的な手順、失敗しやすい点、確認できた根拠を整理します。',
-                   robots, f'/games/{slug}/{k["topic_slug"]}/', ld, body)
+                   f'{title}：{k["topic"]}の具体的な手順、失敗しやすい点、確認できた根拠を整理します。',
+                   robots, f'/games/{slug}/{k["topic_slug"]}/', ld, body, og_image=og_url, og_image_size=og_size)
  return page, indexable
 
 
@@ -737,9 +870,22 @@ def build_conditions(g, cs, history_by_campaign, sources_by_id):
          + '<p>掲載サービスごとの達成条件と確認記録を、情報源・確認日・バージョンを区別して整理します。サービスや時期によって条件は異なります。'
          + caution + '</p>'
          + ''.join(parts) + '</main>')
+ active_parts = []
+ for c in active:
+  part = str(c.get('service_name') or '')
+  if c.get('campaign_title'):
+   part = f'{part}：{c["campaign_title"]}' if part else str(c['campaign_title'])
+  if part:
+   active_parts.append(part)
+ if active_parts:
+  cond_desc = (f'{title}のポイ活案件条件まとめ。' + '／'.join(active_parts[:3])
+               + 'の達成条件・ステップ・期限と確認記録を、情報源・確認日を区別して整理しています。')
+ else:
+  cond_desc = f'{title}のポイ活案件条件まとめ。現在、掲載中の案件はありません。終了した案件の達成条件と確認記録を整理しています。'
+ og_url, og_size = game_og_image(g['game_id'])
  page = page_shell(cond_title,
-                   '掲載サービスごとの達成条件と確認記録を、情報源・確認日・バージョンを区別して整理します。',
-                   robots, f'/games/{slug}/conditions/', ld, body)
+                   cond_desc[:140],
+                   robots, f'/games/{slug}/conditions/', ld, body, og_image=og_url, og_image_size=og_size)
  return page, indexable
 
 
@@ -754,6 +900,15 @@ def process_static(rel, canonical_path):
  inject = favicon_links()
  if BASE:
   inject += f'<link rel="canonical" href="{e(BASE + canonical_path)}">'
+  tm = re.search(r'<title>(.*?)</title>', text, re.S)
+  dm = re.search(r'<meta name="description" content="([^"]*)"', text)
+  full_title = tm.group(1).strip() if tm else ''
+  sm = social_meta(full_title, dm.group(1) if dm else '', canonical_path, None, None, 'article')
+  if sm:
+   inject += sm
+  short = full_title.split('｜')[0].strip()
+  if short:
+   inject += jsonld(breadcrumb_ld([('トップ', '/'), (short, None)], canonical_path))
  inject += ga4_snippet() + f'<script src="{BP}/assets/site.js" defer></script>'
  text = re.sub(r'</head>', '<!-- build:head -->' + inject + '<!-- /build:head --></head>', text, count=1, flags=re.I)
  p.write_text(text, encoding='utf-8')
@@ -766,10 +921,60 @@ def apply_pages_overlay(index_paths):
     src_dir = ROOT / 'pages-src'
     if not src_dir.is_dir():
         return
+    assets_dims = {}
+    pa_dir = ROOT / 'pages-assets'
+    if pa_dir.is_dir():
+        for b64f in sorted(pa_dir.glob('*.b64')):
+            sz = b64_image_size(b64f)
+            if sz:
+                assets_dims[b64f.name[:-4]] = sz
+    perfect_dims = {}
+    if PERFECT_DIR.is_dir():
+        for b64f in sorted(PERFECT_DIR.glob('*/img/*.b64')):
+            sz = b64_image_size(b64f)
+            if sz:
+                perfect_dims[b64f.name[:-4]] = sz
+
+    def overlay_resolver(src):
+        if src.startswith('data:image/'):
+            return data_uri_size(src)
+        if src == f'{BP}/logo-symbol.png':
+            return LOGO_SYMBOL_SIZE
+        if '/img/' in src or src.startswith('img/'):
+            base = src.split('/')[-1]
+            return assets_dims.get(base) or perfect_dims.get(base)
+        if src.startswith('http'):
+            return store_image_size(src)
+        return None
+
     for p in sorted(src_dir.glob('*.html.txt')):
         name = p.name[:-len('.txt')]
         text = p.read_text(encoding='utf-8')
         text = text.replace('__BASE__', BASE).replace('__BP__', BP)
+        tm = re.search(r'<title>(.*?)</title>', text, re.S)
+        dm = re.search(r'<meta name="description" content="([^"]*)"', text)
+        full_title = tm.group(1).strip() if tm else ''
+        desc = dm.group(1) if dm else ''
+        if name == 'index.html':
+            cpath = '/'
+            og_type = 'website'
+            ld_objs = [{'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'ポイゲークエスト', 'url': BASE + '/'}] if BASE else []
+        else:
+            cpath = '/' + name
+            og_type = 'article'
+            short = full_title.split('｜')[0].strip()
+            ld_objs = []
+            if BASE and short:
+                ld_objs = [{'@context': 'https://schema.org', '@type': 'WebPage', 'name': short, 'url': BASE + cpath},
+                           breadcrumb_ld([('トップ', '/'), (short, None)], cpath)]
+        inject = social_meta(full_title, desc, cpath, None, None, og_type)
+        for obj in ld_objs:
+            s = jsonld(obj)
+            if s:
+                inject += '\n' + s
+        if inject:
+            text = text.replace('</head>', inject + '\n</head>', 1)
+        text = add_img_dims(text, overlay_resolver)
         (ROOT / name).write_text(text, encoding='utf-8')
         if name != 'index.html':
             index_paths.append('/' + name)
@@ -798,8 +1003,9 @@ def perfect_description(text, title):
  return raw[:124]
 
 
-def convert_perfect_page(text, slug, name, icon_targets=None):
- title = re.search(r'<title>(.*?)</title>', text, re.S).group(1).split('｜')[0].strip()
+def convert_perfect_page(text, slug, name, icon_targets=None, img_dims=None):
+ full_title = re.search(r'<title>(.*?)</title>', text, re.S).group(1).strip()
+ title = full_title.split('｜')[0].strip()
  desc = perfect_description(text, title)
  cpath = f'/games/{slug}/' if name == 'index.html' else f'/games/{slug}/{name}'
  text = text.replace('<a href="../index.html">トップ</a>', f'<a href="{BP}/">トップ</a>')
@@ -848,10 +1054,53 @@ def convert_perfect_page(text, slug, name, icon_targets=None):
            + favicon_links() + '\n')
  if BASE:
   inject += f'<link rel="canonical" href="{e(BASE + cpath)}">\n'
+  og_rel = 'img/keyart-main.jpg'
+  cand = name[:-5] + '.webp'
+  if name != 'index.html' and img_dims and cand in img_dims:
+   og_rel = 'img/' + cand
+  sm = social_meta(full_title, desc, cpath, BASE + f'/games/{slug}/' + og_rel,
+                   (img_dims or {}).get(og_rel.split('/')[-1]), 'article')
+  if sm:
+   inject += sm + '\n'
+  cm = re.search(r'<div class="crumbs">(.*?)</div>', text, re.S)
+  if cm:
+   items = []
+   for m in re.finditer(r'<a href="([^"]*)"[^>]*>([^<]+)</a>|<b>([^<]+)</b>', cm.group(1)):
+    if m.group(3) is not None:
+     items.append((html.unescape(m.group(3)).strip(), None))
+     continue
+    href = m.group(1)
+    if BP and href.startswith(BP + '/'):
+     path = href[len(BP):]
+    elif href.startswith('/'):
+     path = href
+    else:
+     path = f'/games/{slug}/' + href
+    if path.endswith('index.html'):
+     path = path[:-len('index.html')]
+    items.append((html.unescape(m.group(2)).strip(), path))
+   items = [it for it in items if it[0]]
+   if items:
+    ld = breadcrumb_ld(items, cpath)
+    if ld:
+     inject += jsonld(ld) + '\n'
  inject += ga4_snippet() + f'\n<script src="{BP}/assets/site.js" defer></script>\n'
  text = text.replace('</head>', inject + '</head>', 1)
  text = text.replace('</header>', '</header>\n<main>', 1)
  text = text.replace('<footer', '</main>\n<footer', 1)
+
+ def perfect_resolver(src):
+  if src.startswith('img/'):
+   return (img_dims or {}).get(src.split('/')[-1])
+  if src == f'{BP}/logo-symbol.png':
+   return LOGO_SYMBOL_SIZE
+  if src.startswith('data:image/'):
+   return data_uri_size(src)
+  if src.startswith('http'):
+   return store_image_size(src)
+  return None
+
+ text = add_img_dims(text, perfect_resolver)
  return text
 
 
@@ -867,10 +1116,17 @@ def apply_static_overlay(g, folder, icons=None):
  src_dir = PERFECT_DIR / slug
  if not src_dir.is_dir():
   raise SystemExit(f'静的ページのソースがありません: {src_dir}')
+ img_dims = {}
+ _img_dir = src_dir / 'img'
+ if _img_dir.is_dir():
+  for b64f in sorted(_img_dir.glob('*.b64')):
+   sz = b64_image_size(b64f)
+   if sz:
+    img_dims[b64f.name[:-4]] = sz
  paths = []
  for txt in sorted(src_dir.glob('*.html.txt')):
   name = txt.name[:-4]
-  out = convert_perfect_page(txt.read_text(encoding='utf-8'), slug, name, icon_targets)
+  out = convert_perfect_page(txt.read_text(encoding='utf-8'), slug, name, icon_targets, img_dims)
   (folder / name).write_text(out, encoding='utf-8')
   if name not in ('index.html', 'board.html'):
    paths.append(f'/games/{slug}/{name}')
@@ -884,7 +1140,7 @@ def apply_static_overlay(g, folder, icons=None):
  return paths
 
 def main():
- global BP, BASE
+ global BP, BASE, ICONS
  BP, BASE = resolve_base()
  run_validate()
  games = load('games')
@@ -896,6 +1152,7 @@ def main():
  icons_path = DATA / 'icons.json'
  if icons_path.exists():
   icons = json.loads(icons_path.read_text(encoding='utf-8'))
+ ICONS = icons
  sources_by_id = {s.get('source_id'): s for s in sources if isinstance(s, dict) and s.get('source_id')}
  campaigns_by_game = {}
  for c in campaigns:
