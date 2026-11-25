@@ -99,6 +99,22 @@ def ga4_snippet():
          f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA4_ID}');</script>")
 
 
+def favicon_links():
+ # ファビコン実ファイルはリポジトリ直下（サイトルート）に配置し、ci_build.sh が dist へコピーする
+ return '\n'.join([
+  f'<link rel="icon" href="{BP}/favicon.ico" sizes="any">',
+  f'<link rel="icon" type="image/png" sizes="16x16" href="{BP}/favicon-16.png">',
+  f'<link rel="icon" type="image/png" sizes="32x32" href="{BP}/favicon-32.png">',
+  f'<link rel="apple-touch-icon" sizes="180x180" href="{BP}/favicon-180.png">',
+  f'<link rel="icon" type="image/png" sizes="192x192" href="{BP}/favicon-192.png">',
+  f'<link rel="icon" type="image/png" sizes="512x512" href="{BP}/favicon-512.png">'])
+
+
+def logo_img(cls):
+ # ヘッダー用ロゴ（青いQシンボル）。実ファイルはリポジトリ直下の logo-symbol.png
+ return f'<img class="{cls}" src="{BP}/logo-symbol.png" alt="" width="256" height="256">'
+
+
 def jsonld(obj):
  if obj is None:
   return ''
@@ -112,6 +128,7 @@ def page_head(title, desc, robots, canonical_path=None, ld=None):
           f'<title>{e(title)}</title>',
           f'<meta name="description" content="{e(desc)}">',
           f'<meta name="robots" content="{robots}">']
+ parts.append(favicon_links())
  if canonical_path is not None and BASE:
   parts.append(f'<link rel="canonical" href="{e(BASE + canonical_path)}">')
  parts.append(f'<link rel="stylesheet" href="{BP}/assets/site.css">')
@@ -125,7 +142,7 @@ def page_head(title, desc, robots, canonical_path=None, ld=None):
 
 def site_header():
  links = ''.join(f'<a href="{BP}{p}">{t}</a>' for p, t in NAV)
- return (f'<header><div class="wrap head"><a class="brand" href="{BP}/">{SITE_NAME}</a>'
+ return (f'<header><div class="wrap head"><a class="brand" href="{BP}/">{logo_img("lg-logo")}{SITE_NAME}</a>'
          f'<nav aria-label="メインナビゲーション">{links}</nav></div></header>')
 
 
@@ -332,6 +349,7 @@ a{color:#3977B8}
 .hrow{display:flex;align-items:center;padding:9px 12px}
 .logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
 .lg-mark{display:inline-block;background:#ff6900;color:#fff;border-radius:5px;padding:0 6px;margin-right:5px;font-size:18px}
+.lg-logo{width:34px;height:34px;vertical-align:-9px;margin-right:6px;border-radius:7px}
 .lg-sub{font-size:9px;font-weight:700;color:#ff6900;vertical-align:super;margin-left:3px}
 .gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
 .gnav a{flex:1;text-align:center;padding:8px 4px;font-size:12.5px;font-weight:700;color:#333;text-decoration:none;border-bottom:3px solid transparent}
@@ -392,6 +410,7 @@ def build_top(games, campaigns_by_game, knowledge_by_game, history, icons=None):
          f'<title>{e(title)}</title>',
          f'<meta name="description" content="{e(desc)}">',
          f'<meta name="robots" content="{robots}">']
+ head.append(favicon_links())
  if BASE:
   head.append(f'<link rel="canonical" href="{e(BASE + "/")}">')
  head.append(ga4_snippet())
@@ -446,7 +465,7 @@ def build_top(games, campaigns_by_game, knowledge_by_game, history, icons=None):
   ev_items += f'<li><a href="{BP}/games/{slugs[gid]}/">{e(titles[gid])}</a>：{label}（{e(d)}）</li>'
 
  header = ('<header class="header"><div class="hrow"><div class="logo">'
-           '<span class="lg-mark">ポ</span>ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div></div>'
+           f'{logo_img("lg-logo")}ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div></div>'
            '<nav class="gnav">'
            '<a href="#popular">人気ゲーム</a><a href="#updates">新着・更新</a>'
            f'<a href="#ranking">ランキング</a><a href="{BP}/games/">ゲーム一覧</a>'
@@ -732,7 +751,7 @@ def process_static(rel, canonical_path):
  if BP:
   text = text.replace(f'href="{BP}/', 'href="/').replace(f'src="{BP}/', 'src="/')
   text = text.replace('href="/', f'href="{BP}/').replace('src="/', f'src="{BP}/')
- inject = ''
+ inject = favicon_links()
  if BASE:
   inject += f'<link rel="canonical" href="{e(BASE + canonical_path)}">'
  inject += ga4_snippet() + f'<script src="{BP}/assets/site.js" defer></script>'
@@ -806,8 +825,11 @@ def convert_perfect_page(text, slug, name, icon_targets=None):
                      '<a class="sticky-cta-bar" id="stickyCtaBar" data-ref-service="ハピタス" data-ref-placement="sticky" href="https://hapitas.jp/appinvite?i=26164523"')
  text = text.replace("var d=SVC[key]; if(!d)return;",
                      "var d=SVC[key]; if(!d)return;\n  document.querySelectorAll('.cta-btn,#stickyCtaBar').forEach(function(el){el.setAttribute('data-ref-service',d.name);});")
+ text = text.replace('<div class="logo"><span class="lg-mark">ポ</span>ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>',
+                     f'<div class="logo"><img src="{BP}/logo-symbol.png" alt="" style="width:34px;height:34px;vertical-align:-9px;margin-right:6px;border-radius:7px">ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>')
  inject = (f'<meta name="description" content="{e(desc)}">\n'
-           '<meta name="robots" content="index,follow">\n')
+           '<meta name="robots" content="index,follow">\n'
+           + favicon_links() + '\n')
  if BASE:
   inject += f'<link rel="canonical" href="{e(BASE + cpath)}">\n'
  inject += ga4_snippet() + f'\n<script src="{BP}/assets/site.js" defer></script>\n'

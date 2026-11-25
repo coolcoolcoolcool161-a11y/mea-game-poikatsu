@@ -11,6 +11,10 @@ rm -rf dist
 mkdir -p dist
 cp index.html sitemap.xml robots.txt dist/
 cp -r games about editorial-policy how-to-read assets dist/
+# ファビコン・ロゴ（リポジトリ直下に Web UI で配置したバイナリ）をサイトルートへ
+for f in favicon.ico favicon-16.png favicon-32.png favicon-180.png favicon-192.png favicon-512.png logo-symbol.png; do
+  if [ -f "$f" ]; then cp "$f" dist/; else echo "WARN: $f がリポジトリ直下にありません" >&2; fi
+done
 # GSC所有権確認ファイルは監査（*.html走査）対象外にするため repo 内では .txt 付きで保持し、ここで本来の名前に戻す
 cp static/google3ee751214639f822.html.txt dist/google3ee751214639f822.html
 cp static/ee3206d3bc3c40a990d1906f880a07df.txt dist/
