@@ -295,5 +295,27 @@
   "new_value": "終了",
   "source_id": "s142",
   "note": "ワラウ公式URL（iOS point_id=208997）の実読とブラウザ目視で「掲載終了のご案内」への切替を確認。根拠は full-review-2026-11-26/freshness-western-farm.md。台帳への反映は2026-11-27。"
+ },
+ {
+  "history_id": "h028",
+  "campaign_id": "c092",
+  "changed_at": "2026-11-27",
+  "change_type": "掲載開始",
+  "field": "全項目",
+  "old_value": "未登録",
+  "new_value": "ワラウ ウエスタン農場（StepUp・iOS版）最大5,540pt・全14ステップ（point_id=209601）",
+  "source_id": "s449",
+  "note": "旧案件（c069・c070、最大14,000pt／12,500pt）の掲載終了後に、別point_idで再掲載された新案件。2026-11-27にワラウ公式（ログイン済みブラウザ）で実読して新規登録"
+ },
+ {
+  "history_id": "h029",
+  "campaign_id": "c093",
+  "changed_at": "2026-11-27",
+  "change_type": "掲載開始",
+  "field": "全項目",
+  "old_value": "未登録",
+  "new_value": "ワラウ ウエスタン農場（StepUp・Android版）最大7,620pt・全14ステップ（point_id=209602）",
+  "source_id": "s450",
+  "note": "旧案件（c069・c070、最大14,000pt／12,500pt）の掲載終了後に、別point_idで再掲載された新案件。2026-11-27にワラウ公式（ログイン済みブラウザ）で実読して新規登録"
  }
 ]

@@ -4558,5 +4558,25 @@
   "checked_at": "2026-11-25",
   "conditions": "モッピー（ログイン済み）→「アプリマルチミッション」欄のアプリBOX連携先（GF Rewards）で案件詳細を実読。全19ステップ・期限30日・主な注意点を確認",
   "limitations": "表示合計109,790Pは増量後の額（通常額92,462Pの併記あり）。詳細内に「増量中」の明示文言は無く、個別増量かは断定不可。対象OSの明示表記なし"
+ },
+ {
+  "source_id": "s449",
+  "source_type": "公式",
+  "publisher": "ワラウ",
+  "title": "ウエスタン農場 - クロンダイクの冒険（StepUp）案件詳細（point_id=209601）｜ワラウ",
+  "url": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=209601",
+  "checked_at": "2026-11-27",
+  "conditions": "ワラウ（ログイン済みブラウザ）で案件詳細を実読。全14ステップ・最大5,540pt・期限はインストールから45日（本日インストールの場合2027年1月10日と表示）・あんしん保証／即日付与バッジを確認",
+  "limitations": "iOS表示で確認した内容。旧案件（point_id=208998／208997・最大14,000pt／12,500pt）の終了後に別point_idで再掲載された新案件"
+ },
+ {
+  "source_id": "s450",
+  "source_type": "公式",
+  "publisher": "ワラウ",
+  "title": "ウエスタン農場 - クロンダイクの冒険（StepUp）案件詳細（point_id=209602・Android版）｜ワラウ",
+  "url": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=209602",
+  "checked_at": "2026-11-27",
+  "conditions": "ワラウ（ログイン済みブラウザ）のサイト内検索で当該案件を確認し、案件詳細を実読。全14ステップ・最大7,620pt・期限はインストールから45日（本日インストールの場合2027年1月10日と表示）・あんしん保証／即日付与バッジを確認",
+  "limitations": "Android表示で確認した内容。旧案件（point_id=208998・最大14,000pt）の終了後に別point_idで再掲載された新案件"
  }
 ]
