@@ -720,7 +720,7 @@ def build_detail(g, ks, cs, history_entries, sources_by_id, rail_games=None, ico
   for k in ks:
    points.append(f'<li><a href="{BP}/games/{e(slug)}/{e(k["topic_slug"])}/">{e(k["topic"])}</a>：{e(k.get("conclusion"))}</li>')
   sections.append('<section class="panel"><h2>攻略の要点</h2><ul class="clean">' + ''.join(points) + '</ul></section>')
-  links = ''.join(f'<li><a href="{BP}/games/{e(slug)}/{e(k["topic_slug"])}/">{e(k["topic"])}の進め方・注意点</a></li>' for k in ks)
+  links = ''.join(f'<li><a href="{BP}/games/{e(slug)}/{e(k["topic_slug"])}/">{e(topic_title(k))}</a></li>' for k in ks)
   sections.append('<section class="panel"><h2>攻略テーマ</h2><ul class="clean">' + links + '</ul></section>')
  active = [c for c in cs if c.get('campaign_status') in ACTIVE_STATUS]
  if cs and not active:
@@ -783,6 +783,15 @@ def build_detail(g, ks, cs, history_entries, sources_by_id, rail_games=None, ico
                    desc,
                    robots, f'/games/{slug}/', ld, body, og_image=og_url, og_image_size=og_size)
  return page, indexable
+
+
+def topic_title(k):
+ """トピックの表示タイトル。名前に既に「進め方／やり方」が入っている場合は重ねない
+ （「…への進め方の進め方・注意点」という重複の防止。2026-11-27 パズサバ見直し第2回で発見）。"""
+ t = k['topic']
+ if '進め方' in t or 'やり方' in t:
+  return t + '・注意点'
+ return t + 'の進め方・注意点'
 
 
 def top_menu_html(g, k, siblings):
@@ -850,11 +859,11 @@ def build_topic(g, k, siblings, sources_by_id):
  crumbs = [('トップ', '/'), ('ゲーム一覧', '/games/'), (title, f'/games/{slug}/'), (k['topic'], None)]
  ld = breadcrumb_ld(crumbs, f'/games/{slug}/{k["topic_slug"]}/')
  body = ('<main class="wrap">' + breadcrumb(crumbs)
-         + f'<h1>{e(title)}：{e(k["topic"])}の進め方・注意点</h1>'
+         + f'<h1>{e(title)}：{e(topic_title(k))}</h1>'
          + top_menu_html(g, k, siblings)
          + f'<div class="layout"><div class="main-col">{"".join(main_parts)}</div><aside class="side-col">{aside}</aside></div></main>')
  og_url, og_size = game_og_image(g['game_id'])
- page = page_shell(f'{title}：{k["topic"]}の進め方・注意点',
+ page = page_shell(f'{title}：{topic_title(k)}',
                    f'{title}：{k["topic"]}の具体的な手順、失敗しやすい点、確認できた根拠を整理します。',
                    robots, f'/games/{slug}/{k["topic_slug"]}/', ld, body, og_image=og_url, og_image_size=og_size)
  return page, indexable
