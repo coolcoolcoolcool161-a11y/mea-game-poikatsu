@@ -246,3 +246,14 @@ footer .copy{font-size:11px;color:#aaa;text-align:center}
 .nc-tx a{color:#8fc3ff;font-weight:700;text-decoration:underline}
 .nc-rail .tile{flex:0 0 112px}
 .nc-rail .tpt{font-size:10.5px;letter-spacing:-.02em}
+
+/* ---------- 攻略ページ上部メニュー（案A・標準部品） ---------- */
+.topmenu-a{margin:10px 0 4px}
+.tm-label{text-align:center;font-weight:800;font-size:13px;color:#5a6a7d;margin:6px 0 8px}
+.tm-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.tm-menu.folded a:nth-child(n+7){display:none}
+.tm-menu a{border:1px solid #d7e1ec;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#172B49;box-shadow:0 1px 2px rgba(0,0,0,.04);display:flex;align-items:center;justify-content:center}
+.tm-menu a .tml{line-height:1.35}
+.tm-menu a.now{position:relative;border-color:#3977B8;background:#EAF2FC;color:#1B5FC1}
+.tm-menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#3977B8}
+.tm-toggle{display:block;margin:8px auto 2px;padding:8px 26px;border:1px solid #d7e1ec;border-radius:999px;background:#fff;font-size:13px;font-weight:700;color:#1B5FC1;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}
