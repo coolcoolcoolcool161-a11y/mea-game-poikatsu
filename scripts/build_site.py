@@ -785,6 +785,28 @@ def build_detail(g, ks, cs, history_entries, sources_by_id, rail_games=None, ico
  return page, indexable
 
 
+def top_menu_html(g, k, siblings):
+ """攻略ページ上部メニュー（案A・2026-11-27 ベース組み込み）。
+ ゲームトップ＋同ゲームの全攻略トピックをタイル化し、現在ページに now を付ける。
+ 7件以上は折りたたみ（初期6件）。部品仕様は PARTS_SPEC（上部メニュー）。"""
+ slug = g['slug']
+ tiles = [f'<a href="{BP}/games/{e(slug)}/"><span class="tml">攻略トップ</span></a>']
+ for sib in siblings:
+  if sib.get('static_page'):
+   continue
+  cls = ' class="now"' if sib.get('knowledge_id') == k.get('knowledge_id') else ''
+  tiles.append(f'<a href="{BP}/games/{e(slug)}/{e(sib["topic_slug"])}/"{cls}><span class="tml">{e(sib["topic"])}</span></a>')
+ label = '<div class="tm-label">▼ 攻略メニュー ▼</div>'
+ if len(tiles) <= 6:
+  return f'<div class="topmenu-a">{label}<div class="tm-menu">' + ''.join(tiles) + '</div></div>'
+ script = ("<script>(function(){var tg=document.getElementById('menuToggle'),mg=document.getElementById('menuGrid');"
+           "tg.addEventListener('click',function(){var f=mg.classList.toggle('folded');"
+           "tg.textContent=f?'もっと見る ▼':'閉じる ▲';tg.setAttribute('aria-expanded',String(!f));});})();</script>")
+ return (f'<div class="topmenu-a">{label}<div class="tm-menu folded" id="menuGrid">' + ''.join(tiles) + '</div>'
+         '<button type="button" class="tm-toggle" id="menuToggle" aria-expanded="false">もっと見る ▼</button>'
+         + script + '</div>')
+
+
 def build_topic(g, k, siblings, sources_by_id):
  slug = g['slug']
  title = g['official_title']
@@ -829,6 +851,7 @@ def build_topic(g, k, siblings, sources_by_id):
  ld = breadcrumb_ld(crumbs, f'/games/{slug}/{k["topic_slug"]}/')
  body = ('<main class="wrap">' + breadcrumb(crumbs)
          + f'<h1>{e(title)}：{e(k["topic"])}の進め方・注意点</h1>'
+         + top_menu_html(g, k, siblings)
          + f'<div class="layout"><div class="main-col">{"".join(main_parts)}</div><aside class="side-col">{aside}</aside></div></main>')
  og_url, og_size = game_og_image(g['game_id'])
  page = page_shell(f'{title}：{k["topic"]}の進め方・注意点',
