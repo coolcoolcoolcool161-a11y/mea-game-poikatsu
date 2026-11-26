@@ -229,5 +229,27 @@
   "new_value": "空欄だった対象外条件に「新規ユーザーのみ（そのデバイスで未プレイ）」を記録（c087 と同一の Freecash 共通条件、s372）",
   "source_id": "s372",
   "note": "空欄だった対象外条件に「新規ユーザーのみ（そのデバイスで未プレイ）」を記録（c087 と同一の Freecash 共通条件、s372）"
+ },
+ {
+  "history_id": "h022",
+  "campaign_id": "c005",
+  "changed_at": "2026-11-26",
+  "change_type": "報酬変更",
+  "field": "reward_amount",
+  "old_value": "合計22,043pt（全15ステップ・両OS同額）",
+  "new_value": "合計16,662pt（全15ステップ・両OS同額）",
+  "source_id": "s024",
+  "note": "公式現行掲載（itemid 99420・iOS／99421・Android）を2026-11-26に両OS実読し減額を確認。STEP5・11・13・14・15が減額"
+ },
+ {
+  "history_id": "h023",
+  "campaign_id": "c005",
+  "changed_at": "2026-11-26",
+  "change_type": "訂正",
+  "field": "completion_condition／reward_stages／deadline／exclusion_conditions",
+  "old_value": "プレイヤーレベル10〜150到達の15ステップ／Lv帯別の成果受付期限／未起動日数による対象外",
+  "new_value": "チュートリアル突破＋ランク30〜200到達＋課金4ステップ＋300回ガチャの15ステップ／全ステップ45日以内（STEP10のみ3日以内）／現行ページの却下条件",
+  "source_id": "s024",
+  "note": "台帳の従来記録は現行ページに存在しない条件だったため、2026-11-26の実読内容へ全面的に差し替えた"
  }
 ]
