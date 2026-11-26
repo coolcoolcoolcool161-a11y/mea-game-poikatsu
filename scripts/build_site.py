@@ -981,6 +981,132 @@ def build_guide_rail():
     return ''.join(out)
 
 
+# ---------- サイトトップ／お問い合わせのダークモード ----------
+# ゲームページ側の theme_toggle 部品（EXPANSION_BASE/parts/theme-toggle.html）と
+# 同じ仕組みを、サイトトップ（index.html）とお問い合わせ（contact.html）にも入れる。
+#   INIT  : localStorage 'poigame-theme' → 端末の prefers-color-scheme の順で
+#           html[data-theme] を決める（ゲームページとキーを共有し、選択を引き継ぐ）
+#   CSS   : 暗テーマの上書き。色はトップのカラースロット（案C：深い空→明るい空の
+#           グラデ、金額は金茶 #C98A04）から作った暗テーマ値。背景だけ暗転させず
+#           文字色も必ず暗テーマ側で上書きする（dark-contrast-fix の学び）
+#   TOGGLE: ヘッダー右のアイコン列（.hacts）へ .hact と同じ見た目で追加する
+# pages-src の再生成で消えないよう、オーバーレイ時にビルド側で差し込む。
+TOP_THEME_PAGES = {'index.html', 'contact.html'}
+TOP_THEME_INIT = """<script>(function(){try{var t=localStorage.getItem('poigame-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>"""
+TOP_THEME_CSS = """<style>
+/* === top-dark-theme-2026-11-26 === */
+.theme-toggle .ic{font-size:19px;line-height:1}
+html[data-theme="dark"]{color-scheme:dark;background:#0A1524}
+html[data-theme="dark"] body{background:#0A1524;color:#E8EFF7}
+html[data-theme="dark"] a{color:#82B4E8}
+html[data-theme="dark"] header.site{background:#0E1E33;box-shadow:0 1px 5px rgba(0,0,0,.5)}
+html[data-theme="dark"] .hrow{background:#0E1E33}
+html[data-theme="dark"] .htag .t1{color:#EAF2FB}
+html[data-theme="dark"] .htag .t2{color:#93A9C2}
+html[data-theme="dark"] .hact{background:#1B3552;color:#BFD9F2}
+html[data-theme="dark"] .hact:active{background:#27496E}
+html[data-theme="dark"] header.site nav{background:linear-gradient(90deg,#0F2C4E,#1D5C8F)}
+html[data-theme="dark"] h1{color:#EAF2FB}
+html[data-theme="dark"] .lead{color:#B9C9DA}
+html[data-theme="dark"] h2{background:linear-gradient(90deg,#173F6E,#2F6CA8)}
+html[data-theme="dark"] h2 .h2sub{color:#EAF6FF}
+html[data-theme="dark"] .searchbox input{background:#132539;border-color:#3E6FA3;color:#E8EFF7}
+html[data-theme="dark"] .searchbox input::placeholder{color:#7C93AC}
+html[data-theme="dark"] .sres{background:#132539;border-color:#2A435F;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+html[data-theme="dark"] .sres a{color:#E8EFF7;border-top-color:#22384F}
+html[data-theme="dark"] .chip{background:#1B3552;color:#BFD9F2}
+html[data-theme="dark"] .car-card,html[data-theme="dark"] .rail-card,html[data-theme="dark"] .rail-card2,html[data-theme="dark"] .gr-card,html[data-theme="dark"] .feat,html[data-theme="dark"] .svc-card,html[data-theme="dark"] .camp-card,html[data-theme="dark"] .svc-car-card,html[data-theme="dark"] .gtile,html[data-theme="dark"] .camp-tile{background:#132539;border-color:#2A435F}
+html[data-theme="dark"] .car-meta,html[data-theme="dark"] .gr-sub,html[data-theme="dark"] .rk-sub,html[data-theme="dark"] .news-date,html[data-theme="dark"] .note,html[data-theme="dark"] .checked-line,html[data-theme="dark"] .cmp-meta,html[data-theme="dark"] .svc-note,html[data-theme="dark"] .svc-pos,html[data-theme="dark"] .svc-checked,html[data-theme="dark"] .car-count,html[data-theme="dark"] .feat .fdesc,html[data-theme="dark"] .gtile .gt-desc,html[data-theme="dark"] .cmp-svcname,html[data-theme="dark"] .svc-code span{color:#93A9C2}
+html[data-theme="dark"] .rail-main,html[data-theme="dark"] .gr-name,html[data-theme="dark"] .pop-card,html[data-theme="dark"] .ag-cell,html[data-theme="dark"] .cmp-game,html[data-theme="dark"] .news-row,html[data-theme="dark"] .rank-row,html[data-theme="dark"] .pop-main,html[data-theme="dark"] .rail-main2,html[data-theme="dark"] .rank-link{color:#E8EFF7}
+html[data-theme="dark"] .kv-strip{background:#152A44;color:#EAF2FB}
+html[data-theme="dark"] .bd-svc,html[data-theme="dark"] .sb-default{background:#1B3552;color:#BFD9F2;border-color:#33527A}
+html[data-theme="dark"] .bd-dl,html[data-theme="dark"] .gr-date,html[data-theme="dark"] .tag-chg{background:#3A2C12;color:#F2CF8F;border-color:#6E5518}
+html[data-theme="dark"] .bd-boost,html[data-theme="dark"] .tag-add{background:#14301D;color:#8FD7A4;border-color:#2E5C3A}
+html[data-theme="dark"] .bd-new{background:#33270F;color:#E3AC29;border-color:#6E5518}
+html[data-theme="dark"] .bd-info{background:#1D3550;color:#A9C8E2}
+html[data-theme="dark"] .bd-gray{background:#2B2B2B;color:#BBBBBB}
+html[data-theme="dark"] .gr-game{background:#1B3552;color:#BFD9F2;border-color:#33527A}
+html[data-theme="dark"] .guide-btn{background:#1B3552;color:#BFD9F2;border-color:#33527A}
+html[data-theme="dark"] .tab{background:#132539;color:#82B4E8;border-color:#3E6FA3}
+html[data-theme="dark"] .tab.on{background:#2F74B5;color:#fff}
+html[data-theme="dark"] .rank-row{border-bottom-color:#22384F}
+html[data-theme="dark"] .rk{background:#1B3552;color:#EAF2FB}
+html[data-theme="dark"] .ad{border-color:#33527A;background:#101F31;color:#93A9C2}
+html[data-theme="dark"] .ad b{color:#B9C9DA}
+html[data-theme="dark"] .ad-slot .ad-label{color:#93A9C2}
+html[data-theme="dark"] .mini-pt,html[data-theme="dark"] .ag-pt,html[data-theme="dark"] .rail-sub{color:#82B4E8}
+html[data-theme="dark"] .genre a{background:#2A2140;color:#C9B8EC}
+html[data-theme="dark"] .gtile .gt-arr{color:#C9B8EC}
+html[data-theme="dark"] .media-card{border-color:#2A435F;color:#E8EFF7}
+html[data-theme="dark"] .nl{background:#132539}
+html[data-theme="dark"] .guide-links a{background:#132539;border-color:#2A435F;color:#E8EFF7}
+html[data-theme="dark"] .stat{background:linear-gradient(180deg,#16293F,#101F31);border-color:#2A435F}
+html[data-theme="dark"] .stat .n{color:#7FB3E8}
+html[data-theme="dark"] .stat .l{color:#93A9C2}
+html[data-theme="dark"] .fbox{background:#2A1E12;border-color:#8A5A28;color:#E8EFF7}
+html[data-theme="dark"] .farr{color:#FF8A3D}
+html[data-theme="dark"] .hook{background:#132539;border-color:#2A435F;color:#D8E2EC}
+html[data-theme="dark"] .bar-name,html[data-theme="dark"] .bar-val{color:#E8EFF7}
+html[data-theme="dark"] .bar-track{background:#22384F}
+html[data-theme="dark"] .state-label{color:#EAF2FB}
+html[data-theme="dark"] .schip{background:#132539;color:#82B4E8;border-color:#3E6FA3}
+html[data-theme="dark"] .cmp-row{border-color:#2A435F}
+html[data-theme="dark"] .cmp-svcs{border-top-color:#22384F}
+html[data-theme="dark"] .cmp-svc{border-bottom-color:#22384F}
+html[data-theme="dark"] .cmp-svc.top .cmp-amt{color:#E3AC29}
+html[data-theme="dark"] .cmp-svc.top .cmp-svcname{color:#EAF2FB}
+html[data-theme="dark"] .cmp-svc.hl{background:#2E2410}
+html[data-theme="dark"] .bigcta{background:linear-gradient(180deg,#241A10,#171310);border-color:#6E5518}
+html[data-theme="dark"] .svctabs button{background:#141C26;color:#9AA7B4;border-color:#2A3442}
+html[data-theme="dark"] .svctabs button .tt{color:#7C8896}
+html[data-theme="dark"] .svctabs button.on{background:#132539;color:#E3AC29;border-color:#FF6900}
+html[data-theme="dark"] .svctabs button.on .tt{color:#E3AC29}
+html[data-theme="dark"] .sim{background:#12291A;border-color:#2E5C3A}
+html[data-theme="dark"] .sim-title{color:#8FD7A4}
+html[data-theme="dark"] .sim-body{color:#D8E2EC}
+html[data-theme="dark"] .svc-namebox h3,html[data-theme="dark"] .camp-title{color:#EAF2FB}
+html[data-theme="dark"] .svc-benefit{background:#1B3552;color:#E8EFF7}
+html[data-theme="dark"] .svc-facts,html[data-theme="dark"] .camp-lines,html[data-theme="dark"] .svc-car-cond{color:#B9C9DA}
+html[data-theme="dark"] .qa{background:#101F31;border-color:#2A435F}
+html[data-theme="dark"] .qa summary{color:#EAF2FB}
+html[data-theme="dark"] .camp-strip{background:linear-gradient(90deg,#2A2410,#241A0E);color:#EAF2FB;border-color:#6E5518}
+html[data-theme="dark"] .camp-amt{color:#82B4E8}
+html[data-theme="dark"] .svc-car-name{color:#EAF2FB}
+html[data-theme="dark"] .svc-car-benefit{color:#82B4E8}
+html[data-theme="dark"] .svc-car-note{background:#1B3552;color:#B9C9DA}
+html[data-theme="dark"] .car-progress{background:#22384F}
+html[data-theme="dark"] .camp-tile-img{background:#1B3552}
+html[data-theme="dark"] footer.site{background:#0B1A2C}
+html[data-theme="dark"] .note-card{background:#132539;color:#D8E2EC}
+html[data-theme="dark"] .note-card b{color:#EAF2FB}
+html[data-theme="dark"] form.cform{background:#132539;border-color:#2A435F}
+html[data-theme="dark"] .frow label{color:#EAF2FB}
+html[data-theme="dark"] .frow .opt{background:#1B3552;color:#93A9C2}
+html[data-theme="dark"] .frow input,html[data-theme="dark"] .frow select,html[data-theme="dark"] .frow textarea{background:#0D1B2C;color:#E8EFF7;border-color:#2A435F}
+html[data-theme="dark"] .thanks{background:#12291A;border-color:#2E5C3A;color:#A9DDBB}
+html[data-theme="dark"] .fnote{color:#93A9C2}
+html[data-theme="dark"] input::placeholder,html[data-theme="dark"] textarea::placeholder{color:#8FA5BC}
+html[data-theme="dark"] .frow .must{background:#C04541}
+html[data-theme="dark"] .submit{background:linear-gradient(90deg,#173F6E,#1D5C8F)}
+html[data-theme="dark"] .cta{color:#fff}
+html[data-theme="dark"] .cta-btn{color:#fff}
+html[data-theme="dark"] .cta-hapitas{color:#111}
+html[data-theme="dark"] .cta-warau{color:#fff}
+html[data-theme="dark"] .cta-moppy{color:#05302B}
+html[data-theme="dark"] .cta-freecash{color:#04331B}
+html[data-theme="dark"] .nl a{color:#fff}
+html[data-theme="dark"] .gtile{color:#E8EFF7}
+html[data-theme="dark"] footer.site a{color:#CFE0F2}
+html[data-theme="dark"] ol.rank li:nth-child(1) .rk{background:#C93568}
+html[data-theme="dark"] ol.rank li:nth-child(2) .rk{background:#AD590C}
+html[data-theme="dark"] .feat .band.b2{background:linear-gradient(135deg,#4A7A49,#2e4a2d)}
+html[data-theme="dark"] .feat .band.b6{background:linear-gradient(135deg,#A04E68,#6e2f47)}
+html[data-theme="dark"] .feat .band.b8{background:linear-gradient(135deg,#B25A14,#8a4510)}
+/* === /top-dark-theme === */
+</style>"""
+TOP_THEME_TOGGLE = """<script>(function(){var host=document.querySelector('.hacts')||document.querySelector('.header-icons');if(!host)return;var cur=document.documentElement.getAttribute('data-theme')||'light';var d=document.createElement('div');d.className='hact theme-toggle';d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','表示テーマを切り替える');function draw(){d.innerHTML='<span class="ic">'+(cur==='dark'?'☀️':'🌙')+'</span><span>テーマ</span>';}function flip(){cur=(cur==='dark')?'light':'dark';document.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('poigame-theme',cur);}catch(e){}draw();}draw();d.addEventListener('click',flip);d.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip();}});host.appendChild(d);})();</script>"""
+
+
 def apply_pages_overlay(index_paths):
     """pages-src/ の承認済みページ（新トップ／サービス詳細／お問い合わせ）を
     __BASE__/__BP__ を実値へ置換して ROOT へ配置し、sitemap 対象へ追加する。
@@ -1042,8 +1168,12 @@ def apply_pages_overlay(index_paths):
             s = jsonld(obj)
             if s:
                 inject += '\n' + s
+        if name in TOP_THEME_PAGES:
+            inject += '\n' + TOP_THEME_INIT + '\n' + TOP_THEME_CSS
         if inject:
             text = text.replace('</head>', inject + '\n</head>', 1)
+        if name in TOP_THEME_PAGES:
+            text = text.replace('</body>', TOP_THEME_TOGGLE + '\n</body>', 1)
         text = add_img_dims(text, overlay_resolver)
         (ROOT / name).write_text(text, encoding='utf-8')
         if name != 'index.html':
