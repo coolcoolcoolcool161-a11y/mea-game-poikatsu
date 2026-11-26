@@ -233,3 +233,16 @@ footer .copy{font-size:11px;color:#aaa;text-align:center}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 .game-icon{width:44px;height:44px;border-radius:10px;float:left;margin:2px 10px 6px 0}
 .game-card{overflow:hidden}
+
+/* ---------- 案件終了時のお知らせ（標準部品） ---------- */
+.nc-fig{margin:12px 0 0}
+.nc-fig img{width:100%;height:auto;border-radius:14px}
+.nc-panel{margin:12px 0;background:linear-gradient(180deg,#1d3a5f,#172B49);border:1.5px solid #3977B8;border-radius:16px;padding:0 14px 8px;overflow:hidden}
+.nc-phead{background:linear-gradient(180deg,#ecd27c,#d3af47);color:#4a3805;font-weight:900;font-size:14.5px;line-height:1.5;margin:0 -14px 6px;padding:10px 14px;text-align:center}
+.nc-row{display:flex;gap:11px;padding:10px 2px;border-top:1px solid rgba(255,255,255,.14)}
+.nc-ic{flex:0 0 42px;height:42px;border-radius:50%;background:linear-gradient(180deg,#ecd27c,#d3af47);display:flex;align-items:center;justify-content:center;font-size:20px}
+.nc-tx h4{margin:1px 0 4px;font-size:14.5px;color:#FFD94D}
+.nc-tx p{margin:0;font-size:13px;line-height:1.75;color:#dbe7f5}
+.nc-tx a{color:#8fc3ff;font-weight:700;text-decoration:underline}
+.nc-rail .tile{flex:0 0 112px}
+.nc-rail .tpt{font-size:10.5px;letter-spacing:-.02em}

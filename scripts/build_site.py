@@ -430,6 +430,45 @@ def game_card(g, cs, icons=None):
          f'<p class="small muted">最終確認：{e(g.get("last_checked_at"))}</p>{badges}</article>')
 
 
+def ended_notice_html(g, ks, rail_games, icons=None):
+ """案件が全て終了したゲームの詳細ページに出す標準お知らせ部品。
+    見出し画像（共通）＋お知らせパネル＋他ゲームの案件レール。
+    攻略セクション自体は残し、案件表示だけをこの形に切り替える。"""
+ slug = g['slug']
+ title = e(g['official_title'])
+ guide_line = ('下の「攻略テーマ」から、各攻略ページへそのまま進めます。' if ks
+               else 'このページに掲載している攻略情報は、これまで通り読めます。')
+ parts = [f'<figure class="nc-fig"><img src="{BP}/img/notice-ended.webp" alt="ポイ活案件の掲載は終了しました（お知らせ）" loading="lazy" width="1280" height="720"></figure>',
+          '<div class="nc-panel">'
+          '<p class="nc-phead">現在搭載の案件が終了した可能性があり更新されていません</p>'
+          '<div class="nc-row"><div class="nc-ic">📢</div><div class="nc-tx"><h4>現在、ご案内できる案件はありません</h4>'
+          f'<p>{title}のポイ活案件は、現在ご案内できる掲載がありません。新しい案件が確認でき次第、このページでお知らせします。</p></div></div>'
+          '<div class="nc-row"><div class="nc-ic">📖</div><div class="nc-tx"><h4>攻略ページはこれまで通り読めます</h4>'
+          f'<p>{guide_line}</p></div></div>'
+          '<div class="nc-row"><div class="nc-ic">🗂️</div><div class="nc-tx"><h4>終了した案件の記録について</h4>'
+          f'<p>終了した案件の条件・ステップは、<a href="{BP}/games/{e(slug)}/conditions/">案件条件の詳細</a>に当時の記録として残しています（申込導線は設置していません）。</p></div></div>'
+          '</div>']
+ tiles = []
+ for rg, rcs in (rail_games or []):
+  if rg['game_id'] == g['game_id']:
+   continue
+  amt = max_reward(rg['game_id'], {rg['game_id']: rcs})
+  if not amt:
+   continue
+  iu = icon_url(icons, rg['game_id'])
+  img = f'<img src="{e(iu)}" alt="" loading="lazy" width="76" height="76">' if iu else ''
+  tiles.append(f'<a class="tile" href="{BP}/games/{e(rg["slug"])}/">{img}'
+               f'<span class="tname">{e(rg["official_title"])}</span>'
+               f'<span class="tpt">最大{amt:,}円相当</span></a>')
+  if len(tiles) >= 3:
+   break
+ if tiles:
+  parts.append('<section class="panel"><h2>いま挑戦できる他のゲームの案件</h2>'
+               '<div class="rail nc-rail">' + ''.join(tiles) + '</div>'
+               f'<p><a href="{BP}/games/">ゲーム一覧で他の案件を探す →</a></p></section>')
+ return ''.join(parts)
+
+
 def search_block(input_id):
  return ('<form class="search" data-game-search role="search" aria-label="ゲーム名検索">'
          f'<label class="visually-hidden" for="{input_id}">ゲーム名で検索</label>'
@@ -659,7 +698,7 @@ def build_list(visible, campaigns_by_game, any_indexable, icons=None):
                    robots, '/games/', ld, body, og_type='website'), robots
 
 
-def build_detail(g, ks, cs, history_entries, sources_by_id):
+def build_detail(g, ks, cs, history_entries, sources_by_id, rail_games=None, icons=None):
  slug = g['slug']
  title = g['official_title']
  alias = str(g.get('search_alias') or '').strip()
@@ -684,7 +723,10 @@ def build_detail(g, ks, cs, history_entries, sources_by_id):
   links = ''.join(f'<li><a href="{BP}/games/{e(slug)}/{e(k["topic_slug"])}/">{e(k["topic"])}の進め方・注意点</a></li>' for k in ks)
   sections.append('<section class="panel"><h2>攻略テーマ</h2><ul class="clean">' + links + '</ul></section>')
  active = [c for c in cs if c.get('campaign_status') in ACTIVE_STATUS]
- if cs:
+ if cs and not active:
+  # 案件が全て終了したゲーム：攻略は残し、案件表示をお知らせ部品に切り替える
+  sections.append(ended_notice_html(g, ks, rail_games, icons))
+ elif cs:
   rows = []
   for c in active:
    rows.append(f'<li>{e(c.get("service_name"))}：{e(c.get("campaign_title"))}'
@@ -1384,6 +1426,9 @@ def main():
  games_dir.mkdir(exist_ok=True)
  index_paths = ['/', '/about/', '/editorial-policy/', '/how-to-read/']
  detail_indexable = {}
+ rail_ranked = sorted(visible, key=lambda gg: max_reward(gg['game_id'], campaigns_by_game), reverse=True)
+ rail_games = [(gg, campaigns_by_game.get(gg['game_id'], [])) for gg in rail_ranked
+               if max_reward(gg['game_id'], campaigns_by_game) > 0][:4]
  for g in visible:
   slug = g['slug']
   ks = knowledge_by_game.get(g['game_id'], [])
@@ -1396,7 +1441,7 @@ def main():
    detail_indexable[slug] = True
    index_paths.append(f'/games/{slug}/')
   else:
-   page, idx = build_detail(g, ks, cs, hist, sources_by_id)
+   page, idx = build_detail(g, ks, cs, hist, sources_by_id, rail_games, icons)
    (folder / 'index.html').write_text(page, encoding='utf-8')
    detail_indexable[slug] = idx
    if idx:
