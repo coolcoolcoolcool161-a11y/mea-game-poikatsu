@@ -4548,5 +4548,15 @@
   "published_at": "",
   "conditions": "共鳴英雄4体は★6・2026年6月4日にグレゴリーから開始との整理を2026-11-26に確認。二次集約のため s443 との一致確認にのみ使用",
   "limitations": "プレイヤー知見系（系統2）は台帳ランクCが上限。詳細は pazusaba-update-work/c1-new-pages-research.md"
+ },
+ {
+  "source_id": "s448",
+  "source_type": "公式",
+  "publisher": "モッピー",
+  "title": "Wild Survival 案件詳細（アプリBOX／GF Rewards）｜モッピー",
+  "url": "https://ow-gf-rewards.com/gfr94311426/campaigns/gfr79506553431",
+  "checked_at": "2026-11-25",
+  "conditions": "モッピー（ログイン済み）→「アプリマルチミッション」欄のアプリBOX連携先（GF Rewards）で案件詳細を実読。全19ステップ・期限30日・主な注意点を確認",
+  "limitations": "表示合計109,790Pは増量後の額（通常額92,462Pの併記あり）。詳細内に「増量中」の明示文言は無く、個別増量かは断定不可。対象OSの明示表記なし"
  }
 ]
