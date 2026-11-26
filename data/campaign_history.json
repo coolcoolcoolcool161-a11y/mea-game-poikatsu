@@ -262,5 +262,38 @@
   "new_value": "ワラウ メメントモリ（StepUp）最大11,500pt・全11ステップ",
   "source_id": "s149",
   "note": "メメントモリ着手前工程（kickoff 02 §2.2）の2026-11-26実読（格A）に基づき新規登録。OS別掲載の有無は未確認として eligible_os に明記。"
+ },
+ {
+  "history_id": "h025",
+  "campaign_id": "c091",
+  "changed_at": "2026-11-26",
+  "change_type": "掲載開始",
+  "field": "全項目",
+  "old_value": "未登録",
+  "new_value": "モッピー Wild Survival（アプリBOX／GF Rewards）最大109,790P・全19ステップ",
+  "source_id": "s448",
+  "note": "2026-11-25の実読記録（research-raw/moppy-wildsurvival-2026-11-25.md）に基づき新規登録。台帳残件D-1の解消として2026-11-26に統括が登録"
+ },
+ {
+  "history_id": "h026",
+  "campaign_id": "c069",
+  "changed_at": "2026-11-26",
+  "change_type": "終了",
+  "field": "campaign_status",
+  "old_value": "掲載中",
+  "new_value": "終了",
+  "source_id": "s141",
+  "note": "ワラウ公式URL（Android point_id=208998）の実読とブラウザ目視で「掲載終了のご案内」への切替を確認。根拠は full-review-2026-11-26/freshness-western-farm.md。台帳への反映は2026-11-27。"
+ },
+ {
+  "history_id": "h027",
+  "campaign_id": "c070",
+  "changed_at": "2026-11-26",
+  "change_type": "終了",
+  "field": "campaign_status",
+  "old_value": "掲載中",
+  "new_value": "終了",
+  "source_id": "s142",
+  "note": "ワラウ公式URL（iOS point_id=208997）の実読とブラウザ目視で「掲載終了のご案内」への切替を確認。根拠は full-review-2026-11-26/freshness-western-farm.md。台帳への反映は2026-11-27。"
  }
 ]
