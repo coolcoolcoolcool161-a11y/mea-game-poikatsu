@@ -290,13 +290,13 @@ html[data-theme="dark"] .cmp .cv,html[data-theme="dark"] .crow .cv{color:#bdb4a9
 html[data-theme="dark"] .barrow .bl{color:#bdb4a9}
 html[data-theme="dark"] .barrow .bv{color:#e8e2dc}
 html[data-theme="dark"] .acc .acc-body{color:#d8d2ca}
-html[data-theme="dark"] .acc button .pm{color:#e0584d}
+html[data-theme="dark"] .acc button .pm{color:#f0a294}
 html[data-theme="dark"] .more-link .tri{color:#e0584d}
 html[data-theme="dark"] .cta-catch{color:#e0584d}
-html[data-theme="dark"] .tarr{color:#e0584d}
-html[data-theme="dark"] .tabs button .tt{color:#e0584d}
+html[data-theme="dark"] .tarr{color:#f0a294}
+html[data-theme="dark"] .tabs button .tt{color:#f0a294}
 html[data-theme="dark"] .upd-note b{color:#f2cf8f}
-html[data-theme="dark"] .risk-note a{color:#f2cf8f}
+html[data-theme="dark"] .risk-note a{color:#f2cf8f !important}
 html[data-theme="dark"] .svc-diff{color:#f0a294}
 html[data-theme="dark"] .dates b{color:#bdb4a9}
 html[data-theme="dark"] .menu-label{color:#bdb4a9}
@@ -331,6 +331,8 @@ html[data-theme="dark"] .vd-basis{color:#9a9186}
 html[data-theme="dark"] .calc-row label{color:#d8d2ca}
 html[data-theme="dark"] .calc .note{color:#9a9186}
 html[data-theme="dark"] .bgrid figcaption,html[data-theme="dark"] .prow figcaption{color:#bdb4a9}
+html[data-theme="dark"] .arrw{color:#e0584d}
+html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="dark"] .cnote a{color:#8fb0c7 !important}
 /* === /dark-contrast-fix === */
 </style><script>(function(){try{var t=localStorage.getItem('poigame-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 </head><body><div class="page">
