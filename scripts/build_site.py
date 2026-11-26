@@ -914,6 +914,73 @@ def process_static(rel, canonical_path):
  p.write_text(text, encoding='utf-8')
 
 
+# ---------- トップ「新着・更新の攻略」レールの自動生成 ----------
+# pages-src/index.html.txt 側はレールの中身を持たず、マーカーだけを置く。
+# ビルド時に候補ページのソース（static-perfect）から更新日とタイトルを読み、
+# 新しい順に並べてカードを生成する。ページの更新日を直せば次回ビルドで
+# レールの並び・日付チップ・「新」バッジへ自動で反映される。
+# 候補（sub=カードの補足文、img=カード画像）はキュレーションとしてここで管理し、
+# 日付・タイトル・並び順は手で書かない。
+GUIDE_RAIL_MARKER = '<!-- build:guide-rail -->'
+GUIDE_RAIL_LIMIT = 8
+GUIDE_RAIL_PAGES = [
+    # (game slug, ゲーム表示名, ページファイル名, カード補足文, カード画像)
+    ('puzzles-and-survival', 'パズル＆サバイバル', 'joban.html', '最初の1週間でやること', 'feature-2.jpg'),
+    ('puzzles-and-survival', 'パズル＆サバイバル', 'kensetsu.html', 'コントロールセンターへの近道', 'feature-5.jpg'),
+    ('puzzles-and-survival', 'パズル＆サバイバル', 'hero-search.html', '属性・兵種・スキルで絞り込む', 'ui-hero-bag.webp'),
+    ('puzzles-and-survival', 'パズル＆サバイバル', 'tools-cc.html', '目標レベルまでの資源を計算', 'building-headquarters.webp'),
+    ('puzzles-and-survival', 'パズル＆サバイバル', 'event-calendar.html', '曜日ごとの開催イベント早見', 'inf-event-week.png'),
+    ('puzzles-and-survival', 'パズル＆サバイバル', 'tools-watersort.html', 'ウォーターソートの手順を自動計算', 'gamein-puzzle.webp'),
+    ('puzzles-and-survival', 'パズル＆サバイバル', 'doumei.html', '同盟の入り方とギルド対決', 'feature-4.jpg'),
+    ('puzzles-and-survival', 'パズル＆サバイバル', 'board.html', '質問・雑談・同盟募集', 'shot-run-01.jpg'),
+]
+
+
+def _rail_page_meta(slug, fname):
+    """static-perfect のページソースから (更新日 (y, m, d) | None, タイトル) を読む。"""
+    p = PERFECT_DIR / slug / (fname + '.txt')
+    if not p.exists():
+        return None, ''
+    s = p.read_text(encoding='utf-8')
+    m = re.search(r'更新日：<b>(\d{4})年(\d{1,2})月(\d{1,2})日', s)
+    upd = (int(m.group(1)), int(m.group(2)), int(m.group(3))) if m else None
+    t = re.search(r'<title>(.*?)</title>', s, re.S)
+    title = re.sub(r'｜.*$', '', t.group(1)).strip() if t else ''
+    return upd, title
+
+
+def build_guide_rail():
+    """「新着・更新の攻略」レールのカードHTMLを生成する。
+    更新日の新しい順（同日は候補リストの順）、上限 GUIDE_RAIL_LIMIT 件。
+    更新日が無いページは最後に回り、日付チップと「新」バッジを出さない。
+    「新」バッジは更新日が生成日から7日以内のページだけに出す。"""
+    import datetime
+    today = datetime.date.today()
+    items = []
+    for slug, game, fname, sub, img in GUIDE_RAIL_PAGES:
+        upd, title = _rail_page_meta(slug, fname)
+        items.append(dict(slug=slug, game=game, fname=fname, sub=sub, img=img,
+                          upd=upd, title=title))
+    items.sort(key=lambda x: x['upd'] or (0, 0, 0), reverse=True)
+    out = []
+    for it in items[:GUIDE_RAIL_LIMIT]:
+        name = it['title'] or it['fname']
+        url = f"{BASE or BP}/games/{it['slug']}/{it['fname']}"
+        ribbon = ''
+        dbadge = ''
+        if it['upd']:
+            dbadge = f'<span class="gr-date">{it["upd"][1]}月{it["upd"][2]}日更新</span>'
+            if 0 <= (today - datetime.date(*it['upd'])).days <= 7:
+                ribbon = '<span class="gr-new" role="img" aria-label="新しく更新されたページ"></span>'
+        out.append(
+            f'<article class="gr-card"><a class="gr-art" href="{e(url)}" aria-label="{e(name)}">'
+            f'<img src="{BP}/games/{it["slug"]}/img/{it["img"]}" alt="{e(name)}の画像" loading="lazy">{ribbon}</a>'
+            f'<div class="gr-body"><span class="gr-meta"><span class="gr-game">{e(it["game"])}</span>{dbadge}</span>'
+            f'<a class="gr-name" href="{e(url)}">{e(name)}</a>'
+            f'<span class="gr-sub">{e(it["sub"])}</span></div></article>')
+    return ''.join(out)
+
+
 def apply_pages_overlay(index_paths):
     """pages-src/ の承認済みページ（新トップ／サービス詳細／お問い合わせ）を
     __BASE__/__BP__ を実値へ置換して ROOT へ配置し、sitemap 対象へ追加する。
@@ -951,6 +1018,9 @@ def apply_pages_overlay(index_paths):
         name = p.name[:-len('.txt')]
         text = p.read_text(encoding='utf-8')
         text = text.replace('__BASE__', BASE).replace('__BP__', BP)
+        if name == 'index.html' and GUIDE_RAIL_MARKER in text:
+            # 「新着・更新の攻略」レールは各ページの更新日から自動生成する
+            text = text.replace(GUIDE_RAIL_MARKER, build_guide_rail(), 1)
         tm = re.search(r'<title>(.*?)</title>', text, re.S)
         dm = re.search(r'<meta name="description" content="([^"]*)"', text)
         full_title = tm.group(1).strip() if tm else ''
