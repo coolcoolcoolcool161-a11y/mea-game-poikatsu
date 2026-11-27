@@ -227,7 +227,7 @@ html[data-theme="dark"] .fee-note{color:#93A9C2}
 <input type="hidden" id="f-page" name="対象ページ" value="お問い合わせページ（共通）">
 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 <button class="submit" type="submit">送信する</button>
-<p class="fnote">送信すると、入力した内容が運営事務局へ送られます。ゲームページの情報提供ボタンから来た場合は、対象ゲームと対象ページが自動で入力されます。</p>
+<p class="fnote">送信すると、入力した内容が運営事務局へ送られます。攻略ページの情報提供ボタンから来た場合は、対象ゲームと対象ページが自動で入力されます。</p>
 </form>
 </section>
 </main>
