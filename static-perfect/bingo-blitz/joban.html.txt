@@ -262,7 +262,157 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .header-icons{gap:7px;font-size:9px}
 .header-icons .ic{font-size:15px}
 }
-</style><style>
+</style>
+<!-- theme-base --><style>
+.theme-toggle{cursor:pointer}
+html[data-theme="dark"]{color-scheme:dark;background:#0d0b0a}
+html[data-theme="dark"] body{color:#e8e2dc}
+html[data-theme="dark"] .page{background:#1a1714;box-shadow:0 0 12px rgba(0,0,0,.6)}
+html[data-theme="dark"] .header{background:#1a1714;border-bottom-color:#3a332c}
+html[data-theme="dark"] .logo{color:#f2ede8}
+html[data-theme="dark"] .header-icons{color:#b8b0a6}
+html[data-theme="dark"] .searchbar .box{background:#262019}
+html[data-theme="dark"] .searchbar input{color:#e8e2dc}
+html[data-theme="dark"] .gnav{border-top-color:#2c2620}
+html[data-theme="dark"] .gnav a{color:#cfc8c0}
+html[data-theme="dark"] .gnav a.on{color:#e0584d;border-bottom-color:#e0584d}
+html[data-theme="dark"] .crumbs{color:#9a9186}
+html[data-theme="dark"] .sec-head{background:#2e1c18;border-left-color:#e0584d}
+html[data-theme="dark"] .sec-head a{color:#f0a294}
+html[data-theme="dark"] .sec-head .cnt{color:#9a9186}
+html[data-theme="dark"] .lead{color:#d8d2ca}
+html[data-theme="dark"] .row{border-bottom-color:#38302a}
+html[data-theme="dark"] .row .rmeta{color:#9a9186}
+html[data-theme="dark"] .row .rsum{color:#bdb4a9}
+html[data-theme="dark"] .chip{background:#332019;color:#f0a294}
+html[data-theme="dark"] .chip.gray{background:#2b2b2b;color:#a9a9a9}
+html[data-theme="dark"] th,html[data-theme="dark"] td{border-color:#453b32}
+html[data-theme="dark"] th{background:#262019}
+html[data-theme="dark"] td.pt{color:#f0a294}
+html[data-theme="dark"] .spec th{background:#2e1c18}
+html[data-theme="dark"] .spec td b{color:#f0a294}
+html[data-theme="dark"] .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .menu a.hot{background:#33201b;border-color:#e0584d;color:#f0a294}
+html[data-theme="dark"] .menu-toggle{color:#8fb0c7}
+html[data-theme="dark"] .ghead .gmeta{color:#9a9186}
+html[data-theme="dark"] .ghead .gmax{color:#f0a294}
+html[data-theme="dark"] .toc{background:#262019}
+html[data-theme="dark"] .toc a{color:#d8d2ca}
+html[data-theme="dark"] .tabs button{background:#241f1b;color:#cfc8c0;border-color:#453b32}
+html[data-theme="dark"] .tabs button.on{color:#f0a294;border-bottom-color:#e0584d}
+html[data-theme="dark"] .acc button{background:#241f1b;color:#e8e2dc}
+html[data-theme="dark"] .acc .acc-body{background:#1f1b17}
+html[data-theme="dark"] .ditem{border-bottom-color:#38302a}
+html[data-theme="dark"] .ditem .dmeta{color:#9a9186}
+html[data-theme="dark"] .note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .read-note,html[data-theme="dark"] .upd-note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .risk-note{background:#332019;color:#f2cf8f}
+html[data-theme="dark"] .footer{background:#141110;color:#9a9186}
+html[data-theme="dark"] .footer .flinks a{color:#cfc8c0}
+html[data-theme="dark"] .card{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .card .cnote{color:#9a9186}
+html[data-theme="dark"] .fbox{background:#2e1c18;border-color:#e08a7d}
+html[data-theme="dark"] .farr{color:#e0584d}
+html[data-theme="dark"] .tnode{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .tkids .tnode{background:#1d2731;border-color:#3d5468}
+html[data-theme="dark"] .bd-buy{background:#153420;color:#8fd7a4}
+html[data-theme="dark"] .bd-no{background:#3a1a16;color:#f0a294}
+html[data-theme="dark"] .bd-warn{background:#33270f;color:#f2cf8f}
+html[data-theme="dark"] .bd-info{background:#1d2c3d;color:#a9c8e2}
+html[data-theme="dark"] .bd-gray{background:#2b2b2b;color:#bbbbbb}
+html[data-theme="dark"] .bannergrid .bcap{color:#8fb0c7}
+html[data-theme="dark"] .fcap{color:#9a9186}
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#262019;color:#e8e2dc;border-color:#453b32}
+html[data-theme="dark"] .hist td.hd{background:#262019}
+/* === dark-contrast-fix-2026-11-26 ===
+   コントラスト是正（2026-11-26 実測に基づく追加分）。
+   ライト側で濃色文字を持つ部品の暗テーマ上書き漏れを埋める。
+   色は暗テーマ既存パレット＋スロットトークン（#e0584d=dark_main／
+   #f0a294=dark_tint／#8fb0c7=dark_link）のみを使う。 */
+html[data-theme="dark"] .kv{color:#bdb4a9}
+html[data-theme="dark"] .kv b{color:#e8e2dc}
+html[data-theme="dark"] .kv a,html[data-theme="dark"] .rel a,html[data-theme="dark"] .xmedia-list a,html[data-theme="dark"] .cnote a,html[data-theme="dark"] .lead a,html[data-theme="dark"] .tabpanel a,html[data-theme="dark"] .acc-body a,html[data-theme="dark"] td a{color:#8fb0c7}
+html[data-theme="dark"] .fbox{color:#e8e2dc}
+html[data-theme="dark"] .fbox small{color:#9a9186}
+html[data-theme="dark"] .tnode{color:#e8e2dc}
+html[data-theme="dark"] .tnode small{color:#9a9186}
+html[data-theme="dark"] .tl .tt2{color:#e8e2dc}
+html[data-theme="dark"] .tl .td2{color:#9a9186}
+html[data-theme="dark"] .ditem .dname{color:#bdb4a9}
+html[data-theme="dark"] .cmp .cv,html[data-theme="dark"] .crow .cv{color:#bdb4a9}
+html[data-theme="dark"] .barrow .bl{color:#bdb4a9}
+html[data-theme="dark"] .barrow .bv{color:#e8e2dc}
+html[data-theme="dark"] .acc .acc-body{color:#d8d2ca}
+html[data-theme="dark"] .acc button .pm{color:#f0a294}
+html[data-theme="dark"] .more-link .tri{color:#e0584d}
+html[data-theme="dark"] .cta-catch{color:#e0584d}
+html[data-theme="dark"] .tarr{color:#f0a294}
+html[data-theme="dark"] .tabs button .tt{color:#f0a294}
+html[data-theme="dark"] .upd-note b{color:#f2cf8f}
+html[data-theme="dark"] .risk-note a{color:#f2cf8f !important}
+html[data-theme="dark"] .svc-diff{color:#f0a294}
+html[data-theme="dark"] .dates b{color:#bdb4a9}
+html[data-theme="dark"] .menu-label{color:#bdb4a9}
+html[data-theme="dark"] .menu-toggle{background:#262019;border-color:#453b32}
+html[data-theme="dark"] .tocbtn{background:#262019;border-color:#453b32;color:#d8d2ca}
+html[data-theme="dark"] .tocbtn .pm{color:#8fb0c7}
+html[data-theme="dark"] .toclist a{background:#262019;border-color:#453b32;color:#d8d2ca}
+html[data-theme="dark"] .toclist a .arr{color:#8fb0c7}
+html[data-theme="dark"] .hook{background:#262019;border-color:#453b32;color:#d8d2ca}
+html[data-theme="dark"] .hgrid a{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .hgrid .hn{color:#8fb0c7}
+html[data-theme="dark"] .hgrid .hm{color:#9a9186}
+html[data-theme="dark"] .hgrid .noimg{background:#1d2731;color:#8fb0c7}
+html[data-theme="dark"] .hlink b{color:#8fb0c7}
+html[data-theme="dark"] .hlink .arr{color:#8fb0c7}
+html[data-theme="dark"] .codebox .cb-code{color:#e8e2dc}
+html[data-theme="dark"] .codebox .cb-meta{color:#bdb4a9}
+html[data-theme="dark"] .codebox .cb-ui{color:#8fb0c7}
+html[data-theme="dark"] .steptable th{color:#e8e2dc}
+html[data-theme="dark"] .steptable td{color:#d8d2ca}
+html[data-theme="dark"] .nz-camp .nz-game{color:#f0a294}
+html[data-theme="dark"] .nz-camp .nz-sub{color:#9a9186}
+html[data-theme="dark"] .stat .n{color:#8fb0c7}
+html[data-theme="dark"] .xmedia-h{color:#bdb4a9}
+html[data-theme="dark"] .xmedia-sns a{color:#bdb4a9}
+html[data-theme="dark"] .xmedia-card-name{color:#e8e2dc}
+html[data-theme="dark"] .xmedia-card-desc{color:#bdb4a9}
+html[data-theme="dark"] .vd-rank{background:#1f1b17}
+html[data-theme="dark"] .vd-rank-label{color:#9a9186}
+html[data-theme="dark"] .vd-rank-value{color:#e0584d}
+html[data-theme="dark"] .vd-basis{color:#9a9186}
+html[data-theme="dark"] .calc-row label{color:#d8d2ca}
+html[data-theme="dark"] .calc .note{color:#9a9186}
+html[data-theme="dark"] .bgrid figcaption,html[data-theme="dark"] .prow figcaption{color:#bdb4a9}
+html[data-theme="dark"] .arrw{color:#e0584d}
+html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="dark"] .cnote a{color:#8fb0c7 !important}
+/* === /dark-contrast-fix === */
+html[data-theme="dark"] .breadcrumb{color:#9a9186}
+html[data-theme="dark"] .breadcrumb a{color:#cfc8c0}
+html[data-theme="dark"] .dates{color:#9a9186}
+html[data-theme="dark"] .tabpanel{color:#d8d2ca}
+html[data-theme="dark"] .codebox{background:#262019;color:#e8e2dc;border-color:#453b32}
+html[data-theme="dark"] .nz-camp{background:#241f1b;color:#e8e2dc}
+html[data-theme="dark"] .ig-item{color:#e8e2dc}
+html[data-theme="dark"] .ig-sub{color:#9a9186}
+html[data-theme="dark"] .stat{background:#262019;color:#e8e2dc}
+html[data-theme="dark"] .stat .l{color:#9a9186}
+html[data-theme="dark"] .nl{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .svc-diff{color:#d8d2ca}
+html[data-theme="dark"] .keyart-noimg{background:#262019;color:#d8d2ca;border-color:#6b5a44}
+html[data-theme="dark"] .fig-noimg{background:#262019;color:#d8d2ca;border-color:#6b5a44}
+html[data-theme="dark"] .icongrid .ig-noimg{background:#262019;color:#d8d2ca;border-color:#6b5a44}
+html[data-theme="dark"] .noimg-mini{background:#262019;color:#d8d2ca;border-color:#6b5a44}
+html[data-theme="dark"] .b-card{background:#262019;border-color:#6b5a44}
+html[data-theme="dark"] .b-card .b-ttl{color:#f2cd8a}
+html[data-theme="dark"] .vd-points{color:#d8d2ca}
+html[data-theme="dark"] .calc{background:#262019;color:#e8e2dc}
+html[data-theme="dark"] .xmedia-cards .xmedia-card{background:#241f1b;color:#e8e2dc}
+html[data-theme="dark"] .verdict{background:#262019}
+html[data-theme="dark"] .plantable td{color:#d8d2ca}
+html[data-theme="dark"] .finchecks li{background:#262019;color:#e8e2dc;border-color:#453b32}
+html[data-theme="dark"] .finchecks .fc-box{background:transparent;border-color:#f0a294}
+</style><script>(function(){try{var t=localStorage.getItem('poigame-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script><!-- /theme-base --><style>
 /* sticky-cta (board/contribute と同一部品) */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(7px + env(safe-area-inset-bottom));pointer-events:none}
 .sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:9px 14px 8px;border-radius:999px;background:linear-gradient(180deg,#f0563f,#d42a1e);color:#fff;font-weight:900;font-size:13.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}
@@ -407,4 +557,4 @@ btn.addEventListener('click',function(){
 document.addEventListener('click',function(e){
   if(open&&!bar.contains(e.target)){open=false;bar.classList.remove('open');btn.textContent='攻略メニュー ▼';btn.setAttribute('aria-expanded','false');}
 });
-})();</script><!-- /sticky-menu --></body></html>
+})();</script><!-- /sticky-menu --><!-- theme-toggle --><script>(function(){var host=document.querySelector('.header-icons');if(!host)return;var cur=document.documentElement.getAttribute('data-theme')||'light';var d=document.createElement('div');d.className='theme-toggle';d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','表示テーマを切り替える');function draw(){d.innerHTML='<span class="ic">'+(cur==='dark'?'☀️':'🌙')+'</span>テーマ';}function flip(){cur=(cur==='dark')?'light':'dark';document.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('poigame-theme',cur);}catch(e){}draw();}draw();d.addEventListener('click',flip);d.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip();}});host.appendChild(d);})();</script></body></html>
