@@ -317,5 +317,27 @@
   "new_value": "ワラウ ウエスタン農場（StepUp・Android版）最大7,620pt・全14ステップ（point_id=209602）",
   "source_id": "s450",
   "note": "旧案件（c069・c070、最大14,000pt／12,500pt）の掲載終了後に、別point_idで再掲載された新案件。2026-11-27にワラウ公式（ログイン済みブラウザ）で実読して新規登録"
+ },
+ {
+  "history_id": "h030",
+  "campaign_id": "c090",
+  "changed_at": "2026-11-27",
+  "change_type": "条件変更",
+  "field": "eligible_os",
+  "old_value": "未確認（OS別掲載の有無・同額かを確認すること）",
+  "new_value": "iOS／Android（OS別掲載あり・両OSとも最大11,500ptで同額）",
+  "source_id": "s451",
+  "note": "仕上げ点検の残件9の裏取り。ワラウ公式の公開一覧（StepUpミッション一覧・ポイント情報一覧・アプリのポイント情報）でOS別掲載と同額を確認。案件ページ（point_id=206037）自体にOS表記はない"
+ },
+ {
+  "history_id": "h031",
+  "campaign_id": "c077",
+  "changed_at": "2026-11-27",
+  "change_type": "条件変更",
+  "field": "reward_amount／reward_stages／eligible_os",
+  "old_value": "最大31,396pt（増量中・通常時28,546ptと記録）。OS別の2件掲載（iOS版28,546pt／Android版26,084pt）の可能性が未確定",
+  "new_value": "最大31,396pt（全12ステップ合計・案件詳細ページの最新値として確定）。28,546ptは取り消し線の旧値、26,084ptは過去の値（2026-10-04時点）。掲載は1件のみでOS別の2件掲載ではない",
+  "source_id": "s453",
+  "note": "2026-11-27に端末ブラウザでGF Rewards案件詳細ページを実読して確定。open-items-master.md §7の引き継ぎ事項と not-doing-list #16 の保留を解消した"
  }
 ]

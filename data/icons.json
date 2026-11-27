@@ -107,6 +107,15 @@
    "term": "マフィア・シティ-極道風雲"
   }
  },
+ "g014": {
+  "title": "ハイローラー ベガス",
+  "slug": "highroller-vegas",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f0/98/81/f09881bd-8918-1c01-9dc0-0078d943accd/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+   "track": "ハイローラー ベガス : カジノゲーム",
+   "term": "ハイローラー ベガス"
+  }
+ },
  "g016": {
   "title": "パズル＆カオス",
   "slug": "puzzles-and-chaos",
@@ -294,6 +303,96 @@
    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/41/e3/8241e357-1044-687a-981b-aea8bcfe6a99/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
    "track": "The Ants: Underground Kingdom",
    "term": "ザ・アンツ"
+  }
+ },
+ "g039": {
+  "title": "熱血大作戦！",
+  "slug": "nekketsu-daisakusen",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/11/3d/0e113d1a-ab45-c1d2-400c-898e4a3b6e3e/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+   "track": "熱血大作戦！- 三国志キングダムRPG",
+   "term": "熱血大作戦！"
+  }
+ },
+ "g040": {
+  "title": "ベガス クレイズ カジノ",
+  "slug": "vegas-craze-casino",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/ab/13/caab13c9-7193-1d29-c86d-cc401e6b2326/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+   "track": "Vegas Craze Casino",
+   "term": "ベガス クレイズ カジノ"
+  }
+ },
+ "g022": {
+  "title": "Arrow Odyssey: Escape Puzzle",
+  "slug": "arrow-odyssey-escape-puzzle",
+  "icon": {
+   "icon": "https://lh3.googleusercontent.com/raniVxjOn_RSrwGsh9I0RecdZBsJFYxHu8FphcdP_Oi0AZ7o91rC7CGM20MVc9Xz-LzWibbrxc2RyjX-y4uqUvtCrEhvh3bcCU8",
+   "track": "Arrow Odyssey: Escape Puzzle",
+   "term": "Arrow Odyssey"
+  }
+ },
+ "g023": {
+  "title": "Tiles Mystery: Stacked Match",
+  "slug": "tiles-mystery-stacked-match",
+  "icon": {
+   "icon": "https://play-lh.googleusercontent.com/8Q8wzClWmUHpeBBClN7aH3eYp0sL0T1dSHEdKYH4gxGUsS-HhcwTI7GwC3q3rPTJJyq1dr08I4fPW6kSxjQAAA=w512-h512",
+   "track": "Tiles Mystery: Stacked Match",
+   "term": "Tiles Mystery"
+  }
+ },
+ "g041": {
+  "title": "アングリースマッシュ",
+  "slug": "angry-smash",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e5/ce/8e/e5ce8ebe-ea38-be73-c6f0-cf0356faf6b8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "Angry Smash - Physics Puzzle",
+   "term": "アングリースマッシュ"
+  }
+ },
+ "g035": {
+  "title": "Tub Match 3D: Float Puzzle",
+  "slug": "tub-match-3d",
+  "icon": {
+   "icon": "https://play-lh.googleusercontent.com/owmMb7TyMKXhK-P_BsVyi6TcqiTXe6CItl3nRf9fwgI0LWtyPhYkGLDeVVSjtON0_9jWTfzoFybhlDCHvk-4qA=w512-h512",
+   "track": "Tub Match 3D: Float Puzzle",
+   "term": "Tub Match 3D"
+  }
+ },
+ "g025": {
+  "title": "フォーティヴェイルの勇者",
+  "slug": "fortivale-defenders",
+  "icon": {
+   "icon": "https://image.ow-gf-rewards.com/icon/advertised-product/gfr947336745/9a909282-83ef-48a1-8e00-1e399646f29d",
+   "track": "Fortivale Defenders",
+   "term": "フォーティヴェイルの勇者"
+  }
+ },
+ "g028": {
+  "title": "モーマンタイム",
+  "slug": "moman-time",
+  "icon": {
+   "icon": "https://play-lh.googleusercontent.com/CxbG4CbRTY7zL4EdYTqLvx0-Whk11xagstmCdQKCIc6KmExRuiibTsppC0cZX2NzYNVhwKjP_1iqT1BCU-UxAeQ=w512-h512",
+   "track": "モーマンタイム",
+   "term": "モーマンタイム"
+  }
+ },
+ "g027": {
+  "title": "Mistplay",
+  "slug": "mistplay",
+  "icon": {
+   "icon": "https://play-lh.googleusercontent.com/oiRiQ9XdBq9-tlCwOaQPYmkddsgfUfn5A3VRzU_1HtcBeSXowI2K9y671ZUoULWP8YQifHxsd5SLu1s_hRDVRQ=w512-h512",
+   "track": "Mistplay - ゲームでポイ活 ギフトカード GET",
+   "term": "Mistplay"
+  }
+ },
+ "g003": {
+  "title": "ロイヤルキングダム",
+  "slug": "royal-kingdom",
+  "icon": {
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/48/77/42/48774246-cd30-4d59-c77c-5053da9699d0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+   "track": "ロイヤルキングダム (Royal Kingdom)",
+   "term": "ロイヤルキングダム"
   }
  }
 }

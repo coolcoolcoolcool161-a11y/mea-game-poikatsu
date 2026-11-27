@@ -28,7 +28,24 @@
   "publication_status": "公開",
   "slug": "royal-match",
   "wiki_summary": "王様のお城を飾るマッチ3パズル。ポイ活案件ではエリア到達やレベル到達が条件になる。モッピーではステップアップ型の案件（Android合計9,578P／iOS合計11,493P）、Freecashではレベル到達型のオファーが確認されている。",
-  "info_rank": "B"
+  "info_rank": "B",
+  "quick_links": [
+   {
+    "href": "/games/royal-match/conditions/",
+    "icon": "📋",
+    "label": "案件条件の詳細"
+   },
+   {
+    "href": "/games/royal-match/free-coins-and-boosters/",
+    "icon": "",
+    "label": "コインとブースターを無料で集める方法"
+   },
+   {
+    "href": "/games/royal-match/area-stage-conversion/",
+    "icon": "",
+    "label": "エリア到達条件の読み方とステージ数の目安"
+   }
+  ]
  },
  {
   "game_id": "g003",
@@ -39,11 +56,12 @@
   "eligibility_status": "確認済み",
   "eligibility_evidence": "https://pc.moppy.jp/poikatsu-lab/4753-3/",
   "first_checked_at": "2026-11-25",
-  "last_checked_at": "2026-11-25",
+  "last_checked_at": "2026-11-27",
   "publication_status": "下書き",
   "slug": "royal-kingdom",
   "wiki_summary": "ロイヤルマッチの姉妹作のマッチ3パズル。モッピーでステップアップ型の案件（合計20,833P）が掲載されていたが、2026年11月25日の確認で掲載期間の終了を確認した。",
-  "info_rank": "B"
+  "info_rank": "B",
+  "page_mode": "static"
  },
  {
   "game_id": "g004",
@@ -74,7 +92,8 @@
   "publication_status": "公開",
   "slug": "memento-mori",
   "wiki_summary": "キャラクターごとの歌唱（ラメント）が特徴の放置RPG。ハピタスではステップアップ型の案件（全15ステップ合計16,662pt・両OS同額）が公式ページで確認されている。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g006",
@@ -90,7 +109,24 @@
   "publication_status": "公開",
   "slug": "last-asylum-plague",
   "wiki_summary": "疫病に覆われた町で病院と避難所を育てるストラテジー。ワラウではStepUp案件が掲載され、教会レベル到達とUR英雄の星上げが主な条件。ステップと合計はOSで異なり、iOS版は13ステップで最大10,930pt、Android版は15ステップで最大14,500pt（いずれも公式案件ページで確認）。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "quick_links": [
+   {
+    "href": "/games/last-asylum-plague/conditions/",
+    "icon": "📋",
+    "label": "案件条件の詳細"
+   },
+   {
+    "href": "/games/last-asylum-plague/stage-selection/",
+    "icon": "",
+    "label": "段階の選び方"
+   },
+   {
+    "href": "/games/last-asylum-plague/church-level-progression/",
+    "icon": "",
+    "label": "教会レベルの上げ方と到達目安"
+   }
+  ]
  },
  {
   "game_id": "g007",
@@ -106,7 +142,24 @@
   "slug": "monopoly-go",
   "wiki_summary": "モノポリーを題材にしたボードゲームアプリ。Freecashの看板オファーの1つで、ボードレベルの到達ごとに段階報酬が付く形式。金額・期限は国やアカウントで変わるため、開始前に自分のオファーページで確認が必要。",
   "info_rank": "C",
-  "search_alias": "モノポリーGO"
+  "search_alias": "モノポリーGO",
+  "quick_links": [
+   {
+    "href": "/games/monopoly-go/conditions/",
+    "icon": "📋",
+    "label": "案件条件の詳細"
+   },
+   {
+    "href": "/games/monopoly-go/board-offer-tracking/",
+    "icon": "",
+    "label": "ボード到達案件の始め方とトラッキング注意点"
+   },
+   {
+    "href": "/games/monopoly-go/board-progression-guide/",
+    "icon": "",
+    "label": "ボード到達の進め方（モントリオール）"
+   }
+  ]
  },
  {
   "game_id": "g008",
@@ -121,7 +174,8 @@
   "publication_status": "公開",
   "slug": "the-grand-mafia",
   "wiki_summary": "マフィアのボスとなってファミリーを築き、別荘を育てて勢力を広げるリアルタイムストラテジー。ポイ活案件では別荘レベルの到達や隊員のアンロックが条件になる。ワラウではAndroid版StepUp（最大55,000pt・10ステップ）、ハピタスではiOS専用掲載（合計106,171pt）、モッピーではiOS掲載（合計112,906P）が公式ページで確認されている。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g009",
@@ -205,6 +259,7 @@
  {
   "game_id": "g014",
   "official_title": "ハイローラー ベガス",
+  "publisher": "PLAYLINKS Corp.",
   "supported_os": "iOS/Android",
   "official_game_url": "https://play.google.com/store/apps/details?id=com.lynxgames.hrv",
   "eligibility_status": "確認済み",
@@ -213,8 +268,9 @@
   "last_checked_at": "2026-11-25",
   "publication_status": "下書き",
   "slug": "highroller-vegas",
-  "wiki_summary": "ラスベガスのスロットマシンを再現したカジノゲーム。モッピーでiOS向けのStepUp案件（合計123,946P）が公式ページで確認されている。ステップごとの内訳は遷移先のみで未確認。",
-  "info_rank": "C"
+  "wiki_summary": "ラスベガスのスロットマシンを再現したカジノゲーム。モッピーでiOS向けのStepUp案件（全15ステップ・合計123,946P）が確認されている（ステップ内訳は2026-11-25に連携先で確認済み）。",
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g015",
@@ -225,11 +281,12 @@
   "eligibility_status": "確認済み",
   "eligibility_evidence": "https://pc.moppy.jp/",
   "first_checked_at": "2026-11-25",
-  "last_checked_at": "2026-11-25",
+  "last_checked_at": "2026-11-27",
   "publication_status": "下書き",
   "slug": "sengoku-fubu",
-  "wiki_summary": "戦国時代を舞台に、歴戦の名将とともに天下統一を目指すリアルタイムストラテジー。モッピーでiOS向けのStepUp案件（合計19,492P）が公式ページで確認されている。ステップごとの内訳は遷移先のみで未確認。",
-  "info_rank": "C"
+  "wiki_summary": "戦国時代を舞台に、歴戦の名将とともに天下統一を目指すリアルタイムストラテジー。モッピーでiOS向けのStepUp案件（全9ステップ・合計19,492P）が確認されている（ステップ内訳は連携先アプリファームで確認済み。2026-11-27に掲載継続と金額を再確認）。",
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g016",
@@ -330,11 +387,12 @@
   "eligibility_status": "確認済み",
   "eligibility_evidence": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=209456",
   "first_checked_at": "2026-11-25",
-  "last_checked_at": "2026-11-25",
+  "last_checked_at": "2026-11-27",
   "publication_status": "下書き",
   "slug": "arrow-odyssey-escape-puzzle",
   "wiki_summary": "矢印を正しい順序でタップして盤面から脱出させるロジックパズル。ワラウではAndroid向けStepUp（最大19,110pt・全16ステップ）が公式ページで確認されている。レベルクリア型で、Lv.10000・Lv.20000の高難易度ステップにポイントが集中している。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g023",
@@ -345,11 +403,12 @@
   "eligibility_status": "確認済み",
   "eligibility_evidence": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=209265",
   "first_checked_at": "2026-11-25",
-  "last_checked_at": "2026-11-25",
+  "last_checked_at": "2026-11-27",
   "publication_status": "下書き",
   "slug": "tiles-mystery-stacked-match",
   "wiki_summary": "積み重なったタイルを3つ揃えて消していくマッチパズル。ワラウではAndroid向けStepUp（最大17,480pt・全16ステップ）が公式ページで確認されている。レベルクリア型で、Lv.10000・Lv.20000の高難易度ステップに大きなポイントが配分されている。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g024",
@@ -375,11 +434,12 @@
   "eligibility_status": "確認済み",
   "eligibility_evidence": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=209075",
   "first_checked_at": "2026-11-25",
-  "last_checked_at": "2026-11-25",
+  "last_checked_at": "2026-11-27",
   "publication_status": "下書き",
   "slug": "fortivale-defenders",
   "wiki_summary": "前線の勇者へ弾薬を供給してモンスターの波を防ぐアクションディフェンス（海外ストア名：Fortivale Defenders）。ワラウではAndroid向けStepUp（最大16,880pt・全13ステップ）が公式ページで確認されている。注意：ワラウのクチコミでは評価1.5で「完走はほぼ不可能」「1ステージに30分〜1時間かかる」等の声があり、難易度は高いとみられる。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g026",
@@ -410,7 +470,8 @@
   "publication_status": "下書き",
   "slug": "mistplay",
   "wiki_summary": "ゲームをプレイして報酬を得るプラットフォーム型アプリ（単一のゲームタイトルではない）。アプリ内で紹介される対象ゲームを遊ぶと「ユニット」が貯まり、特典と交換できる仕組み。ハピタスではiOS向け2掲載（15,921pt／14,297pt）とAndroid向け1掲載（11,221pt）が公式ページで確認されており、掲載ごとに条件・内訳が異なる。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g028",
@@ -425,7 +486,8 @@
   "publication_status": "下書き",
   "slug": "moman-time",
   "wiki_summary": "氷河期にタイムスリップした首長として部族を率い、時代を進めて文明を発展させていく放置系シミュレーション（日本では37GAMESが配信）。ハピタスではAndroid専用の掲載（合計14,916pt）が公式ページで確認されている。ステップごとの内訳は遷移先のみで未確認。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g029",
@@ -528,11 +590,12 @@
   "eligibility_status": "確認済み",
   "eligibility_evidence": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=208328",
   "first_checked_at": "2026-11-25",
-  "last_checked_at": "2026-11-25",
+  "last_checked_at": "2026-11-27",
   "publication_status": "下書き",
   "slug": "tub-match-3d",
   "wiki_summary": "バスタブに浮かぶ3Dオブジェクトを3つ揃えて消していく、水の物理演算を使ったソートパズル（Rogue Panda）。ワラウではAndroid専用のStepUp掲載（最大14,100pt・全16ステップ）が公式ページで確認されている。条件は全てレベルクリアで、課金ステップは含まれない。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g036",
@@ -592,7 +655,8 @@
   "publication_status": "下書き",
   "slug": "nekketsu-daisakusen",
   "wiki_summary": "ドット絵の横スクロールアクション風・三国志RPG（FURYWING）。ローグライクなスキル選択と放置育成が特徴。モッピーではSKYFLAG経由のiOS掲載（増量中91,214P・通常76,232P・全18ステップ）が確認されている。条件は各章のクリアと月パス等の購入3件で、報酬は後半の章に偏っている。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g040",
@@ -607,7 +671,8 @@
   "publication_status": "下書き",
   "slug": "vegas-craze-casino",
   "wiki_summary": "ラスベガスをテーマにしたソーシャルカジノスロット（PLAYLINKS Corp.）。200種以上のスロット等を仮想コインで回し、レベルは経験値で上がる。モッピーではSKYFLAG経由のiOS掲載（増量中70,941P・通常59,400P・全13ステップ）が確認されている。条件はレベル到達（最大Lv700）と購入ステップで、後半ステップに配分が集中する。",
-  "info_rank": "C"
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g041",
@@ -618,11 +683,12 @@
   "eligibility_status": "確認済み",
   "eligibility_evidence": "https://ow-gf-rewards.com/gfr778733121/campaigns/gfr52514184531",
   "first_checked_at": "2026-11-25",
-  "last_checked_at": "2026-11-25",
+  "last_checked_at": "2026-11-27",
   "publication_status": "下書き",
   "slug": "angry-smash",
-  "wiki_summary": "大砲で狙いを定めて島の障害物を物理演算で崩していく、海賊テーマの物理パズル（TRIPLEDOT STUDIOS）。ワラウ経由のGF Rewardsでは増量中31,560pt（通常28,698pt・全22ステップ）の掲載が確認されている。条件はレベルクリアで、最高額ステップはLv20クリア。",
-  "info_rank": "C"
+  "wiki_summary": "大砲で狙いを定めて島の障害物を物理演算で崩していく、海賊テーマの物理パズル（TRIPLEDOT STUDIOS）。ワラウ経由のGF Rewardsでは増量中31,560pt（通常28,698pt・全22ステップ）の掲載が確認されている。条件はレベルクリアで、最高額ステップはLv50000クリア。",
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g042",
@@ -633,11 +699,12 @@
   "eligibility_status": "確認済み",
   "eligibility_evidence": "https://ow-gf-rewards.com/gfr778733121/campaigns/gfr14912364531",
   "first_checked_at": "2026-11-25",
-  "last_checked_at": "2026-11-25",
+  "last_checked_at": "2026-11-27",
   "publication_status": "下書き",
   "slug": "rise-of-kingdoms",
-  "wiki_summary": "文明を育てて都市を発展させるリアルタイムストラテジー（LilithGames。日本版タイトルは『Rise of Kingdoms ―万国覚醒―』）。ワラウ経由のGF Rewardsでは増量中31,396pt（通常28,546pt・全12ステップ）の掲載が確認されている。条件は都市レベル到達と部隊のアンロックで、最高額ステップはレベルV部隊のアンロック。",
-  "info_rank": "C"
+  "wiki_summary": "文明を育てて都市を発展させるリアルタイムストラテジー（LilithGames。日本版タイトルは『Rise of Kingdoms ―万国覚醒―』）。ワラウ経由のGF Rewardsでは最大31,396pt（全12ステップ）の掲載が確認されている（2026-11-27に案件詳細ページで確定した最新値。28,546ptは旧値）。条件は都市レベル到達と部隊のアンロックで、最高額ステップはレベルV部隊のアンロック。",
+  "info_rank": "C",
+  "page_mode": "static"
  },
  {
   "game_id": "g043",

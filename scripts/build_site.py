@@ -414,6 +414,47 @@ def icon_url(icons, gid):
  return ent if isinstance(ent, str) else ''
 
 
+# --- 画像の権利表示（games.json のゲームレコードに "image_credit" 宣言が
+# あるゲームだけに出る。経路A gen_game_pages.py の同名仕組みと、宣言方式・
+# 表示文・CSS をそろえたもの） ---
+# 公式ガイドラインで「画像ごとに著作権表示が必須」と定められているゲーム
+# 向け。宣言は games.json の各ゲームに、経路Aの content トップレベル宣言と
+# 同じ形で置く：
+#   "image_credit": {"text": "表示文", "srcs": [完全一致のsrc...],
+#                    "src_prefixes": [前方一致の接頭辞...]}
+# 経路Bの生成ページでコンテンツ画像を表示する箇所は一覧カード（game_card
+# のアイコン）で、カード末尾に小さなキャプション（.imgcredit）を付ける。
+# ナビゲーション用途の小アイコン（追跡バー・お知らせレール等）には付けない
+# （経路Aで ghead アイコン等に付けないのと同じ線引き）。対象は宣言した
+# ゲーム・画像だけ（他ゲームには一切出ない）。自作図解など権利者の表示が
+# 不要な画像は対象に入れない。画像が表示されない場合は付かない。
+# CSS は .imgcredit を assets/site.css と TOP_CSS の両方に置く（game_card は
+# 一覧ページ＝外部CSS とトップページ＝TOP_CSS の両方で使われるため）。
+def image_credit_html(g, src):
+ """画像ごとの権利表示（小さなキャプション）。ゲームレコードの
+ "image_credit" {text, srcs?, src_prefixes?} に一致する src の時だけ返す。
+ 宣言が無いゲーム・対象外の画像には出ない。"""
+ cfg = (g or {}).get('image_credit') or {}
+ text = cfg.get('text')
+ if not text or not src:
+  return ''
+ if src in (cfg.get('srcs') or []) or \
+   any(src.startswith(p) for p in (cfg.get('src_prefixes') or [])):
+  return f'<p class="imgcredit">{e(text)}</p>'
+ return ''
+
+
+def block_credit_html(g, srcs):
+ """一覧系ブロック用の権利表示。ブロック内で表示された src に対象が
+ 1件でもあれば、ブロックの直後に1件だけ付ける（経路Aと同じブロック
+ 単位方式）。"""
+ for s in srcs:
+  credit = image_credit_html(g, s)
+  if credit:
+   return credit
+ return ''
+
+
 def game_card(g, cs, icons=None):
  badges = ''
  if any(c.get('campaign_status') in ACTIVE_STATUS for c in cs):
@@ -424,11 +465,12 @@ def game_card(g, cs, icons=None):
  _iu = icon_url(icons, g['game_id'])
  if _iu:
   icon = f'<img class="game-icon" src="{e(_iu)}" alt="" loading="lazy" width="44" height="44">'
+ credit = image_credit_html(g, _iu) if _iu else ''
  return (f'<article class="card game-card js-filter-item" data-name="{e(g["official_title"])} {e(g["slug"])}">'
          f'{icon}'
          f'<h3><a href="{BP}/games/{e(g["slug"])}/">{e(g["official_title"])}のポイ活攻略</a></h3>'
          f'<p>{e(g["wiki_summary"])}</p>'
-         f'<p class="small muted">最終確認：{e(g.get("last_checked_at"))}</p>{badges}</article>')
+         f'<p class="small muted">最終確認：{e(g.get("last_checked_at"))}</p>{badges}{credit}</article>')
 
 
 def ended_notice_html(g, ks, rail_games, icons=None):
@@ -468,6 +510,297 @@ def ended_notice_html(g, ks, rail_games, icons=None):
                '<div class="rail nc-rail">' + ''.join(tiles) + '</div>'
                f'<p><a href="{BP}/games/">ゲーム一覧で他の案件を探す →</a></p></section>')
  return ''.join(parts)
+
+
+# ---------- 動線の型 D2／D4／D5（PARTS_SPEC §16） ----------
+# 経路A（EXPANSION_BASE/scripts/gen_game_pages.py）の実装を正として移植した
+# 自己完結部品群。マークアップ・マーカーは静的版・経路Aと同一にし、色は
+# 経路B共通パレット（青 #3977b8）をそのまま使う（経路Bにゲーム別テーマは無い）。
+# 経路Bのサイトヘッダーは body 直下の <header>（クラスなし）のため、バー表示時
+# の引き継ぎ規則だけセレクタを読み替える。アンカー着地は .panel[id] の
+# scroll-margin-top で調整する（静的版の section[id] 54px ルールに相当）。
+FLOW_QUICKLINKS_CSS = ("<style>"
+".quicklinks-a{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 2px}"
+".quicklinks-a a{font-size:12px;font-weight:700;color:#466b84;background:#eaf2fc;border-radius:999px;padding:5px 11px;text-decoration:none}"
+".quicklinks-a a.now{background:#3977b8;color:#fff;box-shadow:inset 0 0 0 1px #1B5FC1}"
+".sticky-menu .quicklinks-a{padding:2px 12px 4px}"
+"</style>")
+
+FLOW_STICKY_MENU_CSS = """<style>
+.sticky-menu{position:fixed;top:0;left:0;right:0;z-index:80;transform:translateY(-110%);transition:transform .25s ease}
+.sticky-menu.on{transform:translateY(0)}
+.sticky-menu .sm-bar{height:44px;display:flex;align-items:center;gap:8px;padding:0 10px;background:rgba(255,255,255,.97);border-bottom:1px solid #d7e1ec;box-shadow:0 2px 8px rgba(23,43,73,.12)}
+.sticky-menu .sm-bar img{width:26px;height:26px;border-radius:6px}
+.sticky-menu .sm-name{font-size:13px;font-weight:800;color:#172B49;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky-menu .sm-btn{margin-left:auto;padding:7px 14px;border:1px solid #3977b8;border-radius:999px;background:#3977b8;color:#fff;font-size:12.5px;font-weight:800;cursor:pointer;white-space:nowrap;font-family:inherit}
+.sticky-menu .sm-panel{display:none;background:#fff;border-bottom:1px solid #d7e1ec;box-shadow:0 12px 20px rgba(23,43,73,.18);padding:4px 0 12px}
+.sticky-menu.open .sm-panel{display:block}
+.sticky-menu .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.sticky-menu .menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.sticky-menu .menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.sticky-menu .menu a.hot{border-color:#e08a7d;background:#fdf0ec;color:#9c2418}
+.sticky-menu .menu a.now{position:relative;border-color:#3977b8;background:#EAF2FC;color:#1B5FC1}
+.sticky-menu .menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#3977b8}
+html[data-theme="dark"] .sticky-menu .sm-bar{background:rgba(29,26,23,.97);border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .sm-name{color:#f2ede8}
+html[data-theme="dark"] .sticky-menu .sm-panel{background:#241f1b;border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .sticky-menu .menu a.hot{background:#33201b;border-color:#e0584d;color:#f0a294}
+html[data-theme="dark"] .sticky-menu .menu a.now{background:#EAF2FC;border-color:#3977b8;color:#1B5FC1}
+body>header{transition:transform .25s ease}
+html.sm-on body>header{transform:translateY(-100%)}
+.panel[id]{scroll-margin-top:56px}
+</style>"""
+
+FLOW_STICKY_MENU_JS = """<script>(function(){
+var bar=document.getElementById('stickyMenu'),btn=document.getElementById('stickyMenuBtn'),root=document.documentElement;
+var anchor=document.querySelector('.topmenu-a');
+var threshold=anchor?anchor.getBoundingClientRect().bottom+window.scrollY:600;
+var lastY=window.scrollY,open=false;
+function show(v){bar.classList.toggle('on',v);root.classList.toggle('sm-on',v);}
+window.addEventListener('scroll',function(){
+  var y=window.scrollY;
+  if(open){show(true);}
+  else if(y<=threshold){show(false);}
+  else if(y<lastY){show(true);}
+  else if(y>lastY){show(false);}
+  lastY=y;
+},{passive:true});
+btn.addEventListener('click',function(){
+  open=bar.classList.toggle('open');
+  btn.textContent=open?'閉じる ▲':'攻略メニュー ▼';
+  btn.setAttribute('aria-expanded',String(open));
+  if(open)show(true);
+});
+document.addEventListener('click',function(e){
+  if(open&&!bar.contains(e.target)){open=false;bar.classList.remove('open');btn.textContent='攻略メニュー ▼';btn.setAttribute('aria-expanded','false');}
+});
+})();</script>"""
+
+FLOW_SM_TOC_CSS = (".sm-toc{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 2px;align-items:center}"
+".sm-toc .sm-toc-h{font-size:11px;font-weight:800;color:#888;margin-right:2px}"
+".sm-toc a{font-size:12px;font-weight:700;color:#466b84;background:#eaf2fc;border-radius:999px;padding:5px 11px;text-decoration:none}"
+".sm-toc a.on{background:#3977b8;color:#fff;box-shadow:inset 0 0 0 1px #1B5FC1}"
+"html[data-theme=\"dark\"] .sm-toc a{background:#33302a;color:#cfc8c0}"
+"html[data-theme=\"dark\"] .sm-toc a.on{background:#3977b8;color:#fff}"
+"html[data-theme=\"dark\"] .sm-toc .sm-toc-h{color:#9a9186}")
+
+# 追従バナー（sticky-cta）の CSS は経路A templates/site.css が正。経路Aの
+# body{padding-bottom} は全ページ共通CSS側の指定のため、経路Bでは部品を
+# 出すページにだけ効くよう部品側の style に含める。
+FLOW_STICKY_CTA_CSS = ("<style>"
+"body{padding-bottom:96px}"
+".sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(7px + env(safe-area-inset-bottom));pointer-events:none}"
+".sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:9px 14px 8px;border-radius:999px;background:linear-gradient(180deg,#f0563f,#d42a1e);color:#fff;font-weight:900;font-size:13.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}"
+".sticky-cta.alt .sticky-cta-bar{background:linear-gradient(135deg,#fff3b0 0%,#ffd94d 30%,#f5b800 55%,#ffe680 80%,#ffc400 100%);color:#5b4300;box-shadow:0 6px 22px rgba(245,184,0,.65)}"
+".sticky-cta-bubble{position:absolute;top:-10px;left:22px;background:#fff;color:#d42a1e;font-size:10.5px;font-weight:900;padding:2px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:color .45s ease,background .45s ease;z-index:3}"
+".sticky-cta.alt .sticky-cta-bubble{color:#a87b00;background:linear-gradient(180deg,#fffbe8,#ffedb0)}"
+".sticky-cta-text{position:relative;z-index:1}"
+".sticky-cta-arrow{font-size:15px;font-weight:900;line-height:1;position:relative;z-index:1}"
+".sticky-cta .sparkle{position:absolute;color:#fff;font-size:13px;text-shadow:0 0 6px #ffdf4d,0 0 2px #fff;opacity:0;pointer-events:none;z-index:2}"
+".sticky-cta.alt .sparkle{animation:twinkle 1.6s ease-in-out infinite}"
+".sticky-cta .sparkle.s1{top:2px;left:16%}"
+".sticky-cta .sparkle.s2{top:16px;right:14%;animation-delay:.4s}"
+".sticky-cta .sparkle.s3{bottom:3px;left:38%;animation-delay:.8s;font-size:10px}"
+".sticky-cta .sparkle.s4{top:6px;right:34%;animation-delay:1.1s;font-size:10px}"
+"@keyframes twinkle{0%,100%{opacity:0;transform:scale(.6) rotate(0deg)}50%{opacity:1;transform:scale(1.25) rotate(25deg)}}"
+".sticky-cta.alt .sticky-cta-bar::after{content:\"\";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}"
+"@keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}"
+"@media (max-width:380px){.sticky-cta-bar{font-size:12.5px;padding:8px 12px 7px}}"
+"</style>")
+
+FLOW_STICKY_CTA_JS = ("<script>(function(){"
+"var c=document.getElementById('stickyCta');if(!c)return;"
+"function upd(){var h=document.documentElement;"
+"var max=h.scrollHeight-h.clientHeight;"
+"var r=max>0?(h.scrollTop||document.body.scrollTop)/max:0;"
+"c.classList.toggle('alt',r>=0.5);}"
+"window.addEventListener('scroll',upd,{passive:true});"
+"window.addEventListener('resize',upd);upd();})();</script>")
+
+
+def flow_short_amount(reward_amount):
+ """台帳の reward_amount（長文）から短い金額ラベルを抽出する。経路Aの
+ short_amount と違い、OS別に複数額が併記される経路Bの文面でも最大額を
+ 拾うよう、一致した中で最大のものを返す。"""
+ best = None
+ for m in re.finditer(r'(最大|合計)?\s*¥\s*([\d,]+)', reward_amount or ''):
+  v = int(m.group(2).replace(',', ''))
+  if best is None or v > best[0]:
+   best = (v, m.group(0).replace(' ', ''))
+ if best:
+  return best[1]
+ for m in re.finditer(r'(最大|合計)?\s*([\d,]+)\s*(?:pt|P|ポイント)', reward_amount or ''):
+  v = int(m.group(2).replace(',', ''))
+  if best is None or v > best[0]:
+   best = (v, m.group(0).replace(' ', ''))
+ if best:
+  return best[1]
+ return (reward_amount or '')[:30]
+
+
+def flow_menu_items(g, ks, cs):
+ """追跡バーのパネル用タイル（攻略トップ＋攻略ページ＋案件条件）。
+ 経路Bにはトピックのアイコン定義が無いため、タイルは文字主体になる。"""
+ slug = g['slug']
+ items = [{'path': f'/games/{slug}/', 'icon': '🏠', 'label': '攻略トップ'}]
+ for k in ks:
+  if k.get('static_page'):
+   continue
+  ts = str(k.get('topic_slug') or '').strip()
+  if not SLUG_RE.fullmatch(ts):
+   continue
+  items.append({'path': f'/games/{slug}/{ts}/', 'icon': '', 'label': menu_label(k)})
+ if cs:
+  items.append({'path': f'/games/{slug}/conditions/', 'icon': '📋', 'label': '案件条件'})
+ return items
+
+
+def flow_quick_links(g):
+ """D2 のチップ定義（games データの quick_links）。第2階層・再訪系ページ
+ への入口で、データ作成時に明示する（§16 の方式②）。未定義なら空リストで、
+ その場合はチップ列自体を出さない。href はサイト内パス（/ 始まり）。"""
+ out = []
+ for q in g.get('quick_links') or []:
+  if not isinstance(q, dict):
+   continue
+  href = str(q.get('href') or '')
+  label = str(q.get('label') or '')
+  if not href.startswith('/') or not label:
+   continue
+  out.append({'href': href, 'icon': str(q.get('icon') or ''), 'label': label})
+ return out
+
+
+def flow_quick_links_block(g, current_path, with_css):
+ """D2 チップ列の自己完結ブロック（マーカー付き・経路Aと同一形式）。
+ 現在ページのチップには now を付ける。with_css=False は追跡バーのパネル
+ 内用（CSS はページ側の同ブロックが持つ）。"""
+ chips = flow_quick_links(g)
+ if not chips:
+  return ''
+
+ def _chip(q):
+  cls = ' class="now"' if q['href'] == current_path else ''
+  ic = f'{e(q["icon"])} ' if q['icon'] else ''
+  return f'<a href="{BP}{e(q["href"])}"{cls}>{ic}{e(q["label"])}</a>'
+
+ css = FLOW_QUICKLINKS_CSS if with_css else ''
+ return ('<!-- quick-links -->' + css
+         + '<div class="quicklinks-a">'
+         + ''.join(_chip(q) for q in chips)
+         + '</div><!-- /quick-links -->')
+
+
+def flow_sm_toc_block(toc_entries):
+ """D5：ゲームトップの追跡バーパネル先頭へ置くセクションチップ列
+ （.sm-toc）。経路Aの sm_toc_block と同一（スパイ対象の解決は
+ DOMContentLoaded で遅延させる。§16 の注意）。"""
+ chips = ''.join(f'<a href="#{e(x["id"])}">{e(x["label"])}</a>' for x in toc_entries)
+ secs = ','.join("'%s'" % x['id'] for x in toc_entries)
+ script = ("<script>(function(){\n"
+           'document.querySelectorAll(".sm-toc a").forEach(function(a){\n'
+           '  a.addEventListener("click",function(){var bar=document.getElementById("stickyMenu");\n'
+           '    if(bar){bar.classList.remove("open");var btn=document.getElementById("stickyMenuBtn");\n'
+           '    if(btn){btn.textContent="攻略メニュー ▼";btn.setAttribute("aria-expanded","false");}}});\n'
+           "});\n"
+           f"var secs=[{secs}];\n"
+           "var links=[];\n"
+           "document.addEventListener('DOMContentLoaded',function(){links=Array.prototype.slice.call(document.querySelectorAll('.sm-toc a'));});\n"
+           "function spy(){\n"
+           "  if(!links.length)links=Array.prototype.slice.call(document.querySelectorAll('.sm-toc a'));\n"
+           "  var cur=null;\n"
+           "  for(var i=0;i<secs.length;i++){var e=document.getElementById(secs[i]);if(e&&e.getBoundingClientRect().top+window.scrollY<=window.scrollY+180)cur='#'+secs[i];}\n"
+           "  links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')===cur);});\n"
+           "}\n"
+           "window.addEventListener('scroll',spy,{passive:true});\n"
+           "document.addEventListener('DOMContentLoaded',spy);\n"
+           "})();</script>")
+ return ('<!-- section-links --><style>' + FLOW_SM_TOC_CSS + '</style>'
+         + '<div class="sm-toc"><span class="sm-toc-h">このページ内</span>'
+         + chips + '</div>' + script + '<!-- /section-links -->')
+
+
+def flow_sticky_menu_html(g, ks, cs, icons, current_path, toc_entries=None, panel_css=False):
+ """D5 の上部追跡バー（§14 sticky-menu）。自己完結部品（マーカー付き・
+ 経路Aと同一形式）。メニュー項目が無い／アイコンが無いゲームでは出さない
+ （経路A・適用器のスキップ条件と同一）。パネルの並びは .sm-toc（ゲーム
+ トップのみ・先頭）→ メニュータイル → D2 チップ列。"""
+ items = flow_menu_items(g, ks, cs)
+ icon = icon_url(icons, g['game_id']) if icons else ''
+ if not items or not icon:
+  return ''
+
+ def _tile(it):
+  cls = []
+  if it.get('hot'):
+   cls.append('hot')
+  if it['path'] == current_path:
+   cls.append('now')
+  c = f' class="{" ".join(cls)}"' if cls else ''
+  mi = f'<span class="mi">{e(it["icon"])}</span>' if it.get('icon') else ''
+  return f'<a href="{BP}{e(it["path"])}"{c}>{mi}{e(it["label"])}</a>'
+
+ panel = []
+ if toc_entries:
+  panel.append(flow_sm_toc_block(toc_entries))
+ panel.append('<div class="menu">' + ''.join(_tile(i) for i in items) + '</div>')
+ ql = flow_quick_links_block(g, current_path, with_css=panel_css)
+ if ql:
+  panel.append(ql)
+ return ('<!-- sticky-menu -->'
+         + FLOW_STICKY_MENU_CSS
+         + '<div class="sticky-menu" id="stickyMenu"><div class="sm-bar">'
+         + f'<img src="{e(icon)}" alt="">'
+         + f'<span class="sm-name">{e(g["official_title"])} 攻略</span>'
+         + '<button type="button" class="sm-btn" id="stickyMenuBtn" '
+           'aria-expanded="false">攻略メニュー ▼</button></div>'
+         + '<div class="sm-panel">' + ''.join(panel) + '</div></div>'
+         + FLOW_STICKY_MENU_JS + '<!-- /sticky-menu -->')
+
+
+def flow_sticky_cta_html(g, cs):
+ """D5 の下部案件CTA（全ページ標準部品）：最高額の掲載中案件へ直行。
+ 案件が全て終了したゲームでは、バナーを消さず「他のポイ活案件を見る」
+ 表示でサイトトップへ変換する（経路Aの終了時仕様と同一）。案件自体が
+ 無いゲームには出さない。計測は site.js の data-ref-* 方式に合わせる。"""
+ if not cs:
+  return ''
+ active = [c for c in cs if c.get('campaign_status') in ACTIVE_STATUS and c.get('campaign_url')]
+ if not active:
+  return (FLOW_STICKY_CTA_CSS
+          + '<style>.sticky-cta .sticky-cta-bar,.sticky-cta.alt .sticky-cta-bar'
+            '{background:#172B49 !important;color:#fff !important;'
+            'box-shadow:0 6px 18px rgba(0,0,0,.35)}</style>'
+          + '<div class="sticky-cta" id="stickyCta">'
+          + f'<a class="sticky-cta-bar" id="stickyCtaBar" href="{BP}/">'
+          + '<span class="sticky-cta-text">他のポイ活案件を見る</span> '
+          + '<span class="sticky-cta-arrow">›</span></a></div>')
+
+ def _val(c):
+  texts = [c.get('reward_amount') or ''] + list(c.get('reward_stages') or [])
+  best = 0
+  for t in texts:
+   for m in re.finditer(r'([\d][\d,]*)\s*(?:pt|P|円)', t or ''):
+    best = max(best, int(m.group(1).replace(',', '')))
+  return best
+
+ top = max(active, key=_val)
+ amt = flow_short_amount(top.get('reward_amount') or '')
+ # 金額の台帳記録が無い案件（モノポリーGOのFreecash等）では、金額欄を
+ # 空で出さず文面だけにする
+ amt_html = f'<span class="sticky-amt">{e(amt)}</span> GET' if amt else '今すぐGET'
+ return (FLOW_STICKY_CTA_CSS
+         + '<div class="sticky-cta" id="stickyCta">'
+         + f'<a class="sticky-cta-bar" id="stickyCtaBar" href="{e(top.get("campaign_url"))}" '
+           'target="_blank" rel="sponsored nofollow noopener" '
+         + f'data-ref-service="{e(top.get("service_name"))}" data-ref-placement="sticky">'
+         + f'<span class="sticky-cta-bubble">＼ 今すぐ『<span class="sticky-svc">{e(top.get("service_name"))}</span>』経由で ／</span>'
+         + '<span class="sparkle s1">✦</span><span class="sparkle s2">✦</span>'
+           '<span class="sparkle s3">✦</span><span class="sparkle s4">✦</span>'
+         + f'<span class="sticky-cta-text">{amt_html}</span>'
+         + '<span class="sticky-cta-arrow">›</span></a></div>'
+         + FLOW_STICKY_CTA_JS)
 
 
 def search_block(input_id):
@@ -550,6 +883,9 @@ a{color:#3977B8}
 .updates li{padding:6px 0;border-bottom:1px dotted #ddd;font-size:13px}
 .grid{display:grid;grid-template-columns:1fr;gap:10px;padding:0 12px}
 .card{border:1px solid #e5e5e5;border-radius:10px;padding:12px;background:#fff;overflow:hidden}
+.imgcredit{font-size:10.5px;line-height:1.55;color:#667;margin:4px 0 0;text-align:left}
+.figc .imgcredit{text-align:center}
+html[data-theme="dark"] .imgcredit{color:#9a9186}
 .card h3{font-size:15px;margin-bottom:4px}
 .card h3 a{color:#172B49;text-decoration:none}
 .card p{font-size:12.5px;color:#444}
@@ -714,19 +1050,25 @@ def build_detail(g, ks, cs, history_entries, sources_by_id, rail_games=None, ico
           ('公式情報', f'<a href="{e(g["official_game_url"])}" rel="nofollow noopener">公式ページ</a>'),
           ('対象掲載根拠', f'<a href="{e(g["eligibility_evidence"])}" rel="nofollow noopener">掲載確認元</a>'),
           ('最終確認', e(g.get('last_checked_at')))]
- sections = ['<section class="panel"><h2>ゲーム基本情報</h2>' + dl_rows(pairs)
-             + f'<p>{rank_badge(g.get("info_rank"))}</p></section>']
+ # 節の組み立ては D4 標準骨格順（§16）：案件 → 攻略テーマ → 攻略の要点 →
+ # 概要・目安（基本情報・注意点）→ 出典・確認記録 → 変更履歴 → 関連ページ。
+ # 各節はまず変数に作り、最後に標準順で並べる。案件・テーマ・基本情報・
+ # 履歴には追跡バーの .sm-toc から飛ぶための id を付ける。
+ about_sec = ('<section class="panel" id="about"><h2>ゲーム基本情報</h2>' + dl_rows(pairs)
+              + f'<p>{rank_badge(g.get("info_rank"))}</p></section>')
+ points_sec = topics_sec = None
  if ks:
   points = []
   for k in ks:
    points.append(f'<li><a href="{BP}/games/{e(slug)}/{e(k["topic_slug"])}/">{e(k["topic"])}</a>：{e(k.get("conclusion"))}</li>')
-  sections.append('<section class="panel"><h2>攻略の要点</h2><ul class="clean">' + ''.join(points) + '</ul></section>')
+  points_sec = '<section class="panel"><h2>攻略の要点</h2><ul class="clean">' + ''.join(points) + '</ul></section>'
   links = ''.join(f'<li><a href="{BP}/games/{e(slug)}/{e(k["topic_slug"])}/">{e(topic_title(k))}</a></li>' for k in ks)
-  sections.append('<section class="panel"><h2>攻略テーマ</h2><ul class="clean">' + links + '</ul></section>')
+  topics_sec = '<section class="panel" id="topics"><h2>攻略テーマ</h2><ul class="clean">' + links + '</ul></section>'
  active = [c for c in cs if c.get('campaign_status') in ACTIVE_STATUS]
+ campaign_sec = None
  if cs and not active:
   # 案件が全て終了したゲーム：攻略は残し、案件表示をお知らせ部品に切り替える
-  sections.append(ended_notice_html(g, ks, rail_games, icons))
+  campaign_sec = ended_notice_html(g, ks, rail_games, icons)
  elif cs:
   rows = []
   for c in active:
@@ -735,8 +1077,16 @@ def build_detail(g, ks, cs, history_entries, sources_by_id, rail_games=None, ico
                + (f'（期限：{e(c["deadline"])}）' if c.get('deadline') else '')
                + f' {campaign_status_badge(c.get("campaign_status"))}</li>')
   note = ''.join(rows) if rows else '<li>現在、掲載中の案件はありません。</li>'
-  sections.append('<section class="panel"><h2>ポイ活案件情報（サービス別）</h2><ul class="clean">' + note + '</ul>'
+  campaign_sec = ('<section class="panel" id="campaign"><h2>ポイ活案件情報（サービス別）</h2><ul class="clean">' + note + '</ul>'
                   f'<p><a href="{BP}/games/{e(slug)}/conditions/">案件条件の詳細を確認する →</a></p></section>')
+ sections = []
+ if campaign_sec:
+  sections.append(campaign_sec)
+ if topics_sec:
+  sections.append(topics_sec)
+ if points_sec:
+  sections.append(points_sec)
+ sections.append(about_sec)
  cautions = []
  for k in ks:
   if k.get('cautions') and k['cautions'] not in cautions:
@@ -755,7 +1105,7 @@ def build_detail(g, ks, cs, history_entries, sources_by_id, rail_games=None, ico
  if used_sources:
   sections.append('<section class="panel"><h2>出典・確認記録</h2>' + ''.join(source_block(s) for s in used_sources) + '</section>')
  if history_entries:
-  sections.append('<section class="panel"><h2>更新履歴</h2>' + history_list(history_entries) + '</section>')
+  sections.append('<section class="panel" id="history"><h2>更新履歴</h2>' + history_list(history_entries) + '</section>')
  related = [f'<li><a href="{BP}/games/">ゲーム一覧</a></li>']
  if cs:
   related.insert(0, f'<li><a href="{BP}/games/{e(slug)}/conditions/">{e(title)}の{e(cond_label)}</a></li>')
@@ -769,10 +1119,24 @@ def build_detail(g, ks, cs, history_entries, sources_by_id, rail_games=None, ico
   intro = (f'<p>ポイ活で始める場合、このゲームの案件は{"・".join(service_names)}に掲載されています。'
            f'掲載先によって最大ポイントや達成条件が異なるため、始める前に<a href="{BP}/games/{e(slug)}/conditions/">{e(title)}の{e(cond_label)}</a>で比較するのがおすすめです。'
            '案件ページを経由してインストールし、期限内に条件を達成するとポイントが付きます。</p>')
+ # 追跡バーのパネル先頭に置く .sm-toc は、実際に出力した節からだけ作る
+ toc_entries = []
+ if cs and active:
+  toc_entries.append({'id': 'campaign', 'label': '案件'})
+ if ks:
+  toc_entries.append({'id': 'topics', 'label': '攻略テーマ'})
+ toc_entries.append({'id': 'about', 'label': '基本情報'})
+ if history_entries:
+  toc_entries.append({'id': 'history', 'label': '更新履歴'})
+ if len(toc_entries) < 2:
+  toc_entries = None
+ flow_parts = (flow_sticky_menu_html(g, ks, cs, icons, f'/games/{slug}/',
+                                     toc_entries=toc_entries, panel_css=True)
+               + flow_sticky_cta_html(g, cs))
  body = ('<main class="wrap">' + breadcrumb(crumbs)
          + f'<h1>{e(title_name)}のポイ活攻略</h1><p class="lead">{e(g["wiki_summary"])}</p>'
          + intro
-         + ''.join(sections) + '</main>')
+         + ''.join(sections) + '</main>' + flow_parts)
  if active_cs and service_names:
   amt = max_reward(g['game_id'], {g['game_id']: cs})
   amt_part = f'最大{amt:,}円相当。' if amt else ''
@@ -825,7 +1189,7 @@ def static_menu_items(g):
  for href, attrs, icon, label in re.findall(r'<a href="([^"]+)"([^>]*)><span class="mi">([^<]*)</span>([^<]*)</a>', m.group(1)):
   if href.startswith('#'):
    href = f"{BP}/games/{g['slug']}/{href}"
-  elif href.endswith('.html'):
+  elif href.endswith('.html') or '.html#' in href:
    href = f"{BP}/games/{g['slug']}/{href}"
   items.append((href, icon, label, 'hot' in attrs))
  return items or None
@@ -873,7 +1237,7 @@ def top_menu_html(g, k, siblings):
          + script + '</div>')
 
 
-def build_topic(g, k, siblings, sources_by_id):
+def build_topic(g, k, siblings, sources_by_id, cs=None, icons=None):
  slug = g['slug']
  title = g['official_title']
  src = sources_by_id.get(k.get('source_id'))
@@ -915,10 +1279,15 @@ def build_topic(g, k, siblings, sources_by_id):
  robots = 'index,follow' if indexable else 'noindex,follow'
  crumbs = [('トップ', '/'), ('ゲーム一覧', '/games/'), (title, f'/games/{slug}/'), (k['topic'], None)]
  ld = breadcrumb_ld(crumbs, f'/games/{slug}/{k["topic_slug"]}/')
+ current_path = f'/games/{slug}/{k["topic_slug"]}/'
+ flow_parts = (flow_sticky_menu_html(g, siblings, cs or [], icons, current_path)
+               + flow_sticky_cta_html(g, cs or []))
  body = ('<main class="wrap">' + breadcrumb(crumbs)
          + f'<h1>{e(title)}：{e(topic_title(k))}</h1>'
          + top_menu_html(g, k, siblings)
-         + f'<div class="layout"><div class="main-col">{"".join(main_parts)}</div><aside class="side-col">{aside}</aside></div></main>')
+         + flow_quick_links_block(g, current_path, with_css=True)
+         + f'<div class="layout"><div class="main-col">{"".join(main_parts)}</div><aside class="side-col">{aside}</aside></div></main>'
+         + flow_parts)
  og_url, og_size = game_og_image(g['game_id'])
  page = page_shell(f'{title}：{topic_title(k)}',
                    f'{title}：{k["topic"]}の具体的な手順、失敗しやすい点、確認できた根拠を整理します。',
@@ -966,7 +1335,7 @@ def campaign_card(g, c, history_entries, sources_by_id):
          + dl_rows(pairs) + (source_block(src) if src else '') + hist + cta + '</article>')
 
 
-def build_conditions(g, cs, history_by_campaign, sources_by_id):
+def build_conditions(g, cs, history_by_campaign, sources_by_id, ks=None, icons=None):
  slug = g['slug']
  title = g['official_title']
  legend = ('<section class="panel"><h2>情報区分の見方</h2><ul class="clean">'
@@ -996,11 +1365,24 @@ def build_conditions(g, cs, history_by_campaign, sources_by_id):
  else:
   caution = '達成期限を過ぎるとポイントの対象外になるため、期限と条件を確認してから始めてください。'
   cond_title = f'{title}のポイ活案件条件・確認記録'
+ current_path = f'/games/{slug}/conditions/'
+ flow_parts = (flow_sticky_menu_html(g, ks or [], cs, icons, current_path)
+               + flow_sticky_cta_html(g, cs))
+ # 末尾の攻略メニュー導線（PARTS_SPEC §7 menu_full の経路B側実装）。
+ # conditions ページは関連ページ節を持たないため、末尾に同ゲームの
+ # 主要ページへのリンク列を置き、行き止まりを作らない
+ menu_links = [f'<li><a href="{BP}/games/{e(slug)}/">{e(title)}のポイ活攻略</a></li>']
+ for k in (ks or []):
+  if not k.get('static_page'):
+   menu_links.append(f'<li><a href="{BP}/games/{e(slug)}/{e(k["topic_slug"])}/">{e(topic_title(k))}</a></li>')
+ menu_sec = ('<section class="panel"><h2>攻略メニュー</h2><ul class="clean">'
+             + ''.join(menu_links) + '</ul></section>')
  body = ('<main class="wrap">' + breadcrumb(crumbs)
          + f'<h1>{e(title)}のポイ活達成条件・確認記録</h1>'
          + '<p>掲載サービスごとの達成条件と確認記録を、情報源・確認日・バージョンを区別して整理します。サービスや時期によって条件は異なります。'
          + caution + '</p>'
-         + ''.join(parts) + '</main>')
+         + flow_quick_links_block(g, current_path, with_css=True)
+         + ''.join(parts) + menu_sec + '</main>' + flow_parts)
  active_parts = []
  for c in active:
   part = str(c.get('service_name') or '')
@@ -1559,14 +1941,14 @@ def main():
    generated_topics.add(ts)
    tdir = folder / ts
    tdir.mkdir(parents=True, exist_ok=True)
-   tpage, tidx = build_topic(g, k, ks, sources_by_id)
+   tpage, tidx = build_topic(g, k, ks, sources_by_id, cs, icons)
    (tdir / 'index.html').write_text(tpage, encoding='utf-8')
    if tidx:
     index_paths.append(f'/games/{slug}/{ts}/')
   if cs:
    cdir = folder / 'conditions'
    cdir.mkdir(parents=True, exist_ok=True)
-   cpage, cidx = build_conditions(g, cs, history_by_campaign, sources_by_id)
+   cpage, cidx = build_conditions(g, cs, history_by_campaign, sources_by_id, ks, icons)
    (cdir / 'index.html').write_text(cpage, encoding='utf-8')
    if cidx:
     index_paths.append(f'/games/{slug}/conditions/')

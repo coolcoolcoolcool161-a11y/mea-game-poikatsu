@@ -2527,9 +2527,9 @@
   "publisher": "モッピー",
   "title": "ベガス クレイズ カジノ（StepUp）_Android｜モッピー",
   "url": "https://pc.moppy.jp/ad/detail.php?site_id=160507",
-  "checked_at": "2026-11-25",
-  "conditions": "モッピーの案件掲載（Android版・77,362P表示）",
-  "limitations": "金額はAndroid版・時点変動あり"
+  "checked_at": "2026-11-27",
+  "conditions": "モッピーの案件掲載（Android版）。2026-11-27にクラウドブラウザで詳細ページ（https://pc.moppy.jp/ad/detail.php?site_id=160507）を実読し、最大77,362Pの掲載を確認。条件は「新規アプリインストール後、各ミッションクリア」、確定反映30分程度。「増量中」の表示は無し",
+  "limitations": "ステップ内訳は詳細ページに無く遷移先（アプリマルチミッション）にのみあるため未確認。campaignsへの登録は内訳確定後に行う。金額は時点変動あり"
  },
  {
   "source_id": "s254",
@@ -4578,5 +4578,111 @@
   "checked_at": "2026-11-27",
   "conditions": "ワラウ（ログイン済みブラウザ）のサイト内検索で当該案件を確認し、案件詳細を実読。全14ステップ・最大7,620pt・期限はインストールから45日（本日インストールの場合2027年1月10日と表示）・あんしん保証／即日付与バッジを確認",
   "limitations": "Android表示で確認した内容。旧案件（point_id=208998・最大14,000pt）の終了後に別point_idで再掲載された新案件"
+ },
+ {
+  "source_id": "s451",
+  "source_type": "公式",
+  "publisher": "ワラウ",
+  "title": "メメントモリ（StepUp）OS別掲載の確認｜ワラウ公式 StepUpミッション一覧",
+  "url": "https://www.warau.jp/contents/point/category/?category_id=318&page=2&point_group=6",
+  "checked_at": "2026-11-27",
+  "conditions": "ワラウ公式のStepUpミッション一覧・ポイント情報一覧・アプリのポイント情報の各一覧に「メメントモリ（StepUp）」がAndroid版とiOS版の2件で掲載され、両方とも最大11,500pt（同額）であることを確認。c090（point_id=206037）のOS条件の裏取りに使用",
+  "limitations": "一覧表示は確認時点のもの。案件ページ自体にはOS表記なし"
+ },
+ {
+  "source_id": "s452",
+  "source_type": "公式",
+  "publisher": "バンク・オブ・イノベーション",
+  "title": "メメントモリ公式FAQ「About Friends」｜MementoMori FAQ（Zendesk）",
+  "url": "https://mementomori.zendesk.com/hc/en-us/articles/44100213404441-About-Friends",
+  "checked_at": "2026-11-27",
+  "conditions": "公式FAQ（2025-03-24更新）に「Your max friend count will be increased to 50 upon clearing Main Quest 18-12」と明記。あわせて Game8 の Ver 3.7.0 アップデート記事（2025-01-29リリース・フレンドバトルは1/31実装）でも同内容を確認し、Game8 フレンドガイドの基本上限40人と併せて「基本40人／18-12クリアで50人」と確定。フレンド上限の裏取り（MEMENTO-AUDIT 残件12）に使用",
+  "limitations": "FAQ本文は英語版で確認。基本上限40人の数値自体は Game8 ガイドの記載による（FAQは増加後の50人と増加条件のみ明記）"
+ },
+ {
+  "source_id": "s453",
+  "source_type": "公式",
+  "publisher": "GF Rewards（ワラウ経由）",
+  "title": "Rise of Kingdoms ―万国覚醒―（StepUp）案件詳細｜GF Rewards",
+  "url": "https://ow-gf-rewards.com/gfr778733121/campaigns/gfr14912364531",
+  "checked_at": "2026-11-27",
+  "conditions": "2026-11-27に端末ブラウザでGF Rewards案件詳細ページを実読し確定。掲載は1件のみ（OS別の2件掲載ではない）。ワラウのGF Rewards一覧では最大28,546ptと表示されるが、案件詳細ページでは28,546ptが取り消し線の旧値で、合計31,396ptが最新値と明記されている（詳細ページが正、とページ内に明記あり）。全12ステップの内訳も詳細ページで確定した。26,084ptは同キャンペーンの過去の値（2026-10-04時点の記録）で、現在の掲載ではない",
+  "limitations": "端末ブラウザでの目視確認に基づく。s205（2026-11-25確認）の「増量中・通常28,546pt」という解釈は本確認で上書きする"
+ },
+ {
+  "source_id": "s454",
+  "source_type": "公式",
+  "publisher": "GF Rewards（ワラウ経由）",
+  "title": "Angry Smash - Physics Puzzle（StepUp）案件詳細｜GF Rewards",
+  "url": "https://ow-gf-rewards.com/gfr778733121/campaigns/gfr52514184531",
+  "checked_at": "2026-11-27",
+  "conditions": "2026-11-27に端末ブラウザでGF Rewards案件詳細ページを実読し確定。増量は継続中で、詳細ページでは28,698ptが取り消し線の旧合計、現行は合計31,560pt（「報酬アップ中」表示あり。詳細ページが正、とページ内に明記あり）。全22ステップの内訳も詳細ページで確定した（最終ステップはLv50000クリア＝22,275pt、購入条件はアプリ内で合計480円以上の購入＝370pt、期限はステップごとに異なる）",
+  "limitations": "端末ブラウザでの目視確認に基づく。図解バッチの鮮度確認（2026-11-27・一覧側の表示に基づく「増量終了・通常額28,698pt」）と、s204（2026-11-25確認）のステップ表記（Lv1〜Lv20・スターターパック購入）は、本確認の実読で上書きする"
+ },
+ {
+  "source_id": "s455",
+  "source_type": "公式",
+  "publisher": "Google Play",
+  "title": "Arrow Odyssey: Escape Puzzle｜Google Play 公式ストアページ（Rogue Panda）",
+  "url": "https://play.google.com/store/apps/details?id=fun.rgpd.arrowodyssey",
+  "published_at": "",
+  "checked_at": "2026-11-27",
+  "conditions": "公式の遊び方（矢印をタップすると方向へスライドし、ブロックされた矢印は動かない。全て消すとレベルクリア。タイマー・ライフなし）と特徴5点（レイヤードボード／ミラー／氷／シャッター／パイプ）、レベルごとにレイアウトが変わる旨を確認",
+  "limitations": "ギミックの登場レベル・レベル総数・到達日数の記載なし"
+ },
+ {
+  "source_id": "s456",
+  "source_type": "公式",
+  "publisher": "Google Play",
+  "title": "フォーティヴェイルの勇者（Fortivale Defenders）｜Google Play 公式ストアページ（DrDe）",
+  "url": "https://play.google.com/store/apps/details?id=com.dl.defender",
+  "published_at": "",
+  "checked_at": "2026-11-27",
+  "conditions": "公式のゲーム説明（弾薬供給の仕組み・宝箱の強化・装備の収集/合成/分解・レベルアップとスキル解放・オフライン可）と公式アプリアイコンを確認。アイコンは案件掲載側（GF Rewards）のアイコン素材がストアアイコンと同一であることをキーアートと照合して確認",
+  "limitations": "本作業環境からはストアページ本体を直接取得できず、ストア掲載と同一素材を配信する集約ページ（XWorld）経由で掲載画像を確認。数値表（必要経験値・装備性能値）の掲載はなし"
+ },
+ {
+  "source_id": "s457",
+  "source_type": "第三者",
+  "publisher": "ワラウ（利用者のクチコミ）",
+  "title": "フォーティヴェイルの勇者 案件詳細ページのクチコミ欄｜ワラウ",
+  "url": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=209075",
+  "published_at": "",
+  "checked_at": "2026-11-25",
+  "conditions": "案件詳細ページ（s079と同一ページ）のクチコミ欄。2026-11-16の投稿＝レベル20辺りから1ステージに21ウェーブで約30分かかり自動広告も入るため放置できない／2026-11-18の投稿＝5日目でも進めなくなった、アイテムの出方で進み具合が変わる。総合評価は1.5で「完走はほぼ不可能」という声もある",
+  "limitations": "利用者個人の体験に基づく投稿であり、端末環境や進め方で変わる。投稿件数が少なく統計的な裏付けはない。到達報告としての完走実績は含まれていない"
+ },
+ {
+  "source_id": "s458",
+  "source_type": "第三者",
+  "publisher": "GamingOnPhone",
+  "title": "Royal Kingdom Beginner's Guide and Tips｜GamingOnPhone",
+  "url": "https://gamingonphone.com/guides/royal-kingdom-beginners-guide-and-tips/",
+  "published_at": "",
+  "checked_at": "2026-11-26",
+  "conditions": "パワーアップ4種（Rocket／Spinner／Dynamite／Electro Ball）の作り方と効果、ブースター5種はいずれも手数を消費しない点、資源の分離（ポーション＝地区タスクの支払い専用／コイン＝ブースター・追加手数・ライフの購入、Champions Arena はポーションを付与しない）を確認",
+  "limitations": "海外の攻略サイトの解説であり、仕様変更時はゲーム内表示が優先。地区の全量リストと解放順の記載なし"
+ },
+ {
+  "source_id": "s459",
+  "source_type": "第三者",
+  "publisher": "PlayPick",
+  "title": "Royal Kingdom｜PlayPick",
+  "url": "https://www.playpickgame.com/games/royal-kingdom/",
+  "published_at": "",
+  "checked_at": "2026-11-26",
+  "conditions": "パワーアップ4種・ブースター5種と組み合わせ（Rocket＋Rocket＝行＋列／Rocket＋Dynamite＝3行＋3列）が GamingOnPhone と一致。資源の分離（ポーション／コイン）も一致",
+  "limitations": "海外の攻略サイトの解説であり、仕様変更時はゲーム内表示が優先"
+ },
+ {
+  "source_id": "s460",
+  "source_type": "第三者",
+  "publisher": "Gaming Route",
+  "title": "Royal Kingdom vs Royal Match｜Gaming Route",
+  "url": "https://gamingroute.com/royal-kingdom-vs-royal-match/",
+  "published_at": "",
+  "checked_at": "2026-11-26",
+  "conditions": "Kingdomレベル（10レベルごとに2つが Dark King 戦）と、装甲ターゲットにはパワーアップでしか壊せないものがある点、Electro Ball 同士の組み合わせ（姉妹作との対応解説）を確認",
+  "limitations": "姉妹作ロイヤルマッチとの比較解説に基づく内容で、Kingdomレベルの周期と Electro Ball 同士の組み合わせは提供情報として扱う"
  }
 ]
