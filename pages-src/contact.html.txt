@@ -179,7 +179,7 @@ html[data-theme="dark"] .fee-note{color:#93A9C2}
 <label class="check-item"><input type="checkbox" name="PR方法" value="攻略記事の制作・掲載"><span><span class="ct">攻略記事の制作・掲載</span><span class="cd">攻略記事を制作して掲載します（記事の制作込みです）。</span></span></label>
 <label class="check-item"><input type="checkbox" name="PR方法" value="サイトトップへの掲載"><span><span class="ct">サイトトップへの掲載</span><span class="cd">トップページの特集・バナー枠に載せます。</span></span></label>
 <label class="check-item"><input type="checkbox" name="PR方法" value="SNSでの紹介"><span><span class="ct">SNSでの紹介</span><span class="cd">X・Instagramで紹介します。</span></span></label>
-<label class="check-item"><input type="checkbox" name="PR方法" value="ニュースレターへの掲載"><span><span class="ct">ニュースレターへの掲載</span><span class="cd">メールマガジン「Muse通信」に載せます。</span></span></label>
+<label class="check-item"><input type="checkbox" name="PR方法" value="ニュースレターへの掲載"><span><span class="ct">ニュースレターへの掲載</span><span class="cd">メールマガジン「ポイクエ通信」に載せます。</span></span></label>
 <label class="check-item"><input type="checkbox" name="PR方法" value="その他・相談して決めたい"><span><span class="ct">その他・相談して決めたい</span><span class="cd">進め方から相談したい場合は、こちらを選んでください。</span></span></label>
 </div>
 <p class="fee-note">料金は方法ごとに異なります。内容を確認のうえ、運営事務局からご案内します。</p>

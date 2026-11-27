@@ -626,7 +626,7 @@ section[id]{scroll-margin-top:58px}
 
 <section class="blk">
   <div class="nl">
-    <p>新しいゲーム案件と条件変更を、週1回まとめて受け取る<br><strong>Muse通信（無料ニュースレター）</strong></p>
+    <p>新しいゲーム案件と条件変更を、週1回まとめて受け取る<br><strong>ポイクエ通信（無料ニュースレター）</strong></p>
     <a href="https://mea-poikatsu.github.io/mea-poikatsu-media/">登録ページへ</a>
   </div>
 </section>
