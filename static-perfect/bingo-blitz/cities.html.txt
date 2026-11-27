@@ -262,6 +262,23 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .header-icons{gap:7px;font-size:9px}
 .header-icons .ic{font-size:15px}
 }
+</style><style>
+/* sticky-cta (board/contribute と同一部品) */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(7px + env(safe-area-inset-bottom));pointer-events:none}
+.sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:9px 14px 8px;border-radius:999px;background:linear-gradient(180deg,#f0563f,#d42a1e);color:#fff;font-weight:900;font-size:13.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}
+.sticky-cta.alt .sticky-cta-bar{background:linear-gradient(135deg,#fff3b0 0%,#ffd94d 30%,#f5b800 55%,#ffe680 80%,#ffc400 100%);color:#5b4300;box-shadow:0 6px 22px rgba(245,184,0,.65)}
+.sticky-cta-bubble{position:absolute;top:-10px;left:22px;background:#fff;color:#d42a1e;font-size:10.5px;font-weight:900;padding:2px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:color .45s ease,background .45s ease;z-index:3}
+.sticky-cta.alt .sticky-cta-bubble{color:#a87b00;background:linear-gradient(180deg,#fffbe8,#ffedb0)}
+.sticky-cta-text{position:relative;z-index:1}
+.sticky-cta-arrow{font-size:15px;font-weight:900;line-height:1;position:relative;z-index:1}
+.sticky-cta .sparkle{position:absolute;color:#fff;font-size:13px;text-shadow:0 0 6px #ffdf4d,0 0 2px #fff;opacity:0;pointer-events:none;z-index:2}
+.sticky-cta.alt .sparkle{animation:twinkle 1.6s ease-in-out infinite}
+.sticky-cta .sparkle.s1{top:2px;left:16%}
+.sticky-cta .sparkle.s2{top:16px;right:14%;animation-delay:.4s}
+.sticky-cta .sparkle.s3{bottom:3px;left:38%;animation-delay:.8s;font-size:10px}
+.sticky-cta .sparkle.s4{top:6px;right:34%;animation-delay:1.1s;font-size:10px}
+.sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
+.sticky-cta-bar{font-size:12.5px;padding:8px 12px 7px}
 </style></head>
 <body><div class="page">
 <header class="header">
@@ -271,11 +288,11 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
   </div>
   <nav class="gnav"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">人気ゲーム</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">新着・更新</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ランキング</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">攻略メニュー</a></nav>
 </header>
-<nav class="breadcrumb" aria-label="パンくず"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> &gt; <a href="index.html">ゲーム攻略</a> &gt; <a href="index.html">Bingo Blitz</a> &gt; 都市と案件ステップ</nav>
+<nav class="breadcrumb" aria-label="パンくず"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> &gt; <a href="index.html">Bingo Blitz</a> &gt; 都市と案件ステップ</nav>
 <div class="ghead"><img src="/mea-game-poikatsu/img/icon-bingo-blitz.webp" alt=""><div><h1>都市と案件ステップ</h1>
 <div class="gmeta">Bingo Blitz（Playtika Santa Monica）／iOS/Android</div>
 <div class="gmax">ポイ活案件 最大338,847円（Freecash・iOS版）</div></div></div>
-<div class="dates"><span>更新日：<b>2026年11月26日</b></span></div>
+<div class="dates"><span>更新日：<b>2026年11月26日</b></span></div><!-- top-menu-A --><style>.topmenu-a .menu-label{text-align:center;font-weight:800;font-size:13px;color:#666;margin:14px 0 8px}.topmenu-a .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}.topmenu-a .menu.folded a:nth-child(n+7){display:none}.topmenu-a .menu-toggle{display:block;margin:8px auto 2px;padding:8px 26px;border:1px solid #d9d9d9;border-radius:999px;background:#fff;font-size:13px;font-weight:700;color:#3977b8;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}.topmenu-a .menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}.topmenu-a .menu a .mi{display:block;font-size:19px;margin-bottom:3px}.topmenu-a .menu a.hot{border-color:#ffb066;background:#fff8f0;color:#e05e00}.topmenu-a .menu a.now{position:relative;border-color:#ff6900;background:#fff1de;color:#c24e00}.topmenu-a .menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#e05e00}html[data-theme="dark"] .topmenu-a .menu-label{color:#bdb4a9}html[data-theme="dark"] .topmenu-a .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}html[data-theme="dark"] .topmenu-a .menu a.hot{background:#3a2410;border-color:#e07b2a;color:#ffb066}html[data-theme="dark"] .topmenu-a .menu a.now{background:#fff1de;border-color:#ffb066;color:#b34a00}html[data-theme="dark"] .topmenu-a .menu-toggle{background:#262019;border-color:#453b32;color:#8fb0c7}</style><div class="topmenu-a"><div class="menu-label">攻略メニュー</div><div class="menu folded" id="menuGrid"><a href="index.html#campaign" class="hot"><span class="mi">🎁</span>ポイ活案件</a><a href="joban.html" class="hot"><span class="mi">🚀</span>序盤の進め方</a><a href="cities.html" class="now"><span class="mi">🌍</span>都市と案件ステップ</a><a href="credits.html"><span class="mi">🎟️</span>クレジットの集め方</a><a href="kakin.html"><span class="mi">💰</span>課金判断</a><a href="conditions.html" class="hot"><span class="mi">📋</span>案件条件の詳細</a><a href="faq.html"><span class="mi">❓</span>つまずき・FAQ</a><a href="board.html"><span class="mi">💬</span>掲示板</a><a href="contribute.html"><span class="mi">📝</span>情報提供</a></div><button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">もっと見る ▼</button><script>(function(){var tg=document.getElementById('menuToggle'),mg=document.getElementById('menuGrid');tg.addEventListener('click',function(){var f=mg.classList.toggle('folded');tg.textContent=f?'もっと見る ▼':'閉じる ▲';tg.setAttribute('aria-expanded',String(!f));});})();</script></div>
 <div class="tocwrap"><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#system">都市クリア<span class="arr">›</span></a><a href="#rooms">ルーム順<span class="arr">›</span></a><a href="#diff">案件ごとの違い<span class="arr">›</span></a><a href="#rooms-full">全ルーム一覧<span class="arr">›</span></a></nav></div>
 <section class="sec" id="system"><div class="sec-head"><h2>「都市クリア」の中身</h2></div><p class="lead">案件のステップは「全都市を順に踏む」のではなく、途中の都市を抜粋したマイルストーンです。ステップ対象の都市に到達するには、手前の対象外の都市もすべてクリアして進む必要があります。</p><div class="blk"><p>各都市では、ビンゴを繰り返してコレクションアイテム（写真・お土産）を必要数集めるとコンプリート（クリア）になり、次の都市へ進みます。iOS版の最終ステップであるアルプスは、ゲーム内では76番目のルーム（Swiss Alps）に相当し、距離としては相当に長い位置です。</p><p>案件ごとに「何番目の都市か」の数え方や対象都市が異なります。他案件の番号・対象を流用せず、参加する案件のステップ表記を正としてください。</p></div></section><section class="sec" id="rooms"><div class="sec-head"><h2>ゲーム内ルーム順（主要都市）</h2></div><div class="tscroll"><table><tr><th>順番</th><th>都市</th><th>案件ステップ対象の例</th></tr><tr><td>1</td><td>カタリーナ</td><td>序盤の到達ステップに出ることがある</td></tr><tr><td>2</td><td>ニューヨーク</td><td>ほぼ全案件の最初のステップ</td></tr><tr><td>3</td><td>マドリード</td><td>—</td></tr><tr><td>4</td><td>シドニー</td><td>ワラウiOS／ハピタスiOS 等</td></tr><tr><td>5</td><td>香港</td><td>—</td></tr><tr><td>6</td><td>アトランティックシティ</td><td>ワラウAndroid／iOS</td></tr><tr><td>7</td><td>ロンドン</td><td>—</td></tr><tr><td>8</td><td>アテネ</td><td>ワラウiOS／ハピタスiOS</td></tr><tr><td>11</td><td>トーキョー</td><td>ワラウ（短い個別期限つき）</td></tr><tr><td>21</td><td>ムンバイ</td><td>高難易度ステップ（個別期限つき）</td></tr><tr><td>31</td><td>ドバイ</td><td>高難易度ステップ（個別期限つき）</td></tr><tr><td>41</td><td>カサブランカ</td><td>ワラウ／ハピタスiOS 等</td></tr><tr><td>51</td><td>イエローストーン</td><td>高難易度ステップ（個別期限つき）</td></tr><tr><td>61</td><td>モントリオール</td><td>ワラウiOS／ハピタスiOS</td></tr><tr><td>76</td><td>スイスアルプス</td><td>最終ステップ（ワラウiOS 4,000pt 等）</td></tr><tr><td>83</td><td>ベリーズ</td><td>ゲーム内はさらに先まで続く</td></tr></table></div><p class="note" style="padding:0 12px">ルーム順は Fandom の BINGO Blitz Wiki で照合した主要都市の抜粋です。全ルーム（372）の一覧は次のセクションに掲載しています。</p></section><section class="sec" id="diff"><div class="sec-head"><h2>案件ごとにステップ対象が違う</h2></div><div class="blk"><p>同じ都市クリア型でも、OSやサービスでステップの組み立てが変わります。たとえばワラウAndroid版の終盤ステップはメデジン（2,500pt）・ベイジン（5,000pt）・キョート（7,500pt）で、iOS版の最終ステップはアルプス（4,000pt）です。「アルプスまで」という言い方はiOS版側の構成で、Android版では同じ進み方でも対象都市が異なります。</p><p>また、全体期限（85〜90日）とは別に、都市ごとに短い個別期限が付くステップがあります（ムンバイ10日以内、ドバイ20日以内、イエローストーン40日以内など）。序盤をのんびり進めると、個別期限切れで取り逃がすので注意してください。</p></div></section><section class="sec" id="rooms-full"><div class="sec-head"><h2>全ルーム一覧（372ルーム）</h2></div><div class="blk"><p>2025年7月10日版の Fandom 一覧で確認した全ルームです。島は4〜5ルームで1組になっています。「*」はスペシャルルームの注記があるルームです。それ以降に追加されたルームは未確認です。都市名はゲーム内表記（英語）です。</p></div><div class="tscroll"><table><tr><th>番号の範囲</th><th>ルーム（番号：名称）</th></tr><tr><td>1</td><td>1 Catalina、2 New York、3 Madrid、4 Sydney、5 Hong Kong、6 Atlantic City、7 London、8 Athens、9 Venice、10 Berlin</td></tr><tr><td>11</td><td>11 Tokyo、12 Dublin、13 Toronto、14 Jamaica、15 Hollywood、16 Nashville、17 Honolulu、18 Paris、19 Rio、20 Tahiti</td></tr><tr><td>21</td><td>21 Mumbai、22 Anchorage、23 Cairo、24 Vienna、25 Rome、26 Istanbul、27 Moscow、28 Amsterdam、29 Miami、30 Cape Town</td></tr><tr><td>31</td><td>31 Dubai、32 Nairobi、33 Mexico City、34 New Orleans、35 Buenos Aires、36 Prague、37 Galapagos Islands*、38 Pompeii*、39 Monte Carlo*、40 North Pole*</td></tr><tr><td>41</td><td>41 Casablanca*、42 Area 51*、43 Madagascar*、44 Grand Canyon*、45 Moon Colony*、46 Seychelles*、47 Count Bingo&#x27;s Castle*、48 Shanghai、49 Keukenhof Gardens、50 Mount Everest</td></tr><tr><td>51</td><td>51 Yellowstone Park、52 Great Barrier Reef、53 Buckingham Palace、54 Machu Picchu、55 Copenhagen、56 Wellington、57 Havana、58 Glasgow、59 Washington DC、60 Bangkok</td></tr><tr><td>61</td><td>61 Montreal、62 Lisbon、63 Stockholm、64 Las Vegas、65 Barcelona、66 Fiji、67 Houston、68 Tanzania、69* St. Petersburg、70 Reykjavik</td></tr><tr><td>71</td><td>71 Boston、72 Amazon Rainforest、73 Vancouver、74 Petra Jordan、75 Hanoi、76 Swiss Alps、77 Chicago、78 Phnom Penh、79 Maldives、80 Sapporo</td></tr><tr><td>81</td><td>81 Vientiane、82 Kathmandu、83 Belize、84 Barbados、85 St. Lucia、86 British Virgin Islands、87 Aruba、88 Tikal、89 Panama City、90 Lima</td></tr><tr><td>91</td><td>91 Medellin、92 Easter Island、93 San Francisco、94 Chiang Mai、95 Naples、96 Santa Cruz、97 Portland、98 Brussels、99 Jaipur、100 Johannesburg</td></tr><tr><td>101</td><td>101 Seoul、102 Melbourne、103 Manila、104 Warsaw、105 Marrakech、106 Beijing、107 Seattle、108 Auckland、109 Oslo、110 San Diego</td></tr><tr><td>111</td><td>111 Xi&#x27;an、112 Doha、113 Kuala Lumpur、114 Zurich、115 Budapest、116 Williamsburg、117 Sequim、118 Cleveland、119 Hobart、120 Delhi</td></tr><tr><td>121</td><td>121 Antwerp、122 Sao Paulo、123 Albuquerque、124 Edinburgh、125 Singapore、126 Cusco、127 San Jose、128 Bucharest、129 Austin、130 Santa Clara</td></tr><tr><td>131</td><td>131 Stone Town、132 Bali、133 Lagos、134 Suchitoto、135 Rapid City、136 Zagreb、137 Luang Prabang、138 Cincinnati、139 Luxor、140 Perth</td></tr><tr><td>141</td><td>141 Kyoto、142 Topeka、143 Dubrovnik、144 Phoenix、145 Antigua、146 Yangon、147 Baku、148 Philadelphia、149 Ibiza、150 Milwaukee</td></tr><tr><td>151</td><td>151 Colombo、152 Cardiff、153 Jerusalem、154 Florence、155 Denver、156 Marseille、157 Phuket、158 Windhoek、159 Orlando、160 Munich</td></tr><tr><td>161</td><td>161 Los Angeles、162 Manchester、163 Strasbourg、164 Santa Fe、165 Bora Bora、166 Santiago、167 Minneapolis、168 Porto、169 Atlanta、170 Bogota</td></tr><tr><td>171</td><td>171 Larnaca、172 Juneau、173 Sarajevo、174 Asheville、175 Darwin、176 Thessaloniki、177 Tucson、178 Cheyenne、179 Charlottesville、180 Des Moines</td></tr><tr><td>181</td><td>181 Pittsburgh、182 Detroit、183 Quebec、184 Addis Ababa、185 Valletta、186 Cancun、187 Springfield、188 Salzburg、189 Baltimore、190 Ho Chi Minh</td></tr><tr><td>191</td><td>191 Djenne、192 Savannah、193 St. Louis、194 San Juan、195 Brisbane、196 Thimphu、197 Milan、198 Montevideo、199 Columbia、200 Tbilisi</td></tr><tr><td>201</td><td>201 Antalya、202 Versailles、203 Riga、204 Kingston、205 Algiers、206 Oklahoma City、207 Bangalore、208 Haiti、209 Salt Lake、210 Almaty</td></tr><tr><td>211</td><td>211 Indianapolis、212 Bilbao、213 Helsinki、214 Granada、215 Santa Claus、216 Bern、217 Tampa、218 Belfast、219 Halifax、220 Quito</td></tr><tr><td>221</td><td>221 Cetinje、222 Memphis、223 Providence、224 Cordoba、225 Liverpool、226 Eilat、227 Key West、228 Hartford、229 Lusaka、230 Greenland</td></tr><tr><td>231</td><td>231 Dallas、232 Asuncion、233 Vaduz、234 Louisville、235 Wrexham、236 Fargo、237 Durban、238 Little Rock、239 Dortmund、240 Adelaide</td></tr><tr><td>241</td><td>241 Birmingham、242 Windsor、243 Osaka、244 Tijuana、245 San Antonio、246 Rotterdam、247 Charlotte、248 Jackson、249 Busan、250 Omaha</td></tr><tr><td>251</td><td>251 Bordeaux、252 Bruges、253 Billings、254 Gothenburg、255 Moresby、256 Paramaribo、257 Boise、258 Concord、259 Curitiba、260 Praia</td></tr><tr><td>261</td><td>261 Charleston、262 Sofia、263 Lewiston、264 Kansas City、265 Dover、266 Newark、267 Montpelier、268 Pokhara、269 Jacksonville、270 Luanda</td></tr><tr><td>271</td><td>271 Guam、272 Palermo、273 Boulder、274 Nassau、275 Skopje、276 Christchurch、277 Sacramento、278 Buffalo、279 Yaoundé、280 Winnipeg</td></tr><tr><td>281</td><td>281 Ljubljana、282 Riyadh、283 Richmond、284 Newcastle、285 Canberra、286 Tulsa、287 Santo Domingo、288 Luxembourg、289 El Paso、290 Yerevan</td></tr><tr><td>291</td><td>291 Kyiv、292 Saint Paul、293 Ajaccio、294 Spokane、295 Bratislava、296 Knoxville、297 Honiara、298 Reno、299 Kolkata、300 Madison</td></tr><tr><td>301</td><td>301 Frankfurt、302 Gaborone、303 Baton Rouge、304 Belgrade、305 Geneva、306 Huntsville、307 Guangzhou、308 Nagoya、309 Sioux Falls、310 Aberdeen</td></tr><tr><td>311</td><td>311 Alexandria、312 Hilo、313 Scottsdale、314 Jakarta、315 Seville、316 Pago Pago、317 Vilnius、318 San Salvador、319 Turin、320 Fairbanks</td></tr><tr><td>321</td><td>321 La Paz、322 Dakar、323 Grenoble、324 Montego Bay、325 Siem Reap、326 Pasadena、327 Muscat、328 Raleigh、329 Tallinn、330 Ottawa</td></tr><tr><td>331</td><td>331 Amman、332 Kraków、333 Wichita、334 Guatemala City、335 Tierra del Fuego、336 Graz、337 Mobile、338 Oulu、339 Taipei、340 Stamford</td></tr><tr><td>341</td><td>341 Bridgetown、342 San Marino、343 Cluj、344 Tunis、345 Colorado Springs、346 Brasília、347 Burlington、348 Tuvalu、349 Bergen、350 Fort Wayne</td></tr><tr><td>351</td><td>351 Valdivia、352 Cork、353 Plymouth、354 Brooklyn、355 Newport、356 Erie、357 Yorktown、358 Salem、359 Coimbra、360 St. John&#x27;s、361 Hamburg、362 Heraklion、363 Bariloche、364 Tel-Aviv、365 Tallahassee、366 Accra、367 Goa、368 Ko Samui、369 Malaga、370 Incheon、371 Birmingham、372 Nicosia</td></tr></table></div><p class="note" style="padding:0 12px">案件の終点である Swiss Alps は76番目で、全体（372）の約2割の位置です。St. Petersburg は原表で番号未記載のため「69*」としています。</p></section><section class="sec" id="related"><div class="sec-head"><h2>このゲームの他のページ</h2></div><ul class="rel"><li><a href="index.html">ゲームトップ</a></li><li><a href="joban.html">序盤の進め方</a></li><li><a href="credits.html">クレジットの集め方</a></li><li><a href="kakin.html">課金判断</a></li><li><a href="conditions.html">案件条件の詳細</a></li><li><a href="faq.html">FAQ・つまずき</a></li></ul></section>
 
@@ -303,6 +320,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
   <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
 </footer>
 </div>
+<div class="sticky-cta" id="stickyCta"><a class="sticky-cta-bar" id="stickyCtaBar" href="https://freecash.com/ja/offer/bingo-blitz-bingo-games-ios-htfbt0" target="_blank" rel="noopener"><span class="sticky-cta-bubble">＼ 今すぐ『<span class="sticky-svc">Freecash</span>』経由で ／</span><span class="sparkle s1">✦</span><span class="sparkle s2">✦</span><span class="sparkle s3">✦</span><span class="sparkle s4">✦</span><span class="sticky-cta-text"><span class="sticky-amt">合計¥338,847</span> GET</span><span class="sticky-cta-arrow">›</span></a></div>
 <script>
 document.querySelectorAll('.acc>button').forEach(function(b){
   b.addEventListener('click',function(){
@@ -332,4 +350,61 @@ document.addEventListener('click', function (ev) {
   }
 });
 </script>
-</body></html>
+<!-- sticky-cta --><script>
+var stickyCta = document.getElementById('stickyCta');
+function stickyCtaUpdate() {
+  if (!stickyCta) return;
+  var max = document.documentElement.scrollHeight - window.innerHeight;
+  var ratio = max > 0 ? window.scrollY / max : 0;
+  stickyCta.classList.toggle('alt', ratio > 0.5);
+}
+window.addEventListener('scroll', stickyCtaUpdate, { passive: true });
+window.addEventListener('resize', stickyCtaUpdate);
+stickyCtaUpdate();
+</script><!-- sticky-menu --><style>
+.sticky-menu{position:fixed;top:0;left:0;right:0;z-index:80;transform:translateY(-110%);transition:transform .25s ease}
+.sticky-menu.on{transform:translateY(0)}
+.sticky-menu .sm-bar{height:44px;display:flex;align-items:center;gap:8px;padding:0 10px;background:rgba(255,255,255,.97);border-bottom:1px solid #ffd9ae;box-shadow:0 2px 8px rgba(190,90,0,.14)}
+.sticky-menu .sm-bar img{width:26px;height:26px;border-radius:6px}
+.sticky-menu .sm-name{font-size:13px;font-weight:800;color:#7a3c00;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky-menu .sm-btn{margin-left:auto;padding:7px 14px;border:1px solid #ff6900;border-radius:999px;background:#ff6900;color:#fff;font-size:12.5px;font-weight:800;cursor:pointer;white-space:nowrap;font-family:inherit}
+.sticky-menu .sm-panel{display:none;background:#fff;border-bottom:1px solid #ffd9ae;box-shadow:0 12px 20px rgba(190,90,0,.18);padding:4px 0 12px}
+.sticky-menu.open .sm-panel{display:block}
+.sticky-menu .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.sticky-menu .menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.sticky-menu .menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.sticky-menu .menu a.hot{border-color:#ffb066;background:#fff8f0;color:#e05e00}
+.sticky-menu .menu a.now{position:relative;border-color:#ff6900;background:#fff1de;color:#c24e00}
+.sticky-menu .menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#e05e00}
+html[data-theme="dark"] .sticky-menu .sm-bar{background:rgba(29,26,23,.97);border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .sm-name{color:#f2ede8}
+html[data-theme="dark"] .sticky-menu .sm-panel{background:#241f1b;border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .sticky-menu .menu a.hot{background:#3a2410;border-color:#e07b2a;color:#ffb066}
+html[data-theme="dark"] .sticky-menu .menu a.now{background:#fff1de;border-color:#ffb066;color:#b34a00}
+header.header{transition:transform .25s ease}
+html.sm-on header.header{transform:translateY(-100%)}
+</style><div class="sticky-menu" id="stickyMenu"><div class="sm-bar"><img src="/mea-game-poikatsu/img/icon-bingo-blitz.webp" alt=""><span class="sm-name">Bingo Blitz 攻略</span><button type="button" class="sm-btn" id="stickyMenuBtn" aria-expanded="false">攻略メニュー ▼</button></div><div class="sm-panel"><div class="menu"><a href="index.html#campaign" class="hot"><span class="mi">🎁</span>ポイ活案件</a><a href="joban.html" class="hot"><span class="mi">🚀</span>序盤の進め方</a><a href="cities.html" class="now"><span class="mi">🌍</span>都市と案件ステップ</a><a href="credits.html"><span class="mi">🎟️</span>クレジットの集め方</a><a href="kakin.html"><span class="mi">💰</span>課金判断</a><a href="conditions.html" class="hot"><span class="mi">📋</span>案件条件の詳細</a><a href="faq.html"><span class="mi">❓</span>つまずき・FAQ</a><a href="board.html"><span class="mi">💬</span>掲示板</a><a href="contribute.html"><span class="mi">📝</span>情報提供</a></div></div></div><script>(function(){
+var bar=document.getElementById('stickyMenu'),btn=document.getElementById('stickyMenuBtn'),root=document.documentElement;
+var anchor=document.querySelector('.topmenu-a');
+var threshold=anchor?anchor.getBoundingClientRect().bottom+window.scrollY:600;
+var lastY=window.scrollY,open=false;
+function show(v){bar.classList.toggle('on',v);root.classList.toggle('sm-on',v);}
+window.addEventListener('scroll',function(){
+  var y=window.scrollY;
+  if(open){show(true);}
+  else if(y<=threshold){show(false);}
+  else if(y<lastY){show(true);}
+  else if(y>lastY){show(false);}
+  lastY=y;
+},{passive:true});
+btn.addEventListener('click',function(){
+  open=bar.classList.toggle('open');
+  btn.textContent=open?'閉じる ▲':'攻略メニュー ▼';
+  btn.setAttribute('aria-expanded',String(open));
+  if(open)show(true);
+});
+document.addEventListener('click',function(e){
+  if(open&&!bar.contains(e.target)){open=false;bar.classList.remove('open');btn.textContent='攻略メニュー ▼';btn.setAttribute('aria-expanded','false');}
+});
+})();</script><!-- /sticky-menu --></body></html>
