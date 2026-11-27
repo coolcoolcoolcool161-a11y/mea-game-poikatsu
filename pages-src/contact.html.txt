@@ -6,7 +6,7 @@
 <title>お問い合わせ・情報提供｜ポイゲークエスト</title>
 <link rel="icon" type="image/png" sizes="32x32" href="__BP__/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="__BP__/favicon-180.png">
-<meta name="description" content="ポイゲークエストへのお問い合わせ・ゲーム情報の提供フォームです。攻略情報の提供・修正や、サイトへのお問い合わせを送れます。">
+<meta name="description" content="ポイゲークエストへのお問い合わせフォームです。攻略情報の提供・修正、掲載してほしいゲームのリクエスト、サイトへのご意見のほか、事業者の方のPR・広告掲載のご相談も受け付けています。">
 <style>
 :root{--navy:#172B49;--blue:#3977B8;--lblue:#EAF2FC;--warn:#FFF1E4;--green:#E9F5EF;--purp:#F0ECFA;--ink:#222;--mut:#5a6a7d;--line:#d7e1ec;--sky:#2E8BD8;--skydeep:#1B5FC1;--gold:#FFC93C}
 *{box-sizing:border-box}
@@ -56,6 +56,39 @@ footer.site ul{list-style:none;margin:0;padding:0}
 footer.site li{padding:3px 0}
 footer.site .desc{font-size:11.5px;color:#93a9c2;line-height:1.7;margin-top:16px}
 footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+.wins{display:grid;gap:10px;margin:16px 0 2px}
+@media(min-width:680px){.wins{grid-template-columns:1fr 1fr 1fr}}
+.win-card{text-align:left;font:inherit;width:100%;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.win-card:active{opacity:.85}
+.win-card .wt{display:block;font-weight:800;color:var(--navy);font-size:14.5px;margin-bottom:3px}
+.win-card .wd{display:block;font-size:12.5px;color:#33475e;line-height:1.55}
+.win-card.req{background:var(--lblue);border-color:#bcd6f2}
+.win-card.pr{background:var(--navy);border-color:var(--navy)}
+.win-card.pr .wt{color:#fff}
+.win-card.pr .wd{color:#cfe0f2}
+.cathint{font-size:12.5px;color:var(--mut);line-height:1.6;margin:7px 2px 0}
+.frow label.radio{display:inline-flex;align-items:center;gap:6px;font-weight:600;margin-bottom:0}
+.frow .radio-row{display:flex;gap:18px;flex-wrap:wrap}
+.frow .radio-row input{width:auto}
+.rel-guide{display:none;background:var(--warn);border-radius:10px;padding:11px 13px;font-size:13px;line-height:1.7;color:#5b4632;margin-top:10px}
+.rel-guide .mini-btn{display:inline-block;margin-top:8px;background:var(--navy);color:#fff;font-weight:700;font-size:13px;border:0;border-radius:999px;padding:8px 16px;cursor:pointer}
+.check-list{display:grid;gap:8px}
+.check-item{display:flex;gap:9px;align-items:flex-start;background:#F4F8FC;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.check-item input{width:auto;margin-top:3px;flex:none}
+.check-item .ct{display:block;font-weight:700;font-size:13.5px;color:var(--navy)}
+.check-item .cd{display:block;font-size:12px;color:#33475e;line-height:1.55}
+.fee-note{font-size:12.5px;color:var(--mut);line-height:1.6;margin-top:8px}
+html[data-theme="dark"] .win-card{background:#132539;border-color:#2A435F}
+html[data-theme="dark"] .win-card .wt{color:#EAF2FB}
+html[data-theme="dark"] .win-card .wd{color:#B9C9DA}
+html[data-theme="dark"] .win-card.req{background:#1B3552;border-color:#33527A}
+html[data-theme="dark"] .win-card.pr{background:#0E1E33;border-color:#33527A}
+html[data-theme="dark"] .cathint{color:#93A9C2}
+html[data-theme="dark"] .rel-guide{background:#2A1E12;color:#E8D9C4}
+html[data-theme="dark"] .check-item{background:#0D1B2C;border-color:#2A435F}
+html[data-theme="dark"] .check-item .ct{color:#EAF2FB}
+html[data-theme="dark"] .check-item .cd{color:#B9C9DA}
+html[data-theme="dark"] .fee-note{color:#93A9C2}
 </style>
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="__BASE__/contact.html">
@@ -77,52 +110,115 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
 <nav><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/">ゲーム一覧</a><a href="__BP__/#ranking">ランキング</a><a href="__BP__/#updates">新着・更新</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/about/">サイトの案内</a></nav>
 </header>
 <main>
-<p class="thanks" id="thanks">送信ありがとうございました。送っていただいた内容は運営が確認し、掲載するかどうかを判断します。</p>
+<p class="thanks" id="thanks">送信ありがとうございました。送っていただいた内容は、運営事務局で確認いたします。</p>
 <section class="blk" style="margin-top:20px">
 <h1>お問い合わせ・情報提供</h1>
-<p class="lead">ゲームの攻略情報の提供・修正のお知らせや、サイトへのお問い合わせはこちらから送れます。</p>
+<p class="lead">ポイゲークエストへのお問い合わせはこちらから送れます。ご用件に合わせて、下の窓口を選んでください。</p>
+<div class="wins">
+<button type="button" class="win-card req" data-win="掲載リクエスト">
+<span class="wt">掲載リクエスト</span>
+<span class="wd">「このゲームを載せてほしい！」という読者の方からのリクエスト窓口です。ゲーム名を送るだけでもOKです。</span>
+</button>
+<button type="button" class="win-card pr" data-win="PR・広告掲載のご相談">
+<span class="wt">PR・広告掲載のご相談</span>
+<span class="wd">事業者さま向けの窓口です。有料掲載のご相談を受け付けています。</span>
+</button>
+<button type="button" class="win-card" data-win="ゲーム情報の提供">
+<span class="wt">情報提供・その他のお問い合わせ</span>
+<span class="wd">攻略情報の提供・修正のお知らせ、ご意見・ご要望などはこちらです。</span>
+</button>
+</div>
 <div class="note-card">
 <b>送る前にご確認ください</b>
 <ul>
-<li>このフォームで受け付けるのは、<b>ゲーム内容（攻略情報）の提供・修正</b>と、サイトへのお問い合わせです。</li>
+<li>このフォームでは、<b>ゲーム情報の提供・修正</b>、<b>掲載リクエスト</b>、<b>ご意見・ご要望</b>、<b>PR・広告掲載のご相談</b>を受け付けています。フォームの「種別」でご用件を選んでください。</li>
+<li><b>掲載リクエストについて</b>：いただいたリクエストは、今後の制作の参考にさせていただきます。ただし、すべてのリクエストにお応えできるわけではなく、掲載をお約束するものではありません。掲載リクエストへの個別のご返信は、原則として行っていません。</li>
+<li><b>ゲーム関係者の方へ</b>：開発・運営・代理店など、ゲームの関係者の方からの掲載のご希望は、リクエストではなく<b>「PR・広告掲載のご相談」</b>としてお送りください。</li>
+<li><b>PR・広告掲載について</b>：有料掲載のご相談を受け付けています。内容を確認のうえ、運営事務局からご連絡します。</li>
 <li>ポイント案件の金額・条件・紹介コードは、各サービスの公式情報をもとに運営が確認して掲載しています。<b>金額や条件などの変更・追加のご依頼は受け付けていません。</b></li>
 <li>送っていただいた情報は、運営が内容を確認してから掲載します。確認のため、掲載まで時間がかかる場合や、掲載できない場合があります。</li>
-<li>返信が必要な場合は、返信先メールアドレスを書いてください。</li>
+<li>返信が必要な場合は、メールアドレスを書いてください。ご連絡が必要な内容には、<b>通常2営業日以内</b>にご連絡します。内容によっては、お時間をいただく場合や、ご連絡を差し控える場合があります。</li>
+<li>ゲーム自体の不具合・課金・アカウントに関するお問い合わせは、当サイトでは対応できません。各ゲームの公式サポートへお願いします。</li>
+<li>入力いただいたお名前・メールアドレス・内容は、お問い合わせへの対応のためにのみ使用します。</li>
 </ul>
 </div>
-<form class="cform" action="https://formsubmit.co/f28aa58d965cb919fd671d853234f3a6" method="POST">
-<div class="frow">
-<label for="f-name">名前<span class="opt">任意</span></label>
-<input id="f-name" type="text" name="name" autocomplete="name" placeholder="例：ポイ活太郎">
-</div>
+<form class="cform" id="form" action="https://formsubmit.co/f28aa58d965cb919fd671d853234f3a6" method="POST">
 <div class="frow">
 <label for="f-cat">種別</label>
 <select id="f-cat" name="種別">
 <option>ゲーム情報の提供</option>
 <option>情報の修正</option>
+<option>掲載リクエスト</option>
+<option>ご意見・ご要望</option>
+<option>PR・広告掲載のご相談</option>
 <option>その他お問い合わせ</option>
+</select>
+<p class="cathint" id="cat-hint"></p>
+</div>
+<div class="frow" id="row-name">
+<label for="f-name">名前<span class="opt">任意</span></label>
+<input id="f-name" type="text" name="name" autocomplete="name" placeholder="例：ポイ活太郎">
+</div>
+<div class="frow" id="row-company" style="display:none">
+<label for="f-company">会社名<span class="must">必須</span></label>
+<input id="f-company" type="text" name="会社名" autocomplete="organization" placeholder="例：株式会社○○">
+</div>
+<div class="frow" id="row-person" style="display:none">
+<label for="f-person">担当者名<span class="must">必須</span></label>
+<input id="f-person" type="text" name="担当者名" placeholder="ご担当者様のお名前">
+</div>
+<div class="frow" id="row-prmethods" style="display:none">
+<label>ご希望のPR方法<span class="opt">任意・複数選択可</span></label>
+<div class="check-list">
+<label class="check-item"><input type="checkbox" name="PR方法" value="ゲームページへの掲載"><span><span class="ct">ゲームページへの掲載</span><span class="cd">ゲームトップの案件枠など、そのゲームのページに載せます。</span></span></label>
+<label class="check-item"><input type="checkbox" name="PR方法" value="攻略記事の制作・掲載"><span><span class="ct">攻略記事の制作・掲載</span><span class="cd">攻略記事を制作して掲載します（記事の制作込みです）。</span></span></label>
+<label class="check-item"><input type="checkbox" name="PR方法" value="サイトトップへの掲載"><span><span class="ct">サイトトップへの掲載</span><span class="cd">トップページの特集・バナー枠に載せます。</span></span></label>
+<label class="check-item"><input type="checkbox" name="PR方法" value="SNSでの紹介"><span><span class="ct">SNSでの紹介</span><span class="cd">X・Instagramで紹介します。</span></span></label>
+<label class="check-item"><input type="checkbox" name="PR方法" value="ニュースレターへの掲載"><span><span class="ct">ニュースレターへの掲載</span><span class="cd">メールマガジン「Muse通信」に載せます。</span></span></label>
+<label class="check-item"><input type="checkbox" name="PR方法" value="その他・相談して決めたい"><span><span class="ct">その他・相談して決めたい</span><span class="cd">進め方から相談したい場合は、こちらを選んでください。</span></span></label>
+</div>
+<p class="fee-note">料金は方法ごとに異なります。内容を確認のうえ、運営事務局からご案内します。</p>
+</div>
+<div class="frow" id="row-game">
+<label for="f-game"><span id="game-label">対象ゲーム</span><span class="opt" id="game-badge">任意</span></label>
+<input id="f-game" type="text" name="対象ゲーム" placeholder="例：パズル＆サバイバル">
+</div>
+<div class="frow" id="row-rel" style="display:none">
+<label>このゲームの関係者ですか<span class="opt">開発・運営・代理店など</span></label>
+<div class="radio-row">
+<label class="radio"><input type="radio" name="関係者確認" value="いいえ" checked> いいえ（読者です）</label>
+<label class="radio"><input type="radio" name="関係者確認" value="はい"> はい（関係者です）</label>
+</div>
+<div class="rel-guide" id="rel-guide">
+ゲーム関係者の方からの掲載のご希望は、PR・広告掲載のご相談として受け付けています。お手数ですが、種別を「PR・広告掲載のご相談」に切り替えてお送りください。
+<br><button type="button" class="mini-btn" id="rel-switch">PR・広告掲載のご相談に切り替える</button>
+</div>
+</div>
+<div class="frow" id="row-os" style="display:none">
+<label for="f-os">対応OS</label>
+<select id="f-os" name="対応OS">
+<option>iOS・Android両方</option>
+<option>iOS</option>
+<option>Android</option>
+<option>その他・不明</option>
 </select>
 </div>
 <div class="frow">
-<label for="f-game">対象ゲーム<span class="opt">任意</span></label>
-<input id="f-game" type="text" name="対象ゲーム" placeholder="例：パズル＆サバイバル">
-</div>
-<div class="frow">
-<label for="f-mail">返信先メールアドレス<span class="opt">任意</span></label>
+<label for="f-mail"><span id="mail-label">返信先メールアドレス</span><span class="opt" id="mail-badge">任意</span></label>
 <input id="f-mail" type="email" name="email" autocomplete="email" placeholder="返信が必要な場合のみ書いてください">
 </div>
 <div class="frow">
-<label for="f-body">内容<span class="must">必須</span></label>
-<textarea id="f-body" name="内容" rows="8" required placeholder="提供・修正したい情報や、お問い合わせの内容を書いてください"></textarea>
+<label for="f-body"><span id="body-label">内容</span><span class="must" id="body-badge">必須</span></label>
+<textarea id="f-body" name="内容" rows="8" required placeholder="提供したい情報や、お問い合わせの内容を書いてください"></textarea>
 </div>
-<input type="hidden" name="_subject" value="お問い合わせ・情報提供">
+<input type="hidden" id="f-subject" name="_subject" value="お問い合わせ・情報提供">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="__BASE__/contact.html?sent=1">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" id="f-page" name="対象ページ" value="お問い合わせページ（共通）">
 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 <button class="submit" type="submit">送信する</button>
-<p class="fnote">送信すると、入力した内容が運営のメールアドレスへ送られます。ゲームページの情報提供ボタンから来た場合は、対象ゲームと対象ページが自動で入力されます。</p>
+<p class="fnote">送信すると、入力した内容が運営事務局へ送られます。ゲームページの情報提供ボタンから来た場合は、対象ゲームと対象ページが自動で入力されます。</p>
 </form>
 </section>
 </main>
@@ -170,6 +266,73 @@ var from = p.get('from');
 if (from) {
 document.getElementById('f-page').value = from;
 }
+var sel = document.getElementById('f-cat');
+var CONF = {
+'ゲーム情報の提供': {tag:'ゲーム情報の提供', hint:'攻略情報の提供はこちらから。送っていただいた情報は、内容を確認してから掲載します。', name:true, pr:false, gameLabel:'対象ゲーム', gameMust:false, gamePh:'例：パズル＆サバイバル', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'返信が必要な場合のみ書いてください', bodyLabel:'内容', bodyMust:true, bodyPh:'提供したい情報や、お問い合わせの内容を書いてください'},
+'情報の修正': {tag:'情報の修正', hint:'掲載内容の誤りのお知らせはこちらから。対象のページや箇所が分かると、確認がスムーズです。', name:true, pr:false, gameLabel:'対象ゲーム', gameMust:false, gamePh:'例：パズル＆サバイバル', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'返信が必要な場合のみ書いてください', bodyLabel:'内容', bodyMust:true, bodyPh:'修正してほしい箇所と、正しい内容を書いてください'},
+'掲載リクエスト': {tag:'掲載リクエスト', hint:'読者の方からのリクエスト窓口です。いただいたリクエストは今後の制作の参考にしますが、掲載をお約束するものではありません。個別のご返信は原則として行っていません。', name:true, pr:false, req:true, gameLabel:'ゲーム名・タイトル', gameMust:true, gamePh:'例：○○○（載せてほしいゲームの名前）', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'任意です（原則として個別のご返信は行っていません）', bodyLabel:'ひとこと', bodyMust:false, bodyPh:'載せてほしい理由など、ひとことあれば書いてください（空欄でもOKです）'},
+'ご意見・ご要望': {tag:'ご意見・ご要望', hint:'サイトへのご意見・ご要望はこちらから。今後の運営の参考にさせていただきます。', name:true, pr:false, gameLabel:'対象ゲーム', gameMust:false, gamePh:'関係するゲームがあれば書いてください', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'返信が必要な場合のみ書いてください', bodyLabel:'内容', bodyMust:true, bodyPh:'ご意見・ご要望の内容を書いてください'},
+'PR・広告掲載のご相談': {tag:'PR相談', hint:'事業者さま向けの窓口です。有料掲載のご相談を受け付けています。内容を確認のうえ、運営事務局からご連絡します。', name:false, pr:true, prm:true, gameLabel:'対象のゲーム・サービス', gameMust:false, gamePh:'掲載をご希望のゲーム・サービス名', mailLabel:'会社メールアドレス', mailMust:true, mailPh:'ご連絡先の会社メールアドレス', bodyLabel:'ご希望の内容', bodyMust:true, bodyPh:'掲載したいゲーム・サービス、ご希望の時期、掲載のイメージなどをお書きください'},
+'その他お問い合わせ': {tag:'その他お問い合わせ', hint:'その他のご用件はこちらから。ゲーム自体の不具合・課金・アカウントについては、各ゲームの公式サポートへお願いします。', name:true, pr:false, gameLabel:'対象ゲーム', gameMust:false, gamePh:'関係するゲームがあれば書いてください', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'返信が必要な場合のみ書いてください', bodyLabel:'内容', bodyMust:true, bodyPh:'お問い合わせの内容を書いてください'}
+};
+function badge(id, must) {
+var b = document.getElementById(id);
+b.className = must ? 'must' : 'opt';
+b.textContent = must ? '必須' : '任意';
+}
+function row(id, show) {
+document.getElementById(id).style.display = show ? '' : 'none';
+}
+function apply() {
+var c = CONF[sel.value] || CONF['ゲーム情報の提供'];
+document.getElementById('cat-hint').textContent = c.hint;
+row('row-name', c.name);
+row('row-company', c.pr);
+row('row-person', c.pr);
+row('row-prmethods', !!c.prm);
+row('row-rel', !!c.req);
+row('row-os', !!c.req);
+document.getElementById('game-label').textContent = c.gameLabel;
+badge('game-badge', c.gameMust);
+document.getElementById('f-game').required = c.gameMust;
+document.getElementById('f-game').placeholder = c.gamePh;
+document.getElementById('f-company').required = c.pr;
+document.getElementById('f-person').required = c.pr;
+document.getElementById('mail-label').textContent = c.mailLabel;
+badge('mail-badge', c.mailMust);
+document.getElementById('f-mail').required = c.mailMust;
+document.getElementById('f-mail').placeholder = c.mailPh;
+document.getElementById('body-label').textContent = c.bodyLabel;
+badge('body-badge', c.bodyMust);
+document.getElementById('f-body').required = c.bodyMust;
+document.getElementById('f-body').placeholder = c.bodyPh;
+document.getElementById('f-subject').value = 'お問い合わせ・情報提供【' + c.tag + '】';
+}
+sel.addEventListener('change', apply);
+var relGuide = document.getElementById('rel-guide');
+document.querySelectorAll('input[name="関係者確認"]').forEach(function(r) {
+r.addEventListener('change', function() {
+relGuide.style.display = (document.querySelector('input[name="関係者確認"]:checked').value === 'はい') ? 'block' : 'none';
+});
+});
+document.getElementById('rel-switch').addEventListener('click', function() {
+sel.value = 'PR・広告掲載のご相談';
+apply();
+document.getElementById('form').scrollIntoView();
+});
+document.querySelectorAll('.win-card').forEach(function(card) {
+card.addEventListener('click', function() {
+sel.value = card.getAttribute('data-win');
+apply();
+document.getElementById('form').scrollIntoView();
+});
+});
+var catMap = {'info': 'ゲーム情報の提供', 'fix': '情報の修正', 'request': '掲載リクエスト', 'opinion': 'ご意見・ご要望', 'pr': 'PR・広告掲載のご相談', 'other': 'その他お問い合わせ'};
+var catParam = p.get('cat');
+if (catParam && catMap[catParam]) {
+sel.value = catMap[catParam];
+}
+apply();
 })();
 </script>
 </body>
