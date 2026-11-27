@@ -196,7 +196,7 @@ body{padding-bottom:104px}
 .stack{border:1px solid #ddd;border-radius:6px;overflow:hidden;margin:8px 0;background:#fff}
 .stack .shead{background:#faebe8;font-weight:800;font-size:13.5px;color:#333;padding:7px 10px;border-bottom:1px solid #eee}
 .stack .sbody{padding:8px 10px;font-size:13px;line-height:1.65;color:#444}
-.rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:84px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#466b84;padding:7px 9px}.figimg{width:100%;height:auto;border-radius:8px;border:1px solid #e5e5e5}
+.rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:118px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#466b84;padding:7px 9px}.figimg{width:100%;height:auto;border-radius:8px;border:1px solid #e5e5e5}
 
 /* 目次ボタン */
 .toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
