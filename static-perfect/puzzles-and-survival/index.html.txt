@@ -402,7 +402,6 @@ html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="da
 <div class="menu-label">▼ 攻略メニュー ▼</div>
 <div class="menu folded" id="menuGrid"><a href="#campaign" class="hot"><span class="mi">📋</span>ポイ活案件</a><a href="joban.html" class=""><span class="mi">⚔️</span>序盤の進め方</a><a href="eiyu.html" class=""><span class="mi">🦸</span>英雄</a><a href="kensetsu.html" class=""><span class="mi">🏰</span>施設・建設</a><a href="kenkyu.html" class=""><span class="mi">🔬</span>研究</a><a href="heishi.html" class=""><span class="mi">🛡️</span>兵士・部隊</a><a href="resource.html" class=""><span class="mi">💎</span>資源・ダイヤ</a><a href="doumei.html" class=""><span class="mi">🤝</span>同盟・ギルド</a><a href="event.html" class=""><span class="mi">🎪</span>イベント</a><a href="pets.html" class=""><span class="mi">🐾</span>ペット・異常生物</a><a href="tools.html" class=""><span class="mi">🧰</span>便利ツール</a><a href="board.html" class=""><span class="mi">💬</span>掲示板</a></div><button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">もっと見る ▼</button><script>(function(){var tg=document.getElementById('menuToggle'),mg=document.getElementById('menuGrid');tg.addEventListener('click',function(){var f=mg.classList.toggle('folded');tg.textContent=f?'もっと見る ▼':'閉じる ▲';tg.setAttribute('aria-expanded',String(!f));});})();</script>
 <div class="quick"><a href="giftcode.html">🎁 ギフトコード</a><a href="immigration.html">🧳 移民</a><a href="hero-resonance.html">✨ 英雄共鳴</a><a href="treatment-calculator.html">🏥 治療コスト計算機</a><a href="tools-cc.html">🧮 CC計算機</a><a href="tools-training.html">📊 訓練計算機</a><a href="tools-watersort.html">🧪 試験管ソルバー</a><a href="event-calendar.html">📅 イベントカレンダー</a><a href="conditions/">📋 案件条件の詳細</a><a href="all-pages.html">🗂 全ページ一覧</a><a href="contribute.html">📮 情報提供</a></div>
-<nav class="toc"><a href="#campaign" class="on">ポイ活案件</a><a href="#about">ゲーム概要</a><a href="#meyasu">到達目安</a><a href="#guide">上げ方</a><a href="#history">変更履歴</a></nav>
 
 <div class="sec" id="campaign"><div class="sec-head"><h2>ポイ活案件</h2><a href="#">条件の見方 ＞</a></div>
 <div style="padding:10px 12px 0"><img class="figimg" src="img/inf-campaign.png" alt="パズサバ案件の早見図解" loading="lazy"><p class="note" style="margin-top:4px">案件の早見図解です。ポイント数と条件は、この下の表が正本です。</p></div>
@@ -437,6 +436,17 @@ html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="da
 <p class="cta-catch">＼ 公式認定サイト限定！初回特典 最大<span class="cta-bonus">2,300円</span> GET ／</p>
 <a class="cta-btn" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener"><span class="cta-label">登録無料！「ハピタス」招待URLはコチラ！</span><span class="arr">›</span></a>
 <p class="cta-sub">「<span class="cta-svc">ハピタス</span>」を経由後、プレイして<b class="cta-amt">42,530円</b>ゲット！</p>
+</div>
+<div class="sec" id="topics"><div class="sec-head"><h2>攻略トピック</h2></div>
+<div class="bannergrid"><a href="joban.html"><img src="img/feature-2.jpg" alt="公式バナー「パズルシミュレーション ジェムを消しまくろう！」" loading="lazy"><span class="bcap">▶ 序盤の進め方（パズル戦闘）</span></a><a href="kensetsu.html"><img src="img/feature-5.jpg" alt="公式バナー「人類最後の砦を守り抜け！」" loading="lazy"><span class="bcap">▶ 施設の上げ方（街づくり）</span></a><a href="kensetsu.html"><img src="img/feature-3.jpg" alt="公式バナー「世紀末のハイテクノロジー 装備をアップグレード」" loading="lazy"><span class="bcap">▶ 施設の上げ方（装備）</span></a><a href="doumei.html"><img src="img/feature-4.jpg" alt="公式バナー「仲間との『共闘』」" loading="lazy"><span class="bcap">▶ 同盟・ギルド（共闘）</span></a></div>
+<a class="more-link" href="joban.html"><span class="tri">▶</span>序盤の進め方（初日〜Lv12）</a>
+<a class="more-link" href="giftcode.html"><span class="tri">▶</span>ギフトコード</a>
+<a class="more-link" href="kensetsu.html"><span class="tri">▶</span>建設と前提</a>
+<a class="more-link" href="kenkyu.html"><span class="tri">▶</span>研究の進め方</a>
+<a class="more-link" href="eiyu.html"><span class="tri">▶</span>英雄</a>
+<a class="more-link" href="resource.html"><span class="tri">▶</span>資源・ダイヤの集め方</a>
+<a class="more-link" href="doumei.html"><span class="tri">▶</span>同盟・ギルド</a>
+<a class="more-link" href="event.html"><span class="tri">▶</span>イベント攻略</a>
 </div>
 
 <div class="sec" id="about"><div class="sec-head"><h2>ゲーム概要</h2></div>
@@ -701,17 +711,6 @@ html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="da
 </div></div>
 
 
-<div class="sec" id="topics"><div class="sec-head"><h2>攻略トピック</h2></div>
-<div class="bannergrid"><a href="joban.html"><img src="img/feature-2.jpg" alt="公式バナー「パズルシミュレーション ジェムを消しまくろう！」" loading="lazy"><span class="bcap">▶ 序盤の進め方（パズル戦闘）</span></a><a href="kensetsu.html"><img src="img/feature-5.jpg" alt="公式バナー「人類最後の砦を守り抜け！」" loading="lazy"><span class="bcap">▶ 施設の上げ方（街づくり）</span></a><a href="kensetsu.html"><img src="img/feature-3.jpg" alt="公式バナー「世紀末のハイテクノロジー 装備をアップグレード」" loading="lazy"><span class="bcap">▶ 施設の上げ方（装備）</span></a><a href="doumei.html"><img src="img/feature-4.jpg" alt="公式バナー「仲間との『共闘』」" loading="lazy"><span class="bcap">▶ 同盟・ギルド（共闘）</span></a></div>
-<a class="more-link" href="joban.html"><span class="tri">▶</span>序盤の進め方（初日〜Lv12）</a>
-<a class="more-link" href="giftcode.html"><span class="tri">▶</span>ギフトコード</a>
-<a class="more-link" href="kensetsu.html"><span class="tri">▶</span>建設と前提</a>
-<a class="more-link" href="kenkyu.html"><span class="tri">▶</span>研究の進め方</a>
-<a class="more-link" href="eiyu.html"><span class="tri">▶</span>英雄</a>
-<a class="more-link" href="resource.html"><span class="tri">▶</span>資源・ダイヤの集め方</a>
-<a class="more-link" href="doumei.html"><span class="tri">▶</span>同盟・ギルド</a>
-<a class="more-link" href="event.html"><span class="tri">▶</span>イベント攻略</a>
-</div>
 <div class="sec" id="history"><div class="sec-head"><h2>条件の変更履歴・確認記録</h2></div>
 <div class="tscroll"><table class="hist"><tr><th>日付</th><th>対象</th><th>変更内容（報酬）</th></tr>
 <tr><td class="hd">2026年<br>11月25日</td><td>ハピタス</td><td><span class="old">iOS：最大42,530円相当／Android：最大37,181円相当（第三者情報）</span><br><span class="arrw">→</span> 合計42,530円（全10ステップ・iOS掲載／公式詳細ページで確認）</td></tr>
@@ -794,8 +793,9 @@ document.querySelectorAll('.acc>button').forEach(function(b){
   });
 });
 // 目次ハイライト
-var tocLinks=document.querySelectorAll('.toc a');
-var secs=['campaign','about','meyasu','guide','history'].map(function(id){return document.getElementById(id)});
+var tocLinks=[];
+document.addEventListener('DOMContentLoaded',function(){tocLinks=document.querySelectorAll('.sm-toc a');});
+var secs=['campaign','topics','about','meyasu','guide','history'].map(function(id){return document.getElementById(id)});
 window.addEventListener('scroll',function(){
   var y=window.scrollY+150,cur=0;
   secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
@@ -838,7 +838,7 @@ html[data-theme="dark"] .sticky-menu .menu a.now{background:#EAF2FC;border-color
 header.header{transition:transform .25s ease}
 html.sm-on header.header{transform:translateY(-100%)}
 section[id]{scroll-margin-top:54px}
-</style><div class="sticky-menu" id="stickyMenu"><div class="sm-bar"><img src="img/app-icon.jpg" alt=""><span class="sm-name">パズル＆サバイバル 攻略</span><button type="button" class="sm-btn" id="stickyMenuBtn" aria-expanded="false">攻略メニュー ▼</button></div><div class="sm-panel"><div class="menu"><a href="#campaign" class="hot"><span class="mi">📋</span>ポイ活案件</a><a href="joban.html" class=""><span class="mi">⚔️</span>序盤の進め方</a><a href="eiyu.html" class=""><span class="mi">🦸</span>英雄</a><a href="kensetsu.html" class=""><span class="mi">🏰</span>施設・建設</a><a href="kenkyu.html" class=""><span class="mi">🔬</span>研究</a><a href="heishi.html" class=""><span class="mi">🛡️</span>兵士・部隊</a><a href="resource.html" class=""><span class="mi">💎</span>資源・ダイヤ</a><a href="doumei.html" class=""><span class="mi">🤝</span>同盟・ギルド</a><a href="event.html" class=""><span class="mi">🎪</span>イベント</a><a href="pets.html" class=""><span class="mi">🐾</span>ペット・異常生物</a><a href="tools.html" class=""><span class="mi">🧰</span>便利ツール</a><a href="board.html" class=""><span class="mi">💬</span>掲示板</a></div><!-- quick-links --><style>.quicklinks-a{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 2px}.quicklinks-a a{font-size:12px;font-weight:700;color:#466b84;background:#eaf2fc;border-radius:999px;padding:5px 11px;text-decoration:none}.quicklinks-a a.now{background:#3977B8;color:#fff;box-shadow:inset 0 0 0 1px #1B5FC1}.sticky-menu .quicklinks-a{padding:2px 12px 4px}</style><div class="quicklinks-a"><a href="giftcode.html">🎁 ギフトコード</a><a href="immigration.html">🧳 移民</a><a href="hero-resonance.html">✨ 英雄共鳴</a><a href="treatment-calculator.html">🏥 治療コスト計算機</a><a href="tools-cc.html">🧮 CC計算機</a><a href="tools-training.html">📊 訓練計算機</a><a href="tools-watersort.html">🧪 試験管ソルバー</a><a href="event-calendar.html">📅 イベントカレンダー</a><a href="conditions/">📋 案件条件の詳細</a><a href="all-pages.html">🗂 全ページ一覧</a><a href="contribute.html">📮 情報提供</a></div><!-- /quick-links --></div></div><script>(function(){
+</style><div class="sticky-menu" id="stickyMenu"><div class="sm-bar"><img src="img/app-icon.jpg" alt=""><span class="sm-name">パズル＆サバイバル 攻略</span><button type="button" class="sm-btn" id="stickyMenuBtn" aria-expanded="false">攻略メニュー ▼</button></div><div class="sm-panel"><!-- section-links --><style>.sm-toc{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 2px;align-items:center}.sm-toc .sm-toc-h{font-size:11px;font-weight:800;color:#888;margin-right:2px}.sm-toc a{font-size:12px;font-weight:700;color:#466b84;background:#eaf2fc;border-radius:999px;padding:5px 11px;text-decoration:none}.sm-toc a.on{background:#3977B8;color:#fff;box-shadow:inset 0 0 0 1px #1B5FC1}html[data-theme="dark"] .sm-toc a{background:#33302a;color:#cfc8c0}html[data-theme="dark"] .sm-toc a.on{background:#3977B8;color:#fff}html[data-theme="dark"] .sm-toc .sm-toc-h{color:#9a9186}</style><div class="sm-toc"><span class="sm-toc-h">このページ内</span><a href="#campaign">ポイ活案件</a><a href="#topics">攻略トピック</a><a href="#about">ゲーム概要</a><a href="#meyasu">到達目安</a><a href="#guide">上げ方</a><a href="#history">変更履歴</a></div><script>(function(){document.querySelectorAll(".sm-toc a").forEach(function(a){a.addEventListener("click",function(){var bar=document.getElementById("stickyMenu");if(bar){bar.classList.remove("open");var btn=document.getElementById("stickyMenuBtn");if(btn){btn.textContent="攻略メニュー ▼";btn.setAttribute("aria-expanded","false");}}});});})();</script><!-- /section-links --><div class="menu"><a href="#campaign" class="hot"><span class="mi">📋</span>ポイ活案件</a><a href="joban.html" class=""><span class="mi">⚔️</span>序盤の進め方</a><a href="eiyu.html" class=""><span class="mi">🦸</span>英雄</a><a href="kensetsu.html" class=""><span class="mi">🏰</span>施設・建設</a><a href="kenkyu.html" class=""><span class="mi">🔬</span>研究</a><a href="heishi.html" class=""><span class="mi">🛡️</span>兵士・部隊</a><a href="resource.html" class=""><span class="mi">💎</span>資源・ダイヤ</a><a href="doumei.html" class=""><span class="mi">🤝</span>同盟・ギルド</a><a href="event.html" class=""><span class="mi">🎪</span>イベント</a><a href="pets.html" class=""><span class="mi">🐾</span>ペット・異常生物</a><a href="tools.html" class=""><span class="mi">🧰</span>便利ツール</a><a href="board.html" class=""><span class="mi">💬</span>掲示板</a></div><!-- quick-links --><style>.quicklinks-a{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 2px}.quicklinks-a a{font-size:12px;font-weight:700;color:#466b84;background:#eaf2fc;border-radius:999px;padding:5px 11px;text-decoration:none}.quicklinks-a a.now{background:#3977B8;color:#fff;box-shadow:inset 0 0 0 1px #1B5FC1}.sticky-menu .quicklinks-a{padding:2px 12px 4px}</style><div class="quicklinks-a"><a href="giftcode.html">🎁 ギフトコード</a><a href="immigration.html">🧳 移民</a><a href="hero-resonance.html">✨ 英雄共鳴</a><a href="treatment-calculator.html">🏥 治療コスト計算機</a><a href="tools-cc.html">🧮 CC計算機</a><a href="tools-training.html">📊 訓練計算機</a><a href="tools-watersort.html">🧪 試験管ソルバー</a><a href="event-calendar.html">📅 イベントカレンダー</a><a href="conditions/">📋 案件条件の詳細</a><a href="all-pages.html">🗂 全ページ一覧</a><a href="contribute.html">📮 情報提供</a></div><!-- /quick-links --></div></div><script>(function(){
 var bar=document.getElementById('stickyMenu'),btn=document.getElementById('stickyMenuBtn'),root=document.documentElement;
 var anchor=document.querySelector('.topmenu-a');
 var threshold=anchor?anchor.getBoundingClientRect().bottom+window.scrollY:600;
