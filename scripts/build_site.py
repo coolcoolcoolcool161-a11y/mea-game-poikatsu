@@ -794,6 +794,19 @@ def topic_title(k):
  return t + 'の進め方・注意点'
 
 
+def menu_label(k):
+ """上部メニューのタイル表示名。データに menu_label があればそれを使い、
+ 無ければトピック名から「…の進め方」等の尾部を落として短くする（提案2・2026-11-27）。"""
+ if k.get('menu_label'):
+  return k['menu_label']
+ t = k['topic']
+ for marker in ('への進め方', 'の進め方', '進め方', 'のやり方', 'やり方'):
+  i = t.find(marker)
+  if i >= 4:
+   return t[:i]
+ return t
+
+
 def top_menu_html(g, k, siblings):
  """攻略ページ上部メニュー（案A・2026-11-27 ベース組み込み）。
  ゲームトップ＋同ゲームの全攻略トピックをタイル化し、現在ページに now を付ける。
@@ -804,7 +817,7 @@ def top_menu_html(g, k, siblings):
   if sib.get('static_page'):
    continue
   cls = ' class="now"' if sib.get('knowledge_id') == k.get('knowledge_id') else ''
-  tiles.append(f'<a href="{BP}/games/{e(slug)}/{e(sib["topic_slug"])}/"{cls}><span class="tml">{e(sib["topic"])}</span></a>')
+  tiles.append(f'<a href="{BP}/games/{e(slug)}/{e(sib["topic_slug"])}/"{cls}><span class="tml">{e(menu_label(sib))}</span></a>')
  label = '<div class="tm-label">▼ 攻略メニュー ▼</div>'
  if len(tiles) <= 6:
   return f'<div class="topmenu-a">{label}<div class="tm-menu">' + ''.join(tiles) + '</div></div>'

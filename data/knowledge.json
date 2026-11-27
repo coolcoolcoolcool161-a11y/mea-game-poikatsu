@@ -30,7 +30,8 @@
   "checked_at": "2026-11-26",
   "confidence_note": "筆者（450件以上の案件攻略実績を公表）の到達実績に基づく。公式の到達保証ではない（2026-11-26訂正：cautions の旧条件対比文（1段階2,700P）を現行StepUp前提へ差し替え。経緯は full-review-2026-11-26/pazusaba-update-trial.md）",
   "info_rank": "C",
-  "page_file": "control-center-level-17/index.html"
+  "page_file": "control-center-level-17/index.html",
+  "menu_label": "コントロールセンターLv17"
  },
  {
   "knowledge_id": "k002",
@@ -168,7 +169,8 @@
   "confidence_note": "手順・所要目安は攻略サイト、実践ブログ、ワラウの利用者集計など複数出典（s058〜s061）で照合した。所要日数は実践報告ベースの目安であり、到達を保証する値ではない",
   "info_rank": "C",
   "condition_differences": "CC30到達は30日期限では無課金は到達不可能という見解で複数出典が一致する。課金の有無で到達可能なレベルが大きく変わる",
-  "page_file": "control-center-progression/index.html"
+  "page_file": "control-center-progression/index.html",
+  "menu_label": "コントロールセンターの上げ方"
  },
  {
   "knowledge_id": "k006",
