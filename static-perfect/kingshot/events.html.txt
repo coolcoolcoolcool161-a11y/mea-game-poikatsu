@@ -537,11 +537,11 @@ html[data-theme="dark"] .finchecks .fc-box{background:transparent;border-color:#
   </div>
   <nav class="gnav"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">人気ゲーム</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">新着・更新</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ランキング</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">攻略メニュー</a></nav>
 </header>
-<nav class="breadcrumb" aria-label="パンくず"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> &gt; <a href="index.html">ゲーム攻略</a> &gt; <a href="index.html">キングショット</a> &gt; イベント</nav>
+<nav class="breadcrumb" aria-label="パンくず"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> &gt; <a href="index.html">キングショット</a> &gt; イベント</nav>
 <div class="ghead"><img src="img/app-icon.webp" alt=""><div><h1>イベント</h1>
 <div class="gmeta">キングショット（Century Games）／iOS/Android</div>
 <div class="gmax">ポイ活案件 最大215,469円（Freecash・iOS版）</div></div></div>
-<div class="dates"><span>更新日：<b>2026-11-26</b></span></div>
+<div class="dates"><span>更新日：<b>2026-11-26</b></span></div><!-- top-menu-A --><style>.topmenu-a .menu-label{text-align:center;font-weight:800;font-size:13px;color:#666;margin:14px 0 8px}.topmenu-a .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}.topmenu-a .menu.folded a:nth-child(n+7){display:none}.topmenu-a .menu-toggle{display:block;margin:8px auto 2px;padding:8px 26px;border:1px solid #d9d9d9;border-radius:999px;background:#fff;font-size:13px;font-weight:700;color:#466b84;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}.topmenu-a .menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}.topmenu-a .menu a .mi{display:block;font-size:19px;margin-bottom:3px}.topmenu-a .menu a.hot{border-color:#e3b959;background:#fdf6e7;color:#8a5f0c}.topmenu-a .menu a.now{position:relative;border-color:#b57e14;background:#faf0da;color:#7a5410}.topmenu-a .menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#b57e14}html[data-theme="dark"] .topmenu-a .menu-label{color:#bdb4a9}html[data-theme="dark"] .topmenu-a .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}html[data-theme="dark"] .topmenu-a .menu a.hot{background:#33270f;border-color:#e0aa4e;color:#f2cd8a}html[data-theme="dark"] .topmenu-a .menu a.now{background:#fdf6e7;border-color:#e0aa4e;color:#8a5f0c}html[data-theme="dark"] .topmenu-a .menu-toggle{background:#262019;border-color:#453b32;color:#7fb8a8}</style><div class="topmenu-a"><div class="menu-label">攻略メニュー</div><div class="menu folded" id="menuGrid"><a href="index.html#campaign" class="hot"><span class="mi">🎁</span>ポイ活案件</a><a href="joban.html"><span class="mi">🌱</span>序盤の進め方</a><a href="towncenter.html"><span class="mi">🏯</span>役場の上げ方・要件表</a><a href="heroes.html"><span class="mi">🦸</span>英雄の育成・Tier</a><a href="facilities.html"><span class="mi">🏠</span>主要施設</a><a href="research.html"><span class="mi">🔬</span>研究（学院）</a><a href="events.html" class="now"><span class="mi">🎪</span>イベント</a><a href="alliance.html"><span class="mi">🐻</span>同盟・巨熊狩猟</a><a href="giftcode.html"><span class="mi">🎁</span>ギフトコード</a><a href="kakin.html"><span class="mi">💳</span>課金ステップと現実的プラン</a><a href="tools.html"><span class="mi">🧰</span>便利ツール</a><a href="faq.html"><span class="mi">❓</span>FAQ・つまずき</a><a href="board.html"><span class="mi">💬</span>掲示板</a><a href="contribute.html"><span class="mi">📮</span>情報提供</a></div><button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">もっと見る ▼</button><script>(function(){var tg=document.getElementById('menuToggle'),mg=document.getElementById('menuGrid');tg.addEventListener('click',function(){var f=mg.classList.toggle('folded');tg.textContent=f?'もっと見る ▼':'閉じる ▲';tg.setAttribute('aria-expanded',String(!f));});})();</script></div>
 
 
 
@@ -650,4 +650,50 @@ document.querySelectorAll('.codebox').forEach(function(b){
 })();
 </script>
 <script>(function(){var host=document.querySelector('.header-icons');if(!host)return;var cur=document.documentElement.getAttribute('data-theme')||'light';var d=document.createElement('div');d.className='theme-toggle';d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','表示テーマを切り替える');function draw(){d.innerHTML='<span class="ic">'+(cur==='dark'?'☀️':'🌙')+'</span>テーマ';}function flip(){cur=(cur==='dark')?'light':'dark';document.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('poigame-theme',cur);}catch(e){}draw();}draw();d.addEventListener('click',flip);d.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip();}});host.appendChild(d);})();</script>
-</body></html>
+<!-- sticky-menu --><style>
+.sticky-menu{position:fixed;top:0;left:0;right:0;z-index:80;transform:translateY(-110%);transition:transform .25s ease}
+.sticky-menu.on{transform:translateY(0)}
+.sticky-menu .sm-bar{height:44px;display:flex;align-items:center;gap:8px;padding:0 10px;background:rgba(255,255,255,.97);border-bottom:1px solid #e5d9bd;box-shadow:0 2px 8px rgba(90,64,10,.14)}
+.sticky-menu .sm-bar img{width:26px;height:26px;border-radius:6px}
+.sticky-menu .sm-name{font-size:13px;font-weight:800;color:#4a3808;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky-menu .sm-btn{margin-left:auto;padding:7px 14px;border:1px solid #b57e14;border-radius:999px;background:#b57e14;color:#fff;font-size:12.5px;font-weight:800;cursor:pointer;white-space:nowrap;font-family:inherit}
+.sticky-menu .sm-panel{display:none;background:#fff;border-bottom:1px solid #e5d9bd;box-shadow:0 12px 20px rgba(90,64,10,.18);padding:4px 0 12px}
+.sticky-menu.open .sm-panel{display:block}
+.sticky-menu .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.sticky-menu .menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.sticky-menu .menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.sticky-menu .menu a.hot{border-color:#e3b959;background:#fdf6e7;color:#8a5f0c}
+.sticky-menu .menu a.now{position:relative;border-color:#b57e14;background:#faf0da;color:#7a5410}
+.sticky-menu .menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#b57e14}
+html[data-theme="dark"] .sticky-menu .sm-bar{background:rgba(29,26,23,.97);border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .sm-name{color:#f2ede8}
+html[data-theme="dark"] .sticky-menu .sm-panel{background:#241f1b;border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .sticky-menu .menu a.hot{background:#33270f;border-color:#e0aa4e;color:#f2cd8a}
+html[data-theme="dark"] .sticky-menu .menu a.now{background:#fdf6e7;border-color:#e0aa4e;color:#8a5f0c}
+header.header{transition:transform .25s ease}
+html.sm-on header.header{transform:translateY(-100%)}
+</style><div class="sticky-menu" id="stickyMenu"><div class="sm-bar"><img src="img/app-icon.webp" alt=""><span class="sm-name">キングショット 攻略</span><button type="button" class="sm-btn" id="stickyMenuBtn" aria-expanded="false">攻略メニュー ▼</button></div><div class="sm-panel"><div class="menu"><a href="index.html#campaign" class="hot"><span class="mi">🎁</span>ポイ活案件</a><a href="joban.html"><span class="mi">🌱</span>序盤の進め方</a><a href="towncenter.html"><span class="mi">🏯</span>役場の上げ方・要件表</a><a href="heroes.html"><span class="mi">🦸</span>英雄の育成・Tier</a><a href="facilities.html"><span class="mi">🏠</span>主要施設</a><a href="research.html"><span class="mi">🔬</span>研究（学院）</a><a href="events.html" class="now"><span class="mi">🎪</span>イベント</a><a href="alliance.html"><span class="mi">🐻</span>同盟・巨熊狩猟</a><a href="giftcode.html"><span class="mi">🎁</span>ギフトコード</a><a href="kakin.html"><span class="mi">💳</span>課金ステップと現実的プラン</a><a href="tools.html"><span class="mi">🧰</span>便利ツール</a><a href="faq.html"><span class="mi">❓</span>FAQ・つまずき</a><a href="board.html"><span class="mi">💬</span>掲示板</a><a href="contribute.html"><span class="mi">📮</span>情報提供</a></div></div></div><script>(function(){
+var bar=document.getElementById('stickyMenu'),btn=document.getElementById('stickyMenuBtn'),root=document.documentElement;
+var anchor=document.querySelector('.topmenu-a');
+var threshold=anchor?anchor.getBoundingClientRect().bottom+window.scrollY:600;
+var lastY=window.scrollY,open=false;
+function show(v){bar.classList.toggle('on',v);root.classList.toggle('sm-on',v);}
+window.addEventListener('scroll',function(){
+  var y=window.scrollY;
+  if(open){show(true);}
+  else if(y<=threshold){show(false);}
+  else if(y<lastY){show(true);}
+  else if(y>lastY){show(false);}
+  lastY=y;
+},{passive:true});
+btn.addEventListener('click',function(){
+  open=bar.classList.toggle('open');
+  btn.textContent=open?'閉じる ▲':'攻略メニュー ▼';
+  btn.setAttribute('aria-expanded',String(open));
+  if(open)show(true);
+});
+document.addEventListener('click',function(e){
+  if(open&&!bar.contains(e.target)){open=false;bar.classList.remove('open');btn.textContent='攻略メニュー ▼';btn.setAttribute('aria-expanded','false');}
+});
+})();</script><!-- /sticky-menu --></body></html>
