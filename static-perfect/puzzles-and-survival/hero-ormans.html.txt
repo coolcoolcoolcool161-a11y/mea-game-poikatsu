@@ -410,4 +410,51 @@ stickyCtaUpdate();
 </script>
 <script>document.querySelectorAll('.tocbtn').forEach(function(b){b.addEventListener('click',function(){var n=b.nextElementSibling;var c=n.classList.toggle('toc-closed');b.setAttribute('aria-expanded',String(!c));b.childNodes[0].textContent=c?'\u76ee\u6b21\u3092\u958b\u304f':'\u76ee\u6b21\u3092\u9589\u3058\u308b';b.querySelector('.pm').textContent=c?'\uff0b':'\uff0d';});});</script>
 <script>(function(){var host=document.querySelector('.header-icons');if(!host)return;var cur=document.documentElement.getAttribute('data-theme')||'light';var d=document.createElement('div');d.className='theme-toggle';d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','表示テーマを切り替える');function draw(){d.innerHTML='<span class="ic">'+(cur==='dark'?'☀️':'🌙')+'</span>テーマ';}function flip(){cur=(cur==='dark')?'light':'dark';document.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('poigame-theme',cur);}catch(e){}draw();}draw();d.addEventListener('click',flip);d.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip();}});host.appendChild(d);})();</script>
-</body></html>
+<!-- sticky-menu --><style>
+.sticky-menu{position:fixed;top:0;left:0;right:0;z-index:80;transform:translateY(-110%);transition:transform .25s ease}
+.sticky-menu.on{transform:translateY(0)}
+.sticky-menu .sm-bar{height:44px;display:flex;align-items:center;gap:8px;padding:0 10px;background:rgba(255,255,255,.97);border-bottom:1px solid #d7e1ec;box-shadow:0 2px 8px rgba(23,43,73,.12)}
+.sticky-menu .sm-bar img{width:26px;height:26px;border-radius:6px}
+.sticky-menu .sm-name{font-size:13px;font-weight:800;color:#172B49;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky-menu .sm-btn{margin-left:auto;padding:7px 14px;border:1px solid #3977B8;border-radius:999px;background:#3977B8;color:#fff;font-size:12.5px;font-weight:800;cursor:pointer;white-space:nowrap;font-family:inherit}
+.sticky-menu .sm-panel{display:none;background:#fff;border-bottom:1px solid #d7e1ec;box-shadow:0 12px 20px rgba(23,43,73,.18);padding:4px 0 12px}
+.sticky-menu.open .sm-panel{display:block}
+.sticky-menu .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.sticky-menu .menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.sticky-menu .menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.sticky-menu .menu a.hot{border-color:#e08a7d;background:#fdf0ec;color:#9c2418}
+.sticky-menu .menu a.now{position:relative;border-color:#3977B8;background:#EAF2FC;color:#1B5FC1}
+.sticky-menu .menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#3977B8}
+html[data-theme="dark"] .sticky-menu .sm-bar{background:rgba(29,26,23,.97);border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .sm-name{color:#f2ede8}
+html[data-theme="dark"] .sticky-menu .sm-panel{background:#241f1b;border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .sticky-menu .menu a.hot{background:#33201b;border-color:#e0584d;color:#f0a294}
+html[data-theme="dark"] .sticky-menu .menu a.now{background:#EAF2FC;border-color:#3977B8;color:#1B5FC1}
+header.header{transition:transform .25s ease}
+html.sm-on header.header{transform:translateY(-100%)}
+section[id]{scroll-margin-top:54px}
+</style><div class="sticky-menu" id="stickyMenu"><div class="sm-bar"><img src="img/hero-ormans.webp" alt=""><span class="sm-name">オーマンス 攻略</span><button type="button" class="sm-btn" id="stickyMenuBtn" aria-expanded="false">攻略メニュー ▼</button></div><div class="sm-panel"><div class="menu"><a href="index.html#campaign" class="hot"><span class="mi">📋</span>ポイ活案件</a><a href="joban.html" class=""><span class="mi">⚔️</span>序盤の進め方</a><a href="eiyu.html" class="now"><span class="mi">🦸</span>英雄</a><a href="kensetsu.html" class=""><span class="mi">🏰</span>施設・建設</a><a href="kenkyu.html" class=""><span class="mi">🔬</span>研究</a><a href="heishi.html" class=""><span class="mi">🛡️</span>兵士・部隊</a><a href="resource.html" class=""><span class="mi">💎</span>資源・ダイヤ</a><a href="doumei.html" class=""><span class="mi">🤝</span>同盟・ギルド</a><a href="event.html" class=""><span class="mi">🎪</span>イベント</a><a href="pets.html" class=""><span class="mi">🐾</span>ペット・異常生物</a><a href="tools.html" class=""><span class="mi">🧰</span>便利ツール</a><a href="board.html" class=""><span class="mi">💬</span>掲示板</a></div></div></div><script>(function(){
+var bar=document.getElementById('stickyMenu'),btn=document.getElementById('stickyMenuBtn'),root=document.documentElement;
+var anchor=document.querySelector('.topmenu-a');
+var threshold=anchor?anchor.getBoundingClientRect().bottom+window.scrollY:600;
+var lastY=window.scrollY,open=false;
+function show(v){bar.classList.toggle('on',v);root.classList.toggle('sm-on',v);}
+window.addEventListener('scroll',function(){
+  var y=window.scrollY;
+  if(open){show(true);}
+  else if(y<=threshold){show(false);}
+  else if(y<lastY){show(true);}
+  else if(y>lastY){show(false);}
+  lastY=y;
+},{passive:true});
+btn.addEventListener('click',function(){
+  open=bar.classList.toggle('open');
+  btn.textContent=open?'閉じる ▲':'攻略メニュー ▼';
+  btn.setAttribute('aria-expanded',String(open));
+  if(open)show(true);
+});
+document.addEventListener('click',function(e){
+  if(open&&!bar.contains(e.target)){open=false;bar.classList.remove('open');btn.textContent='攻略メニュー ▼';btn.setAttribute('aria-expanded','false');}
+});
+})();</script><!-- /sticky-menu --></body></html>
