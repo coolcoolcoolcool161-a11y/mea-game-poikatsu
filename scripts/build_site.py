@@ -1482,6 +1482,16 @@ def main():
  icons_path = DATA / 'icons.json'
  if icons_path.exists():
   icons = json.loads(icons_path.read_text(encoding='utf-8'))
+ # 自前ホストのアイコン（data/localimg.json）があればCDNより優先する
+ localimg_path = DATA / 'localimg.json'
+ if localimg_path.exists():
+  try:
+   localimg = json.loads(localimg_path.read_text(encoding='utf-8'))
+   for gid, ent in localimg.items():
+    if isinstance(ent, dict) and ent.get('icon'):
+     icons[gid] = {'icon': BP + ent['icon']}
+  except Exception:
+   pass
  ICONS = icons
  sources_by_id = {s.get('source_id'): s for s in sources if isinstance(s, dict) and s.get('source_id')}
  campaigns_by_game = {}
