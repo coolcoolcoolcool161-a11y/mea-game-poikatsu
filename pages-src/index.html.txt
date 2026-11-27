@@ -17,13 +17,29 @@ header.site{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 1px 5p
 .hrow{display:flex;align-items:center;gap:5px;padding:13px 8px 11px;background:#fff}
 header.site .logo{display:flex;align-items:center;flex:0 0 auto}
 header.site .logo-full{height:33px;width:auto;display:block}
-.htag{flex:0 1 auto;min-width:0;line-height:1.35}
-.htag .t1{display:block;font-size:12px;font-weight:700;color:var(--navy);white-space:nowrap}
-.htag .t2{display:block;font-size:9px;color:var(--mut);white-space:nowrap}
+.htag{flex:1 1 auto;min-width:0;line-height:1.35}
+.htag .t1{display:block;font-size:12px;font-weight:700;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.htag .t2{display:block;font-size:9px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hacts{margin-left:auto;display:flex;gap:4px;flex:0 0 auto}
 .hact{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--skydeep);font-size:10px;font-weight:700;line-height:1.1;padding:6px 2px;min-width:54px;border-radius:10px;background:var(--lblue);box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 .hact:active{background:#D6E7F8}
 .hact svg{width:21px;height:21px;display:block}
+/* hdr-autofit-2026-11-27: 狭幅ではロゴ・ボタン・文字を段階的に縮め、常時収まるようにする（基本定義より後ろに置くこと） */
+@media (max-width:480px){
+.hrow{gap:4px;padding:11px 6px 10px}
+header.site .logo-full{height:26px}
+.hact{min-width:48px;font-size:9px;padding:5px 1px;gap:2px}
+.hact svg{width:19px;height:19px}
+.htag .t1{font-size:11.5px}
+.htag .t2{font-size:8.5px}
+}
+@media (max-width:380px){
+header.site .logo-full{height:23px}
+.hact{min-width:44px;font-size:8.5px}
+.hact svg{width:18px;height:18px}
+.htag .t1{font-size:11px}
+.htag .t2{font-size:7.8px}
+}
 header.site nav{display:flex;justify-content:space-around;background:linear-gradient(90deg,var(--skydeep),var(--sky));padding:10px 6px 11px;font-size:12px;white-space:nowrap}
 header.site nav a{color:#EAF6FF;font-weight:700}
 #search,#ranking,#updates,#popular{scroll-margin-top:118px}
@@ -112,7 +128,7 @@ ol.rank li:nth-child(2) .rk{background:#F08A1D;color:#fff}
 ol.rank li:nth-child(3) .rk{background:#E3B505;color:#3a2f00}
 .rk-main{display:flex;flex-direction:column;gap:2px;min-width:0}
 .rk-name{font-weight:600;font-size:14.5px;line-height:1.45;height:21px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rk-sub{font-size:12px;color:var(--mut);line-height:1.5;height:18px;white-space:nowrap;overflow:hidden}
+.rk-sub{font-size:12px;color:var(--mut);line-height:1.5;height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rk-badges{flex:0 0 100%;display:flex;align-items:center;gap:4px;height:22px;overflow:hidden}
 .rk-badges .svc-badge{display:inline-flex;align-items:center;height:20px;padding:0 8px;font-size:10.5px;line-height:1;box-sizing:border-box;flex:0 0 auto}
 .more{display:block;text-align:right;font-size:13px;font-weight:700;margin-top:8px}
