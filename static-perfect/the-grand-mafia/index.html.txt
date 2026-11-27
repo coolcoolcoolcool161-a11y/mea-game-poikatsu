@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ザ・グランドマフィア攻略・案件まとめ｜ポイゲークエスト</title>
+<!-- Google tag (gtag.js) -->
+<style>
+
+/* 補助テキストのグレー階調（2026-11-27 コントラスト対応で確定）：
+   本文の可読性に関わる補助文字は、地色（白／#f7f7f7／#f6f5f1／#EAF6FF 等）に
+   対して WCAG AA 4.5 以上を満たす値だけを使う。
+   強 #686868（旧#777）／中 #6e6e6e（旧#888）／弱 #757575（旧#999）／
+   最弱 #707070（旧#aaa、フッター著作権行のみ）。
+   C6 追従バーの地は #d63f1f→#c22c17（白文字 4.58／5.73）。
+   リンク色は大文字表記にするとカラースロット（link）が効かないため
+   必ず小文字で書く。 */
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#fff;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
+.page{margin:0 auto;background:#fff;min-height:100vh}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 6px}
+.logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
+.logo .lg-mark{display:inline-block;background:#9c2b1e;color:#fff;border-radius:5px;padding:0 6px;margin-right:5px;font-size:18px}
+.logo .lg-sub{font-size:9px;font-weight:700;color:#9c2b1e;vertical-align:super;margin-left:3px}
+.header-icons{display:flex;gap:13px;color:#555;font-size:10px;text-align:center}
+.header-icons .ic{font-size:18px;line-height:1.1;display:block}
+.searchbar{padding:2px 12px 9px}
+.searchbar .box{display:flex;align-items:center;background:#f2f2f2;border-radius:16px;padding:0 12px}
+.searchbar input{flex:1;border:0;background:transparent;font-size:13px;padding:7px 6px;outline:none;color:#333;font-family:inherit}
+.gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
+.gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
+.gnav a.on{color:#9c2b1e;border-bottom-color:#9c2b1e}
+.breadcrumb{font-size:11px;color:#6e6e6e;padding:8px 12px 0;line-height:1.6}
+.breadcrumb a{color:#33608c;text-decoration:none}
+.sec{margin-top:22px;scroll-margin-top:118px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;background:#faebe6;border-left:5px solid #9c2b1e;padding:7px 10px 7px 9px;margin:0 0 10px}
+.sec-head h2{font-size:16px;font-weight:800}
+.sec-head a{font-size:12px;color:#9c2b1e;font-weight:700}
+.sec-head .cnt{font-size:11px;color:#757575;font-weight:700}
+.lead{padding:10px 12px 0;font-size:13px;color:#444}
+/* 記事リスト行 */
+.rows{padding:0 12px}
+.row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #eee;align-items:flex-start}
+.row img,.row .fallback-icon{width:64px;height:64px;border-radius:14%;flex:none;object-fit:cover;font-size:28px}
+.row .rtitle{font-size:13.5px;font-weight:700;line-height:1.45}
+.row .rmeta{margin-top:4px;font-size:11px;color:#757575;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.row .rsum{margin-top:3px;font-size:11.5px;color:#666;line-height:1.5}
+.chip{display:inline-block;background:#f6ddd4;color:#701f14;font-weight:800;font-size:11.5px;border-radius:3px;padding:1px 5px}
+.chip.gray{background:#f0f0f0;color:#686868}
+/* 表 */
+.tscroll{overflow-x:auto;padding:0 12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0 4px}
+th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:middle}
+th{background:#f7f3ec;font-weight:800;white-space:nowrap}
+td.pt,th.pt{text-align:right}
+td.pt{font-weight:800;color:#701f14;white-space:nowrap}
+/* スペック早見表 */
+.spec th{width:34%;background:#faebe6;white-space:normal}
+.spec td{line-height:1.55}
+.spec td b{color:#701f14}
+/* 攻略メニュー */
+.menu-label{text-align:center;font-weight:800;font-size:13px;color:#666;margin:14px 0 8px}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.menu.folded a:nth-child(n+7){display:none}
+.menu-toggle{display:block;margin:8px auto 2px;padding:8px 26px;border:1px solid #d9d9d9;border-radius:999px;background:#fff;font-size:13px;font-weight:700;color:#33608c;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.menu a.hot{border-color:#d98a76;background:#fdf1ec;color:#701f14}
+.menu a.now{position:relative;border-color:#33608c;background:#EAF2FC;color:#1B5FC1}
+.menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#33608c}
+/* ゲームページ */
+.ghead{display:flex;gap:12px;padding:12px;align-items:center}
+.ghead img,.ghead .fallback-icon{width:76px;height:76px;border-radius:20%;object-fit:cover;font-size:34px}
+.ghead h1{font-size:19px;font-weight:900;line-height:1.35}
+.ghead .gmeta{font-size:11.5px;color:#6e6e6e;margin-top:3px}
+.ghead .gmax{margin-top:5px;font-size:13px;font-weight:900;color:#9c2b1e}
+.dates{font-size:11px;color:#757575;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
+.dates b{color:#686868;font-weight:700}
+/* 目次（折りたたみ式・初期は畳む。パズサバ完璧版のトピックページが正。
+   2026-11-26 キングショットパイロットで旧リンクバー .toc から準拠） */
+.tocwrap{padding:0 12px}
+.tocbtn{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;font-family:inherit;cursor:pointer;margin:2px 0 10px}
+.tocbtn .pm{color:#33608c;font-weight:900;flex:none}
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist.toc-closed{display:none}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45;text-decoration:none}
+.toclist a .arr{flex:none;color:#33608c;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+/* タブ */
+.tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px;scroll-margin-top:160px}
+.tabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#686868;cursor:pointer;font-family:inherit;border-bottom:3px solid #ddd}
+.tabs button.on{background:#fff;color:#701f14;border-color:#ddd;border-bottom:3px solid #9c2b1e}
+.tabs button .tt{display:block;font-size:11px;font-weight:800;color:#9c2b1e}
+.tabpanel{display:none;padding:4px 12px 0}
+.tabpanel.on{display:block}
+.svc-diff{margin:2px 12px 8px;font-size:12.5px;font-weight:800;color:#701f14;text-align:center}
+.svc-diff.hide{display:none}
+/* アコーディオン */
+.acc{border:1px solid #e5e5e5;border-radius:6px;margin:8px 0;overflow:hidden}
+.acc button{width:100%;background:#fafafa;border:0;text-align:left;font-size:13px;font-weight:800;color:#444;padding:10px 12px;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center}
+.acc button .pm{color:#9c2b1e;font-size:15px}
+.acc .acc-body{display:none;padding:10px 12px;font-size:12px;color:#555;border-top:1px solid #eee;line-height:1.7}
+.acc.open .acc-body{display:block}
+.acc-body ul{margin:0 0 0 18px}
+.acc-body li{margin-bottom:4px;line-height:1.6}
+.ditem{padding:8px 0;border-bottom:1px dashed #e5e5e5}
+.ditem:last-child{border-bottom:0}
+.ditem .dname{font-weight:800;font-size:13px}
+.ditem .dmeta{font-size:12px;color:#444;margin:2px 0}
+.ditem .dreason{font-size:11.5px;color:#6e6e6e;line-height:1.55}
+.kv{font-size:12px;color:#555;margin:2px 0}
+.kv b{color:#333}
+.blk{padding:0 12px}
+.blk h3{font-size:15px;font-weight:800;border-bottom:2px solid #d98a76;padding-bottom:3px;margin:16px 0 8px}
+.blk p{font-size:13.5px;margin-bottom:8px}
+.blk ol{margin:0 0 8px 20px;font-size:13.5px}
+.blk li{margin-bottom:5px}
+.note{font-size:11.5px;color:#6e6e6e}
+.more-link{display:block;padding:10px 12px;font-weight:700;font-size:13.5px;border-bottom:1px solid #eee}
+.more-link .tri{color:#9c2b1e;margin-right:6px}
+/* モンスター型の追加部品 */
+.anchor-jump{display:block;margin:10px 12px 2px;background:#9c2b1e;color:#fff;font-weight:800;font-size:13px;text-align:center;border-radius:6px;padding:10px 8px}
+.read-note{font-size:11.5px;color:#686868;background:#fafafa;border:1px solid #eee;border-radius:6px;padding:8px 10px;margin:6px 0 8px;line-height:1.65}
+.upd-note{font-size:11.5px;color:#8a6d1a;background:#fffbe8;border:1px solid #f0df9a;border-radius:6px;padding:8px 10px;margin:8px 0;line-height:1.65}
+.upd-note b{color:#6d5510}
+.risk-note{font-size:12px;color:#a33;background:#fff5f5;border-left:4px solid #e88;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
+.hist td{font-size:12px;line-height:1.55}
+.hist td.hd{white-space:nowrap;font-weight:700}
+.hist .old{color:#757575}
+.hist .arrw{color:#9c2b1e;font-weight:800}
+.footer{margin-top:30px;background:#f7f7f7;border-top:1px solid #e5e5e5;padding:16px 12px 28px}
+.footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#555;margin-bottom:10px}
+.footer .disc{font-size:11px;color:#6e6e6e;line-height:1.7;margin-bottom:10px}
+.footer .copy{font-size:11px;color:#707070;text-align:center}
+.grow td{padding:2px 6px 8px;background:#fffdf7}
+.grow .acc{margin:2px 0 0}
+.hidden{display:none!important}
+/* ===== 図解・バー・バッジ ===== */
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.bd{display:inline-block;font-size:10.5px;font-weight:800;border-radius:10px;padding:1px 8px;line-height:1.6;vertical-align:middle;white-space:nowrap}
+.bd-buy{background:#e6f4ea;color:#137333;border:1px solid #a3d9b1}
+.bd-no{background:#fdecea;color:#b3261e;border:1px solid #f0b8b2}
+.bd-warn{background:#fff4e0;color:#a35b00;border:1px solid #f2cf8f}
+.bd-info{background:#eaf2fc;color:#2f5f8f;border:1px solid #bcd6f2}
+.bd-gray{background:#f0f0f0;color:#666;border:1px solid #ddd}
+.bars{margin:8px 0 2px}
+.barrow{display:flex;align-items:center;gap:8px;margin:7px 0}
+.barrow .bl{width:52px;flex:none;font-size:11.5px;font-weight:800;color:#555;text-align:right}
+.barrow .bt{flex:1;background:#f0f0f0;border-radius:4px;height:20px;overflow:hidden}
+.barrow .bf{height:100%;background:#9c2b1e;border-radius:4px}
+.barrow .bf.free{background:#33608c}
+.barrow .bv{flex:none;font-size:14px;font-weight:900;color:#333}
+.bar-note{margin-left:60px}
+/* ステップフロー */
+.flow{display:flex;align-items:center;gap:3px;overflow-x:auto;padding:8px 12px 2px}
+.fbox{flex:none;border:1.5px solid #d98a76;background:#fdf1ec;border-radius:6px;padding:5px 8px;font-size:12px;font-weight:800;text-align:center;color:#333}
+.fbox small{display:block;font-size:10px;color:#6e6e6e;font-weight:700}
+.fbox.plus{border-color:#b9cfe2;background:#e8f0f7}
+.farr{color:#9c2b1e;font-weight:900;flex:none}
+/* タイムライン */
+.tl{display:flex;overflow-x:auto;padding:12px 12px 4px}
+.tl .node{flex:1;min-width:88px;text-align:center;position:relative;padding:0 3px}
+.tl .node:before{content:"";position:absolute;top:8px;left:-50%;width:100%;height:2px;background:#ffd9ae}
+.tl .node:first-child:before{display:none}
+.tl .dot{width:16px;height:16px;border-radius:50%;background:#9c2b1e;margin:0 auto;position:relative;z-index:1;box-shadow:0 0 0 2px #d98a76}
+.tl .node.blue .dot{background:#33608c;box-shadow:0 0 0 2px #9dbede}
+.tl .node.red .dot{background:#c0392b;box-shadow:0 0 0 2px #e5a49e}
+.tl .tt2{font-size:11px;font-weight:900;margin-top:6px;color:#333}
+.tl .td2{font-size:10.5px;color:#686868;line-height:1.45;margin-top:2px}
+/* 前提ツリー */
+.tree{font-size:12px;margin:8px 0}
+.tnode{border:1.5px solid #d98a76;background:#fdf1ec;border-radius:6px;padding:5px 9px;font-weight:800;color:#333;display:inline-block;margin:2px 0}
+.tnode small{display:block;font-weight:700;color:#6e6e6e;font-size:10.5px}
+.tkids{margin:2px 0 8px 14px;border-left:2px solid #ffd9ae;padding-left:10px}
+.tkids .tnode{border-color:#b9cfe2;background:#e8f0f7}
+.tarr{color:#9c2b1e;font-weight:900;margin:0 2px}
+/* カード */
+.cards{padding:0 12px}
+.card{border:1px solid #e5e5e5;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.hook{background:#EAF2FC;border:1px solid #c9def2;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:12.5px;line-height:1.75;color:#333}
+.card h4{font-size:14px;font-weight:800;margin-bottom:6px}
+.card ul{margin:0 0 2px 18px;font-size:12.5px}
+.card li{margin-bottom:4px;line-height:1.55}
+.card .cnote{font-size:11px;color:#6e6e6e;margin-top:6px;line-height:1.55}
+.card table{font-size:12px}
+.sub{font-size:12.5px;font-weight:800;margin:10px 0 4px}
+/* 価格vs還元などの小バー */
+.cmp{font-size:10.5px;min-width:132px}
+.cmp .crow{display:flex;align-items:center;gap:5px;margin:2px 0}
+.cmp .cl{font-size:10px;font-weight:800;color:#6e6e6e;width:24px;flex:none}
+.cmp .ct{flex:1;background:#f0f0f0;height:9px;border-radius:3px;overflow:hidden;min-width:44px}
+.cmp .cf{height:9px}
+.cmp .cf.p{background:#c0392b}
+.cmp .cf.r{background:#2e9e5b}
+.cmp .cf.o{background:#9c2b1e}
+.cmp .cf.b{background:#33608c}
+.cmp .cv{font-weight:700;color:#555;white-space:nowrap}
+.pts{margin:0 0 8px 18px;font-size:13px}
+.pts li{margin-bottom:5px;line-height:1.55}
+.figimg{width:100%;height:auto;border-radius:8px;border:1px solid #e5e5e5}
+/* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
+body{padding-bottom:104px}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(7px + env(safe-area-inset-bottom));pointer-events:none}
+.sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:9px 14px 8px;border-radius:999px;background:linear-gradient(180deg,#d63f1f,#c22c17);color:#fff;font-weight:900;font-size:13.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}
+.sticky-cta.alt .sticky-cta-bar{background:linear-gradient(135deg,#fff3b0 0%,#ffd94d 30%,#f5b800 55%,#ffe680 80%,#ffc400 100%);color:#5b4300;box-shadow:0 6px 22px rgba(245,184,0,.65)}
+.sticky-cta-bubble{position:absolute;top:-10px;left:22px;background:#fff;color:#d42a1e;font-size:10.5px;font-weight:900;padding:2px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:color .45s ease,background .45s ease;z-index:3}
+.sticky-cta.alt .sticky-cta-bubble{color:#a87b00;background:linear-gradient(180deg,#fffbe8,#ffedb0)}
+.sticky-cta-text{position:relative;z-index:1}
+.sticky-cta-arrow{font-size:15px;font-weight:900;line-height:1;position:relative;z-index:1}
+.sticky-cta .sparkle{position:absolute;color:#fff;font-size:13px;text-shadow:0 0 6px #ffdf4d,0 0 2px #fff;opacity:0;pointer-events:none;z-index:2}
+.sticky-cta.alt .sparkle{animation:twinkle 1.6s ease-in-out infinite}
+.sticky-cta .sparkle.s1{top:2px;left:16%}
+.sticky-cta .sparkle.s2{top:16px;right:14%;animation-delay:.4s}
+.sticky-cta .sparkle.s3{bottom:3px;left:38%;animation-delay:.8s;font-size:10px}
+.sticky-cta .sparkle.s4{top:6px;right:34%;animation-delay:1.1s;font-size:10px}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.6) rotate(0deg)}50%{opacity:1;transform:scale(1.25) rotate(25deg)}}
+.sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
+@media (max-width:380px){.sticky-cta-bar{font-size:12.5px;padding:8px 12px 7px}}
+/* CTAブロック（型L）：本文末尾・フッター直前の出口 */
+.cta{margin:26px 0 8px;text-align:center;padding:0 12px}
+.cta-catch{font-weight:900;font-size:16.5px;color:#9c2b1e;letter-spacing:.02em;margin:0 0 12px;line-height:1.5}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,#b03a26,#9c2b1e);color:#fff;font-weight:900;font-size:17.5px;line-height:1.45;text-decoration:none;border-radius:999px;padding:18px 38px 17px 22px;position:relative;box-shadow:0 5px 0 #5f1a10,0 10px 22px rgba(255,105,0,.35)}
+.cta-btn:active{transform:translateY(2px);box-shadow:0 3px 0 #5f1a10,0 6px 14px rgba(255,105,0,.3)}
+.cta-btn .cta-label{text-align:center}
+.cta-btn .arr{position:absolute;right:20px;font-size:22px;font-weight:900}
+.cta-sub{margin:14px 0 0;font-size:14.5px}
+
+.fig{margin:10px 0}
+.fig img{width:100%;height:auto;display:block;border-radius:10px}
+.figc{margin:10px 0;text-align:center}
+.figc img{max-width:100%;height:auto;border-radius:10px}
+.fcap{font-size:12px;color:#667;margin-top:4px;text-align:left}
+.shotrow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.shotrow img{height:250px;width:auto;flex:none;border-radius:10px}
+.bannergrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.bannergrid a{display:block;text-decoration:none}
+.bannergrid img{width:100%;height:auto;display:block;border-radius:10px}
+.bannergrid .bcap{display:block;font-size:12.5px;font-weight:700;color:#33608c;margin-top:4px}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.bgrid figure{margin:0}
+.bgrid img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block}
+.bgrid figcaption{font-size:12px;color:#555;margin-top:3px}
+.prow{display:flex;gap:10px;margin:10px 0}
+.prow figure{flex:1;margin:0}
+.prow img{width:100%;height:210px;object-fit:cover;object-position:top center;border-radius:10px;display:block}
+.prow figcaption{font-size:12px;color:#555;margin-top:3px;text-align:center}
+.hicon{width:34px;height:34px;border-radius:8px;vertical-align:-10px;margin-right:6px;object-fit:cover}
+a.bannerlink{display:block;margin:10px 0}
+a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
+.fig.hero-art img{aspect-ratio:2.15/1;object-fit:cover;object-position:center 35%}
+
+/* 関連ページ導線（下層ページ間の相互リンク） */
+.rel{list-style:none;margin:0;padding:4px 12px 10px}
+.rel li{border-bottom:1px solid #e3ecf7}
+.rel a{display:block;padding:10px 2px;color:#33608c;text-decoration:none;font-weight:700}
+
+/* 他媒体導線（foundation-parts 部品1。マスターは foundation-parts-2026-11-26/parts/crossmedia-shelf.css） */
+.xmedia{margin:14px 0 10px;padding:12px 12px 0;border-top:1px solid #e3e9f2}
+.xmedia-h{font-size:12px;font-weight:700;color:#555;margin:0 0 8px}
+.xmedia-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px}
+.xmedia-list li{font-size:12px;line-height:1.5}
+.xmedia-list a{color:#33608c;text-decoration:none;padding:4px 0;display:inline-block}
+.xmedia-sns{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12px}
+.xmedia-sns a{color:#555;text-decoration:none;padding:4px 0}
+.xmedia-cards{margin:20px 12px 8px}
+.xmedia-cards h2{font-size:15px;margin:0 0 10px}
+.xmedia-card{display:block;background:#F0ECFA;border-radius:10px;padding:12px 14px;margin:0 0 8px;text-decoration:none}
+.xmedia-card-name{display:block;font-size:14px;font-weight:700;color:#463a75}
+.xmedia-card-desc{display:block;font-size:12px;color:#555;margin-top:2px;line-height:1.5}
+
+/* 画像部品（生成器の keyart／figure／shots／icongrid。仕様は EXPANSION_BASE/IMAGE_PARTS.md）
+   .fig／.figc／.shotrow／.fcap は既存定義をそのまま使う。ここでは枠の外形と
+   画像が無い場合のプレースホルダだけを定義する */
+.keyart{margin:2px 0 4px}
+.keyart img{width:100%;height:auto;display:block}
+.keyart-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:#faebe6;border:1.5px dashed #d98a76;border-radius:12px;color:#701f14;text-align:center;padding:10px}
+.keyart-noimg span{font-size:13px;font-weight:800;line-height:1.6}
+.fig-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:#faebe6;border:1.5px dashed #d98a76;border-radius:10px;color:#701f14;font-size:12px;font-weight:800;text-align:center;padding:8px;line-height:1.6}
+.shots{padding:0 12px}
+.icongrid{display:grid;gap:10px 8px;padding:2px 12px 4px}
+.icongrid.cols3{grid-template-columns:repeat(3,1fr)}
+.icongrid.cols4{grid-template-columns:repeat(4,1fr)}
+.icongrid .ig-item{display:block;text-decoration:none;color:#444}
+.icongrid .ig-item img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:top center;border-radius:12px;display:block;background:#eef3f9}
+.icongrid .ig-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:12px;background:#faebe6;border:1.5px dashed #d98a76;color:#701f14;text-align:center;padding:6px}
+.icongrid .ig-noimg span{font-size:10.5px;font-weight:800;line-height:1.5}
+.icongrid .ig-label{font-size:11.5px;font-weight:800;text-align:center;margin-top:4px;line-height:1.3}
+.icongrid .ig-sub{font-size:10px;color:#757575;text-align:center;line-height:1.3}
+/* 画像なし表示B案「情報提供待ち＋呼びかけ」（2026-11-26 ユーザー決定。仕様は PARTS_SPEC §13）
+   色はテーマスロット（#d98a76→border_soft／#faebe6→pale1／#fdf1ec→pale2／
+   #701f14→dark_text／#b03a26・#9c2b1e→CTAグラデ）で各ゲーム色へ追随する */
+.noimg-mini{display:flex;align-items:center;justify-content:center;background:#faebe6;border:1.5px dashed #d98a76;color:#701f14;font-size:9.5px;font-weight:800;text-align:center;line-height:1.45;padding:2px}
+.row .noimg-mini{width:64px;height:64px;border-radius:14%;flex:none}
+.ghead .noimg-mini{width:76px;height:76px;border-radius:20%;flex:none}
+.b-card{margin:2px 12px 4px;border:1.5px solid #d98a76;border-radius:14px;background:#fdf1ec;padding:14px;text-align:center}
+.b-card .b-ttl{font-size:14.5px;font-weight:900;color:#701f14;margin:0 0 6px}
+.b-card .b-txt{font-size:12px;line-height:1.8;margin:0 0 10px}
+.b-card .b-btn{display:inline-block;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(180deg,#b03a26,#9c2b1e);border-radius:999px;padding:9px 22px;text-decoration:none;box-shadow:0 2px 5px rgba(209,84,0,.35)}
+
+/* ===== 移植部品（2026-11-26 差分監査の還元：パズサバ完璧版＋メイントップから） =====
+   出典：svc-badge/stats/nl はメイントップ生成元（preview-game8/topbuild/gen.py）の
+   実測色・寸法を移植。codebox はサービス詳細ページの .spd-code が正。
+   nextzone はパズサバ「次にチェックしたい案件」＋回遊導線の標準部品 */
+/* サービス名バッジ（ブランド色。トップ svcbadge() と同一の色定義） */
+.svc-badge{display:inline-block;font-size:10.5px;font-weight:800;line-height:1.55;padding:1px 8px;border-radius:999px;white-space:nowrap;vertical-align:1px}
+.sb-hapitas{background:#FFFF00;color:#111;border:1px solid #d9d900}
+.sb-warau{background:#DE2729;color:#fff;border:1px solid #DE2729}
+.sb-moppy{background:#48B0A9;color:#05302B;border:1px solid #3a9a94}
+.sb-freecash{background:#01D676;color:#04331B;border:1px solid #01b968}
+.sb-default{background:#eaf2fc;color:#2f5f8f;border:1px solid #bcd6f2}
+.bd-best{display:inline-block;font-size:10.5px;font-weight:900;line-height:1.55;padding:1px 8px;border-radius:999px;background:#9c2b1e;color:#fff;white-space:nowrap;vertical-align:1px}
+/* 数字ストリップ（トップ .stats の移植） */
+.stats{display:flex;gap:8px;margin:12px 12px 4px}
+.stat{flex:1;background:linear-gradient(180deg,#fff,#EAF6FF);border:1px solid #BCD9F5;border-radius:10px;padding:10px 4px;text-align:center}
+.stat .n{font-size:20px;font-weight:900;color:#33608c;line-height:1.25}
+.stat .n small{font-size:11.5px;font-weight:800}
+.stat .l{font-size:10.5px;color:#686868;font-weight:700;margin-top:2px;line-height:1.4}
+/* ニュースレター登録カード（トップ .nl の移植。設置場所はメイントップとゲームトップ末尾） */
+.nl{background:#EAF2FC;border-radius:12px;padding:18px 16px;text-align:center;margin:0 12px}
+.nl p{margin:0 0 12px;font-size:14px;line-height:1.6}
+.nl a{display:inline-block;background:#33608c;color:#fff;font-weight:800;border-radius:999px;padding:11px 26px;font-size:14.5px;text-decoration:none}
+/* タップコピー枠（サービス詳細 .spd-code の移植。ギフトコード・招待コード用） */
+.codebox{display:block;width:100%;box-sizing:border-box;background:#fff;border:2px dashed #33608c;border-radius:14px;text-align:center;padding:12px;margin:0 0 8px;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.codebox .cb-code{display:block;font-size:19px;font-weight:900;letter-spacing:.06em;color:#333}
+.codebox .cb-meta{display:block;font-size:11.5px;color:#686868;margin-top:2px}
+.codebox .cb-ui{display:block;font-size:11.5px;color:#33608c;font-weight:700;margin-top:3px}
+.codebox.copied{border-color:#2e9e5b;background:#E9F5EF}
+.codes{padding:0 12px}
+/* ページ末尾の回遊ゾーン（関連＋別案件。全ページ自動付帯の標準部品） */
+.nextzone{margin-top:26px}
+.nz-camp{display:block;margin:0 12px 8px;padding:12px 14px;border:1px solid #ffd9ae;background:#fdf1ec;border-radius:12px;text-decoration:none;color:#333}
+.nz-camp .nz-game{display:block;font-size:12px;font-weight:800;color:#701f14}
+.nz-camp .nz-main{display:block;font-size:14.5px;font-weight:800;margin-top:2px;line-height:1.5}
+.nz-camp .nz-sub{display:block;font-size:11.5px;color:#686868;margin-top:2px}
+a.row{text-decoration:none;color:inherit}
+/* 評価ブロック（PARTS_SPEC §3 verdict。DB個別ページの冒頭で評価が完結する型） */
+.verdict{display:flex;gap:12px;align-items:flex-start;background:#fdf1ec;border:1px solid #d98a76;border-radius:12px;padding:12px;margin:8px 12px}
+.vd-rank{flex:0 0 auto;text-align:center;background:#fff;border:1px solid #d98a76;border-radius:10px;padding:8px 12px;min-width:64px}
+.vd-rank-label{display:block;font-size:10.5px;font-weight:800;color:#686868}
+.vd-rank-value{display:block;font-size:30px;font-weight:900;color:#9c2b1e;line-height:1.15}
+.vd-score{display:block;font-size:12px;font-weight:800;color:#701f14}
+.vd-points{margin:2px 0 0 16px;padding:0;font-size:12.5px;line-height:1.65;color:#444}
+.vd-basis{flex-basis:100%;font-size:11px;color:#686868;margin:6px 0 0}
+/* ステップ表（PARTS_SPEC §2 step_table。条件行＋攻略アコーディオン行） */
+.steptable .st-dl{display:inline-block;font-size:11px;font-weight:800;color:#701f14;background:#f6ddd4;border-radius:3px;padding:0 5px;margin-right:4px}
+.steptable tr.step-guide td{padding:2px 8px 10px;background:#fffdf8}
+.steptable .acc{margin:2px 0}
+/* 計算ツール（PARTS_SPEC §8 calculator） */
+.calc{background:#fdf1ec;border:1px solid #d98a76;border-radius:12px;padding:12px;margin:8px 12px}
+.calc-row{margin:0 0 10px}
+.calc-row label{font-size:13px;font-weight:700;color:#444}
+.calc select,.calc input{font:inherit;font-size:14px;padding:7px 8px;border:1px solid #d98a76;border-radius:8px;background:#fff;max-width:100%}
+.calc input{width:90px}
+.calc-result{background:#9c2b1e;color:#fff;font-weight:900;font-size:14.5px;border-radius:10px;padding:11px 12px;line-height:1.55}
+.calc .note{font-size:11.5px;color:#686868;margin:8px 0 0}
+/* プラン比較表（PARTS_SPEC §4 plan_table。列＝プラン／行＝前提課金額・到達ライン・目安日数・前提購入） */
+.plantable th:first-child{width:22%}
+.plantable td{line-height:1.55}
+/* 最終チェックリスト（PARTS_SPEC §5 final_checklist。チェックボックス風の表示専用リスト） */
+.finchecks{list-style:none;margin:8px 12px;padding:0}
+.finchecks li{display:flex;gap:9px;align-items:flex-start;background:#fdf1ec;border:1px solid #d98a76;border-radius:10px;padding:9px 11px;margin:0 0 7px;font-size:13px;line-height:1.6;color:#444}
+.finchecks .fc-box{flex:0 0 auto;width:17px;height:17px;margin-top:2px;border:2px solid #701f14;border-radius:4px;background:#fff}
+/* 末尾の攻略メニュー導線（PARTS_SPEC §7 menu_full） */
+.nz-menu{margin-top:26px}
+
+/* hdr-autofit-2026-11-27: 狭幅ではロゴ・アイコン列を段階的に縮め、ラベルが縦に崩れないようにする */
+.header-top{gap:8px}
+.header-icons{flex:0 0 auto}
+.header-icons>div{white-space:nowrap}
+@media (max-width:480px){
+.header-top{padding:8px 10px 6px}
+.logo{font-size:17px}
+.logo .lg-mark{font-size:15px}
+.logo .lg-sub{font-size:8px}
+.logo img{width:29px!important;height:29px!important;vertical-align:-7px!important}
+.header-icons{gap:9px;font-size:9.5px}
+.header-icons .ic{font-size:16px}
+}
+@media (max-width:380px){
+.logo{font-size:15px}
+.logo .lg-mark{font-size:13px}
+.logo .lg-sub{display:none}
+.logo img{width:26px!important;height:26px!important;vertical-align:-6px!important}
+.header-icons{gap:7px;font-size:9px}
+.header-icons .ic{font-size:15px}
+}
+</style>
+<style>
+.theme-toggle{cursor:pointer}
+html[data-theme="dark"]{color-scheme:dark;background:#0d0b0a}
+html[data-theme="dark"] body{color:#e8e2dc}
+html[data-theme="dark"] .page{background:#1a1714;box-shadow:0 0 12px rgba(0,0,0,.6)}
+html[data-theme="dark"] .header{background:#1a1714;border-bottom-color:#3a332c}
+html[data-theme="dark"] .logo{color:#f2ede8}
+html[data-theme="dark"] .header-icons{color:#b8b0a6}
+html[data-theme="dark"] .searchbar .box{background:#262019}
+html[data-theme="dark"] .searchbar input{color:#e8e2dc}
+html[data-theme="dark"] .gnav{border-top-color:#2c2620}
+html[data-theme="dark"] .gnav a{color:#cfc8c0}
+html[data-theme="dark"] .gnav a.on{color:#e07a5f;border-bottom-color:#e07a5f}
+html[data-theme="dark"] .crumbs{color:#9a9186}
+html[data-theme="dark"] .sec-head{background:#2b1712;border-left-color:#e07a5f}
+html[data-theme="dark"] .sec-head a{color:#eda88f}
+html[data-theme="dark"] .sec-head .cnt{color:#9a9186}
+html[data-theme="dark"] .lead{color:#d8d2ca}
+html[data-theme="dark"] .row{border-bottom-color:#38302a}
+html[data-theme="dark"] .row .rmeta{color:#9a9186}
+html[data-theme="dark"] .row .rsum{color:#bdb4a9}
+html[data-theme="dark"] .chip{background:#2e2410;color:#eda88f}
+html[data-theme="dark"] .chip.gray{background:#2b2b2b;color:#a9a9a9}
+html[data-theme="dark"] th,html[data-theme="dark"] td{border-color:#453b32}
+html[data-theme="dark"] th{background:#262019}
+html[data-theme="dark"] td.pt{color:#eda88f}
+html[data-theme="dark"] .spec th{background:#2b1712}
+html[data-theme="dark"] .spec td b{color:#eda88f}
+html[data-theme="dark"] .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .menu a.hot{background:#38201a;border-color:#e07a5f;color:#eda88f}
+html[data-theme="dark"] .menu a.now{background:#EAF2FC;border-color:#3977B8;color:#1B5FC1}
+html[data-theme="dark"] .menu-toggle{color:#8fb8dd}
+html[data-theme="dark"] .ghead .gmeta{color:#9a9186}
+html[data-theme="dark"] .ghead .gmax{color:#eda88f}
+html[data-theme="dark"] .toc{background:#262019}
+html[data-theme="dark"] .toc a{color:#d8d2ca}
+html[data-theme="dark"] .tabs button{background:#241f1b;color:#cfc8c0;border-color:#453b32}
+html[data-theme="dark"] .tabs button.on{color:#eda88f;border-bottom-color:#e07a5f}
+html[data-theme="dark"] .acc button{background:#241f1b;color:#e8e2dc}
+html[data-theme="dark"] .acc .acc-body{background:#1f1b17}
+html[data-theme="dark"] .ditem{border-bottom-color:#38302a}
+html[data-theme="dark"] .ditem .dmeta{color:#9a9186}
+html[data-theme="dark"] .note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .read-note,html[data-theme="dark"] .upd-note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .risk-note{background:#2e2410;color:#f2cf8f}
+html[data-theme="dark"] .footer{background:#141110;color:#9a9186}
+html[data-theme="dark"] .footer .flinks a{color:#cfc8c0}
+html[data-theme="dark"] .card{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .card .cnote{color:#9a9186}
+html[data-theme="dark"] .fbox{background:#2b1712;border-color:#a85a44}
+html[data-theme="dark"] .farr{color:#e07a5f}
+html[data-theme="dark"] .tnode{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .tkids .tnode{background:#16283a;border-color:#2f4a68}
+html[data-theme="dark"] .bd-buy{background:#153420;color:#8fd7a4}
+html[data-theme="dark"] .bd-no{background:#3a1a16;color:#eda88f}
+html[data-theme="dark"] .bd-warn{background:#33270f;color:#f2cf8f}
+html[data-theme="dark"] .bd-info{background:#1d2c3d;color:#a9c8e2}
+html[data-theme="dark"] .bd-gray{background:#2b2b2b;color:#bbbbbb}
+html[data-theme="dark"] .bannergrid .bcap{color:#8fb8dd}
+html[data-theme="dark"] .fcap{color:#9a9186}
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#262019;color:#e8e2dc;border-color:#453b32}
+html[data-theme="dark"] .hist td.hd{background:#262019}
+/* === dark-contrast-fix-2026-11-26 ===
+   コントラスト是正（2026-11-26 実測に基づく追加分）。
+   ライト側で濃色文字を持つ部品の暗テーマ上書き漏れを埋める。
+   色は暗テーマ既存パレット＋スロットトークン（#e07a5f=dark_main／
+   #eda88f=dark_tint／#8fb8dd=dark_link）のみを使う。 */
+html[data-theme="dark"] .kv{color:#bdb4a9}
+html[data-theme="dark"] .kv b{color:#e8e2dc}
+html[data-theme="dark"] .kv a,html[data-theme="dark"] .rel a,html[data-theme="dark"] .xmedia-list a,html[data-theme="dark"] .cnote a,html[data-theme="dark"] .lead a,html[data-theme="dark"] .tabpanel a,html[data-theme="dark"] .acc-body a,html[data-theme="dark"] td a{color:#8fb8dd}
+html[data-theme="dark"] .fbox{color:#e8e2dc}
+html[data-theme="dark"] .fbox small{color:#9a9186}
+html[data-theme="dark"] .tnode{color:#e8e2dc}
+html[data-theme="dark"] .tnode small{color:#9a9186}
+html[data-theme="dark"] .tl .tt2{color:#e8e2dc}
+html[data-theme="dark"] .tl .td2{color:#9a9186}
+html[data-theme="dark"] .ditem .dname{color:#bdb4a9}
+html[data-theme="dark"] .cmp .cv,html[data-theme="dark"] .crow .cv{color:#bdb4a9}
+html[data-theme="dark"] .barrow .bl{color:#bdb4a9}
+html[data-theme="dark"] .barrow .bv{color:#e8e2dc}
+html[data-theme="dark"] .acc .acc-body{color:#d8d2ca}
+html[data-theme="dark"] .acc button .pm{color:#eda88f}
+html[data-theme="dark"] .more-link .tri{color:#e07a5f}
+html[data-theme="dark"] .cta-catch{color:#e07a5f}
+html[data-theme="dark"] .tarr{color:#eda88f}
+html[data-theme="dark"] .tabs button .tt{color:#eda88f}
+html[data-theme="dark"] .upd-note b{color:#f2cf8f}
+html[data-theme="dark"] .risk-note a{color:#f2cf8f !important}
+html[data-theme="dark"] .svc-diff{color:#eda88f}
+html[data-theme="dark"] .dates b{color:#bdb4a9}
+html[data-theme="dark"] .menu-label{color:#bdb4a9}
+html[data-theme="dark"] .menu-toggle{background:#262019;border-color:#453b32}
+html[data-theme="dark"] .tocbtn{background:#262019;border-color:#453b32;color:#d8d2ca}
+html[data-theme="dark"] .tocbtn .pm{color:#8fb8dd}
+html[data-theme="dark"] .toclist a{background:#262019;border-color:#453b32;color:#d8d2ca}
+html[data-theme="dark"] .toclist a .arr{color:#8fb8dd}
+html[data-theme="dark"] .hook{background:#262019;border-color:#453b32;color:#d8d2ca}
+html[data-theme="dark"] .hgrid a{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .hgrid .hn{color:#8fb8dd}
+html[data-theme="dark"] .hgrid .hm{color:#9a9186}
+html[data-theme="dark"] .hgrid .noimg{background:#16283a;color:#8fb8dd}
+html[data-theme="dark"] .hlink b{color:#8fb8dd}
+html[data-theme="dark"] .hlink .arr{color:#8fb8dd}
+html[data-theme="dark"] .codebox .cb-code{color:#e8e2dc}
+html[data-theme="dark"] .codebox .cb-meta{color:#bdb4a9}
+html[data-theme="dark"] .codebox .cb-ui{color:#8fb8dd}
+html[data-theme="dark"] .steptable th{color:#e8e2dc}
+html[data-theme="dark"] .steptable td{color:#d8d2ca}
+html[data-theme="dark"] .nz-camp .nz-game{color:#eda88f}
+html[data-theme="dark"] .nz-camp .nz-sub{color:#9a9186}
+html[data-theme="dark"] .stat .n{color:#8fb8dd}
+html[data-theme="dark"] .xmedia-h{color:#bdb4a9}
+html[data-theme="dark"] .xmedia-sns a{color:#bdb4a9}
+html[data-theme="dark"] .xmedia-card-name{color:#e8e2dc}
+html[data-theme="dark"] .xmedia-card-desc{color:#bdb4a9}
+html[data-theme="dark"] .vd-rank{background:#1f1b17}
+html[data-theme="dark"] .vd-rank-label{color:#9a9186}
+html[data-theme="dark"] .vd-rank-value{color:#e07a5f}
+html[data-theme="dark"] .vd-basis{color:#9a9186}
+html[data-theme="dark"] .calc-row label{color:#d8d2ca}
+html[data-theme="dark"] .calc .note{color:#9a9186}
+html[data-theme="dark"] .bgrid figcaption,html[data-theme="dark"] .prow figcaption{color:#bdb4a9}
+html[data-theme="dark"] .arrw{color:#e07a5f}
+html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="dark"] .cnote a{color:#8fb8dd !important}
+/* === /dark-contrast-fix === */
+html[data-theme="dark"] .breadcrumb{color:#9a9186}
+html[data-theme="dark"] .breadcrumb a{color:#cfc8c0}
+html[data-theme="dark"] .dates{color:#9a9186}
+html[data-theme="dark"] .tabpanel{color:#d8d2ca}
+html[data-theme="dark"] .codebox{background:#262019;color:#e8e2dc;border-color:#453b32}
+html[data-theme="dark"] .nz-camp{background:#241f1b;color:#e8e2dc}
+html[data-theme="dark"] .ig-item{color:#e8e2dc}
+html[data-theme="dark"] .ig-sub{color:#9a9186}
+html[data-theme="dark"] .stat{background:#262019;color:#e8e2dc}
+html[data-theme="dark"] .stat .l{color:#9a9186}
+html[data-theme="dark"] .nl{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .svc-diff{color:#d8d2ca}
+html[data-theme="dark"] .keyart-noimg{background:#262019;color:#d8d2ca;border-color:#6b5a44}
+html[data-theme="dark"] .fig-noimg{background:#262019;color:#d8d2ca;border-color:#6b5a44}
+html[data-theme="dark"] .icongrid .ig-noimg{background:#262019;color:#d8d2ca;border-color:#6b5a44}
+html[data-theme="dark"] .noimg-mini{background:#262019;color:#d8d2ca;border-color:#6b5a44}
+html[data-theme="dark"] .b-card{background:#262019;border-color:#6b5a44}
+html[data-theme="dark"] .b-card .b-ttl{color:#f2cd8a}
+html[data-theme="dark"] .vd-points{color:#d8d2ca}
+html[data-theme="dark"] .calc{background:#262019;color:#e8e2dc}
+html[data-theme="dark"] .xmedia-cards .xmedia-card{background:#241f1b;color:#e8e2dc}
+html[data-theme="dark"] .verdict{background:#262019}
+html[data-theme="dark"] .plantable td{color:#d8d2ca}
+html[data-theme="dark"] .finchecks li{background:#262019;color:#e8e2dc;border-color:#453b32}
+html[data-theme="dark"] .finchecks .fc-box{background:transparent;border-color:#eda88f}
+html[data-theme="dark"] .logo .lg-sub{color:#eda88f}
+html[data-theme="dark"] .footer .disc{color:#9a9186}
+html[data-theme="dark"] .footer .copy{color:#9a9186}
+html[data-theme="dark"] .hist .old{color:#9a9186}
+html[data-theme="dark"] .cmp .cl{color:#9a9186}
+</style>
+<script>(function(){try{var t=localStorage.getItem('poigame-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+</head>
+<body><div class="page">
+<header class="header">
+  <div class="header-top">
+    <div class="logo"><span class="lg-mark">ポ</span>ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>
+    <div class="header-icons"><div><span class="ic">🔍</span>検索</div><div><span class="ic">☰</span>メニュー</div></div>
+  </div>
+  <nav class="gnav"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">人気ゲーム</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">新着・更新</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ランキング</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">攻略メニュー</a></nav>
+</header>
+<nav class="breadcrumb" aria-label="パンくず"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> &gt; <a href="index.html">ゲーム攻略</a> &gt; ザ・グランドマフィア</nav>
+<div class="ghead"><img src="img/app-icon.webp" alt=""><div><h1>ザ・グランドマフィア 攻略・案件まとめ</h1>
+<div class="gmeta">ザ・グランドマフィア（Phantix Games）／iOS/Android</div>
+<div class="gmax">ポイ活案件 最大112,906P（モッピー・iOS）</div></div></div>
+<div class="dates"><span>更新日：<b>2026年11月27日</b></span></div>
+<p class="lead" style="padding:10px 12px 0">マフィアのボスとなってファミリーを築き、別荘を育てて勢力を広げるリアルタイムストラテジー「ザ・グランドマフィア」の攻略とポイ活案件のまとめです。案件の中心は別荘レベルの到達とTier隊員のアンロックで、最高額はモッピー（iOS）の合計112,906P。別荘の全レベル要件表、Tier解放の条件、届くラインと届かないラインの見極めまで、個別ページへ枝分かれさせています。</p>
+<figure class="keyart"><img src="img/keyart.webp" alt="ザ・グランドマフィアの公式プロモーション画像（屋上から目標を狙う狙撃手）" width="1052" height="592" fetchpriority="high"></figure>
+<div class="menu-label">攻略メニュー</div><div class="menu folded" id="menuGrid"><a href="index.html#campaign" class="hot"><span class="mi">🎁</span>ポイ活案件</a><a href="joban.html"><span class="mi">🌱</span>序盤の進め方</a><a href="mansion.html"><span class="mi">🏠</span>別荘Lv・要件表</a><a href="tier.html"><span class="mi">🎖️</span>Tier隊員の解放</a><a href="facilities25.html"><span class="mi">🏛️</span>監禁所・投資Lv25</a><a href="sgrade.html"><span class="mi">⭐</span>Sグレード英雄</a><a href="events.html"><span class="mi">🎪</span>イベント・コード</a><a href="kakin.html"><span class="mi">💳</span>課金判断</a><a href="conditions.html"><span class="mi">📋</span>案件条件の詳細</a><a href="faq.html"><span class="mi">❓</span>FAQ・つまずき</a><a href="board.html"><span class="mi">💬</span>掲示板</a><a href="contribute.html"><span class="mi">📮</span>情報提供</a></div><button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">もっと見る ▼</button><script>(function(){var tg=document.getElementById('menuToggle'),mg=document.getElementById('menuGrid');tg.addEventListener('click',function(){var f=mg.classList.toggle('folded');tg.textContent=f?'もっと見る ▼':'閉じる ▲';tg.setAttribute('aria-expanded',String(!f));});})();</script>
+<div class="tocwrap"><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#campaign">ポイ活案件<span class="arr">›</span></a><a href="#about">ゲーム概要<span class="arr">›</span></a><a href="#meyasu">到達目安・達成データ<span class="arr">›</span></a><a href="#guide">効率的な進め方<span class="arr">›</span></a><a href="#topics">攻略トピック<span class="arr">›</span></a><a href="#facilities_shelf">案件に直結する施設・要素<span class="arr">›</span></a><a href="#history">確認記録<span class="arr">›</span></a><a href="#newsletter">ニュースレター<span class="arr">›</span></a><a href="#scenes">公式ビジュアル<span class="arr">›</span></a></nav></div>
+<section class="sec" id="campaign"><div class="sec-head"><h2>ポイ活案件</h2></div><figure class="fig"><img src="img/inf-campaign.webp" alt="ザ・グランドマフィア案件の早見図解" width="900" height="900" loading="lazy"></figure><p class="note" style="padding:0 12px">条件はこの下の表にまとめています。</p><p class="chips" style="padding:0 12px"><span class="chip bd-info">掲載3件</span><span class="chip bd-gray">サービスごとに条件が異なります</span><span class="chip bd-warn">期限はサービスごとに異なります</span></p><div class="tscroll"><table class="spec"><tr><th>最大ポイント</th><td>合計112,906P</td></tr><tr><th>最終条件</th><td>新規インストール後、各ミッションをクリアするステップアップ型（iOS掲載・全13ステップ）。ステップごとに7日間・15日間・30日間・60日間の期限区分があります</td></tr><tr><th>ステップ数</th><td>最大13ステップ（サービスで異なる）</td></tr><tr><th>掲載サービス</th><td>モッピー／ハピタス／ワラウ</td></tr><tr><th>期限</th><td>インストール後60日以内（ステップごとに7日間・15日間・30日間・60日間の区分あり）</td></tr><tr><th>所要目安</th><td>現実ラインは別荘Lv25まで。Tier4は前提の重さから到達が極めて困難です（根拠は到達目安の節）</td></tr><tr><th>更新日</th><td>2026年11月27日</td></tr></table></div><div class="flow"><div class="fbox">案件を選ぶ<small>OSとサービスで金額が異なる</small></div><span class="farr">→</span><div class="fbox">インストール<small>案件ページ経由が条件</small></div><span class="farr">→</span><div class="fbox">別荘LvとTierを進める<small>ステップごとに判定</small></div><span class="farr">→</span><div class="fbox">ポイント付与<small>到達した段階分だけ入る</small></div></div><div class="svctabs-wrap" data-svc-0="https://pc.moppy.jp/|モッピー|合計112,906P|7,000円|std" data-svc-1="https://hapitas.jp/item/detail/itemid/100855/apn/navigation_category|ハピタス|合計106,171pt|2,300円|std" data-svc-2="https://www.warau.jp/contents/point/pointEntrance.php?point_id=206954|ワラウ|最大55,000pt|2,500円|std"><div class="tabs" data-svctabs><button type="button" class="on"><span class="svc-badge sb-moppy">モッピー</span><span class="tt">合計112,906P</span></button><button type="button"><span class="svc-badge sb-hapitas">ハピタス</span><span class="tt">合計106,171pt</span></button><button type="button"><span class="svc-badge sb-warau">ワラウ</span><span class="tt">最大55,000pt</span></button></div><div class="tabpanel on"><p class="kv">報酬：<b>合計112,906P（全13ステップ合計／iOS掲載／モッピー・1P＝1円相当）</b></p><p class="kv">条件：新規インストール後、各ミッションをクリアするステップアップ型（iOS掲載・全13ステップ）。ステップごとに7日間・15日間・30日間・60日間の期限区分があります</p><p class="kv">対象OS：iOS（s_id=161772の掲載で確認）</p><p class="kv">期限：インストール後60日以内（ステップごとに7日間・15日間・30日間・60日間の区分あり）。成果調査の受付は最大3ヶ月で、調査完了までアンインストール不可（要キャプチャ・ユーザーID）（連携先の表示で確認）</p><p class="kv">付与タイミング：予定・確定とも反映30分程度（案件ページ記載）</p><p class="kv"><b>ステップ内訳（全13件）</b></p><div class="tscroll"><table class="steptable"><tr><th>達成条件</th><th class="pt">ポイント</th></tr><tr><td>インストール</td><td class="pt">0P</td></tr><tr><td>別荘Lv4到達</td><td class="pt">92P（目安30分）</td></tr><tr><td>別荘Lv9到達</td><td class="pt">132P（目安1時間）</td></tr><tr><td>Tier2隊員アンロック</td><td class="pt">264P（目安2時間）</td></tr><tr><td>別荘Lv17到達</td><td class="pt">931P（目安1日）</td></tr><tr><td>Tier3隊員アンロック</td><td class="pt">1,322P（目安3日）</td></tr><tr><td>別荘Lv21到達（7日間）</td><td class="pt">2,932P（目安5日）</td></tr><tr><td>別荘Lv23到達（15日間）</td><td class="pt">2,415P（目安10日）</td></tr><tr><td>別荘Lv25到達（30日間）</td><td class="pt">3,334P（目安15日）</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：別荘Lv25到達（30日間）<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">高難易度</span> 別荘Lv25は前提施設のLv24揃えに加えて建築許可証が1個必要です。掲載目安は15日ですが、基礎時間の原値は前提施設分を含まないため、組織ヘルプと加速の圧縮が前提です。</div></div></td></tr><tr><td>監禁所Lv25到達（30日間）</td><td class="pt">6,554P（目安17日）</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：監禁所Lv25到達（30日間）<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">高難易度</span> 監禁所Lv25は別荘Lv25が前提の直列工程です。掲載目安は17日ですが、実践報告による裏付けはまだありません。</div></div></td></tr><tr><td>投資センターLv25到達（30日間）</td><td class="pt">13,282P（目安20日）</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：投資センターLv25到達（30日間）<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">高難易度</span> 投資センターLv25も別荘Lv25が前提です。掲載目安は20日ですが、実践報告による裏付けはまだありません。</div></div></td></tr><tr><td>Tier4隊員アンロック（30日間）</td><td class="pt">52,899P（目安30日）</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：Tier4隊員アンロック（30日間）<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">到達は極めて困難</span> このステップだけで全体の半分近い報酬です。ただしTier4は投資センターLv25と専用アイテム（酒・手錠・足枷）の大量収集が前提という長期プレイヤー報告があり、30日以内の到達は支出が報酬を上回る可能性が高く現実的ではありません。確保する組み立ては別荘Lv25までに置くのが現実的です。</div></div></td></tr><tr><td>Tier4隊員アンロック（60日間）</td><td class="pt">28,749P（目安60日）</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：Tier4隊員アンロック（60日間）<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">実測なし</span> 60日版も律速は専用アイテムの収集量で、60日での到達報告は確認できていません。</div></div></td></tr></table></div><p class="kv">対象外条件：過去にインストール・到達歴がある場合／1人1回限り（OS違いも不可）／同一IPでインストールした場合／引継ぎで到達した場合／不正・重複等／調査時にアンインストール済みの場合／他広告成果とみなされる場合／他端末でのインストール／公共Wi-Fiからの利用／国外からのアクセス／トラッキング未許可の場合は対象外。キャリア回線の利用が推奨されている。成果調査は可</p><p class="kv">公式確認日：2026-11-25</p><p class="kv"><a href="https://pc.moppy.jp/" target="_blank" rel="noopener">案件ページを見る（公式）</a></p></div><div class="tabpanel"><p class="kv">報酬：<b>合計106,171pt（全13ステップ合計・増量中の額。通常時は合計96,521pt・iOS専用掲載／ハピタス）</b></p><p class="kv">条件：新規インストール後、各成果地点に到達するステップアップ型（iOS専用掲載・全13ステップ）。ステップごとに7日間・15日間・30日間・60日間の期限区分があります</p><p class="kv">対象OS：iOS（itemid 100855の掲載で確認）</p><p class="kv">期限：インストール後60日以内（ステップごとに7日間・15日間・30日間・60日間の区分あり。連携先の表示で確認。ハピタス公式詳細ページには期限の日数明記なし）</p><p class="kv">付与タイミング：判定・通帳記載は条件達成後15分以内が目安、ポイント付与は最大24時間以内</p><p class="kv"><b>ステップ内訳（全13件）</b></p><div class="tscroll"><table class="steptable"><tr><th>達成条件</th><th class="pt">ポイント</th></tr><tr><td>インストール</td><td class="pt">0pt</td></tr><tr><td>別荘Lv4到達</td><td class="pt">88pt（通常80pt・増量中）</td></tr><tr><td>別荘Lv9到達</td><td class="pt">126pt（通常115pt）</td></tr><tr><td>Tier2隊員アンロック</td><td class="pt">254pt（通常231pt）</td></tr><tr><td>別荘Lv17到達</td><td class="pt">888pt（通常808pt）</td></tr><tr><td>Tier3隊員アンロック</td><td class="pt">1,270pt（通常1,155pt）</td></tr><tr><td>別荘Lv21到達（7日間）</td><td class="pt">2,795pt（通常2,541pt）</td></tr><tr><td>別荘Lv23到達（15日間）</td><td class="pt">2,288pt（通常2,079pt）</td></tr><tr><td>別荘Lv25到達（30日間）</td><td class="pt">3,175pt（通常2,887pt）</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：別荘Lv25到達（30日間）<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">高難易度</span> 別荘Lv25は前提施設のLv24揃えに加えて建築許可証が1個必要です。組織ヘルプと加速での圧縮が前提になります。要件の全量は別荘ページにまとめています。</div></div></td></tr><tr><td>監禁所Lv25到達（30日間）</td><td class="pt">6,352pt（通常5,775pt）</td></tr><tr><td>投資センターLv25到達（30日間）</td><td class="pt">12,705pt（通常11,550pt）</td></tr><tr><td>Tier4隊員アンロック（30日間）</td><td class="pt">50,820pt（通常46,200pt）</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：Tier4隊員アンロック（30日間）<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">到達は極めて困難</span> Tier4隊員は投資センターLv25と専用アイテムの大量収集が前提という報告があり、30日以内の到達は支出が報酬を上回る可能性が高く現実的ではありません。</div></div></td></tr><tr><td>Tier4隊員アンロック（60日間）</td><td class="pt">25,410pt（通常23,100pt）</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：Tier4隊員アンロック（60日間）<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">実測なし</span> 60日版のTier4も、律速は専用アイテムの収集量です。60日での到達報告は確認できていません。</div></div></td></tr></table></div><p class="kv">対象外条件：過去にインストール・到達歴がある場合／1人1回限り／クリックから1時間以内に初回起動していない場合／同一端末でのインストール・起動でない場合／通信切断した場合／データ引継ぎ・移行をした場合／同一IP・同一端末で複数の成果が発生した場合／バージョン不一致の場合／追跡不可の場合／公共Wi-Fi・法人端末からの利用／トラッキング未許可の場合／キャリア回線以外からの利用などは対象外（ハピタス各案件ほぼ同文）</p><p class="kv">公式確認日：2026-11-25</p><p class="kv"><a href="https://hapitas.jp/item/detail/itemid/100855/apn/navigation_category" target="_blank" rel="noopener">案件ページを見る（公式）</a></p></div><div class="tabpanel"><p class="kv">報酬：<b>最大55,000pt（全10ステップ合計・Android版／ワラウ・1pt＝1円）</b></p><p class="kv">条件：新規アプリインストール後、StepUpミッションの各達成条件（別荘レベル到達・隊員アンロック等）を各期限内にクリアするStepUp型（Android版・全10ステップ）</p><p class="kv">対象OS：Android（iOS掲載なし）</p><p class="kv">期限：段階ごとに設定（最長30日）。いずれもインストール日から起算。掲載期限の具体的な日付は記載なし（予告なく変更・終了する場合がある旨の注記のみ）</p><p class="kv">付与タイミング：条件達成後、ポイント付与までに最大24時間。各Step達成ごとにポイント通帳へ追加される（通帳記載は起動後最短30分、判定期間は条件達成後24時間以内。表示バッジ：あんしん保証・即日付与）</p><p class="kv"><b>ステップ内訳（全10件）</b></p><div class="tscroll"><table class="steptable"><tr><th>達成条件</th><th class="pt">ポイント</th></tr><tr><td><span class="st-dl">7日以内</span> 別荘Lv.9到達</td><td class="pt">120pt</td></tr><tr><td><span class="st-dl">7日以内</span> Tier2隊員アンロック</td><td class="pt">230pt</td></tr><tr><td><span class="st-dl">7日以内</span> 別荘Lv.17到達</td><td class="pt">600pt</td></tr><tr><td><span class="st-dl">7日以内</span> Tier3隊員アンロック</td><td class="pt">750pt</td></tr><tr><td><span class="st-dl">7日以内</span> 別荘Lv.21到達</td><td class="pt">1,900pt</td></tr><tr><td><span class="st-dl">15日以内</span> 別荘Lv.23到達</td><td class="pt">2,100pt</td></tr><tr><td><span class="st-dl">30日以内</span> 別荘Lv.25到達</td><td class="pt">2,800pt</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：別荘Lv.25到達<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">高難易度</span> 別荘Lv25は前提施設（壁・金庫・訓練センターのLv24）に加えて建築許可証が1個必要です。基礎時間だけでもLv25単体で139日級の原値のため、組織ヘルプと加速での圧縮が前提になります。詳しくは別荘ページの全レベル要件表を確認してください。</div></div></td></tr><tr><td><span class="st-dl">30日以内</span> 監禁所Lv.25到達【高難易度】</td><td class="pt">5,500pt</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：監禁所Lv.25到達【高難易度】<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">高難易度</span> 監禁所Lv25は別荘Lv25が前提の直列工程です。別荘25の後にしか進められないため、加速と資源は別荘分と分けて備蓄してください。</div></div></td></tr><tr><td><span class="st-dl">30日以内</span> 投資センターLv.25到達【高難易度】</td><td class="pt">11,000pt</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：投資センターLv.25到達【高難易度】<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">高難易度</span> 投資センターLv25も別荘Lv25が前提です。Tier4解放の前提にもなる施設で、ここから先は専用アイテムの収集が律速になります。</div></div></td></tr><tr><td><span class="st-dl">30日以内</span> Tier4隊員アンロック【高難易度】</td><td class="pt">30,000pt</td></tr><tr class="step-guide"><td colspan="2"><div class="acc"><button>このSTEPの攻略：Tier4隊員アンロック【高難易度】<span class="pm">＋</span></button><div class="acc-body"><span class="chip bd-warn">到達は極めて困難</span> Tier4隊員は投資センターLv25に加えて、専用アイテム（酒・手錠・足枷）の大量収集と各セクションの投資完了が必要という長期プレイヤー報告があります。30日以内の到達は、支出が報酬を上回る可能性が高く現実的ではありません。</div></div></td></tr></table></div><p class="kv">対象外条件：過去に本アプリをインストールしている／アプリを削除して再インストールしている／同一WiFi・同一IP・同一端末で本アプリをインストールしている／別の端末にデータを引き継いでアプリを利用している場合は新規インストールと認められない。ポイント通帳の判定状態に「判定中」と表示されない場合、広告主が不正や重複した利用と判断した場合も対象外。トラッキング不備（「ポイントを貯める」をタップしてから1時間以内にアプリを起動していない、またはその間に通信環境の変更・他のアプリ起動・サイト閲覧をしている／オフライン・公共WiFiなどで利用している／日本国外のIPで利用している／広告ブロッカーを利用している／端末の「広告ID」を削除またはリセットしている）も対象外</p><p class="kv">公式確認日：2026-11-25</p><p class="kv"><a href="https://www.warau.jp/contents/point/pointEntrance.php?point_id=206954" target="_blank" rel="noopener">案件ページを見る（公式）</a></p></div></div><div class="blk"><div class="hook">最高額はモッピー（iOS）の合計112,906Pです。ただし合計の半分近くは最終ステップのTier4隊員アンロック（30日）が占めていて、このステップは前提条件の重さから到達が極めて困難です。参加前に、この下のサービス別タブでステップ内訳と、確保できるラインを確認してください。</div></div><div class="blk"><p>案件は新規インストールが条件です。ポイントサイトの案件ページを経由せずにストアから直接インストールすると対象外になります。ワラウはAndroid版のみ、ハピタスとモッピーはiOS掲載です。サービスごとの全ステップ表・対象外条件・期限は、このページのサービス別タブに全量をまとめています。</p></div><div class="stats"><div class="stat"><div class="n">3件</div><div class="l">掲載中の案件</div></div><div class="stat"><div class="n">112,906P</div><div class="l">最高額（モッピー・iOS）</div></div><div class="stat"><div class="n">別荘Lv25</div><div class="l">到達ラインの中心（全案件共通）</div></div></div><ul class="finchecks"><li><span class="fc-box" aria-hidden="true"></span><span>自分の端末のOSに合う掲載を選んだか（ワラウ＝Androidのみ／ハピタス・モッピー＝iOS）</span></li><li><span class="fc-box" aria-hidden="true"></span><span>案件ページを経由して新規インストールしたか（過去にインストールしたことがある場合は対象外）</span></li><li><span class="fc-box" aria-hidden="true"></span><span>クリックから1時間以内に初回起動できる状態か（起動するまで他のアプリやサイトを開かない）</span></li><li><span class="fc-box" aria-hidden="true"></span><span>期限はステップごとに7日・15日・30日・60日の区分がある。初日に数時間プレイできる日に開始できるか</span></li><li><span class="fc-box" aria-hidden="true"></span><span>確保するラインを先に決めたか（現実ラインは別荘Lv25まで。Tier4は前提が極めて重い）</span></li><li><span class="fc-box" aria-hidden="true"></span><span>到達したステップは記録（スクリーンショット等）を残したか（付与漏れの問い合わせ用）</span></li></ul></section><section class="sec" id="codes"><div class="sec-head"><h2>交換コード（期間限定）</h2></div><div class="codes"><button type="button" class="codebox" data-copy="THANKFUL26"><span class="cb-code">THANKFUL26</span><span class="cb-meta">2026年11月30日まで有効</span><span class="cb-ui">タップでコピー</span></button></div><p class="note" style="padding:0 12px">入力手順とコードの状況はイベント・コードのページにまとめています。</p></section><section class="sec" id="about"><div class="sec-head"><h2>ゲーム概要</h2></div><p class="lead">マフィアのボスとなって自分だけのファミリーを築き、別荘を育て、隊員を鍛え、英雄を集めて裏社会の頂点を目指すリアルタイムストラテジーです。組織（ファミリー）に加入して市長戦・州長戦などの大規模戦に参加する要素もあります。</p><div class="tscroll"><table class="spec"><tr><th>正式タイトル</th><td>ザ・グランドマフィア（The Grand Mafia）</td></tr><tr><th>運営</th><td>Phantix Games</td></tr><tr><th>対応OS</th><td>iOS/Android</td></tr><tr><th>ジャンル</th><td>リアルタイムストラテジー（マフィア帝国育成）</td></tr><tr><th>進行の単位</th><td>別荘（マンション）のレベル。全施設のレベル上限は別荘レベルで決まる</td></tr><tr><th>ポイ活の到達ライン</th><td>別荘レベル到達＋Tier隊員アンロック＋監禁所・投資センターLv25</td></tr></table></div><figure class="keyart"><img src="img/keyart.webp" alt="ザ・グランドマフィアの公式プロモーション画像（屋上から目標を狙う狙撃手）" width="1052" height="592" fetchpriority="high"></figure><div class="shots"><div class="shotrow"><img src="img/gplay-ja-2.webp" alt="ザ・グランドマフィアの公式プロモーション画像" loading="lazy"><img src="img/gplay-ja-3.webp" alt="ザ・グランドマフィアの公式プロモーション画像" loading="lazy"><img src="img/gplay-ja-4.webp" alt="ザ・グランドマフィアの公式プロモーション画像" loading="lazy"><img src="img/gplay-ja-5.webp" alt="ザ・グランドマフィアの公式プロモーション画像" loading="lazy"></div><p class="note">Google Playの公式ストアページに掲載されているプロモーション画像です。広告イメージと実際のプレイ画面は違う場合があるため、雰囲気をつかむ参考にしてください。</p></div><div class="blk"><p>別荘をレベルアップすると新しい施設や機能が開き、隊員の上限や行軍隊列も増えていきます。案件のステップは、この別荘レベルと、投資センターの研究で解放されるTier隊員が軸になっています。よく似た名前の「マフィア・シティ」は同じ運営の別ゲームなので、攻略情報を探すときは混同に注意してください。</p></div></section><section class="sec" id="meyasu"><div class="sec-head"><h2>到達目安・達成データ</h2></div><p class="lead">到達日数は「課金なら何日・無課金なら何日」と単純には分けられません。課金有無を区別できる到達報告が揃っていないためです。代わりに、掲載側の目安と、確認できている実測の材料をそのまま載せます。</p><div class="tscroll"><table><tr><th>到達ライン</th><th>目安・実測</th><th>材料</th></tr><tr><td>別荘Lv4</td><td>30分</td><td>掲載側の目安（モッピー）</td></tr><tr><td>別荘Lv9</td><td>1時間</td><td>掲載側の目安（モッピー）</td></tr><tr><td>Tier2隊員アンロック</td><td>2時間</td><td>掲載側の目安（モッピー）</td></tr><tr><td>別荘Lv17</td><td>1日</td><td>掲載側の目安（モッピー）</td></tr><tr><td>Tier3隊員アンロック</td><td>3日</td><td>掲載側の目安（モッピー）</td></tr><tr><td>別荘Lv21</td><td>5日</td><td>掲載側の目安（モッピー）</td></tr><tr><td>別荘Lv23</td><td>10日</td><td>掲載側の目安（モッピー）</td></tr><tr><td>別荘Lv25</td><td>15日</td><td>掲載側の目安（モッピー）。実践報告1件のペース（初日Lv10→1日1レベル）とも大枠で整合</td></tr><tr><td>監禁所Lv25</td><td>17日</td><td>掲載側の目安（モッピー）。実践報告による裏付けはなし</td></tr><tr><td>投資センターLv25</td><td>20日</td><td>掲載側の目安（モッピー）。実践報告による裏付けはなし</td></tr><tr><td>Tier4隊員アンロック</td><td>30日／60日の期限設定あり</td><td>到達報告は確認できていません。前提条件が極めて重く、到達は現実的ではありません（Tier隊員ページ参照）</td></tr></table></div><p class="note" style="padding:0 12px">別荘の基礎時間（加速なしの原値）は、Lv21で7日16時間、Lv25では139日9時間に前提施設分を含まない単体で達します。掲載目安は組織ヘルプと加速で大幅に圧縮する前提の数字として読んでください。要件の全量は別荘ページの全レベル表にまとめています。</p><div class="blk"><p>確保する組み立ては「別荘Lv25まで」に置くのが現実的です。合計112,906Pのうち半分近くはTier4（30日）の1ステップに寄っているため、「合計額＝取れる額」ではありません。</p></div></section><section class="sec" id="guide"><div class="sec-head"><h2>効率的な進め方（要約）</h2></div><p class="lead">進め方の骨格は「ガイドミッションに沿って前提施設だけを上げる→組織に入ってヘルプを受ける→投資は経済系から入り、Tier解放は1兵種に絞る→加速は高レベル帯に温存する」の4点です。詳細は各トピックページにまとめています。</p><div class="rows"><a class="row" href="joban.html"><div class="noimg-mini"><span>情報提供待ち</span></div><div><div class="rtitle">序盤の進め方</div><div class="rsum">ガイドミッションが最短ルート。組織加入と投資の優先順位</div></div></a><a class="row" href="mansion.html"><div class="noimg-mini"><span>情報提供待ち</span></div><div><div class="rtitle">別荘Lvの上げ方・全レベル要件表</div><div class="rsum">Lv2〜25の前提施設と基礎時間の全量表</div></div></a><a class="row" href="tier.html"><div class="noimg-mini"><span>情報提供待ち</span></div><div><div class="rtitle">Tier隊員の解放</div><div class="rsum">兵種別の投資名と、1兵種直進が最短になる理由</div></div></a><a class="row" href="facilities25.html"><div class="noimg-mini"><span>情報提供待ち</span></div><div><div class="rtitle">監禁所・投資センターLv25</div><div class="rsum">別荘25が前提の直列工程と、Tier4の現実性</div></div></a><a class="row" href="kakin.html"><div class="noimg-mini"><span>情報提供待ち</span></div><div><div class="rtitle">課金判断と現実的プラン</div><div class="rsum">確保ラインの置き方と、Tier4追いが割に合わない理由</div></div></a></div><div class="flow"><div class="fbox">ガイドミッション<small>指定施設だけ上げる</small></div><span class="farr">→</span><div class="fbox">組織に加入<small>ヘルプで時間を圧縮</small></div><span class="farr">→</span><div class="fbox">前提をピンポイント<small>資源の偏りを防ぐ</small></div><span class="farr">→</span><div class="fbox">Tierは1兵種直進<small>投資を分散しない</small></div><span class="farr">→</span><div class="fbox">加速は終盤に温存<small>Lv20超の前提で使う</small></div></div><div class="blk"><p>最大の停滞要因は「前提でない施設を満遍なく上げて資源が枯渇する」ことと、「別荘だけ先行させて投資センターが追いつかない」ことです。別荘の前提表を見ながら、必要な施設だけを先行させるのが全ての情報源で一致する型です。</p></div><div class="cta"><p class="cta-catch">前提施設と基礎時間の全量はこちら</p><a class="cta-btn" href="mansion.html"><span class="cta-label">別荘の全レベル要件表を見る</span><span class="arr">›</span></a><p class="cta-sub">Lv2〜25の前提・基礎時間・現金を一覧化</p></div></section><section class="sec" id="topics"><div class="sec-head"><h2>攻略トピック</h2></div><div class="blk"><p>各トピックは個別ページに分けています。別荘の前提と時間は「別荘Lv・要件表」、Tier解放の投資名は「Tier隊員の解放」、Sグレード英雄が条件の案件については「Sグレード英雄ルート」にまとめています。</p></div></section><section class="sec" id="facilities_shelf"><div class="sec-head"><h2>案件に直結する施設・要素</h2></div><p class="lead">ステップ条件に直接関わる施設と要素です。各項目から個別ページへ進めます。</p><div class="icongrid cols4"><a class="ig-item" href="mansion.html"><img src="img/facilities/mansion.webp" alt="別荘" width="144" height="144"><div class="ig-label">別荘</div><div class="ig-sub">全施設の上限を決める</div></a><a class="ig-item" href="tier.html"><img src="img/facilities/investment-center.webp" alt="投資センター" width="144" height="144"><div class="ig-label">投資センター</div><div class="ig-sub">Tier解放と経済研究</div></a><a class="ig-item" href="tier.html"><img src="img/facilities/training-center.webp" alt="訓練センター" width="144" height="144"><div class="ig-label">訓練センター</div><div class="ig-sub">解放した隊員の訓練</div></a><a class="ig-item" href="facilities25.html"><img src="img/facilities/prison.webp" alt="監禁所" width="144" height="144"><div class="ig-label">監禁所</div><div class="ig-sub">Lv25ステップの対象</div></a><a class="ig-item" href="joban.html"><div class="ig-noimg"><span>画像は<br>情報提供<br>待ちです</span></div><div class="ig-label">組織（ファミリー）</div><div class="ig-sub">ヘルプで時間短縮</div></a><a class="ig-item" href="sgrade.html"><div class="ig-noimg"><span>画像は<br>情報提供<br>待ちです</span></div><div class="ig-label">英雄・欠片</div><div class="ig-sub">Sグレード化の対象</div></a><a class="ig-item" href="events.html"><div class="ig-noimg"><span>画像は<br>情報提供<br>待ちです</span></div><div class="ig-label">ヘルイベント</div><div class="ig-sub">加速・資源の供給源</div></a><a class="ig-item" href="events.html"><div class="ig-noimg"><span>画像は<br>情報提供<br>待ちです</span></div><div class="ig-label">交換コード</div><div class="ig-sub">THANKFUL26（11月30日まで）</div></a></div><div class="b-card"><p class="b-ttl">📮 画像が無い項目があります</p><p class="b-txt">一部の項目は画像を収集中です。お持ちの画像がありましたら、情報提供ページからお寄せください。</p><a class="b-btn" href="contribute.html">画像を提供する</a></div></section><section class="sec" id="history"><div class="sec-head"><h2>条件の変更履歴・確認記録</h2></div><div class="tscroll"><table class="hist"><tr><td class="hd">2026年11月25日</td><td>ワラウ（Android）・ハピタス（iOS）・モッピー（iOS）の案件条件を公式ページで確認し掲載</td></tr><tr><td class="hd">2026年11月26日</td><td>攻略情報を複数系統で再照合し、別荘の全レベル要件表（Lv22〜25を含む）・Tier解放・Sグレード等の個別ページ群を新設</td></tr><tr><td class="hd">2026年11月27日</td><td>英雄の肖像を全40名分に拡充し、施設の外観画像（前提施設・投資センター・監禁所）を追加</td></tr></table></div></section><section class="sec" id="newsletter"><div class="sec-head"><h2>ニュースレターで新着を受け取る</h2></div><div class="nl"><p>新しいゲーム案件と条件変更を、週1回まとめて受け取る<br><strong>Muse通信（無料ニュースレター）</strong></p><a href="https://mea-poikatsu.github.io/mea-poikatsu-media/">登録ページへ</a></div><div class="cta"><p class="cta-catch">＼ 公式認定サイト限定！初回特典 最大<span class="cta-bonus">7,000円</span> GET ／</p><a class="cta-btn" data-svc-cta href="https://pc.moppy.jp/" target="_blank" rel="noopener"><span class="cta-label">登録無料！「<span class="cta-svc">モッピー</span>」招待URLはコチラ！</span><span class="arr">›</span></a><p class="cta-sub">「<span class="cta-svc">モッピー</span>」を経由後、プレイして<b class="cta-amt">合計112,906P</b>ゲット！</p></div></section><section class="sec" id="scenes"><div class="sec-head"><h2>公式ビジュアル</h2></div><div class="bannergrid"><a href="joban.html"><img src="img/gplay-ja-1.webp" alt="ザ・グランドマフィアの公式プロモーション画像（狙撃手）" loading="lazy"><span class="bcap">序盤の進め方</span></a><a href="tier.html"><img src="img/gplay-ja-3.webp" alt="ザ・グランドマフィアの公式プロモーション画像（戦闘）" loading="lazy"><span class="bcap">Tier隊員の解放</span></a><a href="events.html"><img src="img/gplay-ja-5.webp" alt="ザ・グランドマフィアの公式プロモーション画像" loading="lazy"><span class="bcap">イベント・コード</span></a></div></section>
+<section class="sec nextzone"><div class="sec-head"><h2>関連ページ</h2></div><ul class="rel"><li><a href="joban.html">序盤の進め方</a></li><li><a href="mansion.html">別荘Lvの上げ方・全レベル要件表</a></li><li><a href="tier.html">Tier隊員の解放</a></li><li><a href="facilities25.html">監禁所・投資センターLv25</a></li><li><a href="sgrade.html">Sグレード英雄ルート</a></li><li><a href="events.html">イベント・交換コード</a></li><li><a href="kakin.html">課金判断と現実的プラン</a></li><li><a href="conditions.html">案件条件の詳細</a></li><li><a href="faq.html">FAQ・つまずき</a></li><li><a href="faq-tier4.html">Tier4には30日で到達できますか？</a></li></ul></section><section class="sec nz-menu"><div class="sec-head"><h2>攻略メニュー</h2></div><ul class="rel"><li><a href="joban.html">序盤の進め方</a></li><li><a href="mansion.html">別荘Lvの上げ方・全レベル要件表</a></li><li><a href="tier.html">Tier隊員の解放</a></li><li><a href="facilities25.html">監禁所・投資センターLv25</a></li><li><a href="sgrade.html">Sグレード英雄ルート</a></li><li><a href="events.html">イベント・交換コード</a></li><li><a href="kakin.html">課金判断と現実的プラン</a></li><li><a href="conditions.html">案件条件の詳細</a></li><li><a href="faq.html">FAQ・つまずき</a></li></ul></section><section class="sec"><div class="sec-head"><h2>次にチェックしたい案件</h2></div><a class="nz-camp" href="https://mea-poikatsu.github.io/mea-game-poikatsu/"><span class="nz-game">天地英雄伝</span><span class="nz-main"><span class="svc-badge sb-moppy">モッピー</span> 合計380,497P</span><span class="nz-sub">別のポイ活案件をチェック（金額は増量中の額）</span></a><a class="nz-camp" href="https://mea-poikatsu.github.io/mea-game-poikatsu/"><span class="nz-game">Bingo Blitz</span><span class="nz-main"><span class="svc-badge sb-freecash">Freecash</span> 合計¥338,847</span><span class="nz-sub">別のポイ活案件をチェック</span></a><a class="nz-camp" href="https://mea-poikatsu.github.io/mea-game-poikatsu/"><span class="nz-game">キングショット</span><span class="nz-main"><span class="svc-badge sb-freecash">Freecash</span> 合計¥215,469</span><span class="nz-sub">別のポイ活案件をチェック</span></a></section>
+<section class="xmedia-cards" aria-label="関連サイト">
+  <h2>あわせて使える運営サイト</h2>
+  <a class="xmedia-card" href="https://mea-poikatsu.github.io/mea-ranking/" data-cross-media="s03" data-ref-placement="game_end">
+    <span class="xmedia-card-name">ポイランク</span>
+    <span class="xmedia-card-desc">他のゲーム案件も含めて、ポイントが高い順に見る</span>
+  </a>
+  <a class="xmedia-card" href="https://mea-poikatsu.github.io/mea-code-search/" data-cross-media="s04" data-ref-placement="game_end">
+    <span class="xmedia-card-name">コードサーチ</span>
+    <span class="xmedia-card-desc">参加するサービスの招待コードと特典を確認する</span>
+  </a>
+  <a class="xmedia-card" href="https://mea-poikatsu.github.io/mea-kantan-guide/" data-cross-media="s06" data-ref-placement="game_end">
+    <span class="xmedia-card-name">ポイ活のトリセツ</span>
+    <span class="xmedia-card-desc">ポイ活が初めての人は、始め方のガイドから</span>
+  </a>
+</section>
+<footer class="footer">
+  <div class="flinks"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ポイントが高い順</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">案件条件の見方</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/editorial-policy/">編集方針</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/about/">このサイトについて</a></div>
+  <div class="xmedia">
+  <h3 class="xmedia-h">運営メディア</h3>
+  <ul class="xmedia-list">
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-media/" data-cross-media="s01" data-ref-placement="footer">ポイ活ポータル（全体の入口）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-ranking/" data-cross-media="s03" data-ref-placement="footer">ポイランク（案件をポイント順に比べる）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-code-search/" data-cross-media="s04" data-ref-placement="footer">コードサーチ（招待コードをサービス名で探す）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-code-matome/" data-cross-media="s08" data-ref-placement="footer">招待コード図鑑（コードの一覧）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-kantan-guide/" data-cross-media="s06" data-ref-placement="footer">ポイ活のトリセツ（始め方ガイド）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-blog/" data-cross-media="s02" data-ref-placement="footer">ポイ活レビュー帖（体験レビュー）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-magazine/" data-cross-media="s05" data-ref-placement="footer">ポイレーダー（新着・特集）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-keijiban/" data-cross-media="s09" data-ref-placement="footer">ポイ活ひろば（掲示板）</a></li>
+  </ul>
+  <div class="xmedia-sns">
+    <a href="https://x.com/pppppuririn" data-cross-media="x" data-ref-placement="footer_sns">X（@pppppuririn）</a>
+    <a href="https://www.instagram.com/mea.poikatsu/" data-cross-media="instagram" data-ref-placement="footer_sns">Instagram（@mea.poikatsu）</a>
+    <a href="https://note.com/k_n702" data-cross-media="note" data-ref-placement="footer_sns">note</a>
+  </div>
+</div>
+  <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
+  <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
+</footer>
+</div>
+<div class="sticky-cta" id="stickyCta"><a class="sticky-cta-bar" id="stickyCtaBar" href="https://pc.moppy.jp/" target="_blank" rel="noopener"><span class="sticky-cta-bubble">＼ 今すぐ『<span class="sticky-svc">モッピー</span>』経由で ／</span><span class="sparkle s1">✦</span><span class="sparkle s2">✦</span><span class="sparkle s3">✦</span><span class="sparkle s4">✦</span><span class="sticky-cta-text"><span class="sticky-amt">合計112,906P</span> GET</span><span class="sticky-cta-arrow">›</span></a></div>
+<script>
+document.querySelectorAll('.acc>button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var acc=b.parentElement,open=acc.classList.toggle('open');
+    b.querySelector('.pm').textContent=open?'－':'＋';
+  });
+});
+document.querySelectorAll('.tocbtn').forEach(function(b){
+  b.addEventListener('click',function(){
+    var n=b.nextElementSibling,c=n.classList.toggle('toc-closed');
+    b.setAttribute('aria-expanded',String(!c));
+    b.childNodes[0].textContent=c?'目次を開く':'目次を閉じる';
+    b.querySelector('.pm').textContent=c?'＋':'－';
+  });
+});
+
+document.addEventListener('click', function (ev) {
+  var t = ev.target;
+  var a = t && t.closest ? t.closest('a[data-cross-media]') : null;
+  if (!a) return;
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'cross_media_click', {
+      media: a.getAttribute('data-cross-media') || '',
+      placement: a.getAttribute('data-ref-placement') || '',
+      site_id: 's07'
+    });
+  }
+});
+
+document.querySelectorAll('.tabs[data-svctabs]').forEach(function(t){
+  var wrap=t.parentElement;
+  var panels=wrap.querySelectorAll('.tabpanel');
+  function applySvc(i){
+    t.querySelectorAll('button').forEach(function(b,j){b.classList.toggle('on',j===i);});
+    panels.forEach(function(p,j){p.classList.toggle('on',j===i);});
+    var d=wrap.getAttribute('data-svc-'+i);
+    if(!d)return;
+    var parts=d.split('|'),url=parts[0],label=parts[1],amt=parts[2];
+    document.querySelectorAll('[data-svc-cta]').forEach(function(a){
+      a.setAttribute('href',url);
+      var l=a.querySelector('.cta-svc');if(l)l.textContent=label;
+      var m=a.querySelector('.cta-amt');if(m)m.textContent=amt;
+      // 型L（PARTS_SPEC §9）：ボタンと同じ .cta ブロック内のサブ文と
+      // キャッチも一括で切り替える（パズサバ完璧版の applySvc と同じ範囲）
+      var block=a.closest('.cta');
+      if(block){
+        var s2=block.querySelector('.cta-sub .cta-svc');if(s2)s2.textContent=label;
+        var m3=block.querySelector('.cta-sub .cta-amt');if(m3)m3.textContent=amt;
+        var c=block.querySelector('.cta-catch'),bonus=parts[3]||'',kind=parts[4]||'';
+        if(c&&kind==='fc'){c.innerHTML='＼ 招待コード入力後の初回DLで<span class="cta-bonus">'+bonus+'</span> GET ／';}
+        else if(c&&kind==='std'){c.innerHTML='＼ 公式認定サイト限定！初回特典 最大<span class="cta-bonus">'+bonus+'</span> GET ／';}
+      }
+    });
+    var bar=document.getElementById('stickyCtaBar');
+    if(bar){bar.setAttribute('href',url);
+      var s=bar.querySelector('.sticky-svc');if(s)s.textContent=label;
+      var m2=bar.querySelector('.sticky-amt');if(m2)m2.textContent=amt;}
+  }
+  t.querySelectorAll('button').forEach(function(b,i){
+    b.addEventListener('click',function(){applySvc(i);});
+  });
+});
+document.querySelectorAll('.codebox').forEach(function(b){
+  b.addEventListener('click',function(){
+    var code=b.getAttribute('data-copy');if(!code)return;
+    function done(){var ui=b.querySelector('.cb-ui');if(!ui)return;
+      var orig=ui.textContent;ui.textContent='コピーしました ✓';b.classList.add('copied');
+      setTimeout(function(){ui.textContent=orig;b.classList.remove('copied');},1800);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(code).then(done).catch(done);
+    }else{done();}
+  });
+});
+(function(){
+  var c=document.getElementById('stickyCta');if(!c)return;
+  function upd(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    var r=max>0?(h.scrollTop||document.body.scrollTop)/max:0;
+    c.classList.toggle('alt',r>=0.5);
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);upd();
+})();
+</script>
+<script>(function(){var host=document.querySelector('.header-icons');if(!host)return;var cur=document.documentElement.getAttribute('data-theme')||'light';var d=document.createElement('div');d.className='theme-toggle';d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','表示テーマを切り替える');function draw(){d.innerHTML='<span class="ic">'+(cur==='dark'?'☀️':'🌙')+'</span>テーマ';}function flip(){cur=(cur==='dark')?'light':'dark';document.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('poigame-theme',cur);}catch(e){}draw();}draw();d.addEventListener('click',flip);d.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip();}});host.appendChild(d);})();</script>
+<!-- sticky-menu --><style>
+.sticky-menu{position:fixed;top:0;left:0;right:0;z-index:80;transform:translateY(-110%);transition:transform .25s ease}
+.sticky-menu.on{transform:translateY(0)}
+.sticky-menu .sm-bar{height:44px;display:flex;align-items:center;gap:8px;padding:0 10px;background:rgba(255,255,255,.97);border-bottom:1px solid #d7e1ec;box-shadow:0 2px 8px rgba(23,43,73,.12)}
+.sticky-menu .sm-bar img{width:26px;height:26px;border-radius:6px}
+.sticky-menu .sm-name{font-size:13px;font-weight:800;color:#172B49;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky-menu .sm-btn{margin-left:auto;padding:7px 14px;border:1px solid #33608c;border-radius:999px;background:#33608c;color:#fff;font-size:12.5px;font-weight:800;cursor:pointer;white-space:nowrap;font-family:inherit}
+.sticky-menu .sm-panel{display:none;background:#fff;border-bottom:1px solid #d7e1ec;box-shadow:0 12px 20px rgba(23,43,73,.18);padding:4px 0 12px}
+.sticky-menu.open .sm-panel{display:block}
+.sticky-menu .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.sticky-menu .menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.sticky-menu .menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.sticky-menu .menu a.hot{border-color:#e08a7d;background:#fdf0ec;color:#9c2418}
+.sticky-menu .menu a.now{position:relative;border-color:#33608c;background:#EAF2FC;color:#1B5FC1}
+.sticky-menu .menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#33608c}
+html[data-theme="dark"] .sticky-menu .sm-bar{background:rgba(29,26,23,.97);border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .sm-name{color:#f2ede8}
+html[data-theme="dark"] .sticky-menu .sm-panel{background:#241f1b;border-bottom-color:#453b32}
+html[data-theme="dark"] .sticky-menu .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .sticky-menu .menu a.hot{background:#33201b;border-color:#e0584d;color:#f0a294}
+html[data-theme="dark"] .sticky-menu .menu a.now{background:#EAF2FC;border-color:#33608c;color:#1B5FC1}
+header.header{transition:transform .25s ease}
+html.sm-on header.header{transform:translateY(-100%)}
+</style><div class="sticky-menu" id="stickyMenu"><div class="sm-bar"><img src="img/app-icon.webp" alt=""><span class="sm-name">ザ・グランドマフィア 攻略</span><button type="button" class="sm-btn" id="stickyMenuBtn" aria-expanded="false">攻略メニュー ▼</button></div><div class="sm-panel"><!-- section-links --><style>.sm-toc{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 2px;align-items:center}.sm-toc .sm-toc-h{font-size:11px;font-weight:800;color:#6e6e6e;margin-right:2px}.sm-toc a{font-size:12px;font-weight:700;color:#466b84;background:#eaf2fc;border-radius:999px;padding:5px 11px;text-decoration:none}.sm-toc a.on{background:#3977b8;color:#fff;box-shadow:inset 0 0 0 1px #1B5FC1}html[data-theme="dark"] .sm-toc a{background:#33302a;color:#cfc8c0}html[data-theme="dark"] .sm-toc a.on{background:#3977b8;color:#fff}html[data-theme="dark"] .sm-toc .sm-toc-h{color:#9a9186}</style><div class="sm-toc"><span class="sm-toc-h">このページ内</span><a href="#campaign">ポイ活案件</a><a href="#about">ゲーム概要</a><a href="#meyasu">到達目安・達成データ</a><a href="#guide">効率的な進め方</a><a href="#topics">攻略トピック</a><a href="#facilities_shelf">案件に直結する施設・要素</a><a href="#history">確認記録</a><a href="#newsletter">ニュースレター</a><a href="#scenes">公式ビジュアル</a></div><script>(function(){
+document.querySelectorAll(".sm-toc a").forEach(function(a){
+  a.addEventListener("click",function(){var bar=document.getElementById("stickyMenu");
+    if(bar){bar.classList.remove("open");var btn=document.getElementById("stickyMenuBtn");
+    if(btn){btn.textContent="攻略メニュー ▼";btn.setAttribute("aria-expanded","false");}}});
+});
+var secs=['campaign','about','meyasu','guide','topics','facilities_shelf','history','newsletter','scenes'];
+var links=[];
+document.addEventListener('DOMContentLoaded',function(){links=Array.prototype.slice.call(document.querySelectorAll('.sm-toc a'));});
+function spy(){
+  if(!links.length)links=Array.prototype.slice.call(document.querySelectorAll('.sm-toc a'));
+  var cur=null;
+  for(var i=0;i<secs.length;i++){var e=document.getElementById(secs[i]);if(e&&e.getBoundingClientRect().top+window.scrollY<=window.scrollY+180)cur='#'+secs[i];}
+  links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')===cur);});
+}
+window.addEventListener('scroll',spy,{passive:true});
+document.addEventListener('DOMContentLoaded',spy);
+})();</script><!-- /section-links --><div class="menu"><a href="index.html#campaign" class="hot"><span class="mi">🎁</span>ポイ活案件</a><a href="joban.html"><span class="mi">🌱</span>序盤の進め方</a><a href="mansion.html"><span class="mi">🏠</span>別荘Lv・要件表</a><a href="tier.html"><span class="mi">🎖️</span>Tier隊員の解放</a><a href="facilities25.html"><span class="mi">🏛️</span>監禁所・投資Lv25</a><a href="sgrade.html"><span class="mi">⭐</span>Sグレード英雄</a><a href="events.html"><span class="mi">🎪</span>イベント・コード</a><a href="kakin.html"><span class="mi">💳</span>課金判断</a><a href="conditions.html"><span class="mi">📋</span>案件条件の詳細</a><a href="faq.html"><span class="mi">❓</span>FAQ・つまずき</a><a href="board.html"><span class="mi">💬</span>掲示板</a><a href="contribute.html"><span class="mi">📮</span>情報提供</a></div></div></div><script>(function(){
+var bar=document.getElementById('stickyMenu'),btn=document.getElementById('stickyMenuBtn'),root=document.documentElement;
+var anchor=document.querySelector('.topmenu-a');
+var threshold=anchor?anchor.getBoundingClientRect().bottom+window.scrollY:600;
+var lastY=window.scrollY,open=false;
+function show(v){bar.classList.toggle('on',v);root.classList.toggle('sm-on',v);}
+window.addEventListener('scroll',function(){
+  var y=window.scrollY;
+  if(open){show(true);}
+  else if(y<=threshold){show(false);}
+  else if(y<lastY){show(true);}
+  else if(y>lastY){show(false);}
+  lastY=y;
+},{passive:true});
+btn.addEventListener('click',function(){
+  open=bar.classList.toggle('open');
+  btn.textContent=open?'閉じる ▲':'攻略メニュー ▼';
+  btn.setAttribute('aria-expanded',String(open));
+  if(open)show(true);
+});
+document.addEventListener('click',function(e){
+  if(open&&!bar.contains(e.target)){open=false;bar.classList.remove('open');btn.textContent='攻略メニュー ▼';btn.setAttribute('aria-expanded','false');}
+});
+})();</script><!-- /sticky-menu -->
+</body></html>
