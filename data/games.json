@@ -388,7 +388,7 @@
   "eligibility_evidence": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=209456",
   "first_checked_at": "2026-11-25",
   "last_checked_at": "2026-11-27",
-  "publication_status": "下書き",
+  "publication_status": "公開",
   "slug": "arrow-odyssey-escape-puzzle",
   "wiki_summary": "矢印を正しい順序でタップして盤面から脱出させるロジックパズル。ワラウではAndroid向けStepUp（最大19,110pt・全16ステップ）が公式ページで確認されている。レベルクリア型で、Lv.10000・Lv.20000の高難易度ステップにポイントが集中している。",
   "info_rank": "C",
