@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>メメントモリ ランク上げの効率へ移動しました｜ポイゲークエスト</title>
+<meta name="description" content="メメントモリのランク到達ガイドは「ランク上げの効率」のページへ移動しました。自動で転送されます。">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/memento-mori/rank.html">
+<meta http-equiv="refresh" content="0; url=https://mea-poikatsu.github.io/mea-game-poikatsu/games/memento-mori/rank.html">
+<script>location.replace("https://mea-poikatsu.github.io/mea-game-poikatsu/games/memento-mori/rank.html");</script>
+</head><body>
+<main><h1>ページが移動しました</h1>
+<p>このページは <a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/memento-mori/rank.html">メメントモリ ランク上げの効率</a> へ移動しました。</p></main>
+</body></html>
