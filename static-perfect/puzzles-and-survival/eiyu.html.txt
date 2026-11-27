@@ -397,6 +397,22 @@ html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="da
 <a href="eiyu-yakuwari.html"><span class="lm"><span class="tt">役割別・機能別</span><span class="ds">内政と軍事の違い・資源削減の対応表・採集・生産・治療などの機能別早見表</span></span><span class="arw">›</span></a>
 </nav>
 </div>
+<!-- hub-heroes --><div class="card"><h4>注目の英雄（個別ページへ直接）</h4>
+<p class="kv">一覧を経由せず、各英雄の個別ページへ直接進めます。名前・兵種・スキルで絞り込んで探す場合は<a href="hero-search.html" style="color:#466b84;font-weight:700;text-decoration:underline">英雄検索</a>が専用ツールです。</p>
+<style>.hub-heroes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 4px}.hub-heroes a{display:block;text-align:center;border:1px solid #e3e3e3;border-radius:8px;padding:7px 2px 6px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04);text-decoration:none}.hub-heroes img{width:48px;height:48px;border-radius:10px;object-fit:cover;margin:0 auto}.hub-heroes .hn{display:block;font-size:10.5px;font-weight:700;color:#466b84;margin-top:4px;line-height:1.3}.hub-heroes .hm{display:block;font-size:9.5px;color:#999;margin-top:1px}html[data-theme="dark"] .hub-heroes a{background:#241f1b;border-color:#453b32}html[data-theme="dark"] .hub-heroes .hn{color:#8fb0c7}html[data-theme="dark"] .hub-heroes .hm{color:#9a9186}</style>
+<div class="hub-heroes">
+<a href="hero-elwin.html"><img src="img/hero-elwin.webp" alt="エルウィンの顔アイコン" loading="lazy"><span class="hn">エルウィン</span><span class="hm">★3・内政</span></a>
+<a href="hero-nimora.html"><img src="img/hero-nimora.webp" alt="ニモラの顔アイコン" loading="lazy"><span class="hn">ニモラ</span><span class="hm">★4・シューター</span></a>
+<a href="hero-zelus.html"><img src="img/hero-zelus.webp" alt="ゼルスの顔アイコン" loading="lazy"><span class="hn">ゼルス</span><span class="hm">★3・ライダー</span></a>
+<a href="hero-ephraim.html"><img src="img/hero-ephraim.webp" alt="オーストンの顔アイコン" loading="lazy"><span class="hn">オーストン</span><span class="hm">★5・シューター</span></a>
+<a href="hero-chiyo-momiji.html"><img src="img/hero-chiyo-momiji.webp" alt="千代紅葉の顔アイコン" loading="lazy"><span class="hn">千代紅葉</span><span class="hm">★6・シューター</span></a>
+<a href="hero-mr-crosshair.html"><img src="img/hero-mr-crosshair.webp" alt="ナイトハンターの顔アイコン" loading="lazy"><span class="hn">ナイトハンター</span><span class="hm">★6・シューター</span></a>
+<a href="hero-leon-s-kennedy.html"><img src="img/hero-leon-s-kennedy.webp" alt="レオン・S・ケネディの顔アイコン" loading="lazy"><span class="hn">レオン・S・ケネディ</span><span class="hm">★6・内政</span></a>
+<a href="hero-ada-wong.html"><img src="img/hero-ada-wong.webp" alt="エイダ・ウォンの顔アイコン" loading="lazy"><span class="hn">エイダ・ウォン</span><span class="hm">★6・内政</span></a>
+</div>
+<div class="sub">属性から探す（一覧の属性別セクションへ）</div>
+<div class="quicklinks-a" style="padding:2px 0 0"><a href="eiyu-list.html#type-yukan">勇敢（緑）</a><a href="eiyu-list.html#type-shodo">衝動（赤）</a><a href="eiyu-list.html#type-reisei">冷静（青）</a><a href="eiyu-list.html#type-shincho">慎重（黄）</a><a href="eiyu-list.html#type-kyoran">狂乱（紫）</a></div>
+</div><!-- /hub-heroes -->
 <div class="card"><h4 id="b1-2">属性と編成の基本</h4>
 <figure class="fig"><img src="img/gamein-skill.webp" alt="マッチ3パズルと英雄スキルの画面（公式サイト素材）" loading="lazy"><figcaption class="fcap">英雄スキルを使うパズル戦闘の画面イメージ</figcaption></figure>
 <ul>
