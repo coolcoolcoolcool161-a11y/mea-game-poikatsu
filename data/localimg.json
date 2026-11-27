@@ -1,0 +1,134 @@
+{
+ "g001": {
+  "icon": "/img/icon-puzzles-and-survival.webp",
+  "art": "/img/art-puzzles-and-survival.webp"
+ },
+ "g002": {
+  "icon": "/img/icon-royal-match.webp",
+  "art": "/img/art-royal-match.webp"
+ },
+ "g004": {
+  "icon": "/img/icon-kingshot.webp",
+  "art": "/img/art-kingshot.webp"
+ },
+ "g005": {
+  "icon": "/img/icon-memento-mori.webp",
+  "art": "/img/art-memento-mori.webp"
+ },
+ "g006": {
+  "icon": "/img/icon-last-asylum-plague.webp",
+  "art": "/img/art-last-asylum-plague.webp"
+ },
+ "g007": {
+  "icon": "/img/icon-monopoly-go.webp",
+  "art": "/img/art-monopoly-go.webp"
+ },
+ "g008": {
+  "icon": "/img/icon-the-grand-mafia.webp",
+  "art": "/img/art-the-grand-mafia.webp"
+ },
+ "g009": {
+  "icon": "/img/icon-wild-survival.webp",
+  "art": "/img/art-wild-survival.webp"
+ },
+ "g010": {
+  "icon": "/img/icon-puzzles-and-conquest.webp",
+  "art": "/img/art-puzzles-and-conquest.webp"
+ },
+ "g011": {
+  "icon": "/img/icon-bingo-blitz.webp",
+  "art": "/img/art-bingo-blitz.webp"
+ },
+ "g012": {
+  "icon": "/img/icon-township.webp",
+  "art": "/img/art-township.webp"
+ },
+ "g013": {
+  "icon": "/img/icon-mafia-city.webp",
+  "art": "/img/art-mafia-city.webp"
+ },
+ "g016": {
+  "icon": "/img/icon-puzzles-and-chaos.webp",
+  "art": "/img/art-puzzles-and-chaos.webp"
+ },
+ "g017": {
+  "icon": "/img/icon-doomsday-last-survivors.webp",
+  "art": "/img/art-doomsday-last-survivors.webp"
+ },
+ "g018": {
+  "icon": "/img/icon-kinoko-densetsu.webp",
+  "art": "/img/art-kinoko-densetsu.webp"
+ },
+ "g019": {
+  "icon": "/img/icon-shukka-buta.webp",
+  "art": "/img/art-shukka-buta.webp"
+ },
+ "g020": {
+  "icon": "/img/icon-viking-rise.webp",
+  "art": "/img/art-viking-rise.webp"
+ },
+ "g021": {
+  "icon": "/img/icon-hero-wars-alliance.webp",
+  "art": "/img/art-hero-wars-alliance.webp"
+ },
+ "g024": {
+  "icon": "/img/icon-top-war.webp",
+  "art": "/img/art-top-war.webp"
+ },
+ "g026": {
+  "icon": "/img/icon-slot-mate.webp",
+  "art": "/img/art-slot-mate.webp"
+ },
+ "g029": {
+  "icon": "/img/icon-disney-solitaire.webp",
+  "art": "/img/art-disney-solitaire.webp"
+ },
+ "g030": {
+  "icon": "/img/icon-blade-war-three-kingdoms.webp",
+  "art": "/img/art-blade-war-three-kingdoms.webp"
+ },
+ "g031": {
+  "icon": "/img/icon-zombie-panic.webp",
+  "art": "/img/art-zombie-panic.webp"
+ },
+ "g032": {
+  "icon": "/img/icon-war-of-towers.webp",
+  "art": "/img/art-war-of-towers.webp"
+ },
+ "g033": {
+  "icon": "/img/icon-shonin-horoki.webp",
+  "art": "/img/art-shonin-horoki.webp"
+ },
+ "g034": {
+  "icon": "/img/icon-merge-cooking.webp",
+  "art": "/img/art-merge-cooking.webp"
+ },
+ "g036": {
+  "icon": "/img/icon-western-farm-klondike.webp",
+  "art": "/img/art-western-farm-klondike.webp"
+ },
+ "g037": {
+  "icon": "/img/icon-tenchi-eiyuden.webp",
+  "art": "/img/art-tenchi-eiyuden.webp"
+ },
+ "g038": {
+  "icon": "/img/icon-rock-n-cash-casino.webp",
+  "art": "/img/art-rock-n-cash-casino.webp"
+ },
+ "g043": {
+  "icon": "/img/icon-gourmet-journey.webp",
+  "art": "/img/art-gourmet-journey.webp"
+ },
+ "g045": {
+  "icon": "/img/icon-color-link.webp",
+  "art": "/img/art-color-link.webp"
+ },
+ "g046": {
+  "icon": "/img/icon-whiteout-survival.webp",
+  "art": "/img/art-whiteout-survival.webp"
+ },
+ "g047": {
+  "icon": "/img/icon-the-ants.webp",
+  "art": "/img/art-the-ants.webp"
+ }
+}

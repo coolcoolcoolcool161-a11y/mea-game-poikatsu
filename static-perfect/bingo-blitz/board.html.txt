@@ -553,7 +553,7 @@ html[data-theme="dark"] .thumb button{background:#2a2019;color:#e8e2dc;border-co
   <nav class="gnav"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">人気ゲーム</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">新着・更新</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ランキング</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">攻略メニュー</a></nav>
 </header>
 <nav class="breadcrumb" aria-label="パンくず"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> &gt; <a href="index.html">ゲーム攻略</a> &gt; <a href="index.html">Bingo Blitz</a> &gt; 掲示板</nav>
-<div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt=""><div><h1>ビンゴブリッツ掲示板</h1>
+<div class="ghead"><img src="/mea-game-poikatsu/img/icon-bingo-blitz.webp" alt=""><div><h1>ビンゴブリッツ掲示板</h1>
 <div class="gmeta">Bingo Blitz（Playtika Santa Monica）／iOS/Android</div>
 <div class="gmax">ポイ活案件 最大338,847円（Freecash・iOS版）</div></div></div>
 <div class="dates"><span>更新日：<b>2026年11月26日</b></span></div>
