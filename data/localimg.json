@@ -1,134 +1,200 @@
 {
  "g001": {
   "icon": "/img/icon-puzzles-and-survival.webp",
-  "art": "/img/art-puzzles-and-survival.webp"
+  "art": "/img/art-puzzles-and-survival.webp",
+  "icon_sha": "cb38f323b487",
+  "art_sha": "6320afd3afc0"
  },
  "g002": {
   "icon": "/img/icon-royal-match.webp",
-  "art": "/img/art-royal-match.webp"
+  "art": "/img/art-royal-match.webp",
+  "icon_sha": "4f4715bebd9e",
+  "art_sha": "1fa1845ed826"
  },
  "g004": {
   "icon": "/img/icon-kingshot.webp",
-  "art": "/img/art-kingshot.webp"
+  "art": "/img/art-kingshot.webp",
+  "icon_sha": "8d859ab73035",
+  "art_sha": "821d7a01110c"
  },
  "g005": {
   "icon": "/img/icon-memento-mori.webp",
-  "art": "/img/art-memento-mori.webp"
+  "art": "/img/art-memento-mori.webp",
+  "icon_sha": "040070930614",
+  "art_sha": "053643cc8baa"
  },
  "g006": {
   "icon": "/img/icon-last-asylum-plague.webp",
-  "art": "/img/art-last-asylum-plague.webp"
+  "art": "/img/art-last-asylum-plague.webp",
+  "icon_sha": "652ae3b8623e",
+  "art_sha": "6aec7778d211"
  },
  "g007": {
   "icon": "/img/icon-monopoly-go.webp",
-  "art": "/img/art-monopoly-go.webp"
+  "art": "/img/art-monopoly-go.webp",
+  "icon_sha": "6b891ed07180",
+  "art_sha": "32d77df0c130"
  },
  "g008": {
   "icon": "/img/icon-the-grand-mafia.webp",
-  "art": "/img/art-the-grand-mafia.webp"
+  "art": "/img/art-the-grand-mafia.webp",
+  "icon_sha": "4c37b0793269",
+  "art_sha": "e7234ee1c350"
  },
  "g009": {
   "icon": "/img/icon-wild-survival.webp",
-  "art": "/img/art-wild-survival.webp"
+  "art": "/img/art-wild-survival.webp",
+  "icon_sha": "c1ee9911862c",
+  "art_sha": "02bfb4965a18"
  },
  "g010": {
   "icon": "/img/icon-puzzles-and-conquest.webp",
-  "art": "/img/art-puzzles-and-conquest.webp"
+  "art": "/img/art-puzzles-and-conquest.webp",
+  "icon_sha": "a0dad5deeb38",
+  "art_sha": "bb93ee07c5fb"
  },
  "g011": {
   "icon": "/img/icon-bingo-blitz.webp",
-  "art": "/img/art-bingo-blitz.webp"
+  "art": "/img/art-bingo-blitz.webp",
+  "icon_sha": "6f4b051a1a64",
+  "art_sha": "13a5d8787875"
  },
  "g012": {
   "icon": "/img/icon-township.webp",
-  "art": "/img/art-township.webp"
+  "art": "/img/art-township.webp",
+  "icon_sha": "c023a3092d5c",
+  "art_sha": "d4e9a2bd3663"
  },
  "g013": {
   "icon": "/img/icon-mafia-city.webp",
-  "art": "/img/art-mafia-city.webp"
+  "art": "/img/art-mafia-city.webp",
+  "icon_sha": "3bfbf063876c",
+  "art_sha": "3591cf71ae86"
  },
  "g016": {
   "icon": "/img/icon-puzzles-and-chaos.webp",
-  "art": "/img/art-puzzles-and-chaos.webp"
+  "art": "/img/art-puzzles-and-chaos.webp",
+  "icon_sha": "57fa5fed5974",
+  "art_sha": "eb480e571f80"
  },
  "g017": {
   "icon": "/img/icon-doomsday-last-survivors.webp",
-  "art": "/img/art-doomsday-last-survivors.webp"
+  "art": "/img/art-doomsday-last-survivors.webp",
+  "icon_sha": "ccbb89b1d8de",
+  "art_sha": "2bc7daf4e0a6"
  },
  "g018": {
   "icon": "/img/icon-kinoko-densetsu.webp",
-  "art": "/img/art-kinoko-densetsu.webp"
+  "art": "/img/art-kinoko-densetsu.webp",
+  "icon_sha": "6adba0cbc8ad",
+  "art_sha": "35181c031306"
  },
  "g019": {
   "icon": "/img/icon-shukka-buta.webp",
-  "art": "/img/art-shukka-buta.webp"
+  "art": "/img/art-shukka-buta.webp",
+  "icon_sha": "17d5c94e458c",
+  "art_sha": "22016d76e239"
  },
  "g020": {
   "icon": "/img/icon-viking-rise.webp",
-  "art": "/img/art-viking-rise.webp"
+  "art": "/img/art-viking-rise.webp",
+  "icon_sha": "3eec830ff238",
+  "art_sha": "d3d181a1a324"
  },
  "g021": {
   "icon": "/img/icon-hero-wars-alliance.webp",
-  "art": "/img/art-hero-wars-alliance.webp"
+  "art": "/img/art-hero-wars-alliance.webp",
+  "icon_sha": "849ca75b89d4",
+  "art_sha": "ec9ea5a8703b"
  },
  "g024": {
   "icon": "/img/icon-top-war.webp",
-  "art": "/img/art-top-war.webp"
+  "art": "/img/art-top-war.webp",
+  "icon_sha": "24e18714947f",
+  "art_sha": "2943ab3896bb"
  },
  "g026": {
   "icon": "/img/icon-slot-mate.webp",
-  "art": "/img/art-slot-mate.webp"
+  "art": "/img/art-slot-mate.webp",
+  "icon_sha": "28196997f893",
+  "art_sha": "5dec80cf07e9"
  },
  "g029": {
   "icon": "/img/icon-disney-solitaire.webp",
-  "art": "/img/art-disney-solitaire.webp"
+  "art": "/img/art-disney-solitaire.webp",
+  "icon_sha": "917da3169e3a",
+  "art_sha": "415ebbca22cf"
  },
  "g030": {
   "icon": "/img/icon-blade-war-three-kingdoms.webp",
-  "art": "/img/art-blade-war-three-kingdoms.webp"
+  "art": "/img/art-blade-war-three-kingdoms.webp",
+  "icon_sha": "60cb62ff9a8f",
+  "art_sha": "4327f1e3af63"
  },
  "g031": {
   "icon": "/img/icon-zombie-panic.webp",
-  "art": "/img/art-zombie-panic.webp"
+  "art": "/img/art-zombie-panic.webp",
+  "icon_sha": "41c17d221129",
+  "art_sha": "133ca7d6c3f3"
  },
  "g032": {
   "icon": "/img/icon-war-of-towers.webp",
-  "art": "/img/art-war-of-towers.webp"
+  "art": "/img/art-war-of-towers.webp",
+  "icon_sha": "fda202bfcaa8",
+  "art_sha": "564cec0be5b5"
  },
  "g033": {
   "icon": "/img/icon-shonin-horoki.webp",
-  "art": "/img/art-shonin-horoki.webp"
+  "art": "/img/art-shonin-horoki.webp",
+  "icon_sha": "1dbf14bbe2a0",
+  "art_sha": "e679a7e5a4ae"
  },
  "g034": {
   "icon": "/img/icon-merge-cooking.webp",
-  "art": "/img/art-merge-cooking.webp"
+  "art": "/img/art-merge-cooking.webp",
+  "icon_sha": "61cb6b633322",
+  "art_sha": "72ea4f636110"
  },
  "g036": {
   "icon": "/img/icon-western-farm-klondike.webp",
-  "art": "/img/art-western-farm-klondike.webp"
+  "art": "/img/art-western-farm-klondike.webp",
+  "icon_sha": "0a47000fb826",
+  "art_sha": "1866338dcdde"
  },
  "g037": {
   "icon": "/img/icon-tenchi-eiyuden.webp",
-  "art": "/img/art-tenchi-eiyuden.webp"
+  "art": "/img/art-tenchi-eiyuden.webp",
+  "icon_sha": "baff907c0d3a",
+  "art_sha": "f5574efb5ab9"
  },
  "g038": {
   "icon": "/img/icon-rock-n-cash-casino.webp",
-  "art": "/img/art-rock-n-cash-casino.webp"
+  "art": "/img/art-rock-n-cash-casino.webp",
+  "icon_sha": "daf005ba9f71",
+  "art_sha": "bfd2aa08835a"
  },
  "g043": {
   "icon": "/img/icon-gourmet-journey.webp",
-  "art": "/img/art-gourmet-journey.webp"
+  "art": "/img/art-gourmet-journey.webp",
+  "icon_sha": "fa8de648d6db",
+  "art_sha": "948e6dc89712"
  },
  "g045": {
   "icon": "/img/icon-color-link.webp",
-  "art": "/img/art-color-link.webp"
+  "art": "/img/art-color-link.webp",
+  "icon_sha": "fb644dc759b9",
+  "art_sha": "daf58bd61dc3"
  },
  "g046": {
   "icon": "/img/icon-whiteout-survival.webp",
-  "art": "/img/art-whiteout-survival.webp"
+  "art": "/img/art-whiteout-survival.webp",
+  "icon_sha": "bd493494c8bf",
+  "art_sha": "43bb543602e1"
  },
  "g047": {
   "icon": "/img/icon-the-ants.webp",
-  "art": "/img/art-the-ants.webp"
+  "art": "/img/art-the-ants.webp",
+  "icon_sha": "95e9f61ac116",
+  "art_sha": "d430756e6bb1"
  }
 }
