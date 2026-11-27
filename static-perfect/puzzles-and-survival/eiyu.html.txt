@@ -231,6 +231,28 @@ h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 .pagelist a .tt{font-size:13.5px;font-weight:800;color:#463a75}
 .pagelist a .ds{font-size:10.5px;font-weight:600;color:#6e639e}
 .pagelist a .arw{color:#7a68c4;font-weight:900;flex:none}
+
+/* hdr-autofit-2026-11-27: 狭幅ではロゴ・アイコン列を段階的に縮め、ラベルが縦に崩れないようにする */
+.header-top{gap:8px}
+.header-icons{flex:0 0 auto}
+.header-icons>div{white-space:nowrap}
+@media (max-width:480px){
+.header-top{padding:8px 10px 6px}
+.logo{font-size:17px}
+.logo .lg-mark{font-size:15px}
+.logo .lg-sub{font-size:8px}
+.logo img{width:29px!important;height:29px!important;vertical-align:-7px!important}
+.header-icons{gap:9px;font-size:9.5px}
+.header-icons .ic{font-size:16px}
+}
+@media (max-width:380px){
+.logo{font-size:15px}
+.logo .lg-mark{font-size:13px}
+.logo .lg-sub{display:none}
+.logo img{width:26px!important;height:26px!important;vertical-align:-6px!important}
+.header-icons{gap:7px;font-size:9px}
+.header-icons .ic{font-size:15px}
+}
 </style>
 <style>
 .theme-toggle{cursor:pointer}

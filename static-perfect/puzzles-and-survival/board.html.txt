@@ -102,6 +102,28 @@ body{padding-bottom:104px}
 .sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:12.5px;padding:8px 12px 7px}}
+
+/* hdr-autofit-2026-11-27: 狭幅ではロゴ・アイコン列を段階的に縮め、ラベルが縦に崩れないようにする */
+.header-top{gap:8px}
+.header-icons{flex:0 0 auto}
+.header-icons>div{white-space:nowrap}
+@media (max-width:480px){
+.header-top{padding:8px 10px 6px}
+.logo{font-size:17px}
+.logo .lg-mark{font-size:15px}
+.logo .lg-sub{font-size:8px}
+.logo img{width:29px!important;height:29px!important;vertical-align:-7px!important}
+.header-icons{gap:9px;font-size:9.5px}
+.header-icons .ic{font-size:16px}
+}
+@media (max-width:380px){
+.logo{font-size:15px}
+.logo .lg-mark{font-size:13px}
+.logo .lg-sub{display:none}
+.logo img{width:26px!important;height:26px!important;vertical-align:-6px!important}
+.header-icons{gap:7px;font-size:9px}
+.header-icons .ic{font-size:15px}
+}
 </style>
 <style>
 .theme-toggle{cursor:pointer}
