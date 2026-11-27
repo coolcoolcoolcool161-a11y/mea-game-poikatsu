@@ -122,7 +122,7 @@ html[data-theme="dark"] .fee-note{color:#93A9C2}
 <div class="wins">
 <button type="button" class="win-card req" data-win="掲載リクエスト">
 <span class="wt">掲載リクエスト</span>
-<span class="wd">「このゲームを載せてほしい！」という読者の方からのリクエスト窓口です。ゲーム名を送るだけでもOKです。</span>
+<span class="wd">「このゲームの攻略ページがほしい！」「この情報が知りたい！」という読者の方からのご要望の窓口です。作ってほしいページや載せてほしい情報を、自由に書いて送ってください。</span>
 </button>
 <button type="button" class="win-card pr" data-win="PR・広告掲載のご相談">
 <span class="wt">PR・広告掲載のご相談</span>
@@ -137,7 +137,7 @@ html[data-theme="dark"] .fee-note{color:#93A9C2}
 <b>送る前にご確認ください</b>
 <ul>
 <li>このフォームでは、<b>ゲーム情報の提供・修正</b>、<b>掲載リクエスト</b>、<b>ご意見・ご要望</b>、<b>PR・広告掲載のご相談</b>を受け付けています。フォームの「種別」でご用件を選んでください。</li>
-<li><b>掲載リクエストについて</b>：いただいたリクエストは、今後の制作の参考にさせていただきます。ただし、すべてのリクエストにお応えできるわけではなく、掲載をお約束するものではありません。掲載リクエストへの個別のご返信は、原則として行っていません。</li>
+<li><b>掲載リクエスト（ページのご要望）について</b>：ご要望は制作候補として受け付けます。掲載の可否・時期は運営側の判断となり、ご要望いただいたページの作成・掲載をお約束するものではありません。個別のご返信や、期限のお約束も行っていません。お送りいただいたお名前・メールアドレスを公開することはありません。また、ご要望をもとにページを作る場合も、どなたからのご要望かは掲載しません。</li>
 <li><b>ゲーム関係者の方へ</b>：開発・運営・代理店など、ゲームの関係者の方からの掲載のご希望は、リクエストではなく<b>「PR・広告掲載のご相談」</b>としてお送りください。</li>
 <li><b>PR・広告掲載について</b>：有料掲載のご相談を受け付けています。内容を確認のうえ、運営事務局からご連絡します。</li>
 <li>ポイント案件の金額・条件・紹介コードは、各サービスの公式情報をもとに運営が確認して掲載しています。<b>金額や条件などの変更・追加のご依頼は受け付けていません。</b></li>
@@ -187,6 +187,10 @@ html[data-theme="dark"] .fee-note{color:#93A9C2}
 <div class="frow" id="row-game">
 <label for="f-game"><span id="game-label">対象ゲーム</span><span class="opt" id="game-badge">任意</span></label>
 <input id="f-game" type="text" name="対象ゲーム" placeholder="例：パズル＆サバイバル">
+</div>
+<div class="frow" id="row-want" style="display:none">
+<label for="f-want">欲しいページ・情報<span class="must">必須</span></label>
+<textarea id="f-want" name="欲しいページ" rows="3" placeholder="例：○○のギフトコード一覧／初心者向けの進め方／○○イベントの攻略ページ"></textarea>
 </div>
 <div class="frow" id="row-rel" style="display:none">
 <label>このゲームの関係者ですか<span class="opt">開発・運営・代理店など</span></label>
@@ -275,7 +279,7 @@ var sel = document.getElementById('f-cat');
 var CONF = {
 'ゲーム情報の提供': {tag:'ゲーム情報の提供', hint:'攻略情報の提供はこちらから。送っていただいた情報は、内容を確認してから掲載します。', name:true, pr:false, gameLabel:'対象ゲーム', gameMust:false, gamePh:'例：パズル＆サバイバル', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'返信が必要な場合のみ書いてください', bodyLabel:'内容', bodyMust:true, bodyPh:'提供したい情報や、お問い合わせの内容を書いてください'},
 '情報の修正': {tag:'情報の修正', hint:'掲載内容の誤りのお知らせはこちらから。対象のページや箇所が分かると、確認がスムーズです。', name:true, pr:false, gameLabel:'対象ゲーム', gameMust:false, gamePh:'例：パズル＆サバイバル', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'返信が必要な場合のみ書いてください', bodyLabel:'内容', bodyMust:true, bodyPh:'修正してほしい箇所と、正しい内容を書いてください'},
-'掲載リクエスト': {tag:'掲載リクエスト', hint:'読者の方からのリクエスト窓口です。いただいたリクエストは今後の制作の参考にしますが、掲載をお約束するものではありません。個別のご返信は原則として行っていません。', name:true, pr:false, req:true, gameLabel:'ゲーム名・タイトル', gameMust:true, gamePh:'例：○○○（載せてほしいゲームの名前）', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'任意です（原則として個別のご返信は行っていません）', bodyLabel:'ひとこと', bodyMust:false, bodyPh:'載せてほしい理由など、ひとことあれば書いてください（空欄でもOKです）'},
+'掲載リクエスト': {tag:'掲載リクエスト', hint:'「このゲームの攻略ページがほしい」「この情報が知りたい」というご要望の窓口です。ご要望は制作候補として受け付けます。掲載の可否・時期は運営側の判断となり、作成・掲載をお約束するものではありません。個別のご返信は原則として行っていません。', name:true, pr:false, req:true, want:true, gameLabel:'ゲーム名・タイトル', gameMust:true, gamePh:'例：○○○（ページが欲しいゲームの名前）', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'任意です（原則として個別のご返信は行っていません）', bodyLabel:'要望の内容・自由記入', bodyMust:false, bodyPh:'知りたいこと・載せてほしい情報を、自由に書いてください。例：○○のイベントの進め方を知りたいです／このゲームの○○な情報も載せてほしいです（空欄でもOKです）'},
 'ご意見・ご要望': {tag:'ご意見・ご要望', hint:'サイトへのご意見・ご要望はこちらから。今後の運営の参考にさせていただきます。', name:true, pr:false, gameLabel:'対象ゲーム', gameMust:false, gamePh:'関係するゲームがあれば書いてください', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'返信が必要な場合のみ書いてください', bodyLabel:'内容', bodyMust:true, bodyPh:'ご意見・ご要望の内容を書いてください'},
 'PR・広告掲載のご相談': {tag:'PR相談', hint:'事業者さま向けの窓口です。有料掲載のご相談を受け付けています。内容を確認のうえ、運営事務局からご連絡します。', name:false, pr:true, prm:true, gameLabel:'対象のゲーム・サービス', gameMust:false, gamePh:'掲載をご希望のゲーム・サービス名', mailLabel:'会社メールアドレス', mailMust:true, mailPh:'ご連絡先の会社メールアドレス', bodyLabel:'ご希望の内容', bodyMust:true, bodyPh:'掲載したいゲーム・サービス、ご希望の時期、掲載のイメージなどをお書きください'},
 'その他お問い合わせ': {tag:'その他お問い合わせ', hint:'その他のご用件はこちらから。ゲーム自体の不具合・課金・アカウントについては、各ゲームの公式サポートへお願いします。', name:true, pr:false, gameLabel:'対象ゲーム', gameMust:false, gamePh:'関係するゲームがあれば書いてください', mailLabel:'返信先メールアドレス', mailMust:false, mailPh:'返信が必要な場合のみ書いてください', bodyLabel:'内容', bodyMust:true, bodyPh:'お問い合わせの内容を書いてください'}
@@ -297,6 +301,8 @@ row('row-person', c.pr);
 row('row-prmethods', !!c.prm);
 row('row-rel', !!c.req);
 row('row-os', !!c.req);
+row('row-want', !!c.want);
+document.getElementById('f-want').required = !!c.want;
 document.getElementById('game-label').textContent = c.gameLabel;
 badge('game-badge', c.gameMust);
 document.getElementById('f-game').required = c.gameMust;
