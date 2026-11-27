@@ -591,7 +591,7 @@
   "eligibility_evidence": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=208328",
   "first_checked_at": "2026-11-25",
   "last_checked_at": "2026-11-27",
-  "publication_status": "下書き",
+  "publication_status": "公開",
   "slug": "tub-match-3d",
   "wiki_summary": "バスタブに浮かぶ3Dオブジェクトを3つ揃えて消していく、水の物理演算を使ったソートパズル（Rogue Panda）。ワラウではAndroid専用のStepUp掲載（最大14,100pt・全16ステップ）が公式ページで確認されている。条件は全てレベルクリアで、課金ステップは含まれない。",
   "info_rank": "C",
