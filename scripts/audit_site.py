@@ -109,6 +109,7 @@ def main():
         for link in d.links:
             href,aria=link['href'],link['aria']
             if not href or not (aria.strip() or link['text'].strip()): err('リンク先またはリンク名が空'); continue
+            if href.strip()=='#': warn('href="#"の死にリンク残存（リンク先未設定）'); continue
             dest,fragment=local_target(p,href)
             if dest is None: continue
             if dest.is_dir(): dest=dest/'index.html'
