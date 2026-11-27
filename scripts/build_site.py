@@ -1854,6 +1854,17 @@ def apply_static_overlay(g, folder, icons=None):
   for b64f in sorted(img_dir.glob('*.b64')):
    data = base64.b64decode(re.sub(r'\s+', '', b64f.read_text(encoding='ascii')))
    (out_img / b64f.name[:-4]).write_bytes(data)
+ # 転送ページ（static-perfect/<slug>/redirects/<name>/index.html.txt）は
+ # head 注入をせず、そのまま <name>/index.html として置く（旧URLの継続性用。
+ # canonical は転送先を指す。sitemap には載せない）
+ redir_dir = src_dir / 'redirects'
+ if redir_dir.is_dir():
+  for idx in sorted(redir_dir.glob('*/index.html.txt')):
+   text = idx.read_text(encoding='utf-8')
+   text = text.replace('__BASE__', BASE).replace('__BP__', BP)
+   out_dir = folder / idx.parent.name
+   out_dir.mkdir(exist_ok=True)
+   (out_dir / 'index.html').write_text(text, encoding='utf-8')
  return paths
 
 def main():
