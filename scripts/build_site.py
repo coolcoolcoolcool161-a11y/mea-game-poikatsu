@@ -807,11 +807,54 @@ def menu_label(k):
  return t
 
 
+def static_menu_items(g):
+ """静的ゲーム（page_mode=static）のトップが持つ攻略メニュー項目を読み取る。
+ 静的ページと攻略ページでメニューを統一するため（提案3・2026-11-27）。
+ 戻り値は (href, icon, label, hot) のリスト。読み取れなければ None。"""
+ if g.get('page_mode') != 'static':
+  return None
+ path = PERFECT_DIR / g['slug'] / 'index.html.txt'
+ if not path.exists():
+  return None
+ h = path.read_text(encoding='utf-8')
+ m = re.search(r'<div class="menu(?: folded)?"[^>]*>(.*?)</div>', h, re.S)
+ if not m:
+  return None
+ items = []
+ for href, attrs, icon, label in re.findall(r'<a href="([^"]+)"([^>]*)><span class="mi">([^<]*)</span>([^<]*)</a>', m.group(1)):
+  if href.startswith('#'):
+   href = f"{BP}/games/{g['slug']}/{href}"
+  elif href.endswith('.html'):
+   href = f"{BP}/games/{g['slug']}/{href}"
+  items.append((href, icon, label, 'hot' in attrs))
+ return items or None
+
+
+def unified_menu_html(items):
+ """静的ページと同じ見た目のメニュー（アイコン付きタイル）を組み立てる。"""
+ tiles = ''.join(
+  f'<a href="{e(href)}"{" class=\"hot\"" if hot else ""}><span class="mi">{e(icon)}</span>{e(label)}</a>'
+  for href, icon, label, hot in items)
+ label = '<div class="menu-label">▼ 攻略メニュー ▼</div>'
+ if len(items) <= 6:
+  return f'<div class="topmenu-a">{label}<div class="menu">' + tiles + '</div></div>'
+ script = ("<script>(function(){var tg=document.getElementById('menuToggle'),mg=document.getElementById('menuGrid');"
+           "tg.addEventListener('click',function(){var f=mg.classList.toggle('folded');"
+           "tg.textContent=f?'もっと見る ▼':'閉じる ▲';tg.setAttribute('aria-expanded',String(!f));});})();</script>")
+ return (f'<div class="topmenu-a">{label}<div class="menu folded" id="menuGrid">' + tiles + '</div>'
+         '<button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">もっと見る ▼</button>'
+         + script + '</div>')
+
+
 def top_menu_html(g, k, siblings):
  """攻略ページ上部メニュー（案A・2026-11-27 ベース組み込み）。
+ 静的ゲームではトップと同じメニュー（統一）、それ以外は
  ゲームトップ＋同ゲームの全攻略トピックをタイル化し、現在ページに now を付ける。
  7件以上は折りたたみ（初期6件）。部品仕様は PARTS_SPEC（上部メニュー）。"""
  slug = g['slug']
+ unified = static_menu_items(g)
+ if unified:
+  return unified_menu_html(unified)
  tiles = [f'<a href="{BP}/games/{e(slug)}/"><span class="tml">攻略トップ</span></a>']
  for sib in siblings:
   if sib.get('static_page'):

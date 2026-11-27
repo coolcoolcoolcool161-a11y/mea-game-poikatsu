@@ -257,3 +257,11 @@ footer .copy{font-size:11px;color:#aaa;text-align:center}
 .tm-menu a.now{position:relative;border-color:#3977B8;background:#EAF2FC;color:#1B5FC1}
 .tm-menu a.now::after{content:"現在";position:absolute;top:2px;right:4px;font-size:8.5px;font-weight:800;color:#3977B8}
 .tm-toggle{display:block;margin:8px auto 2px;padding:8px 26px;border:1px solid #d7e1ec;border-radius:999px;background:#fff;font-size:13px;font-weight:700;color:#1B5FC1;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+/* 統一メニュー（静的ゲームの攻略ページ用・静的ページと同じ見た目） */
+.topmenu-a .menu-label{text-align:center;font-weight:800;font-size:13px;color:#5a6a7d;margin:6px 0 8px}
+.topmenu-a .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.topmenu-a .menu.folded a:nth-child(n+7){display:none}
+.topmenu-a .menu-toggle{display:block;margin:8px auto 2px;padding:8px 26px;border:1px solid #d7e1ec;border-radius:999px;background:#fff;font-size:13px;font-weight:700;color:#1B5FC1;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.topmenu-a .menu a{border:1px solid #d7e1ec;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#172B49;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.topmenu-a .menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.topmenu-a .menu a.hot{border-color:#e08a7d;background:#fdf0ec;color:#9c2418}
